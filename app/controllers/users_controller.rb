@@ -17,17 +17,21 @@ class UsersController < ApplicationController
 	
 	def show
 		@user = User.find(params[:id])
-		@title = @user.title
 		@page_id = "user_show"
+		@tabs = tabs
 	end
 	
 	def create
 		@user = User.new(params[:user])
 		@user.username.downcase
+		@user.native_languages = 
+			params[:user][:native_languages].gsub(/ /, '').split(',')
+		@user.foreign_languages = 
+			params[:user][:foreign_languages].gsub(/ /, '').split(',')
 		
 		if @user.save
 			sign_in @user
-			flash[:success] = 'Welcome to Maylogs!'
+			flash[:success] = 'Welcome'
 			redirect_to @user
 		else
 			@page_id = "sign_up"
@@ -45,7 +49,7 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		if @user.update_attributes(params[:user])
-			flash[:success] = 'You have succcessfully changed your identity.'
+			flash[:success] = 'You have succcessfully updated your settings.'
 			sign_in @user
 			redirect_to @user
 		else

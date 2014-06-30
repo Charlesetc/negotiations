@@ -3,9 +3,9 @@ module StaticHelper
 	def title_helper(title)
 		
 		if title
-			"Maylogs — #{title}"
+			"Negotiations — #{title}"
 		else
-			"Maylogs"
+			"Negotations"
 		end
 		
 	end
@@ -15,7 +15,7 @@ module StaticHelper
 		if title 
 			title
 		else
-			"Maylogs"
+			"Negotiations"
 		end
 		
 	end

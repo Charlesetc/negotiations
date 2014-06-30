@@ -8,11 +8,11 @@
 		
 		<div><%= f.label :username %></div>
 		<div><%= f.text_field :username, 
-			placeholder: ' thebestblogever' %></div>
+			placeholder: 'johnsmith' %></div>
 		
-		<div><%= f.label :title, 'Blog Title' %></div>
-		<div><%= f.text_field :title, 
-			placeholder: ' The Best Blog Ever' %></div>
+		<div><%= f.label :name %></div>
+		<div><%= f.text_field :name, 
+			placeholder: 'John Smith' %></div>
 
 		<div><%= f.label :email %></div>
 		<div><%= f.text_field :email %></div>
@@ -23,7 +23,31 @@
 		<div><%= f.label :password_confirmation, 'Confirmation' %></div>
 		<div><%= f.password_field :password_confirmation %></div>
 		
-		<%= f.submit "Jump Start", id: 'submit_button' %>
+    <div id = 'wizard_page'>
+  		<div><%= f.label :age %></div>
+  		<div><%= f.text_field :age %></div>
+      
+  		<div><%= f.label :sex %></div>
+  		<div><%= f.text_field :sex %></div>
+      
+  		<div><%= f.label :native_languages %></div>
+  		<div><%= f.text_field :native_languages,
+        value: '', placeholder: 'Korean, English' %></div>
+      
+  		<div><%= f.label :foreign_languages %></div>
+  		<div><%= f.text_field :foreign_languages, value: '', placeholder: 'Spanish, German' %></div>
+      
+  		<div><%= f.label :secure_key %></div>
+  		<div><%= f.text_field :secure_key %></div>
+      
+
+      <%= button_tag 'Back', class: 'back_button', style: 'font-size:15px;', type: 'button' %>
+    
+  		<%= f.submit "Jump Start", id: 'submit_button' %>
+    </div>
+    
 		
 	<% end %>
+  
+  <%= button_tag 'Next', class: 'next_button', style: 'font-size:15px;' %>
 </div>

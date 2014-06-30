@@ -5,8 +5,8 @@ class StaticController < ApplicationController
 		else
 			params[:id] = current_user.id
 			@user = current_user
-			@title = @user.title
 			@page_id = "user_show"
+			@tabs = tabs
 			render template: 'users/show'
 		end
   end

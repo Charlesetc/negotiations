@@ -5,14 +5,14 @@
 	<%= form_for(:session, url: sessions_path) do |t| %>
 		
 		<div><%= t.label :email %></div>
-		<div><%= t.text_field :email, placeholder: ' email@example.com' %></div>
+		<div><%= t.text_field :email, placeholder: 'email@example.com' %></div>
 		
 		<div><%= t.label :password %></div>
 		<div><%= t.password_field :password %></div>
 		
-		<%= t.submit 'Enter the Madness', id: 'submit_button' %>
+		<%= t.submit 'Submit', id: 'submit_button' %>
 		
 	<% end %>
 </div>
 
-<p>Don't have an acount? <%= link_to 'Join the Madness.', signup_path %></p>
+<p>Don't have an account? <%= link_to 'Register Here', signup_path %></p>

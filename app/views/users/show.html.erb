@@ -1,3 +1,16 @@
-<h1><%= @user.title.split(" ").each { |t| t.capitalize }.join(' ') %></h1>
 
-<p>This is a user show page. The final purpose will be to edit the user's blog and add pages etc.</p>
+<div id="tab-container" class="tab-container">
+  <ul class='etabs'>
+    <% @tabs.each_with_index do |tab, index| %>
+      <li class='tab_link'>
+        <a href="#tab_<%= index %>"><%= tab[:title] %></a>
+      </li>
+    <% end %>
+  </ul>
+  
+  <% @tabs.each_with_index do |tab, index| %>
+    <div id="tab_<%= index %>" class = 'tab'>
+      <%=  tab[:content] %>
+    </div>
+  <% end %>
+</div>
