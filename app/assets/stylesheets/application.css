@@ -1,0 +1,295 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+/* General */
+
+* {
+	font-family: sans-serif;
+	padding: 0px, 0px;
+	margin: 0px, 0px;
+	
+}
+
+li {
+	display: inline;
+}
+
+a {
+	text-decoration: none;
+	color: #BBB;
+}
+
+
+
+
+/* Home Main Section */
+
+#home, #about, #reference {
+	width: 75%;
+	margin: auto;
+	margin-top:50px;
+	padding: 10px 30px 30px 30px;
+	background: #eee;
+	border-radius: 15px;
+	text-align: center;
+}
+
+#about, #reference {
+	text-align: left;
+}
+
+#home p {
+	color: black;
+	text-decoration: line-through;
+	font-size: 20px;
+}
+
+#home p#real {
+	text-decoration: none;
+}
+
+#home p#real a {
+	color:black;
+}
+
+#home p#real a:hover {
+	color: #9F3;
+}
+
+#home h1 {
+	font-size: 45px;
+}
+
+#reference h1, #about h1 {
+	font-size: 30px;
+	text-align: center;
+} 
+
+
+/* Header */
+
+header a:hover {
+	border-bottom: 1px solid #9F3;
+}
+
+header li {
+	padding-left: 23px;
+}
+
+header h1 a {
+	color: white;
+}
+
+header h1 a:hover {
+	border-bottom:none;
+	color:#9F3;
+}
+
+header nav {
+	position: absolute;
+	right: 42px;
+	top:21px;
+}
+
+header {
+	background: #333;
+	padding-top:8px;
+	padding-left:20px;
+	position:relative;
+	width: 101.3%;
+	left:-20px;
+	top:-10px;
+}
+
+
+header h1 {
+	font-size: 26px;
+	position:relative;
+	top:-9px;
+	left:20px;
+}
+
+header #line {
+	position:absolute;
+	width:100%;
+	top: 2px;
+	left:0px;
+	border-bottom:1px solid #9F3;
+}
+
+
+
+
+/* Footer */
+
+footer {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	margin-top: 30px;
+	border-top: black solid 1px;
+}
+
+footer div {
+	border-top: #9F3 solid 1px;
+}
+
+
+
+/* For the Debug Box */
+
+pre.debug_dump {
+	background: #eee;
+	border: 1px solid #ccc;
+	margin: 30px;
+	margin-top: 90px;
+	padding: 10px;
+}
+
+
+
+/* Sign Up Page, Log In Page */
+
+#sign_up, #log_in, #settings {
+	margin: 20px;
+	padding: 40px;
+	border-radius: 10px;
+	background: #f0f0f0;
+}
+
+
+#sign_up h1, #log_in h1, #settings h1 {
+	font-size: 35px;
+	position:relative;
+	top: -30px;
+	border-bottom: 1px solid #9F3;
+
+}
+
+.basic_form {
+	position:relative;
+	top: -30px;
+	left:30px;
+}
+
+.basic_form input {
+	font-size: 20px;
+	border: 1px solid black;
+	border-radius:5px;
+}
+
+.basic_form #submit_button {
+	font-size: 15px;
+	background:white;
+	margin-top: 10px;
+	padding-right:8px;
+}
+
+#log_in a {
+	color:black;
+	text-decoration: underline;
+}
+
+#log_in a:hover {
+	color:#9F3;
+	text-decoration:none;
+}
+
+
+/* Error Messages */
+
+.field_with_errors {
+	color: #9F3;
+	padding: 0px;
+	margin:0px;
+}
+
+#sign_up_form div.field_with_errors input {
+	border: solid 1px #9F3;
+}
+
+span.error_designation {
+	color:#9F3;
+}
+
+#error_log ul {
+	font-size: 12px;
+	line-height: 96%;
+}
+
+
+
+/* Flash Style */
+
+.flash {
+	margin: auto;
+	margin-top:20px;
+	width:70%;
+	padding: 10px;
+	text-align:center;
+	border-radius:10px;
+	color: white;
+}
+
+.flash-success {
+	background: #A3FF85;
+	text-shadow: 0px 0px 3px #19A319;
+}
+
+.flash-warning {
+	background: #FFFF66;
+	text-shadow: 0px 0px 3px #999900;
+}
+
+.flash-error {
+	background: #FF4D4D;
+	text-shadow: 0px 0px 3px #CC0000;
+}
+
+
+/* Dropdown Menu */
+
+.dropdown {
+	z-index:40;
+	background: #333;
+	width: 130px;
+	margin: 0px;
+	list-style:none;
+	padding: 10px 0px 10px 0px;
+	position:relative;
+	left:241px;
+}
+
+.dropdown li {
+	display:block;
+	margin: 20px 10px 0px 10px;
+	border-bottom: 1px solid #333;
+}
+
+.dropdown a:hover {
+	border-bottom: none;
+}
+
+.dropdown li:hover {
+	border-bottom: 1px solid #9F3;
+}
+
+.dropdown .divider {
+	width: 100%;
+	background: #9F3;
+	height: 1px;
+	position:relative;
+	top:10px;
+}

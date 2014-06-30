@@ -1,0 +1,29 @@
+<h1><%= @title %></h1>
+
+<div id = 'edit_form' class = 'basic_form'>
+	
+	<%= form_for(@user) do |f| %>
+		
+		<%= render 'shared/error_messages' %>
+		
+		<div><%= f.label :username %></div>
+		<div><%= f.text_field :username, 
+			placeholder: ' thebestblogever' %></div>
+		
+		<div><%= f.label :title, 'Blog Title' %></div>
+		<div><%= f.text_field :title, 
+			placeholder: ' The Best Blog Ever' %></div>
+
+		<div><%= f.label :email %></div>
+		<div><%= f.text_field :email %></div>
+		
+		<div><%= f.label :password %></div>
+		<div><%= f.password_field :password %></div>
+		
+		<div><%= f.label :password_confirmation, 'Confirmation' %></div>
+		<div><%= f.password_field :password_confirmation %></div>
+		
+		<%= f.submit "Change Identity", id: 'submit_button' %>
+		
+	<% end %>
+</div>
