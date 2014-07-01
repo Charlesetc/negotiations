@@ -15,6 +15,7 @@
 #  secure_key        :string(255)
 #  native_languages  :text
 #  foreign_languages :text
+#  admin             :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140701155448) do
+ActiveRecord::Schema.define(:version => 20140701210919) do
+
+  create_table "negotiations", :force => true do |t|
+    t.string   "secure_key"
+    t.string   "language"
+    t.string   "prompt"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"

@@ -1,1 +1,57 @@
-<h1>This is the admin tab!</h1>
+
+<h2>Users</h2>
+
+<div class =  'table_scroll'>
+<table class = 'user_table'>
+  
+  <tr id = 'entry_definitions'>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Admin</td>
+  </tr>
+  
+  <% User.all.each do |user| %>
+    <% unless user == current_user %>
+    <tr class = 'user_entry table_entry' data-user-id = '<%= user.id %>' data-admin = '<%= user.admin %>' >
+      <td><%= user.id %></td>
+      <td class = 'name_entry'><%= user.name %></td>
+      <td><%= user.admin %></td>
+    </tr>
+    <% end %>
+  <% end %>
+  
+</table>
+</div>
+
+<%= button_tag 'Make Admin', class: 'admin_button' %>
+
+<%= button_tag 'Delete', class: 'delete_button' %>
+
+
+<h2>Negotiations</h2>
+
+<div class =  'table_scroll'>
+<table class = 'negotiation_table'>
+  
+  <tr id = 'entry_definitions'>
+    <td>ID</td>
+    <td>Prompt</td>
+    <td>Secure Key</td>
+  </tr>
+  
+  <% Negotiation.all.each do |neg| %>
+    <tr class = 'negotiation_entry table_entry' data-id = '<%= neg.id %>' >
+      <td><%= neg.id %></td>
+      <td class = 'name_entry'><%= neg.prompt %></td>
+      <td><%= neg.secure_key %></td>
+    </tr>
+  <% end %>
+  
+</table>
+</div>
+
+<a href = '/negotiations/new'>
+<%= button_tag 'New', class: 'new_neg_button' %>
+</a>
+
+<%= button_tag 'Delete', class: 'delete_neg_button' %>

@@ -1,15 +1,15 @@
 
 <div id="tab-container" class="tab-container">
-  <ul class='etabs'>
-    <% @tabs.each_with_index do |tab, index| %>
+  <ul class='etabs' id = 'tabs_for_<%= current_user.id %>'>
+    <% @tabs.each do |tab| %>
       <li class='tab_link'>
-        <a href="#tab_<%= index %>"><%= tab[:title] %></a>
+        <a href="#tab_<%= tab[:title].downcase %>"><%= tab[:title] %></a>
       </li>
     <% end %>
   </ul>
   
-  <% @tabs.each_with_index do |tab, index| %>
-    <div id="tab_<%= index %>" class = 'tab'>
+  <% @tabs.each do |tab| %>
+    <div id="tab_<%= tab[:title].downcase %>" class = 'tab'>
       <%=  tab[:content] %>
     </div>
   <% end %>

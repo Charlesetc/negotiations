@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 	
-	before_filter :signed_in_user, only: [:edit, :update]
-	before_filter :correct_user, only: [:edit, :update]
+	before_filter :signed_in_user, except: [:new, :create]
+	before_filter :correct_user, except: [:new, :create, :toggle_admin, :delete]
+	before_filter :admin_user, only: [:toggle_admin, :delete]
 	
 	
-  def new
+	def new
 		if signed_in?
 			flash[:error] = "You are already logged into an account."
 			redirect_to root_url
@@ -13,12 +14,13 @@ class UsersController < ApplicationController
 			@page_id = 'sign_up'
 			@user = User.new()
 		end
-  end
+ 	end
 	
 	def show
 		@user = User.find(params[:id])
 		@page_id = "user_show"
 		@tabs = tabs
+		redirect_to root_url
 	end
 	
 	def create
@@ -57,6 +59,21 @@ class UsersController < ApplicationController
 		end
 	end
 	
+	def delete
+		User.find(params[:id]).destroy
+		render inline: 'Done'
+	end
+	
+	def toggle_admin
+		@user = User.find(params[:id])
+		if @user.admin
+			@user.update_attribute(:admin, false)
+		else
+			@user.update_attribute(:admin, true)
+		end
+		render inline: 'Done'
+	end
+	
 	private
 		
 		def signed_in_user
@@ -64,6 +81,13 @@ class UsersController < ApplicationController
 				store_location
 				redirect_to log_in_url
 				flash[:error] = 'Please Sign In'
+			end
+		end
+		
+		def admin_user
+			unless current_user.admin
+				redirect_to root_url
+				flash[:error] = 'You do not have permission to access that page.'
 			end
 		end
 		

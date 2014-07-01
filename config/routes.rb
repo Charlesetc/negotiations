@@ -1,8 +1,14 @@
 Maylogs::Application.routes.draw do
+
+	resources :users do 
+		member do
+			get 'toggle_admin'
+		end
+	end
 	
-	resources :users
+	resources :negotiations, only: [:new, :create, :destroy]
 	
-	resources :sessions, only: [:new, :create, :destroy]
+	resources :sessions, only: [:new, :create]
 	
 	root :to => 'static#home'
 
@@ -14,12 +20,24 @@ Maylogs::Application.routes.draw do
 
   get "static/about"
 	
+  get "negotiations/new"
+
+  get "negotiations/create"
+
+  get "negotiations/delete"
+	
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'
 	match 'log_in', to: 'sessions#new'
-	#match 'loggin_in', to: 'sessions#create'
-	match 'log_out', to: 'sessions#destroy'#, via: :delete
+	match 'log_out', to: 'sessions#destroy'
+	
+	match 'admin/:id' => 'tabs#admin'
+	match 'background/:id' => 'tabs#background'
+	match 'negotiation/:id' => 'tabs#negotiation'
+	match 'supervisor/:id' => 'tabs#supervisor'
+	match 'destroy/:id' => 'users#delete'
+	 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

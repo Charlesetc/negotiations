@@ -16,7 +16,7 @@
 /* General */
 
 * {
-	font-family: sans-serif;
+	font-family: verdana, 'ProximaNova-Regular';
 	padding: 0px, 0px;
 	margin: 0px, 0px;
 	
@@ -29,6 +29,10 @@ li {
 a {
 	text-decoration: none;
 	color: #D6D6CE;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'ProximaNova-Semibold'
 }
 
 
@@ -46,8 +50,6 @@ body::after {
   position: absolute;
   z-index: -1;   
 }
-
-
 
 /* Home Main Section */
 
@@ -138,6 +140,7 @@ header li {
 
 header a {
 	color: #D6D6CE;
+	font-family: 'ProximaNova-Regular'
 }
 
 header a:hover {
@@ -217,7 +220,7 @@ pre.debug_dump {
 
 /* Sign Up Page, Log In Page */
 
-#sign_up, #log_in, #settings {
+#sign_up, #log_in, #settings, #negotiation_creation {
 	margin: auto;
 	padding: 40px;
 	border-radius: 10px;
@@ -228,7 +231,7 @@ pre.debug_dump {
 }
 
 
-#sign_up h1, #log_in h1, #settings h1 {
+#sign_up h1, #log_in h1, #settings h1, #negotiation_creation h1 {
 	font-size: 35px;
 	position:relative;
 	top: -30px;
@@ -242,14 +245,14 @@ pre.debug_dump {
 	left:30px;
 }
 
-.basic_form input, .next_button, .back_button {
+.basic_form input, button {
 	font-size: 20px;
 	border: 1px solid black;
 	border-radius:5px;
 	padding-left:5px;
 }
 
-.basic_form #submit_button, .next_button, .back_button {
+.basic_form #submit_button, button {
 	font-size: 15px;
 	background:white;
 	margin-top: 10px;
@@ -301,6 +304,7 @@ pre.debug_dump {
 .tab {
 	background: rgba(255,255,255, 0.7);
 	padding:20px;
+	padding-top:1px;
 	box-shadow:0px 0px 2px rgba(0,0,0,.65);
 	-webkit-box-shadow:0px 0px 2px rgba(0,0,0,.65);
 }
@@ -315,9 +319,6 @@ pre.debug_dump {
 #wizard_page {
 	display:none;
 }
-
-
-
 
 
 
@@ -348,12 +349,14 @@ span.error_designation {
 
 .flash {
 	margin: auto;
-	margin-top:20px;
+	margin-top:0px;
 	width:70%;
 	padding: 10px;
 	text-align:center;
 	border-radius:10px;
 	color: white;
+	position:relative;
+	top:-15px;
 }
 
 .flash-success {
@@ -403,4 +406,48 @@ span.error_designation {
 	height: 1px;
 	position:relative;
 	top:10px;
+}
+
+
+/* User Table */
+
+.user_table, table {
+	background: #eee;
+	border-collapse:collapse;
+	text-align:center;
+	width: 100%;
+}
+
+.user_table .name_entry, .entry {
+	text-align:left;
+}
+
+.user_table td, td {
+	font-size:16px;
+	padding: 4px;
+}
+
+html body .user_table .selected_row {
+	background: #47B5FF;
+}
+
+
+#entry_definitions td {
+	background: #555;
+	color:white;
+	font-size:18px;
+	padding: 0px 5px;
+	border:1px solid #555;
+}
+
+.table_scroll {
+	height:150px;
+	overflow-y:scroll;
+
+	border:1px solid #aaa;
+}
+
+.admin_button:active {
+	position:relative;
+	top:1px;
 }

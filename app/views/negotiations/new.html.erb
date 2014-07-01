@@ -1,0 +1,22 @@
+<h1>New Negotiation</h1>
+
+
+<div class = 'basic_form'>
+	
+	<%= form_for(@negotiation) do |f| %>
+		
+		<%= render 'shared/error_messages' %>
+		
+		<div><%= f.label :prompt %></div>
+		<div><%= f.text_field :prompt %></div>
+		
+		<div><%= f.label :secure_key %></div>
+		<div><%= f.text_field :secure_key, 
+			value: generate_secure_key %></div>
+
+  	<%= f.submit "Submit", id: 'submit_button' %>
+
+		
+	<% end %>
+  
+</div>
