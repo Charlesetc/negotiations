@@ -14,7 +14,7 @@ end
 And /^the user has an account$/ do
 	@user = User.create!(username: 'nimbostratus',
 												email: 'nimbo@strat.us',
-												title: 'The Best of Clouds',
+												name: 'The Best of Clouds',
 												password: 'foobar',
 												password_confirmation: 'foobar')
 end

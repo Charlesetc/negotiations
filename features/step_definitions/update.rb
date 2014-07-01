@@ -4,7 +4,7 @@
 Given /^a user has an account$/ do
 	@user = User.create!(username: 'nimbostratus',
 												email: 'nimbo@strat.us',
-												title: 'The Best of Clouds',
+												name: 'The Best of Clouds',
 												password: 'foobar',
 												password_confirmation: 'foobar')
 end
@@ -36,7 +36,7 @@ end
 When /^they submit valid information$/ do
 	fill_in 'Email', with: @user.email
 	fill_in 'Password', with: @user.password
-	fill_in 'Title', with: @user.title
+	fill_in 'Name', with: @user.title
 	fill_in 'Confirmation', with: @user.password_confirmation
 	fill_in 'Username', with: 'newusername'
 	
@@ -57,7 +57,7 @@ end
 
 Given /^an anonymous user$/ do
 	@existing_user = User.create!(username: 'username', email: 'e@ma.il', 
-	title: 'Title', password: 'password', password_confirmation: 'password')
+	name: 'Title', password: 'password', password_confirmation: 'password')
 end
 
 When /^they submit a put request without authorization$/ do

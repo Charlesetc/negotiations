@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 
 	attr_accessible :email, :name, :username, :password, :password_confirmation
 	attr_accessible :sex, :age, :secure_key, :foreign_languages, :native_languages
+	attr_accessible :admin
 	
 	serialize :native_languages, Array
 	serialize :foreign_languages, Array
@@ -33,6 +34,7 @@ class User < ActiveRecord::Base
 	
 	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
 	VALID_USERNAME = /^\S*$/
+	VALID_AGE = /^(\n)$/
 	validates :name, presence: true
 	validates :username, presence: true, uniqueness: true,
 		 				length: { maximum: 50 }, format: {with: VALID_USERNAME}
@@ -42,7 +44,7 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, presence: true
 	validates :secure_key, presence: true
 	validates :sex, presence: true
-	validates :age, presence: true
+	validates :age, presence: true, numericality: { only_integer: true, less_than: 110 }
 	
 	
 	private

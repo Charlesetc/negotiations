@@ -3,16 +3,49 @@
 
 $ ->
 	
-	# Wizard
-	$('#wizard_page').hide()
-	$('.next_button').click ->
+	# Functions
+	
+	next_page = -> 
 		$('#wizard_page').siblings().hide()
 		$('#wizard_page').show()
-		$(this).hide()
-	$('.back_button').click ->
+		$('.next_button').hide()
+		
+	back_page = ->
 		$('#wizard_page').siblings().show()
 		$('#wizard_page').hide()
 		$('.next_button').show()
+		
+	position_footer = -> 
+		if $(document).height() > $(window).height()
+			$('footer').removeClass 'fixed_footer'
+		else 
+			$('footer').addClass 'fixed_footer'
+	
+	
+	# Footer Positioning
+	position_footer()
+	$('body').click ->
+		position_footer()
+	$(window).scroll ->
+		position_footer()
+	$(window).resize ->
+	    clearTimeout(resizeTimer)
+	    resizeTimer = setTimeout(position_footer, 100)
+	
+	# Wizard
+	$('#wizard_page').hide()
+	$('.next_button').click ->
+		next_page()
+	$('.back_button').click ->
+		back_page()
+	$('#wizard_page').parent().children('div').children('input').keypress (e) ->      
+		if e.which == 13 and $(this).parent().attr('id') == 'last_input'
+			next_page()
+			return false
+		else if e.which == 13 
+			$(this).parent().next().next().children('input').focus()
+			return false
+		
 			
 	# The Dropdown Menu
 	$('.dropdown').css 'opacity', '0'
