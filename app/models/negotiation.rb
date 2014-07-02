@@ -33,12 +33,16 @@ class Negotiation < ActiveRecord::Base
 	end
 	
 	def first_user=(user)
-		self.first_user_id = user.id
+		if user
+			self.first_user_id = user.id
+		else
+			self.first_user_id = nil
+		end
 		self.save!
 	end
 	
 	def randomize_first_user
-			self.first_user = self.users.shuffle.first
+		self.first_user = self.users.shuffle.first
 	end
 	
 	def randomize_if_new

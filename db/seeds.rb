@@ -38,6 +38,20 @@ User.destroy_all
 		secure_key: "key_#{i}"
 	)
 	
+	if i == 0
+		@user = User.create(
+			username: 'greenkiwi',
+			name: 'Green Kiwi',
+			email: 'greenkiwi@uchicago.edu',
+			password: 'foobar',
+			password_confirmation: 'foobar',
+			sex: 'male',
+			age: 12,
+			secure_key: "key_#{i}"
+		)
+	end
+	
 end
 
-User.find_by_email('rainbowpeach@uchicago.edu').update_attribute(:admin, true)
+User.find_by_email('rainbowpeach@uchicago.edu')\
+.update_attribute(:admin, true)
