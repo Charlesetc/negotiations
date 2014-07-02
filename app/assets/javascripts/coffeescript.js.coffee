@@ -165,3 +165,11 @@ $ ->
 					
 					$.get path, (d) ->
 						reload_admin()
+						
+			$('.edit_scenario_button').click ->
+				unless $('.scenario_entry.selected_row').size() > 0
+					alert 'You need to select a scenario first.'
+				else
+					id = $('.scenario_entry.selected_row').data("id")
+					path = "/scenarios/#{id}/edit"
+					window.location = path

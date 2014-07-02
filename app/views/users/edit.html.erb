@@ -1,6 +1,6 @@
-<h1><%= @title %></h1>
+<h1>Settings</h1>
 
-<div id = 'edit_form' class = 'basic_form'>
+<div id = 'sign_up_form' class = 'basic_form'>
 	
 	<%= form_for(@user) do |f| %>
 		
@@ -21,9 +21,31 @@
 		<div><%= f.password_field :password %></div>
 		
 		<div><%= f.label :password_confirmation, 'Confirmation' %></div>
-		<div><%= f.password_field :password_confirmation %></div>
+		<div id = 'last_input'><%= f.password_field :password_confirmation %></div>
 		
-		<%= f.submit "Change Identity", id: 'submit_button' %>
+    <div id = 'wizard_page'>
+  		<div><%= f.label :age %></div>
+  		<div><%= f.number_field :age, in: (1..110), step: 1 %></div>
+      
+  		<div><%= f.label :sex %></div>
+  		<div><%= f.select :sex, 
+        options_for_select([['Male', 'male'], ['Female', 'female']]) %></div>
+      
+  		<div><%= f.label :native_languages %></div>
+  		<div><%= f.text_field :native_languages,
+        value: language_string(current_user.native_languages), placeholder: 'Korean, English' %></div>
+      
+  		<div><%= f.label :foreign_languages %></div>
+  		<div><%= f.text_field :foreign_languages, value: language_string(current_user.foreign_languages), placeholder: 'Spanish, German' %></div>
+      
+
+      <%= button_tag 'Back', class: 'back_button', style: 'font-size:15px;', type: 'button' %>
+    
+  		<%= f.submit "Submit", id: 'submit_button' %>
+    </div>
+    
 		
 	<% end %>
+  
+  <%= button_tag 'Next', class: 'next_button', style: 'font-size:15px;' %>
 </div>

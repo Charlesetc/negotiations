@@ -8,7 +8,7 @@ Maylogs::Application.routes.draw do
 	
 	resources :negotiations, only: [:new, :create]
 	
-	resources :scenarios, only: [:new, :create]
+	resources :scenarios, only: [:new, :create, :edit, :update]
 	
 	resources :sessions, only: [:new, :create, :destroy] # Reverse?
 	

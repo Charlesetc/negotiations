@@ -39,3 +39,5 @@ User.destroy_all
 	)
 	
 end
+
+User.find_by_email('rainbowpeach@uchicago.edu').update_attribute(:admin, true)

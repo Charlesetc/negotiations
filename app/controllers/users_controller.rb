@@ -67,11 +67,21 @@ class UsersController < ApplicationController
 	
 	def update
 		@user = User.find(params[:id])
-		if @user.update_attributes(params[:user])
+		@attributes = params[:user]
+		@attributes[:secure_key] = @user.secure_key
+
+		@attributes[:native_languages] = 
+			params[:user][:native_languages].gsub(/ /, '').downcase.split(',')
+		@attributes[:foreign_languages] = 
+			params[:user][:foreign_languages].gsub(/ /, '').downcase.split(',')
+		
+		if @user.update_attributes(@attributes)
 			flash[:success] = 'You have succcessfully updated your settings.'
 			sign_in @user
-			redirect_to @user
+			redirect_to root_url
 		else
+			@title = 'Settings'
+			@page_id = 'settings'
 			render 'edit'
 		end
 	end
