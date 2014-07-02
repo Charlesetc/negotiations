@@ -25,10 +25,11 @@
 		
     <div id = 'wizard_page'>
   		<div><%= f.label :age %></div>
-  		<div><%= f.text_field :age %></div>
+  		<div><%= f.number_field :age, in: (1..110), step: 1 %></div>
       
   		<div><%= f.label :sex %></div>
-  		<div><%= f.text_field :sex %></div>
+  		<div><%= f.select :sex, 
+        options_for_select([['Male', 'male'], ['Female', 'female']]) %></div>
       
   		<div><%= f.label :native_languages %></div>
   		<div><%= f.text_field :native_languages,

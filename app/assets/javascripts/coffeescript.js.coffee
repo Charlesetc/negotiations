@@ -3,6 +3,9 @@
 
 $ ->
 	
+	# Variables
+	ajax_count = 0
+	
 	# Functions
 	
 	next_page = -> 
@@ -21,6 +24,12 @@ $ ->
 		else 
 			$('footer').addClass 'fixed_footer'
 	
+	reload_admin = ->
+		id = $('.etabs').attr 'id'
+		id = id.replace 'tabs_for_', ''
+		$.get "/admin/#{id}", (data) ->
+			$('#tab_admin').empty()
+			$('#tab_admin').append(data)
 	
 	
 	# Footer Positioning
@@ -91,43 +100,68 @@ $ ->
 	# User Table - Admin		
 	$( document ).ajaxComplete ->
 		
-		position_footer()
+		ajax_count += 1
 		
-		$('.user_table tr').click ->
-			if $(this).hasClass 'user_entry'
-				$(this).addClass 'selected_row'
-				$(this).siblings().removeClass 'selected_row'
-				admin = $(this).data('admin')
-				
-				if $.trim(admin) == 'true'
-					$('.admin_button').html('Remove Admin')
-				else 
-					$('.admin_button').html('Make Admin')
-				
+		if ajax_count %% 2 == 0 # It was doing everything twice
+		
+			position_footer()
+			
+			$('.user_table tr').click ->
+				if $(this).hasClass 'user_entry'
+					$(this).addClass 'selected_row'
+					$(this).siblings().removeClass 'selected_row'
+					admin = $(this).data('admin')
 					
-		$('.admin_button').click ->
-			unless $('.selected_row').length > 0
-				alert 'You need to select a user first.'
-			id = $('.selected_row').data('user-id')
-			path = "users/#{id}/toggle_admin/"
-			$.get path, (d) ->
-				id = $('.etabs').attr 'id'
-				id = id.replace 'tabs_for_', ''
-				$.get "/admin/#{id}", (data) ->
-					$('#tab_admin').empty()
-					$('#tab_admin').append(data)
+					if $.trim(admin) == 'true'
+						$('.admin_button').html('Remove Admin')
+					else 
+						$('.admin_button').html('Make Admin')
 					
-		$('.delete_button').click ->
-			unless $('.selected_row').length > 0
-				alert 'You need to select a user first.'
-			else 
-				#certian = confirm 'Are you certain?'
-				#if certian 
-				id = $('.selected_row').data('user-id')
-				path = "/destroy/#{id}/"
-				$.get path, (d) ->
-					id = $('.etabs').attr 'id'
-					id = id.replace 'tabs_for_', ''
-					$.get "/admin/#{id}", (data) ->
-						$('#tab_admin').empty()
-						$('#tab_admin').append(data)
+						
+			$('.admin_button').click ->
+				unless $('.user_entry.selected_row').size() > 0
+					alert 'You need to select a user first.'
+				else
+					id = $('.user_entry.selected_row').data('user-id')
+					path = "users/#{id}/toggle_admin/"
+					$.get path, (d) ->
+						reload_admin()
+						
+			$('.delete_button').click ->
+				unless $('.user_entry.selected_row').size() > 0
+					alert 'You need to select a user first.'
+				else if confirm 'Are you certain?'
+					id = $('.user_entry.selected_row').data('user-id')
+					path = "/destroy/#{id}/"
+					$.get path, (d) ->
+						reload_admin()
+						
+							
+			$('.negotiation_table tr').click ->
+				if $(this).hasClass 'negotiation_entry'
+					$(this).addClass 'selected_row'
+					$(this).siblings().removeClass 'selected_row'
+					
+			$('.delete_neg_button').click ->
+				unless $('.negotiation_entry.selected_row').size() > 0
+					alert 'You need to select a negotiation first.'
+				else if confirm 'Are you certain?'
+					id = $('.negotiation_entry.selected_row').data("id")
+					path = "/negotiations/destroy/#{id}/"
+					$.get path, (d) ->
+						reload_admin()
+						
+			$('.scenario_table tr').click ->
+				if $(this).hasClass 'scenario_entry'
+					$(this).addClass 'selected_row'
+					$(this).siblings().removeClass 'selected_row'
+					
+			$('.delete_scenario_button').click ->
+				unless $('.scenario_entry.selected_row').size() > 0
+					alert 'You need to select a scenario first.'
+				else if confirm 'Are you certain? This will also delete all dependent negotiations.'
+					id = $('.scenario_entry.selected_row').data("id")
+					path = "/scenarios/destroy/#{id}/"
+					
+					$.get path, (d) ->
+						reload_admin()

@@ -2,18 +2,61 @@
 #
 # Table name: negotiations
 #
-#  id         :integer          not null, primary key
-#  secure_key :string(255)
-#  language   :string(255)
-#  prompt     :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  secure_key    :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  scenario_id   :integer
+#  first_user_id :integer
 #
 
 class Negotiation < ActiveRecord::Base
-  attr_accessible :language, :prompt, :secure_key
+  attr_accessible :secure_key, :scenario_id
 	
-	validates :secure_key, presence: true
+	validates :secure_key, presence: true, uniqueness: true
+	validates :scenario_id, presence: true
 	
+	belongs_to :scenario
+	
+	def full?
+		self.users.count >= 2 # This is what designates negotiation size 
+	end
+	
+	def users
+		list = []
+		User.all.each do |user|
+			unless user.admin # Ignore admin's secure keys
+				list << user if user.secure_key == self.secure_key
+			end
+		end
+		list
+	end
+	
+	def first_user=(user)
+		self.first_user_id = user.id
+		self.save!
+	end
+	
+	def randomize_first_user
+			self.first_user = self.users.shuffle.first
+	end
+	
+	def randomize_if_new
+		unless self.first_user
+			randomize_first_user
+		end
+	end
+	
+	def ready?
+		self.full? && self.first_user
+	end
+	
+	def first_user
+		User.find_by_id(self.first_user_id)
+	end
+	
+	def language
+		self.scenario.language
+	end
 	
 end

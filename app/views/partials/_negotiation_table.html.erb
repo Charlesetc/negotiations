@@ -1,0 +1,30 @@
+
+<h2>Negotiations</h2>
+
+<div class =  'table_scroll'>
+<table class = 'negotiation_table'>
+  
+  <tr id = 'entry_definitions'>
+    <td>ID</td>
+    <td>Scenario</td>
+    <td>Secure Key</td>
+    <td>Users</td>
+  </tr>
+  
+  <% Negotiation.all.each do |neg| %>
+    <tr class = 'negotiation_entry table_entry' data-id = '<%= neg.id %>' >
+      <td><%= neg.id %></td>
+      <td class = 'name_entry'><%= neg.scenario.title %></td>
+      <td><%= neg.secure_key %></td>
+      <td><%= "#{neg.users.count}/2" %></td>
+    </tr>
+  <% end %>
+  
+</table>
+</div>
+
+<a href = '/negotiations/new'>
+<%= button_tag 'New', class: 'new_neg_button' %>
+</a>
+
+<%= button_tag 'Delete', class: 'delete_neg_button' %>

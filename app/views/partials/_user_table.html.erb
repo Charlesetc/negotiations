@@ -1,0 +1,27 @@
+<h2>Users</h2>
+
+<div class =  'table_scroll'>
+<table class = 'user_table'>
+  
+  <tr id = 'entry_definitions'>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Admin</td>
+  </tr>
+  
+  <% User.all.each do |user| %>
+    <% unless user == current_user %>
+    <tr class = 'user_entry table_entry' data-user-id = '<%= user.id %>' data-admin = '<%= user.admin %>' >
+      <td><%= user.id %></td>
+      <td class = 'name_entry'><%= user.name %></td>
+      <td><%= user.admin %></td>
+    </tr>
+    <% end %>
+  <% end %>
+  
+</table>
+</div>
+
+<%= button_tag 'Make Admin', class: 'admin_button' %>
+
+<%= button_tag 'Delete', class: 'delete_button' %>

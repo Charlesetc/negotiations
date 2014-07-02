@@ -1,6 +1,7 @@
 class NegotiationsController < ApplicationController
 	before_filter :signed_in_user
 	before_filter :admin_user
+	layout false, except: :new 
 	
   def new
 		@title = 'New Negotiation'
@@ -16,12 +17,15 @@ class NegotiationsController < ApplicationController
 			redirect_to root_url
 		else
 			@title = 'New Negotiation'
-			@page_id = 'New Negotiation'
+			@page_id = 'negotiation_creation'
+			@user = @negotiation # For error form
 			render 'new'
 		end
   end
 
   def delete
+		Negotiation.find(params[:id]).destroy
+		render inline: 'Done'
   end
 	
 	private

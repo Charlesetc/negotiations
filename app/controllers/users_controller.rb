@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 	
 	def show
 		@user = User.find(params[:id])
+		@user.negotiation.randomize_if_new
 		@page_id = "user_show"
 		@tabs = tabs
 		redirect_to root_url
@@ -27,16 +28,32 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 		@user.username.downcase
 		@user.native_languages = 
-			params[:user][:native_languages].gsub(/ /, '').split(',')
+			params[:user][:native_languages].gsub(/ /, '').downcase.split(',')
 		@user.foreign_languages = 
-			params[:user][:foreign_languages].gsub(/ /, '').split(',')
-		
-		if @user.save
-			sign_in @user
-			flash[:success] = 'Welcome'
-			redirect_to @user
+			params[:user][:foreign_languages].gsub(/ /, '').downcase.split(',')
+			
+
+		if @neg = Negotiation.find_by_secure_key(@user.secure_key) 
+			unless @neg.full?
+				if @user.save
+					sign_in @user
+					flash[:success] = 'Welcome'
+					redirect_to @user
+				else
+					@title = 'Sign Up'
+					@page_id = "sign_up"
+					render 'new'
+				end
+			else
+				@title = 'Sign Up'
+				@page_id = 'sign_up'
+				flash.now[:error] = 'That secure key has already been used.'
+				render 'new'
+			end
 		else
+			@title = 'Sign Up'
 			@page_id = "sign_up"
+			flash.now[:error] = 'You do not have a valid secure key'
 			render 'new'
 		end
 		

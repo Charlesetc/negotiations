@@ -1,0 +1,28 @@
+
+<h2>Scenarios</h2>
+
+<div class =  'table_scroll'>
+<table class = 'scenario_table'>
+  
+  <tr id = 'entry_definitions'>
+    <td>ID</td>
+    <td>Title</td>
+    <td>Language</td>
+  </tr>
+  
+  <% Scenario.all.each do |scenario| %>
+    <tr class = 'scenario_entry table_entry' data-id = '<%= scenario.id %>' >
+      <td><%= scenario.id %></td>
+      <td class = 'name_entry'><%= scenario.title %></td>
+      <td><%= scenario.language %></td>
+    </tr>
+  <% end %>
+  
+</table>
+</div>
+
+<a href = '<%= new_scenario_path %>'>
+<%= button_tag 'New', class: 'new_scenario_button' %>
+</a>
+
+<%= button_tag 'Delete', class: 'delete_scenario_button' %>

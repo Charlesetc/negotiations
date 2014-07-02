@@ -6,9 +6,11 @@ Maylogs::Application.routes.draw do
 		end
 	end
 	
-	resources :negotiations, only: [:new, :create, :destroy]
+	resources :negotiations, only: [:new, :create]
 	
-	resources :sessions, only: [:new, :create]
+	resources :scenarios, only: [:new, :create]
+	
+	resources :sessions, only: [:new, :create, :destroy] # Reverse?
 	
 	root :to => 'static#home'
 
@@ -20,12 +22,6 @@ Maylogs::Application.routes.draw do
 
   get "static/about"
 	
-  get "negotiations/new"
-
-  get "negotiations/create"
-
-  get "negotiations/delete"
-	
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'
@@ -36,7 +32,10 @@ Maylogs::Application.routes.draw do
 	match 'background/:id' => 'tabs#background'
 	match 'negotiation/:id' => 'tabs#negotiation'
 	match 'supervisor/:id' => 'tabs#supervisor'
+	
 	match 'destroy/:id' => 'users#delete'
+	match 'negotiations/destroy/:id' => 'negotiations#delete'
+	match 'scenarios/destroy/:id' => 'scenarios#delete'
 	 
 
   # The priority is based upon order of creation:

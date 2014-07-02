@@ -1,4 +1,4 @@
-<h1>New Negotiation</h1>
+<h1><%= @title %></h1>
 
 
 <div class = 'basic_form'>
@@ -7,8 +7,9 @@
 		
 		<%= render 'shared/error_messages' %>
 		
-		<div><%= f.label :prompt %></div>
-		<div><%= f.text_field :prompt %></div>
+		<div><%= f.label :scenario_id %></div>
+		<div><%= f.select :scenario_id, 
+      options_for_select(Scenario.select_list) %></div>
 		
 		<div><%= f.label :secure_key %></div>
 		<div><%= f.text_field :secure_key, 

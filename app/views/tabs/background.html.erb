@@ -1,2 +1,22 @@
-<h1>Tabs#background</h1>
-<p>Find me in app/views/tabs/background.html.erb</p>
+
+<% if current_user.negotiation.ready? %>
+
+<h2>Background — <%= current_user.negotiation.scenario.title %></h2>
+
+<% @scenario = current_user.negotiation.scenario %>
+
+<p><%= @scenario.general %></p>
+
+<h3>Your Objective:</h3>
+
+<p>
+ <%= first_user?(current_user) ? @scenario.first_role : @scenario.second_role %>
+</p>
+
+<% else %>
+
+<h2>The Negotiation is not ready.</h2>
+
+<p>Please wait for the other participant to join.</p>
+
+<% end %>

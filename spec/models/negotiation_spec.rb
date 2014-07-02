@@ -2,12 +2,12 @@
 #
 # Table name: negotiations
 #
-#  id         :integer          not null, primary key
-#  secure_key :string(255)
-#  language   :string(255)
-#  prompt     :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  secure_key    :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  scenario_id   :integer
+#  first_user_id :integer
 #
 
 require 'spec_helper'

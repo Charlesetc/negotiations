@@ -1,0 +1,33 @@
+<h1><%= @title %></h1>
+
+
+<div class = 'basic_form'>
+	
+	<%= form_for(@scenario) do |f| %>
+		
+		<%= render 'shared/error_messages' %>
+		
+		<div><%= f.label :title %></div>
+		<div><%= f.text_field :title %></div>
+    
+		<div><%= f.label :language %></div>
+		<div><%= f.text_field :language %></div>
+		
+    <br />
+		<div><%= f.label :general %></div>
+		<div><%= f.text_area :general, class: 'scenario_area' %></div>
+		
+    <br />
+		<div><%= f.label :first_role %></div>
+		<div><%= f.text_area :first_role, class: 'scenario_area' %></div>
+		
+    <br />
+		<div><%= f.label :second_role %></div>
+		<div><%= f.text_area :second_role, class: 'scenario_area' %></div>
+
+  	<%= f.submit "Submit", id: 'submit_button' %>
+
+		
+	<% end %>
+  
+</div>

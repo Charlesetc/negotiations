@@ -11,14 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140701210919) do
+ActiveRecord::Schema.define(:version => 20140702181453) do
 
   create_table "negotiations", :force => true do |t|
     t.string   "secure_key"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "scenario_id"
+    t.integer  "first_user_id"
+  end
+
+  add_index "negotiations", ["secure_key"], :name => "index_negotiations_on_secure_key", :unique => true
+
+  create_table "scenarios", :force => true do |t|
+    t.text     "general"
+    t.text     "first_role"
+    t.text     "second_role"
+    t.string   "title"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "language"
-    t.string   "prompt"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -48,6 +48,11 @@ class User < ActiveRecord::Base
 	validates :age, presence: true, numericality: { only_integer: true, less_than: 110 }
 	
 	
+	def negotiation
+		Negotiation.find_by_secure_key(self.secure_key)
+	end
+	
+	
 	private
 		
 		def create_remember_token

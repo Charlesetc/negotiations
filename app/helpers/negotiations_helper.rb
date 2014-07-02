@@ -9,4 +9,5 @@ module NegotiationsHelper
 		out
 	end
 	
+	
 end
