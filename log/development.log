@@ -65180,3 +65180,1197 @@ Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.4ms)
 
 Started GET "/assets/shield_maroon.png" for 127.0.0.1 at 2014-07-02 14:20:57 -0500
 Served asset /shield_maroon.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/log_out" for 127.0.0.1 at 2014-07-02 14:41:16 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:41:16 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  Rendered static/home.html.erb within layouts/application (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:41:16 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:41:16 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:41:16 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:41:16 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-02 14:41:17 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (36.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 43ms (Views: 42.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:41:17 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:41:17 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:41:17 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:41:17 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-07-02 14:41:19 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B0xnOZqMkgfHB76EKl9yh3ml1Ly4R+/Ac32BTG6najQ=", "session"=>{"email"=>"Charlespipin@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'charlespipin@gmail.com' LIMIT 1
+Redirected to http://0.0.0.0:3000/users/15
+Completed 302 Found in 96ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/15" for 127.0.0.1 at 2014-07-02 14:41:20 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Hy-6JoZEKoxj144cM4s_2Q' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'lz6q2ywcwtd4wa0z31or' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" 
+Completed 500 Internal Server Error in 4ms
+
+RuntimeError (Called id for nil, which would mistakenly be 8 -- if you really wanted the id of nil, use object_id):
+  app/models/negotiation.rb:36:in `first_user='
+  app/models/negotiation.rb:41:in `randomize_first_user'
+  app/models/negotiation.rb:46:in `randomize_if_new'
+  app/controllers/users_controller.rb:21:in `show'
+
+
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.3ms)
+
+
+Started GET "/assets/shield_maroon.png" for 127.0.0.1 at 2014-07-02 14:42:25 -0500
+Served asset /shield_maroon.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:42:26 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Hy-6JoZEKoxj144cM4s_2Q' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'lz6q2ywcwtd4wa0z31or' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" 
+Completed 500 Internal Server Error in 3ms
+
+RuntimeError (Called id for nil, which would mistakenly be 8 -- if you really wanted the id of nil, use object_id):
+  app/models/negotiation.rb:36:in `first_user='
+  app/models/negotiation.rb:41:in `randomize_first_user'
+  app/models/negotiation.rb:46:in `randomize_if_new'
+  app/controllers/static_controller.rb:8:in `home'
+
+
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.7ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:46:59 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_0"], ["updated_at", Wed, 02 Jul 2014 19:46:59 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:47:32 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_0"], ["updated_at", Wed, 02 Jul 2014 19:47:32 UTC +00:00]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.1ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_0' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:47:32 UTC +00:00], ["first_user_id", nil], ["scenario_id", 8], ["secure_key", "key_0"], ["updated_at", Wed, 02 Jul 2014 19:47:32 UTC +00:00]]
+  [1m[35m (2.2ms)[0m  commit transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_0"], ["updated_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.2ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_0' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'redapple' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('redapple@uchicago.edu') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_1"], ["updated_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.2ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_1' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00], ["first_user_id", nil], ["scenario_id", 10], ["secure_key", "key_1"], ["updated_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'yelloworange' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('yelloworange@uchicago.edu') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_2"], ["updated_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_2' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00], ["first_user_id", nil], ["scenario_id", 11], ["secure_key", "key_2"], ["updated_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'bluegrape' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('bluegrape@uchicago.edu') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_3"], ["updated_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.2ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_3' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00], ["first_user_id", nil], ["scenario_id", 12], ["secure_key", "key_3"], ["updated_at", Wed, 02 Jul 2014 19:47:50 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'purpleplum' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('purpleplum@uchicago.edu') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:47:51 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_4"], ["updated_at", Wed, 02 Jul 2014 19:47:51 UTC +00:00]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:47:51 UTC +00:00], ["first_user_id", nil], ["scenario_id", 13], ["secure_key", "key_4"], ["updated_at", Wed, 02 Jul 2014 19:47:51 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'rainbowpeach' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('rainbowpeach@uchicago.edu') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:47:54 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Hy-6JoZEKoxj144cM4s_2Q' LIMIT 1[0m
+  Rendered static/home.html.erb within layouts/application (0.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Hy-6JoZEKoxj144cM4s_2Q' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Hy-6JoZEKoxj144cM4s_2Q' LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:47:54 -0500
+Served asset /coffeescript.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:47:54 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:47:54 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:47:54 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_0' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mScenario Load (0.1ms)[0m  SELECT "scenarios".* FROM "scenarios" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.7ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 4]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "scenarios" WHERE "scenarios"."id" = ?[0m  [["id", 5]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 6]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "scenarios" WHERE "scenarios"."id" = ?[0m  [["id", 7]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 8]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "scenarios" WHERE "scenarios"."id" = ?[0m  [["id", 9]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 10]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "scenarios" WHERE "scenarios"."id" = ?[0m  [["id", 11]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 12]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "scenarios" WHERE "scenarios"."id" = ?[0m  [["id", 13]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "negotiations" WHERE "negotiations"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "negotiations" WHERE "negotiations"."id" = ?  [["id", 7]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "negotiations" WHERE "negotiations"."id" = ?[0m  [["id", 8]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "negotiations" WHERE "negotiations"."id" = ?  [["id", 9]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "negotiations" WHERE "negotiations"."id" = ?[0m  [["id", 10]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "negotiations" WHERE "negotiations"."id" = ?  [["id", 11]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "negotiations" WHERE "negotiations"."id" = ?[0m  [["id", 12]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_0' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mScenario Load (0.1ms)[0m  SELECT "scenarios".* FROM "scenarios" 
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_0"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_0' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_user_id", nil], ["scenario_id", 14], ["secure_key", "key_0"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'redapple' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('redapple@uchicago.edu') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_1"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.1ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_1' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_user_id", nil], ["scenario_id", 15], ["secure_key", "key_1"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'yelloworange' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('yelloworange@uchicago.edu') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_2"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_2' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_user_id", nil], ["scenario_id", 16], ["secure_key", "key_2"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'bluegrape' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('bluegrape@uchicago.edu') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_3"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.2ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_3' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_user_id", nil], ["scenario_id", 17], ["secure_key", "key_3"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'purpleplum' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('purpleplum@uchicago.edu') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_4"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00], ["first_user_id", nil], ["scenario_id", 18], ["secure_key", "key_4"], ["updated_at", Wed, 02 Jul 2014 19:50:36 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'rainbowpeach' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('rainbowpeach@uchicago.edu') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mScenario Load (0.1ms)[0m  SELECT "scenarios".* FROM "scenarios" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 14]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "scenarios" WHERE "scenarios"."id" = ?[0m  [["id", 15]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 16]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "scenarios" WHERE "scenarios"."id" = ?[0m  [["id", 17]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 18]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "negotiations" WHERE "negotiations"."id" = ?  [["id", 13]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "negotiations" WHERE "negotiations"."id" = ?[0m  [["id", 14]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "negotiations" WHERE "negotiations"."id" = ?  [["id", 15]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "negotiations" WHERE "negotiations"."id" = ?[0m  [["id", 16]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "negotiations" WHERE "negotiations"."id" = ?  [["id", 17]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_0"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_0' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_user_id", nil], ["scenario_id", 19], ["secure_key", "key_0"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'redapple' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('redapple@uchicago.edu') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["email", "redapple@uchicago.edu"], ["foreign_languages", nil], ["name", "Red Apple"], ["native_languages", nil], ["password_digest", "$2a$10$ZnxKmzVEl53sIIDUoFblUuKyHdDbxKoiXuSZeK35dMNfAQ3sZsni."], ["remember_token", "rwxZsTGBkPuTfcWVTZfmUA"], ["secure_key", "key_0"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["username", "redapple"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_1"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_1' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_user_id", nil], ["scenario_id", 20], ["secure_key", "key_1"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'yelloworange' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('yelloworange@uchicago.edu') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["email", "yelloworange@uchicago.edu"], ["foreign_languages", nil], ["name", "Yellow Orange"], ["native_languages", nil], ["password_digest", "$2a$10$AxyikAsQPGPwVYTHB3q1le/x.FzGCIGg.yn81juZzWwPibRKBN8bi"], ["remember_token", "8v2XN0FZjHNSbBUhMmvkgQ"], ["secure_key", "key_1"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["username", "yelloworange"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_2"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_2' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_user_id", nil], ["scenario_id", 21], ["secure_key", "key_2"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'bluegrape' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('bluegrape@uchicago.edu') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["email", "bluegrape@uchicago.edu"], ["foreign_languages", nil], ["name", "Blue Grape"], ["native_languages", nil], ["password_digest", "$2a$10$Gv.BKkVdqCDrurqxIG/quew1/Yhg8Sf1gV2O3NCbmWGM5.jWy39/u"], ["remember_token", "7mBW0eH5g6t0fe-34eVlhw"], ["secure_key", "key_2"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["username", "bluegrape"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_3"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_3' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_user_id", nil], ["scenario_id", 22], ["secure_key", "key_3"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'purpleplum' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('purpleplum@uchicago.edu') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["email", "purpleplum@uchicago.edu"], ["foreign_languages", nil], ["name", "Purple Plum"], ["native_languages", nil], ["password_digest", "$2a$10$Uv3zX2mbqcNubxP/ep5EouO6K2MSC2XHAvG5C6NmQlqU1kLXG17Eq"], ["remember_token", "nZ0CDuukxr8VpapUQR1VhQ"], ["secure_key", "key_3"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["username", "purpleplum"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "english"], ["second_role", "You are the second role"], ["title", "Scenario_4"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["first_user_id", nil], ["scenario_id", 23], ["secure_key", "key_4"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'rainbowpeach' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('rainbowpeach@uchicago.edu') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["email", "rainbowpeach@uchicago.edu"], ["foreign_languages", nil], ["name", "Rainbow Peach"], ["native_languages", nil], ["password_digest", "$2a$10$NBBX.zh0MFBX/8wE0r1uTerr2GtORwDvUPIr8lFMtC6KDOPIEiVMO"], ["remember_token", "46m5333VLmdPVecnzM-V_A"], ["secure_key", "key_4"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:51:49 UTC +00:00], ["username", "rainbowpeach"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+Connecting to database specified by database.yml
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-02 14:52:05 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Hy-6JoZEKoxj144cM4s_2Q' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Hy-6JoZEKoxj144cM4s_2Q' LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:52:05 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:52:05 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:52:05 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:52:05 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-07-02 14:52:11 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B0xnOZqMkgfHB76EKl9yh3ml1Ly4R+/Ac32BTG6najQ=", "session"=>{"email"=>"rainbowpeach@uchicago.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'rainbowpeach@uchicago.edu' LIMIT 1
+Redirected to http://0.0.0.0:3000/users/22
+Completed 302 Found in 89ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/22" for 127.0.0.1 at 2014-07-02 14:52:11 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "22"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "22"]]
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.1ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'key_4' AND "negotiations"."id" != 22) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "negotiations" SET "first_user_id" = 22, "updated_at" = '2014-07-02 19:52:12.008641' WHERE "negotiations"."id" = 22[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 11ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:52:12 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:52:12 -0500
+Served asset /coffeescript.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:52:12 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:52:12 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:52:12 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/background/22" for 127.0.0.1 at 2014-07-02 14:52:12 -0500
+Processing by TabsController#background as */*
+  Parameters: {"id"=>"22"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "22"]]
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered tabs/background.html.erb (2.2ms)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/negotiation/22" for 127.0.0.1 at 2014-07-02 14:52:12 -0500
+Processing by TabsController#negotiation as */*
+  Parameters: {"id"=>"22"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "22"]]
+  Rendered tabs/negotiation.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/supervisor/22" for 127.0.0.1 at 2014-07-02 14:52:12 -0500
+Processing by TabsController#supervisor as */*
+  Parameters: {"id"=>"22"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "22"]]
+  Rendered tabs/supervisor.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:52:55 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:52:55 -0500
+Served asset /coffeescript.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:52:55 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:52:55 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:52:55 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-07-02 14:52:56 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1[0m
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered users/new.html.erb within layouts/application (6.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:52:56 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:52:56 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:52:56 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:52:56 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-02 14:52:58 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '46m5333VLmdPVecnzM-V_A' LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:52:58 -0500
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:52:58 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:52:58 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:52:58 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-07-02 14:53:03 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B0xnOZqMkgfHB76EKl9yh3ml1Ly4R+/Ac32BTG6najQ=", "session"=>{"email"=>"rainbowpeach@uchicago.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'rainbowpeach@uchicago.edu' LIMIT 1
+Redirected to http://0.0.0.0:3000/users/22
+Completed 302 Found in 88ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/22" for 127.0.0.1 at 2014-07-02 14:53:03 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "22"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "22"]]
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:53:03 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 22 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:53:03 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:53:03 -0500
+Served asset /coffeescript.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:53:03 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:53:03 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/admin/22" for 127.0.0.1 at 2014-07-02 14:53:03 -0500
+Processing by TabsController#admin as */*
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "22"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered partials/_user_table.html.erb (1.9ms)
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" 
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 19 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.3ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 20 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.3ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 21 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 22 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 23 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  Rendered partials/_negotiation_table.html.erb (12.6ms)
+  [1m[36mScenario Load (0.3ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" [0m
+  Rendered partials/_scenario_table.html.erb (2.8ms)
+  Rendered tabs/admin.html.erb (22.6ms)
+Completed 200 OK in 30ms (Views: 25.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/supervisor/22" for 127.0.0.1 at 2014-07-02 14:53:03 -0500
+Processing by TabsController#supervisor as */*
+  Parameters: {"id"=>"22"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "22"]]
+  Rendered tabs/supervisor.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/20/toggle_admin/" for 127.0.0.1 at 2014-07-02 14:53:23 -0500
+Processing by UsersController#toggle_admin as */*
+  Parameters: {"id"=>"20"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "20"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mUPDATE "users" SET "admin" = 't', "remember_token" = 'Ch2qBD9HTqPWwhMwnuIMWw', "updated_at" = '2014-07-02 19:53:23.457218', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+' WHERE "users"."id" = 20[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered inline template (0.3ms)
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/22" for 127.0.0.1 at 2014-07-02 14:53:23 -0500
+Processing by TabsController#admin as */*
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "22"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered partials/_user_table.html.erb (1.3ms)
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" 
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 19 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 20 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 21 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 22 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 23 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  Rendered partials/_negotiation_table.html.erb (6.0ms)
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" [0m
+  Rendered partials/_scenario_table.html.erb (1.2ms)
+  Rendered tabs/admin.html.erb (10.2ms)
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/negotiations/destroy/22/" for 127.0.0.1 at 2014-07-02 14:53:29 -0500
+Processing by NegotiationsController#delete as */*
+  Parameters: {"id"=>"22"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."id" = ? LIMIT 1[0m  [["id", "22"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "negotiations" WHERE "negotiations"."id" = ?[0m  [["id", 22]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  Rendered inline template (0.4ms)
+Completed 200 OK in 8ms (Views: 1.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/22" for 127.0.0.1 at 2014-07-02 14:53:29 -0500
+Processing by TabsController#admin as */*
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "22"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered partials/_user_table.html.erb (1.3ms)
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 19 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 20 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 21 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 22 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  Rendered partials/_negotiation_table.html.erb (5.3ms)
+  [1m[36mScenario Load (0.3ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" [0m
+  Rendered partials/_scenario_table.html.erb (2.3ms)
+  Rendered tabs/admin.html.erb (11.7ms)
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 1.5ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mScenario Load (0.1ms)[0m  SELECT "scenarios".* FROM "scenarios" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.7ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 19]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "scenarios" WHERE "scenarios"."id" = ?[0m  [["id", 20]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 21]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "scenarios" WHERE "scenarios"."id" = ?[0m  [["id", 22]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 23]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "negotiations" WHERE "negotiations"."id" = ?  [["id", 18]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "negotiations" WHERE "negotiations"."id" = ?[0m  [["id", 19]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "negotiations" WHERE "negotiations"."id" = ?  [["id", 20]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "negotiations" WHERE "negotiations"."id" = ?[0m  [["id", 21]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 18]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 19]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 20]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 21]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 22]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "scenarios" ("created_at", "first_role", "general", "language", "second_role", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["first_role", "You are the first role."], ["general", "This is general information."], ["language", "English"], ["second_role", "You are the second role"], ["title", "Main Scenario"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_0' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["first_user_id", nil], ["scenario_id", 24], ["secure_key", "key_0"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'redapple' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('redapple@uchicago.edu') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["email", "redapple@uchicago.edu"], ["foreign_languages", nil], ["name", "Red Apple"], ["native_languages", nil], ["password_digest", "$2a$10$gROOcBIK6.6rR1pr9y0cbeOa45tnF6hofy7ukVpTWf5.xcDZlRvdK"], ["remember_token", "tWb3gnE5gGtBOOgbl_x0Ug"], ["secure_key", "key_0"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["username", "redapple"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.1ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_1' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["first_user_id", nil], ["scenario_id", 24], ["secure_key", "key_1"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'yelloworange' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('yelloworange@uchicago.edu') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["email", "yelloworange@uchicago.edu"], ["foreign_languages", nil], ["name", "Yellow Orange"], ["native_languages", nil], ["password_digest", "$2a$10$tPCvyBBSNzFUIo1gNOKDHOjodmIihvRTS04S5B7ThtW7SXhE8iVqy"], ["remember_token", "tFNn-p_W9_krpieoyUjbcQ"], ["secure_key", "key_1"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["username", "yelloworange"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_2' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["first_user_id", nil], ["scenario_id", 24], ["secure_key", "key_2"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'bluegrape' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('bluegrape@uchicago.edu') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["email", "bluegrape@uchicago.edu"], ["foreign_languages", nil], ["name", "Blue Grape"], ["native_languages", nil], ["password_digest", "$2a$10$sgsDi4ImSHvSUL8v7VPrxuznBruTFLKUE2x/OvU3h3WFOMktJ3gWC"], ["remember_token", "9M2G4VKOI_THBbT1gfrmlA"], ["secure_key", "key_2"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["username", "bluegrape"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.2ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_3' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["first_user_id", nil], ["scenario_id", 24], ["secure_key", "key_3"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'purpleplum' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('purpleplum@uchicago.edu') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["email", "purpleplum@uchicago.edu"], ["foreign_languages", nil], ["name", "Purple Plum"], ["native_languages", nil], ["password_digest", "$2a$10$lTKnHhEtCXcsebyNAQZvVuThUIeVnB7fn9t5Hdfj6bhpZCSUbLcpO"], ["remember_token", "XVVq_1qQ3Hl7-AL_-zMXSA"], ["secure_key", "key_3"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["username", "purpleplum"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "negotiations" ("created_at", "first_user_id", "scenario_id", "secure_key", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00], ["first_user_id", nil], ["scenario_id", 24], ["secure_key", "key_4"], ["updated_at", Wed, 02 Jul 2014 19:55:05 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'rainbowpeach' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('rainbowpeach@uchicago.edu') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("admin", "age", "created_at", "email", "foreign_languages", "name", "native_languages", "password_digest", "remember_token", "secure_key", "sex", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["admin", false], ["age", 12], ["created_at", Wed, 02 Jul 2014 19:55:06 UTC +00:00], ["email", "rainbowpeach@uchicago.edu"], ["foreign_languages", nil], ["name", "Rainbow Peach"], ["native_languages", nil], ["password_digest", "$2a$10$omPevK9WIq6ZsNP6tuqXFeUtsgRGDg4lOjlrT3WrXfVKRapAPRiWy"], ["remember_token", "1AsfH0CN_6CB6lV_wetkTQ"], ["secure_key", "key_4"], ["sex", "male"], ["updated_at", Wed, 02 Jul 2014 19:55:06 UTC +00:00], ["username", "rainbowpeach"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:55:07 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:55:07 -0500
+Served asset /coffeescript.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:55:07 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:55:08 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:55:08 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-02 14:55:09 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'KRmn9dC4W69VJfwKSeVFpA' LIMIT 1
+Completed 200 OK in 44ms (Views: 43.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:55:09 -0500
+Served asset /coffeescript.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:55:09 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:55:09 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:55:09 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B0xnOZqMkgfHB76EKl9yh3ml1Ly4R+/Ac32BTG6najQ=", "session"=>{"email"=>"rainbowpeach@uchicago.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'rainbowpeach@uchicago.edu' LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/27
+Completed 302 Found in 90ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/27" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "27"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "27"]]
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'key_4' AND "negotiations"."id" != 27) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "negotiations" SET "first_user_id" = 27, "updated_at" = '2014-07-02 19:55:13.301754' WHERE "negotiations"."id" = 27
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 27 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/background/27" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Processing by TabsController#background as */*
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "27"]]
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  Rendered tabs/background.html.erb (1.7ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/negotiation/27" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Processing by TabsController#negotiation as */*
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "27"]]
+  Rendered tabs/negotiation.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/supervisor/27" for 127.0.0.1 at 2014-07-02 14:55:13 -0500
+Processing by TabsController#supervisor as */*
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "27"]]
+  Rendered tabs/supervisor.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:55:33 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1[0m
+  Rendered static/home.html.erb within layouts/application (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:55:33 -0500
+Served asset /coffeescript.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:55:33 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:55:33 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:55:33 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-02 14:55:34 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1AsfH0CN_6CB6lV_wetkTQ' LIMIT 1[0m
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:55:34 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:55:34 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:55:34 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:55:34 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-07-02 14:55:37 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B0xnOZqMkgfHB76EKl9yh3ml1Ly4R+/Ac32BTG6najQ=", "session"=>{"email"=>"rainbowpeach@uchicago.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'rainbowpeach@uchicago.edu' LIMIT 1
+Redirected to http://0.0.0.0:3000/users/27
+Completed 302 Found in 88ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/27" for 127.0.0.1 at 2014-07-02 14:55:37 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'hLAQw9-RXd3qwNV_3FriGg' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "27"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "27"]]
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 27 LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:55:37 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'hLAQw9-RXd3qwNV_3FriGg' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 27 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:55:37 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:55:37 -0500
+Served asset /coffeescript.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:55:37 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:55:37 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/admin/27" for 127.0.0.1 at 2014-07-02 14:55:37 -0500
+Processing by TabsController#admin as */*
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'hLAQw9-RXd3qwNV_3FriGg' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "27"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered partials/_user_table.html.erb (1.4ms)
+  [1m[35mNegotiation Load (0.3ms)[0m  SELECT "negotiations".* FROM "negotiations" 
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  Rendered partials/_negotiation_table.html.erb (56.1ms)
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" [0m
+  Rendered partials/_scenario_table.html.erb (2.3ms)
+  Rendered tabs/admin.html.erb (63.1ms)
+Completed 200 OK in 70ms (Views: 67.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/supervisor/27" for 127.0.0.1 at 2014-07-02 14:55:37 -0500
+Processing by TabsController#supervisor as */*
+  Parameters: {"id"=>"27"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'hLAQw9-RXd3qwNV_3FriGg' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "27"]]
+  Rendered tabs/supervisor.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/shield_maroon.png" for 127.0.0.1 at 2014-07-02 14:56:36 -0500
+Served asset /shield_maroon.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-02 14:56:37 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'hLAQw9-RXd3qwNV_3FriGg' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key_4' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 27 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-02 14:56:37 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-02 14:56:37 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-02 14:56:37 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-02 14:56:37 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/admin/27" for 127.0.0.1 at 2014-07-02 14:56:37 -0500
+Processing by TabsController#admin as */*
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'hLAQw9-RXd3qwNV_3FriGg' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "27"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered partials/_user_table.html.erb (1.9ms)
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 24 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  Rendered partials/_negotiation_table.html.erb (11.5ms)
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" [0m
+  Rendered partials/_scenario_table.html.erb (1.6ms)
+  Rendered tabs/admin.html.erb (17.6ms)
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/supervisor/27" for 127.0.0.1 at 2014-07-02 14:56:37 -0500
+Processing by TabsController#supervisor as */*
+  Parameters: {"id"=>"27"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'hLAQw9-RXd3qwNV_3FriGg' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "27"]]
+  Rendered tabs/supervisor.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/shield_maroon.png" for 127.0.0.1 at 2014-07-02 14:56:37 -0500
+Served asset /shield_maroon.png - 304 Not Modified (0ms)
