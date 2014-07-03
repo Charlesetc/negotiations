@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 	
 	def show
 		@user = User.find(params[:id])
-		@user.negotiation.randomize_if_new
+		@negotiation = @user.negotiation
+		@negotiation.randomize_if_new if @negotiation
 		@page_id = "user_show"
 		@tabs = tabs
 		redirect_to root_url

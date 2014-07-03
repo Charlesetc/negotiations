@@ -5,7 +5,8 @@ class StaticController < ApplicationController
 		else
 			params[:id] = current_user.id
 			@user = current_user
-			@user.negotiation.randomize_if_new
+			@negotiation = @user.negotiation
+			@negotiation.randomize_if_new if @negotiation
 			@page_id = "user_show"
 			@tabs = tabs
 			render template: 'users/show'

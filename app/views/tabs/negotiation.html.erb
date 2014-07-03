@@ -1,2 +1,15 @@
 <h2>Negotiation Chat</h2>
-<p>Find me in app/views/tabs/negotiaton.html.erb</p>
+
+<div class = 'message_index'>
+  <div class = 'container'>
+    <%  @negotiation.messages.each do |message| %>
+      <% if message.receiver == current_user %>
+        <div class = 'receiver_message'><span><%= message.content %></span></div>
+      <% else %>
+        <div class = 'sender_message'><span><%= message.content %></span></div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= text_area_tag :content, '', class: 'message_content' %>

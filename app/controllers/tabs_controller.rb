@@ -12,6 +12,7 @@ class TabsController < ApplicationController
  	end
  	
  	def negotiation
+		@negotiation = current_user.negotiation
  	end
  	
  	def supervisor

@@ -1,0 +1,7 @@
+    <%  @negotiation.messages.each do |message| %>
+      <% if message.receiver == current_user %>
+        <div class = 'receiver_message'><span><%= message.content %></span></div>
+      <% else %>
+        <div class = 'sender_message'><span><%= message.content %></span></div>
+      <% end %>
+    <% end %>

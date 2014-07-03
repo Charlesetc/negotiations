@@ -1,6 +1,6 @@
 class NegotiationsController < ApplicationController
 	before_filter :signed_in_user
-	before_filter :admin_user
+	before_filter :admin_user, except: :messages
 	layout false, except: :new 
 	
   def new
@@ -23,6 +23,10 @@ class NegotiationsController < ApplicationController
 		end
   end
 
+	def messages
+		@negotiation = current_user.negotiation
+	end
+	
   def delete
 		Negotiation.find(params[:id]).destroy
 		render inline: 'Done'

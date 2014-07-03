@@ -12,6 +12,7 @@ colors = ['red', 'yellow', 'blue', 'purple', 'rainbow']
 Scenario.destroy_all
 Negotiation.destroy_all
 User.destroy_all
+Message.destroy_all
 
 @scenario = Scenario.create(
 	general: 'This is general information.',

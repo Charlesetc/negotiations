@@ -17,6 +17,7 @@ class Negotiation < ActiveRecord::Base
 	validates :scenario_id, presence: true
 	
 	belongs_to :scenario
+	has_many :messages
 	
 	def full?
 		self.users.count >= 2 # This is what designates negotiation size 
@@ -30,6 +31,15 @@ class Negotiation < ActiveRecord::Base
 			end
 		end
 		list
+	end
+	
+	def receiver(current_user)
+		self.users.each do |user|
+			unless user == current_user
+				return user
+			end
+		end
+		false
 	end
 	
 	def first_user=(user)

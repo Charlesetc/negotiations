@@ -22,6 +22,10 @@ Maylogs::Application.routes.draw do
 
   get "static/about"
 	
+	get "messages/create"
+	
+	get 'negotiations/messages'
+	
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'

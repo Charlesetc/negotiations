@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
 
   <%= csrf_meta_tags %>
+  <%= javascript_tag "var AUTH_TOKEN = '#{form_authenticity_token}';" if protect_against_forgery?%>
   <!--
   /* @license
    * MyFonts Webfont Build ID 1316338, 2011-10-03T10:50:35-0400
@@ -68,7 +69,7 @@
 			<% else %>
 			<li class = 'dropdown_trigger'><%= link_to 'Account', '#' %></li>
 			<ul class = 'dropdown'>
-				<li><%= link_to 'Profile', user_path(current_user) %></li>
+				<!-- <li><%= link_to 'Profile', user_path(current_user) %></li> -->
 				<li><%= link_to 'Settings', edit_user_path(current_user) %></li>
 				<div class = 'divider'></div>
 				<li><%= link_to 'Log Out', log_out_path, method: 'delete' %></li>
