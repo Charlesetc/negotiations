@@ -1,5 +1,5 @@
 
 production:
-  server: "http://private-publish.herokuapp.com/faye"
+  server: "https://private-publish.herokuapp.com/faye"
   secret_token: "c2601e83f8eec62d3f45d842f9c7686ce730d89ce8f9d212d6681c23c106d0b1"
   signature_expiration: 3600 # one hour
