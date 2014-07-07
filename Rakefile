@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Maylogs::Application.load_tasks
+Negotiations::Application.load_tasks
