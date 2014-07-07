@@ -6,6 +6,10 @@ gem 'bcrypt-ruby', '3.0.1'
 
 gem 'passenger'
 
+gem 'thin'
+
+gem 'private_pub'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -25,9 +29,11 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '3.2.5'
-  gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
 end
+
+
+gem 'coffee-rails', '3.2.2'
 
 gem 'jquery-rails', '2.0.2'
 

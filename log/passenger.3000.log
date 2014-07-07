@@ -29,3 +29,70 @@ App 50957 stderr:         Called from: /Users/charles/.rvm/gems/ruby-2.0.0-p247@
 App 51055 stdout: 
 App 51062 stdout: 
 App 51065 stdout: 
+[ 2014-07-03 16:47:18.6098 51198/0x7fff782e4310 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'charles', 'cleanup_pidfiles' => 'L3Zhci9mb2xkZXJzL3AyL3kybGNscmgxMG5xNTVzZGh6bGx3ZHM2NDAwMDBnbi9UL3Bhc3Nlbmdlci1zdGFuZGFsb25lLjE4eTRzankvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'staff', 'default_python' => 'python', 'default_ruby' => '/Users/charles/.rvm/wrappers/ruby-2.0.0-p247@rails_3.2.6/ruby', 'default_user' => 'charles', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/var/folders/p2/y2lclrh10nq55sdhzllwds640000gn/T/passenger-standalone.18y4sjy/locations.ini', 'passenger_version' => '4.0.45', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.45', 'web_server_pid' => '51193', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-07-03 16:47:18.6369 51209/0x7fff782e4310 agents/HelperAgent/Main.cpp:649 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.51193/generation-0/request
+[ 2014-07-03 16:47:18.6487 51214/0x7fff782e4310 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.51193/generation-0/logging
+[ 2014-07-03 16:47:18.6581 51198/0x7fff782e4310 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 51290 stdout: 
+App 51290 stderr:         SECURITY WARNING: No secret option provided to Rack::Session::Cookie.
+App 51290 stderr:         This poses a security threat. It is strongly recommended that you
+App 51290 stderr:         provide a secret to prevent exploits that may be possible from crafted
+App 51290 stderr:         cookies. This will not be supported in future versions of Rack, and
+App 51290 stderr:         future versions will even invalidate your existing user cookies.
+App 51290 stderr: 
+App 51290 stderr:         Called from: /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+[ 2014-07-03 16:47:23.5135 51209/0x1021a7000 Pool2/SmartSpawner.h:297 ]: Preloader for /Users/charles/Desktop/Negotiations/negotiations started on PID 51290, listening on unix:/tmp/passenger.1.0.51193/generation-0/backends/preloader.51290
+App 51388 stdout: 
+[ 2014-07-03 16:48:01.1538 51545/0x7fff782e4310 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'charles', 'cleanup_pidfiles' => 'L3Zhci9mb2xkZXJzL3AyL3kybGNscmgxMG5xNTVzZGh6bGx3ZHM2NDAwMDBnbi9UL3Bhc3Nlbmdlci1zdGFuZGFsb25lLjFpM2Mwai90ZW1wX2Rpcl90b3VjaGVyLnBpZA==', 'default_group' => 'staff', 'default_python' => 'python', 'default_ruby' => '/Users/charles/.rvm/wrappers/ruby-2.0.0-p247@rails_3.2.6/ruby', 'default_user' => 'charles', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/var/folders/p2/y2lclrh10nq55sdhzllwds640000gn/T/passenger-standalone.1i3c0j/locations.ini', 'passenger_version' => '4.0.45', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.45', 'web_server_pid' => '51544', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-07-03 16:48:01.1779 51547/0x7fff782e4310 agents/HelperAgent/Main.cpp:649 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.51544/generation-0/request
+[ 2014-07-03 16:48:01.1889 51549/0x7fff782e4310 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.51544/generation-0/logging
+[ 2014-07-03 16:48:01.1892 51545/0x7fff782e4310 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 51562 stdout: 
+App 51562 stderr:         SECURITY WARNING: No secret option provided to Rack::Session::Cookie.
+App 51562 stderr:         This poses a security threat. It is strongly recommended that you
+App 51562 stderr:         provide a secret to prevent exploits that may be possible from crafted
+App 51562 stderr:         cookies. This will not be supported in future versions of Rack, and
+App 51562 stderr:         future versions will even invalidate your existing user cookies.
+App 51562 stderr: 
+App 51562 stderr:         Called from: /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+[ 2014-07-03 16:48:06.5676 51547/0x10c850000 Pool2/SmartSpawner.h:297 ]: Preloader for /Users/charles/Desktop/Negotiations/negotiations started on PID 51562, listening on unix:/tmp/passenger.1.0.51544/generation-0/backends/preloader.51562
+App 51669 stdout: 
+App 51673 stdout: 
+App 51686 stdout: 
+App 51961 stdout: 
+App 51961 stderr:         SECURITY WARNING: No secret option provided to Rack::Session::Cookie.
+App 51961 stderr:         This poses a security threat. It is strongly recommended that you
+App 51961 stderr:         provide a secret to prevent exploits that may be possible from crafted
+App 51961 stderr:         cookies. This will not be supported in future versions of Rack, and
+App 51961 stderr:         future versions will even invalidate your existing user cookies.
+App 51961 stderr: 
+App 51961 stderr:         Called from: /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+[ 2014-07-03 16:58:36.0007 51547/0x10c842000 Pool2/SmartSpawner.h:297 ]: Preloader for /Users/charles/Desktop/Negotiations/negotiations started on PID 51961, listening on unix:/tmp/passenger.1.0.51544/generation-0/backends/preloader.51961
+App 52061 stdout: 
+App 52074 stdout: 
+App 52341 stdout: 
+App 52341 stderr:         SECURITY WARNING: No secret option provided to Rack::Session::Cookie.
+App 52341 stderr:         This poses a security threat. It is strongly recommended that you
+App 52341 stderr:         provide a secret to prevent exploits that may be possible from crafted
+App 52341 stderr:         cookies. This will not be supported in future versions of Rack, and
+App 52341 stderr:         future versions will even invalidate your existing user cookies.
+App 52341 stderr: 
+App 52341 stderr:         Called from: /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+[ 2014-07-03 17:06:52.1386 51547/0x10c88e000 Pool2/SmartSpawner.h:297 ]: Preloader for /Users/charles/Desktop/Negotiations/negotiations started on PID 52341, listening on unix:/tmp/passenger.1.0.51544/generation-0/backends/preloader.52341
+App 52443 stdout: 
+App 52444 stdout: 
+App 52467 stdout: 
+[ 2014-07-07 10:02:43.1025 1143/0x7fff7e128310 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'charles', 'cleanup_pidfiles' => 'L3Zhci9mb2xkZXJzL3AyL3kybGNscmgxMG5xNTVzZGh6bGx3ZHM2NDAwMDBnbi9UL3Bhc3Nlbmdlci1zdGFuZGFsb25lLjE4cDd4cGgvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'staff', 'default_python' => 'python', 'default_ruby' => '/Users/charles/.rvm/wrappers/ruby-2.0.0-p247@rails_3.2.6/ruby', 'default_user' => 'charles', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/var/folders/p2/y2lclrh10nq55sdhzllwds640000gn/T/passenger-standalone.18p7xph/locations.ini', 'passenger_version' => '4.0.45', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.45', 'web_server_pid' => '1142', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-07-07 10:02:43.1618 1145/0x7fff7e128310 agents/HelperAgent/Main.cpp:649 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.1142/generation-0/request
+[ 2014-07-07 10:02:43.1951 1147/0x7fff7e128310 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.1142/generation-0/logging
+[ 2014-07-07 10:02:43.1956 1143/0x7fff7e128310 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 1160 stdout: 
+App 1160 stderr:         SECURITY WARNING: No secret option provided to Rack::Session::Cookie.
+App 1160 stderr:         This poses a security threat. It is strongly recommended that you
+App 1160 stderr:         provide a secret to prevent exploits that may be possible from crafted
+App 1160 stderr:         cookies. This will not be supported in future versions of Rack, and
+App 1160 stderr:         future versions will even invalidate your existing user cookies.
+App 1160 stderr: 
+App 1160 stderr:         Called from: /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+[ 2014-07-07 10:02:48.2032 1145/0x105fe0000 Pool2/SmartSpawner.h:297 ]: Preloader for /Users/charles/Desktop/Negotiations/negotiations started on PID 1160, listening on unix:/tmp/passenger.1.0.1142/generation-0/backends/preloader.1160
+App 1258 stdout: 

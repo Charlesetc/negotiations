@@ -3,9 +3,6 @@ class NegotiationsController < ApplicationController
 	before_filter :admin_user, except: :messages
 	layout false, except: :new 
 
-	SLEEP_TIME = 2
-	@waiting = true
-	@wait_time = 0
 	
   def new
 		@title = 'New Negotiation'
@@ -28,16 +25,8 @@ class NegotiationsController < ApplicationController
   end
 
 	def messages
-		while @waiting and @wait_time < 30
-			sleep(SLEEP_TIME)
-			@wait_time += SLEEP_TIME
-		end
 		@negotiation = current_user.negotiation
-	end
-	
-	def stop_waiting
-		@waiting = false
-	end 
+	end # Might have trouble here
 	
   def delete
 		Negotiation.find(params[:id]).destroy

@@ -1,7 +1,7 @@
 class TabsController < ApplicationController
 	
 	before_filter :signed_in_user
-	before_filter :correct_user
+	before_filter :correct_user, except: :private_pub_subscribe
 	before_filter :admin_user, only: :admin
 	layout false
 	
@@ -17,6 +17,12 @@ class TabsController < ApplicationController
  	
  	def supervisor
  	end
+	
+	def private_pub_subscribe
+		respond_to do |format|
+		    format.js
+		  end
+	end
   
  	private 
 		def signed_in_user

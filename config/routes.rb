@@ -1,4 +1,4 @@
-Maylogs::Application.routes.draw do
+Negotiations::Application.routes.draw do
 
 	resources :users do 
 		member do
@@ -36,6 +36,8 @@ Maylogs::Application.routes.draw do
 	match 'background/:id' => 'tabs#background'
 	match 'negotiation/:id' => 'tabs#negotiation'
 	match 'supervisor/:id' => 'tabs#supervisor'
+	
+	get 'tabs/private_pub_subscribe'
 	
 	match 'destroy/:id' => 'users#delete'
 	match 'negotiations/destroy/:id' => 'negotiations#delete'

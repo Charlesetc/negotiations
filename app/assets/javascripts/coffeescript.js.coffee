@@ -10,14 +10,23 @@ $ ->
 	
 	
 	fetch_messages_recursively = ->
-		#setTimeout(fetch_messages, 5000)
-		'hello'
+		#fetch_messages() # Turned off longpolling
+		
+	into_message_index = (data) ->
+		alert 'data'
+		$('.message_index .container').empty()
+		$('.message_index .container').append(data)
 			
 	fetch_messages = ->
-		$.get 'negotiations/messages', (data) ->
-			$('.message_index .container').empty()
-			$('.message_index .container').append(data)
-			fetch_messages_recursively()
+		setTimeout message_ajax, 3000
+			
+	message_ajax = ->
+		$.ajax {
+			url:'negotiations/messages',
+			complete: fetch_messages_recursively(), 
+			timeout: 30000,
+			success: into_message_index(data), # Not being called
+		}
 			
 	next_page = -> 
 		$('#wizard_page').siblings().hide()
@@ -177,7 +186,6 @@ $ ->
 				$('.message_content').height(20)
 				$.get "/messages/create?content=#{content}"
 				return false
-				
 		
 		
 		ajax_count += 1

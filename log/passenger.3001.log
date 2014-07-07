@@ -1,0 +1,14 @@
+[ 2014-07-03 16:47:42.6297 51413/0x7fff782e4310 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'charles', 'cleanup_pidfiles' => 'L3Zhci9mb2xkZXJzL3AyL3kybGNscmgxMG5xNTVzZGh6bGx3ZHM2NDAwMDBnbi9UL3Bhc3Nlbmdlci1zdGFuZGFsb25lLmpoaGJtci90ZW1wX2Rpcl90b3VjaGVyLnBpZA==', 'default_group' => 'staff', 'default_python' => 'python', 'default_ruby' => '/Users/charles/.rvm/wrappers/ruby-2.0.0-p247@rails_3.2.6/ruby', 'default_user' => 'charles', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/var/folders/p2/y2lclrh10nq55sdhzllwds640000gn/T/passenger-standalone.jhhbmr/locations.ini', 'passenger_version' => '4.0.45', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMQA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.45', 'web_server_pid' => '51412', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-07-03 16:47:42.6546 51415/0x7fff782e4310 agents/HelperAgent/Main.cpp:649 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.51412/generation-0/request
+[ 2014-07-03 16:47:42.6646 51417/0x7fff782e4310 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.51412/generation-0/logging
+[ 2014-07-03 16:47:42.6650 51413/0x7fff782e4310 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 51430 stdout: 
+App 51430 stderr:         SECURITY WARNING: No secret option provided to Rack::Session::Cookie.
+App 51430 stderr:         This poses a security threat. It is strongly recommended that you
+App 51430 stderr:         provide a secret to prevent exploits that may be possible from crafted
+App 51430 stderr:         cookies. This will not be supported in future versions of Rack, and
+App 51430 stderr:         future versions will even invalidate your existing user cookies.
+App 51430 stderr: 
+App 51430 stderr:         Called from: /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/session/abstract_store.rb:28:in `initialize'.
+[ 2014-07-03 16:47:47.5446 51415/0x107552000 Pool2/SmartSpawner.h:297 ]: Preloader for /Users/charles/Desktop/Negotiations/negotiations started on PID 51430, listening on unix:/tmp/passenger.1.0.51412/generation-0/backends/preloader.51430
+App 51529 stdout: 
