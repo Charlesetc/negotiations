@@ -12,7 +12,8 @@
   </tr>
   
   <% Negotiation.all.each do |neg| %>
-    <tr class = 'negotiation_entry table_entry' data-id = '<%= neg.id %>' >
+    <tr class = 'negotiation_entry table_entry' data-id = '<%= neg.id %>' data-user-id = "<%=j list_user_id(neg) %>" 
+      data-scenario-id = "<%= neg.scenario.id %>" >
       <td><%= neg.id %></td>
       <td class = 'name_entry'><%= neg.scenario.title %></td>
       <td><%= neg.secure_key %></td>
@@ -28,6 +29,6 @@
 </a>
 
 
-<%= button_tag 'Inspect' %>
+<%= button_tag 'Inspect', class: 'inspect_neg_button' %>
 
 <%= button_tag 'Delete', class: 'delete_neg_button' %>

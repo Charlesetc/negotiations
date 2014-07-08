@@ -1,0 +1,13 @@
+<h2><%= @title %></h2>
+
+<div class = 'message_index'>
+  <div class = 'container'>
+    <%  @negotiation.messages.each do |message| %>
+      <% if message.receiver == @negotiation.first_user %>
+        <div class = 'receiver_message'><span><%= message.content %></span></div>
+      <% else %>
+        <div class = 'sender_message'><span><%= message.content %></span></div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

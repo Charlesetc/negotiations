@@ -9,24 +9,24 @@ $ ->
 	# Functions
 	
 	
-	fetch_messages_recursively = ->
-		#fetch_messages() # Turned off longpolling
-		
-	into_message_index = (data) ->
-		alert 'data'
-		$('.message_index .container').empty()
-		$('.message_index .container').append(data)
-			
-	fetch_messages = ->
-		setTimeout message_ajax, 3000
-			
-	message_ajax = ->
-		$.ajax {
-			url:'negotiations/messages',
-			complete: fetch_messages_recursively(), 
-			timeout: 30000,
-			success: into_message_index(data), # Not being called
-		}
+	# fetch_messages_recursively = ->
+	# 	#fetch_messages() # Turned off longpolling
+	#
+	# into_message_index = (data) ->
+	# 	alert 'data'
+	# 	$('.message_index .container').empty()
+	# 	$('.message_index .container').append(data)
+	#
+	# fetch_messages = ->
+	# 	setTimeout message_ajax, 3000
+	#
+	# message_ajax = ->
+	# 	$.ajax {
+	# 		url:'negotiations/messages',
+	# 		complete: fetch_messages_recursively(),
+	# 		timeout: 30000,
+	# 		success: into_message_index(data), # Not being called
+	# 	}
 			
 	next_page = -> 
 		$('#wizard_page').siblings().hide()
@@ -57,6 +57,9 @@ $ ->
 		$.get "/negotiations/messages", (data) ->
 			$('.message_index .container').empty()
 			$('.message_index .container').append(data)
+			
+	clear_selected = ->
+		$('.selected_row').removeClass 'selected_row'
 			
 	position_input = ->
 		difference = $(window).height() - $('#tab_negotiation').height()
@@ -111,18 +114,29 @@ $ ->
 
 			
 	# The Dropdown Menu
-	$('.dropdown').css 'opacity', '0'
-	$('.dropdown').slideUp()
+	$('.dropdown').css 'opacity', '1'
+	$('.dropdown').animate {
+		height: 0,
+		top: -4
+	}, 200
 	$('.dropdown_trigger').hover ->
-		$('.dropdown').css 'opacity', '1'
-		$('.dropdown').slideDown('fast')
+		$('.dropdown').css 'display', 'block'
+		$('.dropdown').animate {
+			height: 90,
+			top: 0
+		}, 200
 		$('.dropdown').clearQueue() # Got it working!
 	$('nav').mouseleave ->
-		$('.dropdown').slideUp('fast')
-	
-	$('.flash').animate {
-		left: 0
-	}, 500
+		$('.dropdown').animate {
+			height: 0,
+			top: -4
+		}, 200
+		
+		
+	# Flash Animation     ##
+	$('.flash').animate { ## Not dropdown.
+		left: 0           ## Not dropdown.
+	}, 500                ## 
 	
 	# Easy Tabs
 	$('#tab-container').easytabs({animate: false})
@@ -152,13 +166,14 @@ $ ->
 		scroll_index()
 		position_footer()
 		position_input()
-	
-		fetch_messages_recursively()
 		
 		$('.user_table tr').click ->
 			if $(this).hasClass 'user_entry'
+				
+				clear_selected()
+				
 				$(this).addClass 'selected_row'
-				$(this).siblings().removeClass 'selected_row'
+				
 				admin = $(this).data('admin')
 				
 				if $.trim(admin) == 'true'
@@ -166,12 +181,40 @@ $ ->
 				else 
 					$('.admin_button').html('Make Admin')
 					
+				negotiation= $(this).data('negotiation-id')
+				scenario = $(".negotiation_entry[data-id='#{negotiation}']").addClass('selected_row').data('scenario-id')
+				$(".scenario_entry[data-id='#{scenario}']").addClass 'selected_row'
+					
 						
 		$('.negotiation_table tr').click ->
 			if $(this).hasClass 'negotiation_entry'
+				
+				clear_selected()
+				
 				$(this).addClass 'selected_row'
-				$(this).siblings().removeClass 'selected_row'
-		
+				
+				users = $(this).data('user-id')
+				for user in users
+					$(".user_entry[data-user-id='#{user}']").addClass 'selected_row'
+					
+				scenario = $(this).data('scenario-id')
+				$(".scenario_entry[data-id='#{scenario}']").addClass 'selected_row'
+				
+			
+						
+		$('.scenario_table tr').click ->
+			if $(this).hasClass 'scenario_entry'
+				
+				clear_selected()
+				
+				$(this).addClass 'selected_row'
+				
+				scenario = $(this).data('id')
+				users = []
+				$(".negotiation_entry[data-scenario-id='#{scenario}']").addClass('selected_row').each ->
+					users.push $(this).data('user-id')...
+				for user in users
+					$(".user_entry[data-user-id='#{user}']").addClass 'selected_row'
 
 		$('.tab_link').click ->
 			if $(this).children('a').text() == 'Negotiation'
@@ -197,8 +240,10 @@ $ ->
 			
 						
 			$('.admin_button').click ->
-				unless $('.user_entry.selected_row').size() > 0
-					alert 'You need to select a user first.'
+				if $('.user_entry.selected_row').size() == 0
+					alert 'Please select a user first.'
+				else if $('.user_entry.selected_row').size() > 1
+					alert 'Please select only one user first.'
 				else
 					id = $('.user_entry.selected_row').data('user-id')
 					path = "users/#{id}/toggle_admin/"
@@ -206,8 +251,10 @@ $ ->
 						reload_admin()
 						
 			$('.delete_button').click ->
-				unless $('.user_entry.selected_row').size() > 0
+				if $('.user_entry.selected_row').size() == 0
 					alert 'You need to select a user first.'
+				else if $('.user_entry.selected_row').size() > 1
+					alert 'Please select only one user first.'
 				else if confirm 'Are you certain?'
 					id = $('.user_entry.selected_row').data('user-id')
 					path = "/destroy/#{id}/"
@@ -216,22 +263,31 @@ $ ->
 						
 							
 			$('.delete_neg_button').click ->
-				unless $('.negotiation_entry.selected_row').size() > 0
-					alert 'You need to select a negotiation first.'
+				if $('.negotiation_entry.selected_row').size() == 0
+					alert 'Please select a negotiation first.'
+				else if $('.negotiation_entry.selected_row').size() > 1
+					alert 'Please select only one negotiation first.'
 				else if confirm 'Are you certain?'
 					id = $('.negotiation_entry.selected_row').data("id")
 					path = "/negotiations/destroy/#{id}/"
 					$.get path, (d) ->
 						reload_admin()
 						
-			$('.scenario_table tr').click ->
-				if $(this).hasClass 'scenario_entry'
-					$(this).addClass 'selected_row'
-					$(this).siblings().removeClass 'selected_row'
+			$('.inspect_neg_button').click ->
+				if $('.negotiation_entry.selected_row').size() == 0
+					alert 'Please select a negotiation first.'
+				else if $('.negotiation_entry.selected_row').size() > 1
+					alert 'Please select only one negotiation first.'
+				else
+					id = $('.negotiation_entry.selected_row').data('id')
+					window.location = "/inspect/#{id}"
+			
 					
 			$('.delete_scenario_button').click ->
-				unless $('.scenario_entry.selected_row').size() > 0
-					alert 'You need to select a scenario first.'
+				if $('.scenario_entry.selected_row').size() == 0
+					alert 'Please select a scenario first.'
+				else if $('.scenario_entry.selected_row').size() > 1
+					alert 'Please select only one scenario first.'
 				else if confirm 'Are you certain? This will also delete all dependent negotiations.'
 					id = $('.scenario_entry.selected_row').data("id")
 					path = "/scenarios/destroy/#{id}/"
@@ -240,8 +296,10 @@ $ ->
 						reload_admin()
 						
 			$('.edit_scenario_button').click ->
-				unless $('.scenario_entry.selected_row').size() > 0
-					alert 'You need to select a scenario first.'
+				if $('.scenario_entry.selected_row').size() == 0
+					alert 'Please select a scenario first.'
+				else if $('.scenario_entry.selected_row').size() > 1
+					alert 'Please select only one scenario first.'
 				else
 					id = $('.scenario_entry.selected_row').data("id")
 					path = "/scenarios/#{id}/edit"

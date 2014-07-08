@@ -1,7 +1,7 @@
 class NegotiationsController < ApplicationController
 	before_filter :signed_in_user
-	before_filter :admin_user, except: :messages
-	layout false, except: :new 
+	before_filter :admin_user#, except: :messages
+	layout false, except: [:new, :inspect] 
 
 	
   def new
@@ -23,7 +23,13 @@ class NegotiationsController < ApplicationController
 			render 'new'
 		end
   end
-
+	
+	def inspect
+		@negotiation = Negotiation.find(params[:id])
+		@title = 'Negotiation History'
+		@page_id = 'negotiation_inspection'
+	end
+	
 	def messages
 		@negotiation = current_user.negotiation
 	end # Might have trouble here

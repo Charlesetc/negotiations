@@ -36,12 +36,13 @@ Negotiations::Application.routes.draw do
 	match 'background/:id' => 'tabs#background'
 	match 'negotiation/:id' => 'tabs#negotiation'
 	match 'supervisor/:id' => 'tabs#supervisor'
-	
 	get 'tabs/private_pub_subscribe'
 	
 	match 'destroy/:id' => 'users#delete'
 	match 'negotiations/destroy/:id' => 'negotiations#delete'
 	match 'scenarios/destroy/:id' => 'scenarios#delete'
+	match 'inspect/:id' => 'negotiations#inspect'
+	
 	 
 
   # The priority is based upon order of creation:

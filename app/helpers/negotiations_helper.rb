@@ -9,5 +9,13 @@ module NegotiationsHelper
 		out
 	end
 	
+	def list_user_id(negotiation)
+		list = []
+		negotiation.users.each do |user|
+			list << user.id
+		end
+		list.inspect
+	end
+	
 	
 end
