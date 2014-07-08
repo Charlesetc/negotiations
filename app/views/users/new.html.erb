@@ -32,11 +32,11 @@
         options_for_select([['Male', 'male'], ['Female', 'female']]) %></div>
       
   		<div><%= f.label :native_languages %></div>
-  		<div><%= f.text_field :native_languages,
+  		<div class = 'language_array'><%= f.text_field :native_languages,
         value: '', placeholder: 'Korean, English' %></div>
       
   		<div><%= f.label :foreign_languages %></div>
-  		<div><%= f.text_field :foreign_languages, value: '', placeholder: 'Spanish, German' %></div>
+  		<div class = 'language_array'><%= f.text_field :foreign_languages, value: '', placeholder: 'Spanish, German' %></div>
       
   		<div><%= f.label :secure_key %></div>
   		<div><%= f.text_field :secure_key %></div>

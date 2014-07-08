@@ -1,7 +1,7 @@
 module NegotiationsHelper
 	
-	def generate_secure_key(length = 20)
-		choices = [*('a'..'z'), *('0'..'9')]
+	def generate_secure_key(length = 10)
+		choices = [*('0'..'9')]
 		out = ''
 		length.times do 
 			out << choices.shuffle.first

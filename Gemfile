@@ -10,6 +10,8 @@ gem 'thin'
 
 gem 'private_pub'
 
+gem 'redis'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

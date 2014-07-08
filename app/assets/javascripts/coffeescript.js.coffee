@@ -96,6 +96,12 @@ $ ->
 	    clearTimeout(resizeTimer)
 	    resizeTimer = setTimeout(resize_function, 100)
 		
+		
+	$('.language_array input').keypress (e) ->
+		if e.keyCode == 32
+			if $(this).val().match /\w$/
+				$(this).val($(this).val() + ',')
+		
 	
 	# Wizard
 	$('#wizard_page').hide()
@@ -110,7 +116,12 @@ $ ->
 		else if e.which == 13 
 			$(this).parent().next().next().children('input').focus()
 			return false
+			
 		
+	# 
+	
+	
+	
 
 			
 	# The Dropdown Menu
@@ -157,7 +168,7 @@ $ ->
 		url = url.replace 'tab_', ''
 		url = '/' + url + '/' + id
 		$.get url, (data) ->
-			$("##{access_id}").append(data)
+			$("##{access_id}").append data
 
 	
 	# User Table - Admin		
