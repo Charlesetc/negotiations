@@ -58,6 +58,12 @@ $ ->
 			$('.message_index .container').empty()
 			$('.message_index .container').append(data)
 			
+	position_after = ->
+		height = $(document).height()
+		$("head").append("<style type='text/css' id='styling'>
+		body::after { height: #{height}px }
+			</style>")
+			
 	clear_selected = ->
 		$('.selected_row').removeClass 'selected_row'
 			
@@ -186,6 +192,7 @@ $ ->
 		scroll_index()
 		position_footer()
 		position_input()
+		position_after()
 		
 		$('.user_table tr').click ->
 			if $(this).hasClass 'user_entry'

@@ -1,7 +1,7 @@
 <%= subscribe_to "/negotiation/admin/#{@negotiation.id}/new" %>
 <%= javascript_include_tag "/tabs/private_pub_subscribe_admin.js?id=#{@negotiation.id}" %>
 
-<h2 style = 'text-decoration:underline'><%= @title %></h2>
+<h2 style = 'text-decoration:underline'>Negotiation <%= @negotiation.id %> History</h2>
 
 <div id = 'message_history'>
   <% if @negotiation.messages.any? %>
