@@ -488,7 +488,7 @@ span.error_designation {
 
 .message_content {
     outline: none;	
-	font-size: 20px;
+	font-size:20px;
 	border: 1px solid black;
 	background:white;
 	border-radius:20px;
@@ -498,7 +498,8 @@ span.error_designation {
 	margin-top:2px;
 	margin-bottom:2px;
 	width:100%;
-	height:25px;
+	height:30px;
+	line-height:30px;
 }
 
 .message_content:focus {
@@ -526,9 +527,10 @@ span.error_designation {
 	box-shadow: 0px 0px 5px -1px black;
 	z-index:20;
 	padding:4px 8px;
-	max-width:40%;
+	max-width:50%;
 	display:inline-block;
-	word-wrap:break-word
+	word-wrap:break-word;
+	font-size:20px;
 }
 
 .message_index div {
@@ -543,7 +545,7 @@ span.error_designation {
 	/* Or float one left, one right, and less color */
 
 .message_index .sender_message  span {
-	float:left; clear:both;
+	float:right; clear:both;
 	background-color:#DCEDFF;
 }
 .message_index .sender_message::after, .message_index .receiver_message::after {

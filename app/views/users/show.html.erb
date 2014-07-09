@@ -12,10 +12,11 @@
       </li>
     <% end %>
   </ul>
-  
+
   <% @tabs.each do |tab| %>
     <div id="tab_<%= tab[:title].downcase %>" class = 'tab'>
       <%=  tab[:content] %>
     </div>
   <% end %>
-</div>
+</div> 
+ 

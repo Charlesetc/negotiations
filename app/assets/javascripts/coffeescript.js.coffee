@@ -64,15 +64,17 @@ $ ->
 		body::after { height: #{height}px }
 			</style>")
 			
+	clear_input = ->
+		$('.message_content').val('').change()
+			
 	clear_selected = ->
 		$('.selected_row').removeClass 'selected_row'
 			
-	position_input = ->
-		difference = $(window).height() - $('#tab_negotiation').height()
-		difference -= 200
-		$('.message_content').css 'margin-top', difference
-
-		width_inside_tab()
+	# position_input = ->
+	# 	difference = $(window).height() - $('#tab_negotiation').height()
+	# 	difference -= 200
+	# 	$('.message_content').css 'margin-top', difference
+	# 	width_inside_tab()
 		
 	width_inside_tab = ->
 		w = $('#tab_negotiation').width() - 14
@@ -84,8 +86,15 @@ $ ->
 		position_footer()
 		width_inside_tab()
 		
+	message_content_height = ->
+		span = document.createElement('span.message_content')
+		content = $('textarea.message_content').val()
+		span.innerHTML = content
+		alert span.offsetHeight()
+		
+
 	index_height = -> 
-		$('.message_index').height($(window).height() - 320)
+		$('.message_index').height($(window).height() - 340)
 		
 	scroll_index = ->
 		# h = $('.message_index .container').height()
@@ -102,12 +111,14 @@ $ ->
 	    clearTimeout(resizeTimer)
 	    resizeTimer = setTimeout(resize_function, 100)
 		
-		
+	
+	# Comma Language
 	$('.language_array input').keypress (e) ->
 		if e.keyCode == 32
 			if $(this).val().match /\w$/
-				$(this).val($(this).val() + ',')
-		
+				$(this).val($(this).val() + ',')	
+
+
 	
 	# Wizard
 	$('#wizard_page').hide()
@@ -191,8 +202,10 @@ $ ->
 		index_height()
 		scroll_index()
 		position_footer()
-		position_input()
 		position_after()
+		
+		$('h2').click ->
+			message_content_height()
 		
 		$('.user_table tr').click ->
 			if $(this).hasClass 'user_entry'
@@ -250,14 +263,19 @@ $ ->
 				$('footer').removeClass 'fixed_footer'
 				scroll_index()
 		
+		$('.message_content').click -> 
+			$('footer').removeClass 'fixed_footer'
+			$('footer').css 'position', 'relative'
+			$('footer').css 'top', '-2px'
+			$('footer').css 'left', '16px'
 		
 		$('.message_content').keypress (e) -> 
+			position_footer()
 			if e.which == 13
 				content = $('.message_content').val()
-				$('.message_content').val('') # Second is valid
-				$('.message_content').height(20)
+				$('.message_content').val('').change()
 				$.get "/messages/create?content=#{content}"
-				return false
+				setTimeout clear_input, 1
 		
 		
 		ajax_count += 1
@@ -265,7 +283,7 @@ $ ->
 		if ajax_count %% 2 == 0 # It was doing everything twice
 		
 						
-			
+			$('.message_content').expanding()
 			
 						
 			$('.admin_button').click ->
