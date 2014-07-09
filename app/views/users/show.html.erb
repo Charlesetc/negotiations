@@ -1,6 +1,7 @@
-
+<% unless current_user.admin %>
 <%= subscribe_to "/negotiation/#{current_user.negotiation.id}/new" %>
 <%= javascript_include_tag '/tabs/private_pub_subscribe.js' %>
+<% end %>
  <!-- Heres's the private_pub subscribe -->
 
 <div id="tab-container" class="tab-container">
