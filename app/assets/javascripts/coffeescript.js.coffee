@@ -118,9 +118,18 @@ $ ->
 			return false
 			
 		
-	# 
+	# Ajax for Last Seen
 	
-	
+	last_seen_ajax = -> 
+		user_id = $('body').data('id')
+		$.post "/users/#{user_id}/last_seen", {
+			authenticity_token: AUTH_TOKEN
+		}
+		
+	last_seen_ajax()
+	setInterval(last_seen_ajax, 30000)
+		
+		
 	
 
 			
@@ -128,7 +137,7 @@ $ ->
 	$('.dropdown').css 'opacity', '1'
 	$('.dropdown').animate {
 		height: 0,
-		top: -4
+		top: -5
 	}, 200
 	$('.dropdown_trigger').hover ->
 		$('.dropdown').css 'display', 'block'
@@ -140,7 +149,7 @@ $ ->
 	$('nav').mouseleave ->
 		$('.dropdown').animate {
 			height: 0,
-			top: -4
+			top: -5
 		}, 200
 		
 		
@@ -210,8 +219,10 @@ $ ->
 					
 				scenario = $(this).data('scenario-id')
 				$(".scenario_entry[data-id='#{scenario}']").addClass 'selected_row'
-				
 			
+		$('.negotiation_table tr').dblclick ->	
+			id = $('.negotiation_entry.selected_row').data('id')
+			window.location = "/inspect/#{id}"
 						
 		$('.scenario_table tr').click ->
 			if $(this).hasClass 'scenario_entry'

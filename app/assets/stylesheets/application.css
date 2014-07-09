@@ -22,6 +22,11 @@
 	
 }
 
+h1 * {
+	font-family: 'ProximaNova-Regular';
+	font-size: 27px;
+}
+
 li {
 	display: inline;
 }
@@ -32,7 +37,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'ProximaNova-Semibold'
+	font-family: 'ProximaNova-Semibold';
 }
 
 
@@ -170,6 +175,7 @@ header h1 {
 	position:relative;
 	top:-9px;
 	left:20px;
+	font-family:Arial;
 }
 
 header #line {
@@ -540,4 +546,8 @@ span.error_designation {
 	background-color:#DCEDFF;
 }
 .message_index .sender_message::after, .message_index .receiver_message::after {
+}
+
+#message_history span {
+	color:#0099FF;
 }

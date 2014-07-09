@@ -1,3 +1,7 @@
+
+
+<% if current_user.negotiation.ready? %>
+
 <h2>Negotiation Chat</h2>
 
 <div class = 'message_index'>
@@ -13,3 +17,12 @@
 </div>
 
 <%= text_area_tag :content, '', class: 'message_content' %>
+
+<% else %>
+
+<h2>The Negotiation is not ready.</h2>
+
+<p>Please wait for the other participant to join.</p>
+
+
+<% end %>

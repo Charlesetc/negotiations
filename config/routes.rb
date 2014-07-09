@@ -3,6 +3,7 @@ Negotiations::Application.routes.draw do
 	resources :users do 
 		member do
 			get 'toggle_admin'
+			post 'last_seen'
 		end
 	end
 	
@@ -26,6 +27,7 @@ Negotiations::Application.routes.draw do
 	
 	get 'negotiations/messages'
 	
+	
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'
@@ -36,7 +38,9 @@ Negotiations::Application.routes.draw do
 	match 'background/:id' => 'tabs#background'
 	match 'negotiation/:id' => 'tabs#negotiation'
 	match 'supervisor/:id' => 'tabs#supervisor'
+	
 	get 'tabs/private_pub_subscribe'
+	get 'tabs/private_pub_subscribe_admin'
 	
 	match 'destroy/:id' => 'users#delete'
 	match 'negotiations/destroy/:id' => 'negotiations#delete'

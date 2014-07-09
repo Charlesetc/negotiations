@@ -56,14 +56,14 @@ Message.destroy_all
 	
 	if i == 0
 		@user = User.create(
-			username: colors[i] + fruit[i],
-			name: colors[i].capitalize + ' ' + fruit[i].capitalize,
-			email: colors[i] + fruit[i] + '@uchicago.edu',
+			username: 'greenkiwi',
+			name: 'Green Kiwi',
+			email: 'greenkiwi' + '@uchicago.edu',
 			password: 'foobar',
 			password_confirmation: 'foobar',
 			sex: 'female',
 			age: 105,
-			secure_key: "secure_key_#{i}"
+			secure_key: "key_#{i}"
 		)
 	end
 	
@@ -84,7 +84,7 @@ Message.destroy_all
 		email: words[i] + colors[i] + '@uchicago.edu',
 		password: 'foobar',
 		password_confirmation: 'foobar',
-		sex: 'male',
+		sex: 'female',
 		age: 12,
 		secure_key: "secure_key_#{i}"
 	)

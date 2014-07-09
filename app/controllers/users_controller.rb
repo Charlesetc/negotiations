@@ -60,6 +60,12 @@ class UsersController < ApplicationController
 		
 	end
 	
+	def last_seen
+		$redis.set "#{current_user.id}_last_seen", Time.now.to_i if current_user
+		render inline: 'Done'
+	end
+	
+	
 	def edit
 		@title = 'Settings'
 		@page_id = 'settings'

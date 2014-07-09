@@ -1,13 +1,28 @@
-<h2><%= @title %></h2>
+<%= subscribe_to "/negotiation/admin/#{@negotiation.id}/new" %>
+<%= javascript_include_tag "/tabs/private_pub_subscribe_admin.js?id=#{@negotiation.id}" %>
 
-<div class = 'message_index'>
-  <div class = 'container'>
+<h2 style = 'text-decoration:underline'><%= @title %></h2>
+
+<div id = 'message_history'>
+  <% if @negotiation.messages.any? %>
     <%  @negotiation.messages.each do |message| %>
       <% if message.receiver == @negotiation.first_user %>
-        <div class = 'receiver_message'><span><%= message.content %></span></div>
+        <p><span><%= message.sender.username %>:<%= message.sender.id %>>> </span><%= message.content %></p>
       <% else %>
-        <div class = 'sender_message'><span><%= message.content %></span></div>
+        <p><%= message.sender.username %>:<%= message.sender.id %>>> <%= message.content %></p>
       <% end %>
     <% end %>
-  </div>
+  <% elsif @negotiation.users.count == 2 %>
+    <h4>Neither user has send a message yet.</h4>
+  <% else %>
+      <% if @negotiation.users.count == 1 %>
+       <h4>There is only one user in this negotiation.</h4>
+      <% else %>
+        <h4>There are no users in this negotiation yet.</h4>
+      <% end %>
+      
+      
+  <% end %>
+  
 </div>
+

@@ -52,6 +52,12 @@ class User < ActiveRecord::Base
 		Negotiation.find_by_secure_key(self.secure_key)
 	end
 	
+	def online?
+		time = $redis.get "#{self.id}_last_seen"
+		difference = Time.now.to_i - time.to_i
+		difference <= 30
+	end
+	
 	
 	private
 		

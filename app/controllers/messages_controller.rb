@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
 
   def create
 		PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new", :content => params[:content], :user_id => current_user.id unless params[:content].empty?
+		PrivatePub.publish_to "/negotiation/admin/#{current_user.negotiation.id}/new", :content => params[:content], :sender_id => current_user.id, :first_user_id => current_user.negotiation.first_user.id, :negotiation_id => current_user.negotiation.id, :sender_username => current_user.username unless params[:content].empty?
 		@negotiation = current_user.negotiation
 		@negotiation.messages.create(
 			negotiation_id: @negotiation.id,

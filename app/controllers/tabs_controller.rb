@@ -1,7 +1,7 @@
 class TabsController < ApplicationController
 	
 	before_filter :signed_in_user
-	before_filter :correct_user, except: :private_pub_subscribe
+	before_filter :correct_user, except: [:private_pub_subscribe, :private_pub_subscribe_admin]
 	before_filter :admin_user, only: :admin
 	layout false
 	
@@ -19,6 +19,14 @@ class TabsController < ApplicationController
  	end
 	
 	def private_pub_subscribe
+		respond_to do |format|
+		    format.js
+		  end
+	end
+	
+	def private_pub_subscribe_admin
+		@negotiation_id = params[:id]
+		@negotiation_id = @negotiation_id.gsub /\.js/, ''
 		respond_to do |format|
 		    format.js
 		  end

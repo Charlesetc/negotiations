@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
   <title><%= title_helper(@title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
@@ -47,7 +48,7 @@
   <%= javascript_include_tag "https://private-publish.herokuapp.com/faye.js" %>
   <%= javascript_include_tag "/private-pub-lib.js" %>
 </head>
-<body>
+<body data-id = "<%= current_user.id if current_user %>">
 
 	<header>
 		
