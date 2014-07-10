@@ -91,7 +91,7 @@ $ ->
 		
 	consent_height = -> 
 		$('#scroll_consent').css 'height', ($(window).height() - 300)
-		$('body').css 'overflow', 'hidden'
+		$('body').css 'overflow', 'hidden' if $('#scroll_consent').length > 0
 		
 	scroll_index = ->
 		# h = $('.message_index .container').height()
