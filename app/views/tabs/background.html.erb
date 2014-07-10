@@ -21,6 +21,10 @@
 
 <% unless current_user.consent %>
 
+<%= render '/partials/consent_form' %>
+
+<% else %>
+
 <p>You can fill out the consent form under the 'Negotiation' tab when you're ready.</p>
 
 <% end %>
