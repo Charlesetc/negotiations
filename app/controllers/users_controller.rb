@@ -65,6 +65,13 @@ class UsersController < ApplicationController
 		render inline: 'Done'
 	end
 	
+	def accept_consent
+		@user = User.find(params[:id])
+		@user.update_attribute(:consent, true)
+		sign_in @user # Very important, update attributes changes.
+		render inline: 'Done'
+	end
+	
 	
 	def edit
 		@title = 'Settings'

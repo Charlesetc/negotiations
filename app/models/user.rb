@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
 	attr_accessible :email, :name, :username, :password, :password_confirmation
 	attr_accessible :sex, :age, :secure_key, :foreign_languages, :native_languages
-	attr_accessible :admin
+	attr_accessible :admin, :consent
 	
 	serialize :native_languages, Array
 	serialize :foreign_languages, Array

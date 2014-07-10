@@ -18,11 +18,18 @@
  
 <%= text_area_tag :content, '', class: 'message_content expanding' %>
 
-<% else %>
+<% else  %>
 
-<h2>The Negotiation is not ready.</h2>
+  <% unless current_user.consent %>
 
-<p>Please wait for the other participant to join.</p>
+    <%= render '/partials/consent_form' %>
+  
+  <% else %>
+    
+    <h1>Negotiation Chat</h1>
+    
+    <p>You'll be able to start the study just as soon as the other participant is ready.</p>
 
-
+  <% end %>
+  
 <% end %>

@@ -252,7 +252,7 @@ pre.debug_dump {
 	left:30px;
 }
 
-.basic_form input, button, .basic_form textarea, .basic_form select {
+.basic_form input, button, .basic_form textarea, .basic_form select, .consent_button {
 	font-size: 20px;
 	border: 1px solid black;
 	background:white;
@@ -267,7 +267,7 @@ pre.debug_dump {
 	height:100px;
 }
 
-.basic_form #submit_button, button {
+.basic_form #submit_button, button, .consent_button {
 	font-size: 16px;
 	background:white;
 	margin-top: 10px;
@@ -553,4 +553,30 @@ span.error_designation {
 
 #message_history span {
 	color:#0099FF;
+}
+
+
+
+/* Consent Form */
+
+#consent_form a {
+	color:black;
+	text-decoration:underline;
+}
+
+#consent_form span {
+	text-decoration:underline;
+}
+
+#consent_form h3 {
+	text-align:center;
+}
+
+.centered_button {
+	text-align:center;
+}
+
+#scroll_consent {
+	overflow:scroll;
+	height:200px;
 }

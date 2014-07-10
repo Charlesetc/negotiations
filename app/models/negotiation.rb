@@ -23,6 +23,10 @@ class Negotiation < ActiveRecord::Base
 		self.users.count >= 2 # This is what designates negotiation size 
 	end
 	
+	def user_consent?
+		self.first_user.consent && self.second_user.consent
+	end
+	
 	def users
 		list = []
 		User.all.each do |user|
@@ -62,11 +66,17 @@ class Negotiation < ActiveRecord::Base
 	end
 	
 	def ready?
-		self.full? && self.first_user
+		self.full? && self.first_user && self.user_consent?
 	end
 	
 	def first_user
 		User.find_by_id(self.first_user_id)
+	end
+	
+	def second_user
+		self.users.each do |user|
+			return user unless user == self.first_user
+		end
 	end
 	
 	def language

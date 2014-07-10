@@ -17,6 +17,12 @@
 
 <h2>The Negotiation is not ready.</h2>
 
-<p>Please wait for the other participant to join.</p>
+<p>Please wait for the other participant to join and consent.</p>
+
+<% unless current_user.consent %>
+
+<p>You can fill out the consent form under the 'Negotiation' tab when you're ready.</p>
+
+<% end %>
 
 <% end %>

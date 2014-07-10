@@ -4,6 +4,7 @@ Negotiations::Application.routes.draw do
 		member do
 			get 'toggle_admin'
 			post 'last_seen'
+			post 'accept_consent'
 		end
 	end
 	

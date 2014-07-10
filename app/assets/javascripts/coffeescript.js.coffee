@@ -85,16 +85,13 @@ $ ->
 	resize_function = ->
 		position_footer()
 		width_inside_tab()
-		
-	message_content_height = ->
-		span = document.createElement('span.message_content')
-		content = $('textarea.message_content').val()
-		span.innerHTML = content
-		alert span.offsetHeight()
-		
 
 	index_height = -> 
 		$('.message_index').height($(window).height() - 340)
+		
+	consent_height = -> 
+		$('#scroll_consent').css 'height', ($(window).height() - 300)
+		$('body').css 'overflow', 'hidden'
 		
 	scroll_index = ->
 		# h = $('.message_index .container').height()
@@ -139,9 +136,10 @@ $ ->
 	
 	last_seen_ajax = -> 
 		user_id = $('body').data('id')
-		$.post "/users/#{user_id}/last_seen", {
-			authenticity_token: AUTH_TOKEN
-		}
+		if user_id
+			$.post "/users/#{user_id}/last_seen", {
+				authenticity_token: AUTH_TOKEN
+			}
 		
 	last_seen_ajax()
 	setInterval(last_seen_ajax, 30000)
@@ -203,6 +201,7 @@ $ ->
 		scroll_index()
 		position_footer()
 		position_after()
+		consent_height()
 		
 		$('h2').click ->
 			message_content_height()
@@ -260,8 +259,9 @@ $ ->
 
 		$('.tab_link').click ->
 			if $(this).children('a').text() == 'Negotiation'
-				$('footer').removeClass 'fixed_footer'
-				scroll_index()
+				if $('.message_index').length() == 1
+					$('footer').removeClass 'fixed_footer'
+					scroll_index()
 		
 		$('.message_content').click -> 
 			$('footer').removeClass 'fixed_footer'
@@ -276,6 +276,9 @@ $ ->
 				$('.message_content').val('').change()
 				$.get "/messages/create?content=#{content}"
 				setTimeout clear_input, 1
+		
+		
+		
 		
 		
 		ajax_count += 1
@@ -352,6 +355,17 @@ $ ->
 					path = "/scenarios/#{id}/edit"
 					window.location = path
 					
+					
+			$('.consent_button').click ->
+				id = $('body').data('id')
+				$.post "/users/#{id}/accept_consent", {
+					authenticity_token: AUTH_TOKEN
+				}
+				$('#consent_form').empty().append("
+			    <h1>Negotiation Chat</h1>
+    
+			    <p>You'll be able to start the study just as soon as the other participant is ready.</p>
+				")
 					
 			
 			# Not part of a table, but relies on ajax
