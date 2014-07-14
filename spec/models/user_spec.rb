@@ -16,6 +16,10 @@
 #  native_languages  :text
 #  foreign_languages :text
 #  admin             :boolean          default(FALSE)
+#  consent           :boolean          default(FALSE)
+#  background        :boolean          default(FALSE)
+#  start_background  :datetime
+#  end_background    :datetime
 #
 
 require 'spec_helper'

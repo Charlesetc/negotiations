@@ -64,49 +64,87 @@ $ ->
 		body::after { height: #{height}px }
 			</style>")
 			
-	clear_input = ->
-		$('.message_content').val('').change()
+	# clear_input = ->
+	# 	#$('.message_content').val('').change()
 			
 	clear_selected = ->
 		$('.selected_row').removeClass 'selected_row'
-			
-	# position_input = ->
-	# 	difference = $(window).height() - $('#tab_negotiation').height()
-	# 	difference -= 200
-	# 	$('.message_content').css 'margin-top', difference
-	# 	width_inside_tab()
-		
-	width_inside_tab = ->
-		w = $('#tab_negotiation').width() - 14
-		$('.message_content').width(w)
-		w += 4
-		$('.message_index').width(w)
 	
 	resize_function = ->
+		scroll_index()
+		index_height()
 		position_footer()
-		width_inside_tab()
+		
+	
 
 	index_height = -> 
-		$('.message_index').height($(window).height() - 340)
+		$('.message_index').height($(window).height() - 355)
+		$('#background_block').height($(window).height() - 246)
 		
 	consent_height = -> 
 		$('#scroll_consent').css 'height', ($(window).height() - 300)
 		$('body').css 'overflow', 'hidden' if $('#scroll_consent').length > 0
 		
 	scroll_index = ->
-		# h = $('.message_index .container').height()
-		$('.message_index').scrollTop(900000000)
+		height = $('.container div').length * 10000
+		$('.message_index').scrollTop(height)
+		
+	add_clock = ->
+		$('#show_body').append "<div id = 'clock'>20:00</div>"
+		
+	tick_clock = ->
+		numbers = $('#clock').text().split ':'
+		seconds = Number(numbers[1])
+		seconds -= 1
+		if seconds < 0
+			seconds = 59
+			numbers[0] = tock_clock()
+		else if seconds < 10
+			seconds = "0#{seconds}"
+		$('#clock').empty().append numbers[0] + ":" + seconds
+		
+	tock_clock = ->
+		numbers = $('#clock').text().split ':'
+		minutes = numbers[0]
+		if minutes == 0
+			alert "Time's up!"
+			minutes
+		else
+			minutes -= 1
 	
-	# Footer Positioning
+		
+	add_spin = ->
+		target = document.getElementById('waiting_page');
+		spin = new Spinner({
+			top: '72%',
+			width: 20,
+			length:0,
+			lines: 7,
+			trail: 50,
+			speed: 0.5,
+			radius: 30,
+			rotate: 14,
+			color: '#333'
+		}).spin(target)
+		
+		
+		
+	scroll_index()
+	
 	position_footer()
-	#$('body').click ->
-		#position_footer()
+	
+	add_clock()
+	
+	add_spin()
+	
+	setInterval tick_clock, 1000
+	
 	$(window).scroll ->
 		$(window).scrollLeft(0) # Bug fix
 		position_footer()
 	$(window).resize ->
 	    clearTimeout(resizeTimer)
-	    resizeTimer = setTimeout(resize_function, 100)
+	    resizeTimer = setTimeout(resize_function, 20)
 		
 	
 	# Comma Language
@@ -146,26 +184,34 @@ $ ->
 		
 		
 	
+	# Buttons
+	
+			
+	$('.consent_button').click ->
+		id = $('body').data('id')
+		$.post "/users/#{id}/accept_consent", {
+			authenticity_token: AUTH_TOKEN
+		}, (data) ->
+			$('body').empty().append(data)
+			window.location.pathname = '/background'
+	
+	$('.instructions_button').click ->
+		window.location.pathname = '/consent'
+		
+	$('.background_button').click ->
+		window.location.pathname = '/accept_background'
+	
+	
 
 			
 	# The Dropdown Menu
 	$('.dropdown').css 'opacity', '1'
-	$('.dropdown').animate {
-		height: 0,
-		top: -5
-	}, 200
+	$('.dropdown').slideUp('fast')
 	$('.dropdown_trigger').hover ->
-		$('.dropdown').css 'display', 'block'
-		$('.dropdown').animate {
-			height: 90,
-			top: 0
-		}, 200
-		$('.dropdown').clearQueue() # Got it working!
+		$('.dropdown').slideDown('fast')
+		$('.dropdown').clearQueue()
 	$('nav').mouseleave ->
-		$('.dropdown').animate {
-			height: 0,
-			top: -5
-		}, 200
+		$('.dropdown').slideUp('fast')
 		
 		
 	# Flash Animation     ##
@@ -182,29 +228,14 @@ $ ->
 		resize_function()
 	$('#tab-container').bind 'easytabs:before', ->
 		$('footer').addClass 'fixed_footer'
-		
-	# Getting Content for Tabs -- runs on page load
-	$('.tab').each ->
-		id = $('.etabs').attr 'id'
-		id = id.replace 'tabs_for_', ''
-		url = $(this).attr 'id'
-		access_id = url
-		url = url.replace 'tab_', ''
-		url = '/' + url + '/' + id
-		$.get url, (data) ->
-			$("##{access_id}").append data
-
 	
 	# User Table - Admin		
 	$( document ).ajaxSuccess ->
 		index_height()
-		scroll_index()
 		position_footer()
 		position_after()
 		consent_height()
 		
-		$('h2').click ->
-			message_content_height()
 		
 		$('.user_table tr').click ->
 			if $(this).hasClass 'user_entry'
@@ -266,7 +297,7 @@ $ ->
 		$('.message_content').click -> 
 			$('footer').removeClass 'fixed_footer'
 			$('footer').css 'position', 'relative'
-			$('footer').css 'top', '-2px'
+			$('footer').css 'top', '-9px'
 			$('footer').css 'left', '16px'
 		
 		$('.message_content').keypress (e) -> 
@@ -275,102 +306,85 @@ $ ->
 				content = $('.message_content').val()
 				$('.message_content').val('').change()
 				$.get "/messages/create?content=#{content}"
-				setTimeout clear_input, 1
-		
-		
-		
-		
-		
-		ajax_count += 1
-		
-		if ajax_count %% 2 == 0 # It was doing everything twice
-		
+				# setTimeout clear_input, 1
+				return false
+
 						
-			$('.message_content').expanding()
-			
-						
-			$('.admin_button').click ->
-				if $('.user_entry.selected_row').size() == 0
-					alert 'Please select a user first.'
-				else if $('.user_entry.selected_row').size() > 1
-					alert 'Please select only one user first.'
-				else
-					id = $('.user_entry.selected_row').data('user-id')
-					path = "users/#{id}/toggle_admin/"
-					$.get path, (d) ->
-						reload_admin()
-						
-			$('.delete_button').click ->
-				if $('.user_entry.selected_row').size() == 0
-					alert 'You need to select a user first.'
-				else if $('.user_entry.selected_row').size() > 1
-					alert 'Please select only one user first.'
-				else if confirm 'Are you certain?'
-					id = $('.user_entry.selected_row').data('user-id')
-					path = "/destroy/#{id}/"
-					$.get path, (d) ->
-						reload_admin()
-						
-							
-			$('.delete_neg_button').click ->
-				if $('.negotiation_entry.selected_row').size() == 0
-					alert 'Please select a negotiation first.'
-				else if $('.negotiation_entry.selected_row').size() > 1
-					alert 'Please select only one negotiation first.'
-				else if confirm 'Are you certain?'
-					id = $('.negotiation_entry.selected_row').data("id")
-					path = "/negotiations/destroy/#{id}/"
-					$.get path, (d) ->
-						reload_admin()
-						
-			$('.inspect_neg_button').click ->
-				if $('.negotiation_entry.selected_row').size() == 0
-					alert 'Please select a negotiation first.'
-				else if $('.negotiation_entry.selected_row').size() > 1
-					alert 'Please select only one negotiation first.'
-				else
-					id = $('.negotiation_entry.selected_row').data('id')
-					window.location = "/inspect/#{id}"
-			
+		$('.message_content').expanding()
+		
 					
-			$('.delete_scenario_button').click ->
-				if $('.scenario_entry.selected_row').size() == 0
-					alert 'Please select a scenario first.'
-				else if $('.scenario_entry.selected_row').size() > 1
-					alert 'Please select only one scenario first.'
-				else if confirm 'Are you certain? This will also delete all dependent negotiations.'
-					id = $('.scenario_entry.selected_row').data("id")
-					path = "/scenarios/destroy/#{id}/"
+		$('.admin_button').click ->
+			if $('.user_entry.selected_row').size() == 0
+				alert 'Please select a user first.'
+			else if $('.user_entry.selected_row').size() > 1
+				alert 'Please select only one user first.'
+			else
+				id = $('.user_entry.selected_row').data('user-id')
+				path = "users/#{id}/toggle_admin/"
+				$.get path, (d) ->
+					reload_admin()
 					
-					$.get path, (d) ->
-						reload_admin()
+		$('.delete_button').click ->
+			if $('.user_entry.selected_row').size() == 0
+				alert 'You need to select a user first.'
+			else if $('.user_entry.selected_row').size() > 1
+				alert 'Please select only one user first.'
+			else if confirm 'Are you certain?'
+				id = $('.user_entry.selected_row').data('user-id')
+				path = "/destroy/#{id}/"
+				$.get path, (d) ->
+					reload_admin()
+					
 						
-			$('.edit_scenario_button').click ->
-				if $('.scenario_entry.selected_row').size() == 0
-					alert 'Please select a scenario first.'
-				else if $('.scenario_entry.selected_row').size() > 1
-					alert 'Please select only one scenario first.'
-				else
-					id = $('.scenario_entry.selected_row').data("id")
-					path = "/scenarios/#{id}/edit"
-					window.location = path
+		$('.delete_neg_button').click ->
+			if $('.negotiation_entry.selected_row').size() == 0
+				alert 'Please select a negotiation first.'
+			else if $('.negotiation_entry.selected_row').size() > 1
+				alert 'Please select only one negotiation first.'
+			else if confirm 'Are you certain?'
+				id = $('.negotiation_entry.selected_row').data("id")
+				path = "/negotiations/destroy/#{id}/"
+				$.get path, (d) ->
+					reload_admin()
 					
+		$('.inspect_neg_button').click ->
+			if $('.negotiation_entry.selected_row').size() == 0
+				alert 'Please select a negotiation first.'
+			else if $('.negotiation_entry.selected_row').size() > 1
+				alert 'Please select only one negotiation first.'
+			else
+				id = $('.negotiation_entry.selected_row').data('id')
+				window.location = "/inspect/#{id}"
+		
+				
+		$('.delete_scenario_button').click ->
+			if $('.scenario_entry.selected_row').size() == 0
+				alert 'Please select a scenario first.'
+			else if $('.scenario_entry.selected_row').size() > 1
+				alert 'Please select only one scenario first.'
+			else if confirm 'Are you certain? This will also delete all dependent negotiations.'
+				id = $('.scenario_entry.selected_row').data("id")
+				path = "/scenarios/destroy/#{id}/"
+				
+				$.get path, (d) ->
+					reload_admin()
 					
-			$('.consent_button').click ->
-				id = $('body').data('id')
-				$.post "/users/#{id}/accept_consent", {
-					authenticity_token: AUTH_TOKEN
-				}
-				$('#consent_form').empty().append("
-			    <h1>Negotiation Chat</h1>
-    
-			    <p>You'll be able to start the study just as soon as the other participant is ready.</p>
-				")
-					
-			
-			# Not part of a table, but relies on ajax
-			
-			# position_input()
+		$('.edit_scenario_button').click ->
+			if $('.scenario_entry.selected_row').size() == 0
+				alert 'Please select a scenario first.'
+			else if $('.scenario_entry.selected_row').size() > 1
+				alert 'Please select only one scenario first.'
+			else
+				id = $('.scenario_entry.selected_row').data("id")
+				path = "/scenarios/#{id}/edit"
+				window.location = path
+				
+
+				
+		
+		# Not part of a table, but relies on ajax
+		
+		# position_input()
 	
 
-			
+		

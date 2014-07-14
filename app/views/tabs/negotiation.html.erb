@@ -1,35 +1,3 @@
 
 
-<% if current_user.negotiation.ready? %>
-
-<h2>Negotiation Chat</h2>
-
-<div class = 'message_index'>
-  <div class = 'container'>
-    <%  @negotiation.messages.each do |message| %>
-      <% if message.receiver == current_user %>
-        <div class = 'receiver_message'><span><%= message.content %></span></div>
-      <% else %>
-        <div class = 'sender_message'><span><%= message.content %></span></div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
- 
-<%= text_area_tag :content, '', class: 'message_content expanding' %>
-
-<% else  %>
-
-  <% unless current_user.consent %>
-
-    <%= render '/partials/consent_form' %>
-  
-  <% else %>
-    
-    <h1>Negotiation Chat</h1>
-    
-    <p>You'll be able to start the study just as soon as the other participant is ready.</p>
-
-  <% end %>
-  
-<% end %>
+<%= render 'partials/tabs/negotiation' %>

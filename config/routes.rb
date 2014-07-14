@@ -27,6 +27,8 @@ Negotiations::Application.routes.draw do
 	get "messages/create"
 	
 	get 'negotiations/messages'
+	post 'users/accept_background'
+	
 	
 	
 	match 'reference', to: 'static#reference'
@@ -34,6 +36,10 @@ Negotiations::Application.routes.draw do
 	match 'signup', to: 'users#new'
 	match 'log_in', to: 'sessions#new'
 	match 'log_out', to: 'sessions#destroy'
+	match 'consent', to: 'users#consent'
+	match 'background', to: 'users#background'
+	match 'instructions', to: 'users#instructions'
+	match 'waiting', to: 'users#waiting'
 	
 	match 'admin/:id' => 'tabs#admin'
 	match 'background/:id' => 'tabs#background'
@@ -42,6 +48,7 @@ Negotiations::Application.routes.draw do
 	
 	get 'tabs/private_pub_subscribe'
 	get 'tabs/private_pub_subscribe_admin'
+	get 'tabs/waiting'
 	
 	match 'destroy/:id' => 'users#delete'
 	match 'negotiations/destroy/:id' => 'negotiations#delete'

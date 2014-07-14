@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140710154630) do
+ActiveRecord::Schema.define(:version => 20140714182448) do
 
   create_table "messages", :force => true do |t|
     t.integer  "sender_id"
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(:version => 20140710154630) do
     t.text     "foreign_languages"
     t.boolean  "admin",             :default => false
     t.boolean  "consent",           :default => false
+    t.boolean  "background",        :default => false
+    t.datetime "start_background"
+    t.datetime "end_background"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

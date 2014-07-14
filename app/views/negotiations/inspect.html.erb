@@ -3,6 +3,20 @@
 
 <h2 style = 'text-decoration:underline'>Negotiation <%= @negotiation.id %> History</h2>
 
+<h3>Users</h3>
+<table class = 'user_table'>
+  
+  <tr id = 'entry_definitions'>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Background Time</td>
+    <td>Online</td>
+    <td>Admin</td>
+  </tr>
+<%= render @negotiation.users %>
+
+</table>
+
 <div id = 'message_history'>
   <% if @negotiation.messages.any? %>
     <%  @negotiation.messages.each do |message| %>

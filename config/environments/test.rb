@@ -41,5 +41,7 @@ Negotiations::Application.configure do
 		BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
 	end
 	
+	ENV["REDISTOGO_URL"] = 'redis://charles:password@localhost:6389'
+	
 	
 end

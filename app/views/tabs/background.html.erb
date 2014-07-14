@@ -1,28 +1,2 @@
 
-<% if current_user.negotiation.ready? %>
-
-<h2>Background — <%= current_user.negotiation.scenario.title %></h2>
-
-<% @scenario = current_user.negotiation.scenario %>
-
-<p><%= @scenario.general %></p>
-
-<h3>Your Objective:</h3>
-
-<p>
- <%= first_user?(current_user) ? @scenario.first_role : @scenario.second_role %>
-</p>
-
-<% else %>
-
-<h2>The Negotiation is not ready.</h2>
-
-<p>Please wait for the other participant to join and consent.</p>
-
-<% unless current_user.consent %>
-
-<p>You can fill out the consent form under the 'Negotiation' tab when you're ready.</p>
-
-<% end %>
-
-<% end %>
+<%= render 'partials/tabs/background' %>

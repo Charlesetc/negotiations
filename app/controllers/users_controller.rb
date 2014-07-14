@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 	
 	before_filter :signed_in_user, except: [:new, :create]
-	before_filter :correct_user, except: [:new, :create, :toggle_admin, :delete]
+	before_filter :correct_user, except: [:new, :create, :toggle_admin, 
+		:delete, :consent, :background, :instructions, :accept_background,
+		:waiting]
 	before_filter :admin_user, only: [:toggle_admin, :delete]
 	
 	
@@ -17,11 +19,11 @@ class UsersController < ApplicationController
  	end
 	
 	def show
-		@user = User.find(params[:id])
-		@negotiation = @user.negotiation
-		@negotiation.randomize_if_new if @negotiation
-		@page_id = "user_show"
-		@tabs = tabs
+		# @user = User.find(params[:id])
+		# @negotiation = @user.negotiation
+		# @negotiation.randomize_if_new if @negotiation
+		# @page_id = "user_show"
+		# @tabs = tabs
 		redirect_to root_url
 	end
 	
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
 				if @user.save
 					sign_in @user
 					flash[:success] = 'Welcome'
-					redirect_to @user
+					redirect_to instructions_url
 				else
 					@title = 'Sign Up'
 					@page_id = "sign_up"
@@ -67,11 +69,40 @@ class UsersController < ApplicationController
 	
 	def accept_consent
 		@user = User.find(params[:id])
+		@user.update_attribute(:start_background, Time.now) unless @user.start_background
 		@user.update_attribute(:consent, true)
 		sign_in @user # Very important, update attributes changes.
-		render inline: 'Done'
+		render inline: "Done"
 	end
 	
+	def accept_background
+		PrivatePub.publish_to "/negotiation/waiting/#{current_user.negotiation.id}", :content => true 
+		@user = current_user
+		@user.update_attribute(:end_background, Time.now) unless @user.end_background
+		@user.update_attribute(:background, true)
+		sign_in @user
+		redirect_to root_url
+	end
+	
+	def consent
+		@title = 'Consent'
+		@page_id = 'consent_page'
+	end
+	
+	def background
+		@title = 'Background'
+		@page_id = 'background_page'
+	end
+	
+	def waiting
+		@title = 'Waiting'
+		@page_id = 'waiting_page'
+	end
+	
+	def instructions
+		@title = 'Instructions'
+		@page_id = 'instructions_page'
+	end
 	
 	def edit
 		@title = 'Settings'

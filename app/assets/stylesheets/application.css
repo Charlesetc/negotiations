@@ -59,7 +59,7 @@ body::after {
 
 /* Home Main Section */
 
-#home, #about, #reference {
+#home, #about, #reference, #consent_page, #background_page, #instructions_page {
 	width: 70%;
 	margin: auto;
 	margin-top:50px;
@@ -145,8 +145,11 @@ header li {
 }
 
 header a {
-	color: #D6D6CE;
-	font-family: 'ProximaNova-Regular'
+	color: white;
+	font-family: 'ProximaNova-Regular';
+	font-size:20px;
+	position:relative;
+	top:5px;
 }
 
 header a:hover {
@@ -170,9 +173,17 @@ header {
 	top:-10px;
 }
 
+header h1 a {
+	position:relative;
+	top:0px;
+}
+
+header h1 a span {
+	font-size:34px;
+}
+
 
 header h1 {
-	font-size: 26px;
 	position:relative;
 	top:-9px;
 	left:20px;
@@ -227,7 +238,7 @@ pre.debug_dump {
 
 /* Sign Up Page, Log In Page */
 
-#sign_up, #log_in, #settings, #negotiation_creation, #scenario_creation, #negotiation_inspection {
+#sign_up, #log_in, #settings, #negotiation_creation, #scenario_creation, #negotiation_inspection, #waiting_page {
 	margin: auto;
 	padding: 40px;
 	border-radius: 10px;
@@ -238,7 +249,7 @@ pre.debug_dump {
 }
 
 
-#sign_up h1, #log_in h1, #settings h1, #negotiation_creation h1, #scenario_creation h1, #negotiation_inspection h1 {
+#sign_up h1, #log_in h1, #settings h1, #negotiation_creation h1, #scenario_creation h1, #negotiation_inspection h1, #waiting_page h1 {
 	font-size: 35px;
 	position:relative;
 	top: -30px;
@@ -252,7 +263,7 @@ pre.debug_dump {
 	left:30px;
 }
 
-.basic_form input, button, .basic_form textarea, .basic_form select, .consent_button {
+.basic_form input, button, .basic_form textarea, .basic_form select, .consent_button, .basic_button {
 	font-size: 20px;
 	border: 1px solid black;
 	background:white;
@@ -267,7 +278,7 @@ pre.debug_dump {
 	height:100px;
 }
 
-.basic_form #submit_button, button, .consent_button {
+.basic_form #submit_button, button, .consent_button, .basic_button {
 	font-size: 16px;
 	background:white;
 	margin-top: 10px;
@@ -290,7 +301,7 @@ pre.debug_dump {
 /* Easy Tabs */
 
 #tab-container {
-	width:70%;
+	width:80%;
 	margin:auto;
 }
 
@@ -394,12 +405,12 @@ span.error_designation {
 .dropdown {
 	z-index:40;
 	background: #333;
-	width: 130px;
+	width: 150px;
 	margin: 0px;
 	list-style:none;
 	padding: 10px 0px 10px 0px;
 	position:relative;
-	left:64px;
+	left:120px;
 	top:-2px;
 	display:none; /* Fix for jitters */
 }
@@ -412,7 +423,7 @@ span.error_designation {
 
 .dropdown a:hover {
 	border-bottom: none;
-	color:#D6D6CE;
+	color:white;
 }
 
 .dropdown li:hover {
@@ -494,15 +505,20 @@ span.error_designation {
 	border-radius:20px;
 	-webkit-border-radius:20px;
 	padding-left:10px;
+	padding-right:6px;
 	margin:auto;
 	margin-top:2px;
-	margin-bottom:2px;
+	margin-left:2px;
 	width:100%;
 	height:30px;
 	line-height:30px;
 }
 
-.message_content:focus {
+.expanding-wrapper {
+	left:1.6%;
+}
+
+content:focus {
 	box-shadow: 0px 0px 2px 1px #47B5FF;
 }
 
@@ -515,6 +531,7 @@ span.error_designation {
 	z-index:21;
 	margin-bottom:20px;
 	padding-top:7px;
+	padding-bottom:7px;
 }
 
 
@@ -555,6 +572,10 @@ span.error_designation {
 	color:#0099FF;
 }
 
+#message_history p {
+	word-wrap:break-word;
+}
+
 
 
 /* Consent Form */
@@ -579,4 +600,57 @@ span.error_designation {
 #scroll_consent {
 	overflow:scroll;
 	height:200px;
+}
+
+
+
+/* Display for Sequence of Events */
+
+#background_block {
+	display:inline-block;
+	width:59%;
+	background:white;
+	margin:1%;
+	margin-right:3%;
+	vertical-align:top;
+	margin-top:25px;
+	box-shadow:0px 0px 10px -1px black;
+	overflow:scroll;
+}
+
+#negotiation_block {
+	display:inline-block;
+	width:35%;
+	text-align:center;
+}
+
+#background_block * {
+	padding:0px 15px;
+}
+
+#show_body {
+	overflow:hidden;
+}
+
+
+#clock {
+	position:absolute;
+	top:24px;
+	font-size:20px;
+	color:white;
+	right:45%;
+}
+
+#clock:hover {
+	color:black;
+}
+
+
+
+
+/* Waiting Page */
+
+#waiting_page {
+	position:relative;
+	height:250px;
 }

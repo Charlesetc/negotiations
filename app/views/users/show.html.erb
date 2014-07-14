@@ -15,8 +15,9 @@
 
   <% @tabs.each do |tab| %>
     <div id="tab_<%= tab[:title].downcase %>" class = 'tab'>
-      <%=  tab[:content] %>
+      <%= render "/partials/tabs/#{tab[:title].downcase}" %>
     </div>
   <% end %>
 </div> 
+ 
  

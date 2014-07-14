@@ -23,6 +23,19 @@ class Negotiation < ActiveRecord::Base
 		self.users.count >= 2 # This is what designates negotiation size 
 	end
 	
+	def state
+		return 'empty' unless self.full?
+		#return 'consenting' unless self.user_consent?
+		return 'ready' if self.ready?
+	end
+	
+	def user_background?
+		unless self.full?
+			return false
+		end
+		self.first_user.background && self.second_user.background
+	end
+	
 	def user_consent?
 		self.first_user.consent && self.second_user.consent
 	end
@@ -66,7 +79,8 @@ class Negotiation < ActiveRecord::Base
 	end
 	
 	def ready?
-		self.full? && self.first_user && self.user_consent?
+		self.full? && self.first_user && self.user_consent? && self.user_background?
+		# If this becomes a problem, just make it self.user_background?
 	end
 	
 	def first_user

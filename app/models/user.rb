@@ -16,14 +16,18 @@
 #  native_languages  :text
 #  foreign_languages :text
 #  admin             :boolean          default(FALSE)
+#  consent           :boolean          default(FALSE)
+#  background        :boolean          default(FALSE)
+#  start_background  :datetime
+#  end_background    :datetime
 #
 
 class User < ActiveRecord::Base
 
 	attr_accessible :email, :name, :username, :password, :password_confirmation
 	attr_accessible :sex, :age, :secure_key, :foreign_languages, :native_languages
-	attr_accessible :admin, :consent
-	
+	attr_accessible :admin, :consent, :background, :start_background, :end_background
+																		# These might be unnecessary
 	serialize :native_languages, Array
 	serialize :foreign_languages, Array
 	
@@ -58,6 +62,22 @@ class User < ActiveRecord::Base
 		difference <= 30
 	end
 	
+	def background_time
+		return false unless self.start_background && self.end_background
+		self.end_background - self.start_background
+	end
+	
+	def role
+		if self == self.negotiation.first_user
+			return self.scenario.first_role_title
+		else
+			return self.scenario.second_role_title
+		end
+	end
+	
+	def scenario
+		self.negotiation.scenario
+	end
 	
 	private
 		
