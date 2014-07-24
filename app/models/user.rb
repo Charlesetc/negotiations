@@ -11,7 +11,6 @@
 #  password_digest   :string(255)
 #  remember_token    :string(255)
 #  sex               :string(255)
-#  age               :integer
 #  secure_key        :string(255)
 #  native_languages  :text
 #  foreign_languages :text
@@ -20,16 +19,34 @@
 #  background        :boolean          default(FALSE)
 #  start_background  :datetime
 #  end_background    :datetime
+#  date_of_birth     :date
+#  country           :string(255)
+#  start_english     :integer
+#  english_home      :boolean
+#  acquired_english  :text
+#  hebrew_listening  :integer
+#  hebrew_speaking   :integer
+#  hebrew_reading    :integer
+#  hebrew_writing    :integer
+#  english_listening :integer
+#  english_speaking  :integer
+#  english_reading   :integer
+#  english_writing   :integer
 #
 
 class User < ActiveRecord::Base
 
-	attr_accessible :email, :name, :username, :password, :password_confirmation
-	attr_accessible :sex, :age, :secure_key, :foreign_languages, :native_languages
+	attr_accessible :email, :name, :username, :password, :new_password, :password_confirmation
+	attr_accessible :sex, :date_of_birth, :secure_key, :foreign_languages, :native_languages
 	attr_accessible :admin, :consent, :background, :start_background, :end_background
+	attr_accessible :country, :start_english, :english_home, :acquired_english
+	attr_accessible :hebrew_listening, :hebrew_speaking, :hebrew_reading, :hebrew_writing
+	attr_accessible :english_listening, :english_speaking, :english_reading, :english_writing
+	attr_accessible :research, :emotions
 																		# These might be unnecessary
 	serialize :native_languages, Array
 	serialize :foreign_languages, Array
+	serialize :acquired_english, Array
 	
 	has_secure_password
 	
@@ -39,7 +56,6 @@ class User < ActiveRecord::Base
 	
 	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
 	VALID_USERNAME = /^\S*$/
-	VALID_AGE = /^(\n)$/
 	validates :name, presence: true
 	validates :username, presence: true, uniqueness: true,
 		 				length: { maximum: 50 }, format: {with: VALID_USERNAME}
@@ -49,8 +65,19 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, presence: true
 	validates :secure_key, presence: true
 	validates :sex, presence: true
-	validates :age, presence: true, numericality: { only_integer: true, less_than: 110 }
-	
+	validates :date_of_birth, presence: true
+	validates :country, presence: true
+	validates :start_english, presence: true, numericality: true
+	validates :hebrew_listening, presence: true
+	validates :hebrew_speaking, presence: true
+	validates :hebrew_reading, presence: true
+	validates :hebrew_writing, presence: true
+	validates :english_listening, presence: true
+	validates :english_speaking, presence: true
+	validates :english_reading, presence: true
+	validates :english_writing, presence: true
+	validates :research, presence: true
+	validates :emotions, presence: true
 	
 	def negotiation
 		Negotiation.find_by_secure_key(self.secure_key)
@@ -77,6 +104,14 @@ class User < ActiveRecord::Base
 	
 	def scenario
 		self.negotiation.scenario
+	end
+	
+	def other_user
+		if self == self.negotiation.first_user
+			return self.negotiation.second_user
+		else
+			return self.negotiation.first_user
+		end
 	end
 	
 	private

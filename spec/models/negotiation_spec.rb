@@ -8,6 +8,8 @@
 #  updated_at    :datetime         not null
 #  scenario_id   :integer
 #  first_user_id :integer
+#  start_time    :datetime
+#  end_time      :datetime
 #
 
 require 'spec_helper'

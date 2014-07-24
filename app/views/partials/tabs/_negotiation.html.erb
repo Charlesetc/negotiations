@@ -2,13 +2,15 @@
 
   <div id = 'background_block'>
   <%= render 'partials/tabs/background' %>
-  <p style = 'border-top:1px solid black'>
-    Done Negotiating?
-    <%= submit_tag 'Fill out Form', class: 'basic_button' %>
+  <p class = 'agreement_p' id = 'agreement_p'>
+    <%= form_tag '/users/alert_request' do %>
+      Done Negotiating?
+      <%= submit_tag 'Fill out Form', class: 'agreement_button basic_button' %>
+    <% end %>
   </p>
   
   </div>
   
-  <div id = 'negotiation_block'>
+  <div id = 'negotiation_block' data-time-left = '<%= current_user.negotiation.time_left %>'>
   <%= render 'partials/tabs/chat' %>
   </div>

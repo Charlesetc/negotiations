@@ -7,5 +7,6 @@
 
 
 PrivatePub.subscribe "/negotiation/waiting/<%= current_user.negotiation.id %>", (data, channel) ->
+	$('body').append "<embed src=\"/sound.wav\" hidden=\"true\" autostart=\"true\" loop=\"false\" />"
 	window.location.pathname = '/'
 

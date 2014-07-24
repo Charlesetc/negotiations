@@ -28,9 +28,10 @@ Negotiations::Application.routes.draw do
 	
 	get 'negotiations/messages'
 	post 'users/accept_background'
+	post 'users/alert_request'
 	
-	
-	
+	match 'index', to: 'users#index'
+	match 'agreement', to: 'negotiations#form'
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'
@@ -49,6 +50,7 @@ Negotiations::Application.routes.draw do
 	get 'tabs/private_pub_subscribe'
 	get 'tabs/private_pub_subscribe_admin'
 	get 'tabs/waiting'
+	get 'tabs/alert_request'
 	
 	match 'destroy/:id' => 'users#delete'
 	match 'negotiations/destroy/:id' => 'negotiations#delete'

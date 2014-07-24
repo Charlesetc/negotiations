@@ -3,8 +3,9 @@ class UsersController < ApplicationController
 	before_filter :signed_in_user, except: [:new, :create]
 	before_filter :correct_user, except: [:new, :create, :toggle_admin, 
 		:delete, :consent, :background, :instructions, :accept_background,
-		:waiting]
-	before_filter :admin_user, only: [:toggle_admin, :delete]
+		:waiting, :alert_request, :index]
+	before_filter :admin_user, only: [:toggle_admin, :delete, :index]
+	layout false, only: :index
 	
 	
 	def new
@@ -27,13 +28,19 @@ class UsersController < ApplicationController
 		redirect_to root_url
 	end
 	
+	def index
+		respond_to do |format|
+			format.xls
+		end
+	end
+	
 	def create
 		@user = User.new(params[:user])
 		@user.username.downcase
 		@user.native_languages = 
-			params[:user][:native_languages].gsub(/ /, '').downcase.split(',')
+			params[:user][:native_languages].gsub(/\s/, '').downcase.split(',')
 		@user.foreign_languages = 
-			params[:user][:foreign_languages].gsub(/ /, '').downcase.split(',')
+			params[:user][:foreign_languages].gsub(/\s/, '').downcase.split(',')
 			
 
 		if @neg = Negotiation.find_by_secure_key(@user.secure_key) 
@@ -80,8 +87,17 @@ class UsersController < ApplicationController
 		@user = current_user
 		@user.update_attribute(:end_background, Time.now) unless @user.end_background
 		@user.update_attribute(:background, true)
+		if @user.negotiation.user_background?
+			@user.negotiation.update_attribute :start_time, Time.now unless @user.negotiation.start_time
+		end
 		sign_in @user
 		redirect_to root_url
+	end
+	
+	def alert_request
+		# Takes two parameters
+		PrivatePub.publish_to "user/alert_request", :content => true 
+		render inline: 'Done'
 	end
 	
 	def consent
@@ -112,23 +128,33 @@ class UsersController < ApplicationController
 	
 	def update
 		@user = User.find(params[:id])
+		# @attributes = params[:user]
+		# @attributes[:secure_key] = @user.secure_key
+		#
+		# @attributes[:native_languages] =
+		# 	params[:user][:native_languages].gsub(/ /, '').downcase.split(',')
+		# @attributes[:foreign_languages] =
+		# 	params[:user][:foreign_languages].gsub(/ /, '').downcase.split(',')
 		@attributes = params[:user]
-		@attributes[:secure_key] = @user.secure_key
-
-		@attributes[:native_languages] = 
-			params[:user][:native_languages].gsub(/ /, '').downcase.split(',')
-		@attributes[:foreign_languages] = 
-			params[:user][:foreign_languages].gsub(/ /, '').downcase.split(',')
 		
-		if @user.update_attributes(@attributes)
+		@user.username = @attributes[:username]
+		@user.password = @attributes[:new_password]
+		@user.password_confirmation = @attributes[:password_confirmation]
+		@user.name = @attributes[:name]
+		@user.email = @attributes[:email]
+		
+		if @user.save
+			
 			flash[:success] = 'You have succcessfully updated your settings.'
 			sign_in @user
 			redirect_to root_url
+			
 		else
 			@title = 'Settings'
 			@page_id = 'settings'
 			render 'edit'
 		end
+		
 	end
 	
 	def delete

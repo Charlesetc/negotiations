@@ -50,8 +50,10 @@ Message.destroy_all
 		password: 'foobar',
 		password_confirmation: 'foobar',
 		sex: 'male',
-		age: 12,
-		secure_key: "key_#{i}"
+		date_of_birth: Time.now,
+		secure_key: "key_#{i}",
+		research: "Yep hello",
+		emotions: 'Sad, angry'
 	)
 	
 	if i == 0
@@ -62,8 +64,10 @@ Message.destroy_all
 			password: 'foobar',
 			password_confirmation: 'foobar',
 			sex: 'female',
-			age: 105,
-			secure_key: "key_#{i}"
+			date_of_birth: Time.now,
+			secure_key: "key_#{i}",
+			research: "Yep hello",
+			emotions: 'Sad, angry'
 		)
 	end
 	
@@ -74,8 +78,10 @@ Message.destroy_all
 		password: 'foobar',
 		password_confirmation: 'foobar',
 		sex: 'male',
-		age: 12,
-		secure_key: "secure_key_#{i}"
+		date_of_birth: Time.now,
+		secure_key: "secure_key_#{i}",
+		research: "Yep hello",
+		emotions: 'Sad, angry'
 	)
 	
 	@user_three = User.create(
@@ -85,11 +91,12 @@ Message.destroy_all
 		password: 'foobar',
 		password_confirmation: 'foobar',
 		sex: 'female',
-		age: 12,
-		secure_key: "secure_key_#{i}"
+		date_of_birth: Time.now,
+		secure_key: "secure_key_#{i}",
+		research: "Yep hello",
+		emotions: 'Sad, angry'
 	)
 	
 end
-
-User.find_by_email('rainbowpeach@uchicago.edu')\
-.update_attribute(:admin, true)
+#
+# User.find_by_email('rainbowpeach@uchicago.edu').update_attribute(:admin, true)

@@ -6,7 +6,10 @@ $ ->
 	# Variables
 	ajax_count = 0
 	keypress_count = 1
-	# Functions
+	agreement_count = 0
+	clock_count = 0
+	
+ 	# Functions
 	
 	
 	# fetch_messages_recursively = ->
@@ -27,17 +30,74 @@ $ ->
 	# 		timeout: 30000,
 	# 		success: into_message_index(data), # Not being called
 	# 	}
-			
+
+	next_dot = ->
+		dot = $('.current_dot')
+		dot.removeClass 'current_dot'
+		dot.next().addClass 'current_dot'
+		
+	back_dot = ->
+		dot = $('.current_dot')
+		dot.removeClass 'current_dot'
+		dot.prev().addClass 'current_dot'
+	
 	next_page = -> 
 		$('#wizard_page').siblings().hide()
 		$('#wizard_page').show()
 		$('.next_button').hide()
+		$('body').addClass '2nd_wizard_page'
+		next_dot()
 		
 	back_page = ->
 		$('#wizard_page').siblings().show()
 		$('#wizard_page').hide()
 		$('.next_button').show()
+		$('body').removeClass '2nd_wizard_page'
+		back_dot()
 		
+	next_page_2 = ->
+		$('#wizard_page_2').siblings().hide()
+		$('#wizard_page_2').show()
+		$('body').removeClass '2nd_wizard_page'
+		$('body').addClass '3rd_wizard_page'
+		next_dot()
+		
+		
+	back_page_2 = ->
+		$('#wizard_page_2').siblings().show()
+		$('#wizard_page_2').hide()
+		$('body').addClass '2nd_wizard_page'
+		$('body').removeClass '3rd_wizard_page'
+		back_dot()
+		
+	next_page_3 = ->
+		$('#wizard_page_3').siblings().hide()
+		$('#wizard_page_3').show()
+		$('body').removeClass '3rd_wizard_page'
+		$('body').addClass '4th_wizard_page'
+		next_dot()
+		
+	back_page_3 = ->
+		$('#wizard_page_3').siblings().show()
+		$('#wizard_page_3').hide()
+		$('body').removeClass '4th_wizard_page'
+		$('body').addClass '3rd_wizard_page'
+		back_dot()
+		
+	next_page_4 = ->
+		$('#wizard_page_4').siblings().hide()
+		$('#wizard_page_4').show()
+		$('body').removeClass '4th_wizard_page'
+		$('body').addClass '5th_wizard_page'
+		next_dot()
+		
+	back_page_4 = ->
+		$('#wizard_page_4').siblings().show()
+		$('#wizard_page_4').hide()
+		$('body').removeClass '5th_wizard_page'
+		$('body').addClass '4th_wizard_page'
+		back_dot()
+	
 	position_footer = -> 
 		if $(document).height() > $(window).height()
 			$('footer').removeClass 'fixed_footer'
@@ -50,6 +110,12 @@ $ ->
 		$.get "/admin/#{id}", (data) ->
 			$('#tab_admin').empty()
 			$('#tab_admin').append(data)
+			
+	play_sound = ->
+		$('body').append "<embed src=\"/sound.wav\" hidden=\"true\" autostart=\"true\" loop=\"false\" />"
+			
+	play_angry_sound = ->
+		
 			
 	reload_negotiation = -> 
 		id = $('.etabs').attr 'id'
@@ -64,9 +130,58 @@ $ ->
 		body::after { height: #{height}px }
 			</style>")
 			
-	# clear_input = ->
-	# 	#$('.message_content').val('').change()
+	check_empty = -> 
+		empty = false
+		$('#wizard_page').siblings('div').children('input:password, input:text').each (index) ->
+			if $(this).val() == ''
+				empty = true
+		return empty
+	
+	check_empty_2 = ->
+		empty = false
+		$('#wizard_page_2').siblings('div').children('input:password, input:text').each (index) ->
+			if $(this).val() == ''
+				empty = true
+		return empty
+		
+	check_empty_3 = ->
+		empty = false
+		$('#wizard_page_3').siblings('div').children('input:password, input:text').each (index) ->
+			if $(this).val() == ''
+				empty = true # Should work
+		return empty
+		
+	check_empty_4 = ->
+		empty = false
+		$('#wizard_page_4').siblings('div').children('input:password, input:text').each (index) ->
+			if $(this).val() == ''
+				empty = true # Should work
+		return empty
 			
+	next_enabled = ->
+		if check_empty()
+			$('.next_button').addClass 'disabled'
+		else
+			$('.next_button').removeClass 'disabled'
+	
+	next_enabled_2 = ->
+		if check_empty_2()
+			$('.next_button_2').addClass 'disabled'
+		else
+			$('.next_button_2').removeClass 'disabled'
+	
+	next_enabled_3 = ->
+		if check_empty_3()
+			$('.next_button_3').addClass 'disabled'
+		else
+			$('.next_button_3').removeClass 'disabled'
+	
+	next_enabled_4 = ->
+		if check_empty_4()
+			$('.next_button_4').addClass 'disabled'
+		else
+			$('.next_button_4').removeClass 'disabled'		
+	
 	clear_selected = ->
 		$('.selected_row').removeClass 'selected_row'
 	
@@ -74,10 +189,8 @@ $ ->
 		scroll_index()
 		index_height()
 		position_footer()
-		
-	
 
-	index_height = -> 
+	index_height = ->
 		$('.message_index').height($(window).height() - 355)
 		$('#background_block').height($(window).height() - 246)
 		
@@ -90,18 +203,36 @@ $ ->
 		$('.message_index').scrollTop(height)
 		
 	add_clock = ->
-		$('#show_body').append "<div id = 'clock'>20:00</div>"
+		time_left = $('#negotiation_block').data('time-left')
+		minutes = Math.floor(Number(time_left) / 60)
+		seconds = time_left - (60 * minutes)
+		if seconds < 10
+			seconds = "0#{seconds}"
+		$('#show_body').append "<div id = 'clock' class = 'going_clock'>#{minutes}:#{seconds}</div>"
 		
 	tick_clock = ->
 		numbers = $('#clock').text().split ':'
 		seconds = Number(numbers[1])
-		seconds -= 1
-		if seconds < 0
-			seconds = 59
-			numbers[0] = tock_clock()
-		else if seconds < 10
-			seconds = "0#{seconds}"
-		$('#clock').empty().append numbers[0] + ":" + seconds
+		minutes = Number(numbers[0])
+		
+		if (minutes == 0 and seconds == 0) or (minutes < 0)
+			$('#clock').empty().append "00:00"
+			$('#clock').toggleClass('done_clock')
+			$('#clock').toggleClass('going_clock')
+			if clock_count == 0
+				play_angry_sound()
+				clock_count = 1
+		else
+			seconds -= 1
+			if seconds < 0
+				seconds = 59
+				numbers[0] = tock_clock()
+			else if seconds < 10
+				seconds = "0#{seconds}"
+			if minutes  < 10
+				minutes = "0#{minutes}"
+			$('#clock').empty().append numbers[0] + ":" + seconds
+
 		
 	tock_clock = ->
 		numbers = $('#clock').text().split ':'
@@ -114,9 +245,9 @@ $ ->
 	
 		
 	add_spin = ->
-		target = document.getElementById('waiting_page');
+		target = document.getElementById('waiting_page')
 		spin = new Spinner({
-			top: '72%',
+			top: '75%',
 			width: 20,
 			length:0,
 			lines: 7,
@@ -126,6 +257,13 @@ $ ->
 			rotate: 14,
 			color: '#333'
 		}).spin(target)
+		
+	
+	set_waiting = ->
+	  if $('#waiting_page').length > 0
+		  $('a').click ->
+			  return confirm "\nAre you certain?\n\nIf you leave this page you
+			  will not be notified when the other participant is ready.\n"
 		
 		
 		
@@ -137,7 +275,10 @@ $ ->
 	
 	add_spin()
 	
+	tick_clock()
 	setInterval tick_clock, 1000
+	
+	set_waiting()
 	
 	$(window).scroll ->
 		$(window).scrollLeft(0) # Bug fix
@@ -155,20 +296,96 @@ $ ->
 
 
 	
+	# Dots
+		
+	$('.dot').click ->
+		if $(this).nextAll('.current_dot').length > 0
+			if $('body').hasClass '2nd_wizard_page'
+				back_page()
+			else if $('body').hasClass '3rd_wizard_page'
+				back_page_2()
+			else if $('body').hasClass '4th_wizard_page'
+				back_page_3()
+			else
+				back_page_4()
+		else if $(this).prevAll('.current_dot').length > 0
+			if $('body').hasClass '2nd_wizard_page'
+				unless check_empty_2()
+					next_page_2()
+			else if $('body').hasClass '3rd_wizard_page'
+				unless check_empty_3()
+					next_page_3()
+			else if $('body').hasClass '4th_wizard_page'
+				unless check_empty_4()
+					next_page_4()
+			else
+				unless check_empty()
+					next_page()
+				
+	next_enabled()
+	$('#wizard_page').siblings().children('input').keypress (e) ->
+		next_enabled()
+		
+	next_enabled_2()
+	$('#wizard_page_2').siblings().children('input').keypress (e) ->
+		next_enabled_2()
+	
+	next_enabled_3()
+	$('#wizard_page_3').siblings().children('input').keypress (e) ->
+		next_enabled_3()
+		
+	next_enabled_4()
+	$('#wizard_page_4').siblings().children('input').keypress (e) ->
+		next_enabled_4()
+	
+	
 	# Wizard
 	$('#wizard_page').hide()
+	$('#wizard_page_2').hide()
+	$('#wizard_page_3').hide()
+	$('#wizard_page_4').hide()
 	$('.next_button').click ->
-		next_page()
+		unless $(this).hasClass 'disabled'
+			next_page()
 	$('.back_button').click ->
 		back_page()
+	$('.next_button_2').click ->
+		unless $(this).hasClass 'disabled'
+			next_page_2()
+	$('.next_button_3').click ->
+		unless $(this).hasClass 'disabled'
+			next_page_3()
+	$('.next_button_4').click ->
+		unless $(this).hasClass 'disabled'
+			next_page_4()
+	$('.back_button_4').click ->
+		back_page_4()
+	$('.back_button_3').click ->
+		back_page_3()
+	$('.back_button_2').click ->
+		back_page_2()
 	$('#wizard_page').parent().children('div').children('input').keypress (e) ->      
-		if e.which == 13 and $(this).parent().attr('id') == 'last_input'
-			next_page()
+		if e.which == 13 and $(this).parent().hasClass 'last_input'
+			unless $('.next_button').hasClass 'disabled'
+				next_page()
 			return false
 		else if e.which == 13 
 			$(this).parent().next().next().children('input').focus()
 			return false
 			
+	$('#wizard_page_2').parent().children('div').children('input').keypress (e) ->      
+		if e.which == 13 and $(this).parent().hasClass 'last_input'
+			unless $('.next_button_2').hasClass 'disabled'
+				next_page_2()
+			return false
+		else if e.which == 13 
+			$(this).parent().next().next().children('input').focus()
+			return false
+			
+	$('.other_input').keypress (e) ->
+		$(this).siblings().attr 'value', $(this).val()		
+	
+	
 		
 	# Ajax for Last Seen
 	
@@ -200,7 +417,12 @@ $ ->
 		
 	$('.background_button').click ->
 		window.location.pathname = '/accept_background'
-	
+		
+	$('.agreement_button').click ->
+		unless agreement_count == 1
+			$('#background_block').append '<p>Waiting for other participant to accept...</p>'
+			agreement_count = 1
+
 	
 
 			

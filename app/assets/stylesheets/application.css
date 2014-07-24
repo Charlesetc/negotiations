@@ -16,14 +16,14 @@
 /* General */
 
 * {
-	font-family: verdana, 'ProximaNova-Regular';
+	font-family: Verdana, 'ProximaNova-Regular';
 	padding: 0px, 0px;
 	margin: 0px, 0px;
 	
 }
 
 h1 * {
-	font-family: 'ProximaNova-Regular';
+	font-family: 'ProximaNova-Regular', Arial;
 	font-size: 27px;
 }
 
@@ -37,7 +37,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'ProximaNova-Semibold';
+	font-family: 'ProximaNova-Semibold', Arial;
 }
 
 
@@ -257,10 +257,21 @@ pre.debug_dump {
 
 }
 
+.agreement_button:active {
+	position:relative;
+	top:2px;
+}
+
+.agreement_p {
+	border-top:1px solid black;
+	position:relative;
+}
+
 .basic_form {
 	position:relative;
 	top: -30px;
-	left:30px;
+	padding-left:30px;
+	padding-right:30px;
 }
 
 .basic_form input, button, .basic_form textarea, .basic_form select, .consent_button, .basic_button {
@@ -287,6 +298,7 @@ pre.debug_dump {
 	cursor: pointer;
 }
 
+
 #log_in a {
 	color:black;
 	text-decoration: underline;
@@ -295,6 +307,10 @@ pre.debug_dump {
 #log_in a:hover {
 	color:#800;
 	text-decoration:none;
+}
+
+.basic_form .demographic_text_area {
+	height:63px;
 }
 
 
@@ -347,6 +363,15 @@ pre.debug_dump {
 	display:none;
 }
 
+.other_input {
+	position:relative;
+	top:8px;
+}
+
+.div_with_other {
+	position:relative;
+	top:-8px;
+}
 
 
 /* Error Messages */
@@ -392,11 +417,11 @@ span.error_designation {
 }
 
 .flash-warning {
-	background: #FF3399;
+	background: #47B5FF;
 }
 
 .flash-error {
-	background: #FF3399;
+	background: #47B5FF;
 }
 
 
@@ -518,7 +543,9 @@ span.error_designation {
 	left:1.6%;
 }
 
-content:focus {
+content:focus { /*
+	SHOULD BE .CONTENT??
+*/
 	box-shadow: 0px 0px 2px 1px #47B5FF;
 }
 
@@ -548,6 +575,7 @@ content:focus {
 	display:inline-block;
 	word-wrap:break-word;
 	font-size:20px;
+	white-space:normal;
 }
 
 .message_index div {
@@ -557,6 +585,7 @@ content:focus {
 
 .message_index .receiver_message  span {
 	float:left; clear:both;
+	text-align:left;
 }
 
 	/* Or float one left, one right, and less color */
@@ -564,6 +593,7 @@ content:focus {
 .message_index .sender_message  span {
 	float:right; clear:both;
 	background-color:#DCEDFF;
+	text-align:right;
 }
 .message_index .sender_message::after, .message_index .receiver_message::after {
 }
@@ -603,6 +633,10 @@ content:focus {
 }
 
 
+#negotiation_block {
+	white-space:nowrap;
+}
+
 
 /* Display for Sequence of Events */
 
@@ -637,12 +671,19 @@ content:focus {
 	position:absolute;
 	top:24px;
 	font-size:20px;
-	color:white;
 	right:45%;
 }
 
 #clock:hover {
 	color:black;
+}
+
+.going_clock {
+	color:white;
+}
+
+.done_clock {
+	color:red;
 }
 
 
@@ -653,4 +694,51 @@ content:focus {
 #waiting_page {
 	position:relative;
 	height:250px;
+}
+
+
+
+/* Sign Up Form Additions */
+
+#dot_slider {
+	
+}
+
+.dot {
+	height:10px;
+	width:10px;
+	display:inline-block;
+	border:1px solid #333;
+	border-radius:20px;
+	-webkit-border-radius:20px;
+	position:relative;
+	top:-40px;
+	left:32px;
+}
+
+.current_dot {
+	background:#333;
+}
+
+.disabled {
+	color:#aaa;
+	display:inline-block;
+}
+
+.radio_title {
+	text-decoration:underline;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+.radio_buttons .indented {
+	padding-left:20px;
+}
+
+.radio_table {
+	text-align:left;
+}
+
+.radio_table, tr, td {
+	cursor: default;
 }

@@ -25,9 +25,28 @@ task :seed => :environment do
 		password: 'password',
 		password_confirmation: 'password',
 		sex: 'male',
-		age: 25,
-		secure_key: "key"
+		date_of_birth: 25,
+		secure_key: "key", 
+		start_english: '25',
+		country: 'usa',
+		english_home: true,
+		acquired_english: ['from parent'],
+		hebrew_listening: 3,
+		hebrew_speaking: 3,
+		hebrew_reading: 3,
+		hebrew_writing: 3,
+		english_listening: 3,
+		english_speaking: 3,
+		english_reading: 3,
+		english_writing: 3,
+		research: 'Hi there',
+		emotions: 'Many.'
 	)
 	
+	@user.update_attribute :admin, true
+	
+	puts 'Seed successful.'
+	puts 'Email: admin@uchicago.edu'
+	puts 'Password: password'
 	
 end

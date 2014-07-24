@@ -11,7 +11,6 @@
 #  password_digest   :string(255)
 #  remember_token    :string(255)
 #  sex               :string(255)
-#  age               :integer
 #  secure_key        :string(255)
 #  native_languages  :text
 #  foreign_languages :text
@@ -20,6 +19,19 @@
 #  background        :boolean          default(FALSE)
 #  start_background  :datetime
 #  end_background    :datetime
+#  date_of_birth     :date
+#  country           :string(255)
+#  start_english     :integer
+#  english_home      :boolean
+#  acquired_english  :text
+#  hebrew_listening  :integer
+#  hebrew_speaking   :integer
+#  hebrew_reading    :integer
+#  hebrew_writing    :integer
+#  english_listening :integer
+#  english_speaking  :integer
+#  english_reading   :integer
+#  english_writing   :integer
 #
 
 require 'spec_helper'

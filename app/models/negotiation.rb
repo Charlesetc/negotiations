@@ -8,10 +8,12 @@
 #  updated_at    :datetime         not null
 #  scenario_id   :integer
 #  first_user_id :integer
+#  start_time    :datetime
+#  end_time      :datetime
 #
 
 class Negotiation < ActiveRecord::Base
-  attr_accessible :secure_key, :scenario_id
+  attr_accessible :secure_key, :scenario_id, :start_time, :end_time
 	
 	validates :secure_key, presence: true, uniqueness: true
 	validates :scenario_id, presence: true
@@ -29,10 +31,25 @@ class Negotiation < ActiveRecord::Base
 		return 'ready' if self.ready?
 	end
 	
-	def user_background?
-		unless self.full?
-			return false
+	def total_time
+		if self.start_time && self.end_time
+			self.end_time - self.start_time
+		else
+			false
 		end
+	end
+	
+	def time_left
+		if self.start_time
+			((20*60) - (Time.now - self.start_time)).round
+		else
+			(20*60)
+		end
+	end
+	
+	def user_background?
+		return false unless self.full?
+		return false unless self.first_user	
 		self.first_user.background && self.second_user.background
 	end
 	

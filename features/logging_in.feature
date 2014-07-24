@@ -10,7 +10,6 @@ Feature: Logging In
 		Given a user visits the log in page
 			And the user has an account
 		When they submit valid log in information
-		Then they should see their profile page
-			And they should see a log out link
+		Then they should be taken to the instructions page
 		
 		

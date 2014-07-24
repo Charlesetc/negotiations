@@ -1,7 +1,11 @@
 class TabsController < ApplicationController
 	
 	before_filter :signed_in_user
-	before_filter :correct_user, except: [:private_pub_subscribe, :private_pub_subscribe_admin, :waiting]
+	before_filter :correct_user, except: [:private_pub_subscribe, 
+		:private_pub_subscribe_admin, 
+		:waiting,
+		:alert_request,
+	]
 	before_filter :admin_user, only: :admin
 	layout false
 	
@@ -33,6 +37,12 @@ class TabsController < ApplicationController
 		respond_to do |format|
 		    format.js
 		  end
+	end
+	
+	def alert_request
+		respond_to do |format|
+			format.js
+		end
 	end
   
  	private 

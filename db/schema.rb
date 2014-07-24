@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140714182448) do
+ActiveRecord::Schema.define(:version => 20140724145422) do
 
   create_table "messages", :force => true do |t|
     t.integer  "sender_id"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20140714182448) do
     t.datetime "updated_at",    :null => false
     t.integer  "scenario_id"
     t.integer  "first_user_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   add_index "negotiations", ["secure_key"], :name => "index_negotiations_on_secure_key", :unique => true
@@ -53,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20140714182448) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "sex"
-    t.integer  "age"
     t.string   "secure_key"
     t.text     "native_languages"
     t.text     "foreign_languages"
@@ -62,6 +63,21 @@ ActiveRecord::Schema.define(:version => 20140714182448) do
     t.boolean  "background",        :default => false
     t.datetime "start_background"
     t.datetime "end_background"
+    t.date     "date_of_birth"
+    t.string   "country"
+    t.integer  "start_english"
+    t.boolean  "english_home"
+    t.text     "acquired_english"
+    t.integer  "hebrew_listening"
+    t.integer  "hebrew_speaking"
+    t.integer  "hebrew_reading"
+    t.integer  "hebrew_writing"
+    t.integer  "english_listening"
+    t.integer  "english_speaking"
+    t.integer  "english_reading"
+    t.integer  "english_writing"
+    t.text     "emotions"
+    t.text     "research"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
