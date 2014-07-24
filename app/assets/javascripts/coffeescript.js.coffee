@@ -419,6 +419,9 @@ $ ->
 		window.location.pathname = '/accept_background'
 		
 	$('.agreement_button').click ->
+		$.post '/users/alert_request', {
+			authenticity_token: AUTH_TOKEN
+		}
 		unless agreement_count == 1
 			$('#background_block').append '<p>Waiting for other participant to accept...</p>'
 			agreement_count = 1

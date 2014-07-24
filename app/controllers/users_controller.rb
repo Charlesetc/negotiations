@@ -95,9 +95,15 @@ class UsersController < ApplicationController
 	end
 	
 	def alert_request
-		# Takes two parameters
-		PrivatePub.publish_to "user/alert_request", :content => true 
-		render inline: 'Done'
+		puts                      # I'm not sure why this isn't working.
+		puts                      # I'm not sure why this isn't working.
+		puts 'PUBLISHING...'      # I'm not sure why this isn't working.
+		puts                      # I'm not sure why this isn't working.
+		puts                      # I'm not sure why this isn't working.
+		PrivatePub.publish_to "/negotiation/<%= current_user.negotiation.id %>/new", :content => "The other user requests something", :user_id => current_user.id # alert_request: true 
+		render status: 200, nothing: true
+		puts 'PUBLISHED.'
+		puts
 	end
 	
 	def consent
