@@ -63,11 +63,14 @@
 		
 		<nav>
 			<% if signed_in? %>
+			<%# At one point, take away this from admin %>
   			<li><%= link_to 'Instructions', instructions_path %></li>
 			<li class = 'dropdown_trigger'><%= link_to 'Account', '#' %></li>
 			<ul class = 'dropdown'>
 				<!-- <li><%= link_to 'Profile', user_path(current_user) %></li> -->
-				<li><%= link_to 'Settings', edit_user_path(current_user) %></li>
+
+				<li><%= link_to 'Settings', edit_user_path(current_user) %>
+        </li>
 				<div class = 'divider'></div>
 				<li><%= link_to 'Log Out', log_out_path, method: 'delete' %></li>
 			</ul>

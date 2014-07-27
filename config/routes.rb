@@ -29,9 +29,9 @@ Negotiations::Application.routes.draw do
 	get 'negotiations/messages'
 	post 'users/accept_background'
 	post 'users/alert_request'
+	post 'users/accept_alert_request'
 	
 	match 'index', to: 'users#index'
-	match 'agreement', to: 'negotiations#form'
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'
@@ -41,6 +41,7 @@ Negotiations::Application.routes.draw do
 	match 'background', to: 'users#background'
 	match 'instructions', to: 'users#instructions'
 	match 'waiting', to: 'users#waiting'
+	match 'agreement', to: 'users#agreement'
 	
 	match 'admin/:id' => 'tabs#admin'
 	match 'background/:id' => 'tabs#background'

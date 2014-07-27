@@ -1,72 +1,17 @@
 
-
-<?xml version="1.0"?>
-<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
-  xmlns:o="urn:schemas-microsoft-com:office:office"
-  xmlns:x="urn:schemas-microsoft-com:office:excel"
-  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
-  xmlns:html="http://www.w3.org/Row/REC-html40">
-  <Worksheet ss:Name="Sheet1">
-  <Row>
-    <Cell><Data ss:Type="SRowing"></Data></Cell>
-    <Cell><Data ss:Type="SRowing"></Data></Cell>
-    <td colspan = '4'>Demographics</Data></Cell>
-    <td colspan = '2'>English Acquisition</Data></Cell>
-    <td colspan = '4'>Hebrew Proficiency</Data></Cell>
-    <td colspan = '4'>English Proficiency</Data></Cell>
-  </Row>
-  
-  <Row>
-    <Cell><Data ss:Type="SRowing">Subject #</Data></Cell>
-    <Cell><Data ss:Type="SRowing">ID</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Sex</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Date of Birth</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Age</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Country of Origin</Data></Cell>
-    <Cell><Data ss:Type="SRowing">English Start Age</Data></Cell>
-    <Cell><Data ss:Type="SRowing">English at Home</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Listening</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Speaking</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Reading</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Writing</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Listening</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Speaking</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Reading</Data></Cell>
-    <Cell><Data ss:Type="SRowing">Writing</Data></Cell>
-  </Row>
-    
-
-  </Row>
-  
-  <% User.all.each do |user| %>
-  
-    <% unless user.admin %>
-    
-      <Row>
-        <Cell><Data ss:Type="SRowing"></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.id %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.sex %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.date_of_birth %></Data></Cell>
-        <% if user.date_of_birth %>
-          <Cell><Data ss:Type="SRowing"><%= (Time.now.to_i - user.date_of_birth.to_time.to_i) / 31557600%></Data></Cell>
-        <% else %>
-          <Cell><Data ss:Type="SRowing">Invalid Date of Birth</Data></Cell>
-        <% end %>
-        <Cell><Data ss:Type="SRowing"><%= user.country %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.start_english %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.english_home %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.hebrew_listening %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.hebrew_speaking %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.hebrew_reading %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.hebrew_writing %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.english_listening %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.english_speaking %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.english_reading %></Data></Cell>
-        <Cell><Data ss:Type="SRowing"><%= user.english_writing %></Data></Cell>
-      </Row>
-      
-    <% end %>
-    
-  <% end %>
-  </Worksheet>
-</Workbook>
+<table>
+ <tr>
+   <td>ID</td>
+   <td>Name</td>
+   <td>Release Date</td>
+   <td>Price</td>
+ </tr>
+<% User.all.each do |product| %>
+ <tr>
+   <td><%= product.id %></td>
+   <td><%= product.username %></td>
+   <td><%= product.country %></td>
+   <td><%= product.email %></td>
+ </tr>
+<% end %>
+</table>

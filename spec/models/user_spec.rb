@@ -32,6 +32,8 @@
 #  english_speaking  :integer
 #  english_reading   :integer
 #  english_writing   :integer
+#  emotions          :text
+#  research          :text
 #
 
 require 'spec_helper'

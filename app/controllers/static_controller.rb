@@ -22,6 +22,10 @@ class StaticController < ApplicationController
 				unless @user.negotiation.user_background?
 					redirect_to waiting_url and return
 				end
+				
+				if @user.negotiation.agreed?
+					redirect_to agreement_url and return
+				end
 			end
 			
 			params[:id] = current_user.id
@@ -29,7 +33,6 @@ class StaticController < ApplicationController
 			@body_id = 'show_body' unless current_user.admin
 			@tabs = tabs
 			render template: 'users/show'
-			
 			
 		end
   end

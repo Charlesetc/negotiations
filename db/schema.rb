@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140724145422) do
+ActiveRecord::Schema.define(:version => 20140727201034) do
+
+  create_table "agreements", :force => true do |t|
+    t.boolean  "agree"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
 
   create_table "messages", :force => true do |t|
     t.integer  "sender_id"

@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
 	
 	before_filter :signed_in_user, except: [:new, :create]
-	before_filter :correct_user, except: [:new, :create, :toggle_admin, 
-		:delete, :consent, :background, :instructions, :accept_background,
-		:waiting, :alert_request, :index]
+	before_filter :correct_user, only: [:show, :edit, :update, :accept_consent]
 	before_filter :admin_user, only: [:toggle_admin, :delete, :index]
 	layout false, only: :index
 	
@@ -95,15 +93,35 @@ class UsersController < ApplicationController
 	end
 	
 	def alert_request
-		puts                      # I'm not sure why this isn't working.
-		puts                      # I'm not sure why this isn't working.
-		puts 'PUBLISHING...'      # I'm not sure why this isn't working.
-		puts                      # I'm not sure why this isn't working.
-		puts                      # I'm not sure why this isn't working.
-		PrivatePub.publish_to "/negotiation/<%= current_user.negotiation.id %>/new", :content => "The other user requests something", :user_id => current_user.id # alert_request: true 
-		render status: 200, nothing: true
-		puts 'PUBLISHED.'
-		puts
+		PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new", 
+			alert_request: true,
+			user_id: current_user.id
+		render inline: 'Done'
+	end
+	
+	def accept_alert_request
+		
+		current_user.negotiation.users.each do |user|
+			user.make_agree
+		end
+		
+		# Has to be before the publish, because otherwise
+		# publish could take users to page before page is
+		# accessible.
+		
+		PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new",
+			accept_alert_request: true		
+			
+		render inline: 'Done'
+	end
+	
+	def agreement
+		if current_user.negotiation.agreed?
+			@title = 'Agreement'
+			@page_id = 'consent_page'
+		else
+			redirect_to root_url
+		end
 	end
 	
 	def consent

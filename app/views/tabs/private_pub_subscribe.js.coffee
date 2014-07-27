@@ -7,8 +7,17 @@
 
 
 PrivatePub.subscribe "/negotiation/<%= current_user.negotiation.id %>/new", (data, channel) ->
-	unless data.alert_request
-		user_id = $('.etabs').data('id')
+	user_id = $('.etabs').data('id')
+	if data.accept_alert_request
+		window.location = "/agreement"
+	else if data.alert_request
+		unless user_id == data.user_id
+			if confirm 'The other participant has requested to continue 
+			to the agreement form. Are you ready?'
+				$.post 'users/accept_alert_request', {
+					authenticity_token: AUTH_TOKEN
+				}
+	else
 		if user_id == data.user_id
 			message = "<div class = 'sender_message'>
 				<span>#{data.content}</span></div>"
@@ -17,7 +26,7 @@ PrivatePub.subscribe "/negotiation/<%= current_user.negotiation.id %>/new", (dat
 				<span>#{data.content}</span></div>"
 		$(".message_index .container").append message
 		$('.message_index').scrollTop(900000000)
-	else
-		alert 'Alert Request!'	
+				
+				
 
 

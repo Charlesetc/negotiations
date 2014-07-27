@@ -1,0 +1,33 @@
+
+<!-- <%= subscribe_to "/negotiation/waiting/#{current_user.negotiation.id}"  %>
+<%= javascript_include_tag '/tabs/waiting.js' %> -->
+
+<h1><%= @title %></h1>
+
+<p>This form is similar to a <a style = 'color:#800' href = 'http://en.wikipedia.org/wiki/Google_Docs'>Google Doc</a>. You and the other particpant can edit simultaneously.</p>
+
+<br />
+
+
+	<div class = 'basic_form'>
+	<%= label_tag :agreement_boolean, 'Did you come to an agreement?' %>
+	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], ['Yes', true], ['No', false]]), id: 'agreement_boolean' %></div>
+	
+	<div class = 'yes_form'>
+		<%= form_tag '/users/submit_agreement', 
+		method: 'post', class: 'basic_form' do %>
+			
+			
+			
+		<% end %>
+	</div>
+	
+	<div class = 'no_form'>
+		<%= form_tag '/users/submit_agreement', 
+		method: 'post', class: 'basic_form' do %>
+			
+			
+		<% end %>
+	</div>
+	
+<% end %>

@@ -215,6 +215,9 @@ $ ->
 		seconds = Number(numbers[1])
 		minutes = Number(numbers[0])
 		
+		# Clock doesn't display currently because 
+		# CSS stops it. Look at .going_clock.
+		
 		if (minutes == 0 and seconds == 0) or (minutes < 0)
 			$('#clock').empty().append "00:00"
 			$('#clock').toggleClass('done_clock')

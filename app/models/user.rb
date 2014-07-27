@@ -32,6 +32,8 @@
 #  english_speaking  :integer
 #  english_reading   :integer
 #  english_writing   :integer
+#  emotions          :text
+#  research          :text
 #
 
 class User < ActiveRecord::Base
@@ -50,6 +52,7 @@ class User < ActiveRecord::Base
 	
 	has_secure_password
 	
+	has_many :agreements
 	
 	before_save { |user| user.email = email.downcase }
 	before_save :create_remember_token
@@ -106,11 +109,27 @@ class User < ActiveRecord::Base
 		self.negotiation.scenario
 	end
 	
+	def agreed?
+		self.agreements.length > 0
+	end
+	
+	def make_agree
+		self.agreements.create!
+	end
+	
 	def other_user
 		if self == self.negotiation.first_user
 			return self.negotiation.second_user
 		else
 			return self.negotiation.first_user
+		end
+	end
+	
+	def return_acquisition(string, other = false)
+		if other
+			'other'
+		else
+			'notother'
 		end
 	end
 	

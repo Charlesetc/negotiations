@@ -24,11 +24,6 @@ class NegotiationsController < ApplicationController
 		end
   end
 	
-	def form
-		@title = 'Agreement Form'
-		@page_id = 'agreement_page'
-	end
-	
 	def inspect
 		@negotiation = Negotiation.find(params[:id])
 		@title = 'Negotiation History'

@@ -25,6 +25,10 @@ class Negotiation < ActiveRecord::Base
 		self.users.count >= 2 # This is what designates negotiation size 
 	end
 	
+	def agreed?
+		self.first_user.agreed? && self.second_user.agreed?
+	end
+	
 	def state
 		return 'empty' unless self.full?
 		#return 'consenting' unless self.user_consent?
