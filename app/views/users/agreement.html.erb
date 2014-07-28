@@ -1,33 +1,74 @@
 
-<!-- <%= subscribe_to "/negotiation/waiting/#{current_user.negotiation.id}"  %>
-<%= javascript_include_tag '/tabs/waiting.js' %> -->
+
+<%= subscribe_to "/#{current_user.negotiation.id}/agree"  %>
+<%= javascript_include_tag '/tabs/agree.js' %>
 
 <h1><%= @title %></h1>
 
-<p>This form is similar to a <a style = 'color:#800' href = 'http://en.wikipedia.org/wiki/Google_Docs'>Google Doc</a>. You and the other particpant can edit simultaneously.</p>
-
-<br />
-
+<div id = 'sender_page'>
+	
+	<h2>Your Form</h2>
 
 	<div class = 'basic_form'>
 	<%= label_tag :agreement_boolean, 'Did you come to an agreement?' %>
-	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], ['Yes', true], ['No', false]]), id: 'agreement_boolean' %></div>
+	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], ['Yes', true], ['No', false]]), class: 'agreement_boolean' %></div>
+	
+	<br />
 	
 	<div class = 'yes_form'>
-		<%= form_tag '/users/submit_agreement', 
-		method: 'post', class: 'basic_form' do %>
+		<div class = 'basic_form'>
 			
+			<%= label_tag :agreement_price, 'How much did the gas station sell for:' %>
+			<%= text_field_tag :agreement_price %><br /><br />
 			
+			<%= label_tag :agreement_content_yes, 'Please elaborate on your agreement: Did you include any additional parameters or critera?'.html_safe %>
+			<%= text_area_tag :agreement_content_yes %>
 			
-		<% end %>
+		</div>
 	</div>
 	
 	<div class = 'no_form'>
-		<%= form_tag '/users/submit_agreement', 
-		method: 'post', class: 'basic_form' do %>
+		<div class = 'basic_form'>
 			
+			<%= label_tag :agreement_content_no, 'Please explain why not:' %>
+			<%= text_area_tag :agreement_content_no %>
 			
-		<% end %>
+		</div>
+	</div>
+
+</div>
+
+<div id = 'receiver_page'>
+	
+	<h2>Partner's Form</h2>
+	
+	<div class = 'basic_form'>
+	<%= label_tag :agreement_boolean, 'Did you come to an agreement?' %>
+	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], ['Yes', true], ['No', false]]), class: 'agreement_boolean' %></div>
+	
+	<br />
+	
+	<div class = 'yes_form'>
+		<div class = 'basic_form'>
+			
+			<%= label_tag :receiver_price, 'How much did the gas station sell for:' %>
+			<%= text_field_tag :receiver_price %><br /><br />
+			
+			<%= label_tag :receiver_content_yes, 'Please elaborate on your agreement: Did you include any additional parameters or critera?'.html_safe %>
+			<%= text_area_tag :receiver_content_yes %>
+			
+		</div>
 	</div>
 	
-<% end %>
+	<div class = 'no_form'>
+		<div class = 'basic_form'>
+			
+			<%= label_tag :receiver_content_no, 'Please explain why not:' %>
+			<%= text_area_tag :receiver_content_no %>
+			
+		</div>
+	</div>
+	
+	<div id = 'stop_receiver'></div>
+	
+</div>

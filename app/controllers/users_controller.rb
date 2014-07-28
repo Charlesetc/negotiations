@@ -18,11 +18,6 @@ class UsersController < ApplicationController
  	end
 	
 	def show
-		# @user = User.find(params[:id])
-		# @negotiation = @user.negotiation
-		# @negotiation.randomize_if_new if @negotiation
-		# @page_id = "user_show"
-		# @tabs = tabs
 		redirect_to root_url
 	end
 	
@@ -118,7 +113,8 @@ class UsersController < ApplicationController
 	def agreement
 		if current_user.negotiation.agreed?
 			@title = 'Agreement'
-			@page_id = 'consent_page'
+			@page_id = 'agreement_page'
+			@body_id = 'user_show' # For no scrolling
 		else
 			redirect_to root_url
 		end
@@ -127,6 +123,12 @@ class UsersController < ApplicationController
 	def consent
 		@title = 'Consent'
 		@page_id = 'consent_page'
+	end
+	
+	def agree_channel
+		PrivatePub.publish_to "/#{current_user.negotiation.id}/agree", params
+			
+		render inline: 'Done'
 	end
 	
 	def background

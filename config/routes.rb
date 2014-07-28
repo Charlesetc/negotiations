@@ -26,6 +26,8 @@ Negotiations::Application.routes.draw do
 	
 	get "messages/create"
 	
+	post 'agree_channel', to: 'users#agree_channel' ## Delete
+	
 	get 'negotiations/messages'
 	post 'users/accept_background'
 	post 'users/alert_request'
@@ -51,7 +53,7 @@ Negotiations::Application.routes.draw do
 	get 'tabs/private_pub_subscribe'
 	get 'tabs/private_pub_subscribe_admin'
 	get 'tabs/waiting'
-	get 'tabs/alert_request'
+	get 'tabs/agree'
 	
 	match 'destroy/:id' => 'users#delete'
 	match 'negotiations/destroy/:id' => 'negotiations#delete'

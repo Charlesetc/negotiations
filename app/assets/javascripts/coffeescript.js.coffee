@@ -8,7 +8,7 @@ $ ->
 	keypress_count = 1
 	agreement_count = 0
 	clock_count = 0
-	
+	USER_ID = $('body').data('id')
  	# Functions
 	
 	
@@ -189,6 +189,7 @@ $ ->
 		scroll_index()
 		index_height()
 		position_footer()
+		size_stop()
 
 	index_height = ->
 		$('.message_index').height($(window).height() - 355)
@@ -263,11 +264,15 @@ $ ->
 		
 	
 	set_waiting = ->
-	  if $('#waiting_page').length > 0
-		  $('a').click ->
-			  return confirm "\nAre you certain?\n\nIf you leave this page you
-			  will not be notified when the other participant is ready.\n"
+		if $('#waiting_page').length > 0
+			window.onbeforeunload = "\nAre you certain?\n\nIf you leave this page you
+			will not be notified when the other participant is ready.\n"
 		
+	alert_agreement = ->
+		"\nAre you certain?\n\nLeaving this page could invalidate the study.\n"
+	set_agreement = ->
+		if $('#agreement_page').length > 0
+			window.onbeforeunload = alert_agreement
 		
 		
 	scroll_index()
@@ -279,9 +284,11 @@ $ ->
 	add_spin()
 	
 	tick_clock()
+	
 	setInterval tick_clock, 1000
 	
 	set_waiting()
+	set_agreement()
 	
 	$(window).scroll ->
 		$(window).scrollLeft(0) # Bug fix
@@ -291,16 +298,105 @@ $ ->
 	    resizeTimer = setTimeout(resize_function, 20)
 		
 	
-	# Comma Language
+	# Comma Language -- doesn't work in Firefox?
 	$('.language_array input').keypress (e) ->
 		if e.keyCode == 32
 			if $(this).val().match /\w$/
 				$(this).val($(this).val() + ',')	
-
-
 	
-	# Dots
+	
+	## Agreement Form
+		 		   # Copied at agree.coffee
+	size_stop = -> # Changes should be copied too.
+		difference = -40
+		if $('#sender_page').height() > $('#receiver_page').height()
+			height = $('#sender_page').height() + difference
+			if height > ($(window).height() * 0.45)
+				$('#stop_receiver').height(height)
+			else
+				$('#stop_receiver').height(($(window).height() * 0.45))
+		else
+			height = $('#receiver_page').height() + difference
+			if height > $(window).height() * 0.45
+				$('#stop_receiver').height(height)
+			else
+				$('#stop_receiver').height(($(window).height() * 0.45))
+	
+	
+	# Select Changing
+	
+	$('.yes_form').hide()
+	$('.no_form').hide()
+	
+	
+	$('#sender_page .agreement_boolean').change ->
+		if $(this).val() == 'true'
+			$("#sender_page .yes_form").show()
+			$('#sender_page .no_form').hide()
+			$('#agreement_content_yes').autosize()
+			size_stop()
+			$.post '/agree_channel', {
+				authenticity_token: AUTH_TOKEN,
+				sender_id: USER_ID,
+				tactic: 'yes_form'
+			}
 		
+		else if $(this).val() == 'false'
+			$('#sender_page .no_form').show()
+			$("#sender_page .yes_form").hide()
+			$('#agreement_content_no').autosize()
+			size_stop()
+			$.post '/agree_channel', {
+				authenticity_token: AUTH_TOKEN,
+				sender_id: USER_ID,
+				tactic: 'no_form'
+			}
+		
+		else
+			$('#sender_page .no_form').hide()
+			$("#sender_page .yes_form").hide()
+			size_stop()
+			$.post '/agree_channel', {
+				authenticity_token: AUTH_TOKEN,
+				sender_id: USER_ID,
+				tactic: 'none_form'
+			}
+			
+	$('#agreement_price').keypress (e) ->
+		key = $(this).val() + String.fromCharCode e.which
+		$.post '/agree_channel', {
+			authenticity_token: AUTH_TOKEN,
+			sender_id: USER_ID,
+			tactic: 'agreement_price',
+			key: key # Actually a Value
+		}
+		
+	$('.yes_form #agreement_content_yes').keypress (e) ->
+		key = $(this).val() + String.fromCharCode e.which
+		$.post '/agree_channel', {
+			authenticity_token: AUTH_TOKEN,
+			sender_id: USER_ID,
+			tactic: 'agreement_content',
+			form: 'yes',
+			key: key # Actually a Value
+		}
+		
+	$('.no_form #agreement_content_no').keypress (e) ->
+		key = $(this).val() + String.fromCharCode e.which
+		$.post '/agree_channel', {
+			authenticity_token: AUTH_TOKEN,
+			sender_id: USER_ID,
+			tactic: 'agreement_content',
+			form: 'no',
+			key: key # Actually a Value
+		}
+		
+	$('#agreement_page input, #agreement_page textarea').keypress ->
+		size_stop()
+		
+	
+		
+	# Dots
 	$('.dot').click ->
 		if $(this).nextAll('.current_dot').length > 0
 			if $('body').hasClass '2nd_wizard_page'
@@ -462,7 +558,8 @@ $ ->
 		index_height()
 		position_footer()
 		position_after()
-		consent_height()
+		consent_height()		
+		# size_stop()
 		
 		
 		$('.user_table tr').click ->
@@ -537,9 +634,6 @@ $ ->
 				# setTimeout clear_input, 1
 				return false
 
-						
-		$('.message_content').expanding()
-		
 					
 		$('.admin_button').click ->
 			if $('.user_entry.selected_row').size() == 0
@@ -609,6 +703,7 @@ $ ->
 				
 
 				
+		$('.message_content').expanding()
 		
 		# Not part of a table, but relies on ajax
 		

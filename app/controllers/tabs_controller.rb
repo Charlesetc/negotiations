@@ -4,7 +4,7 @@ class TabsController < ApplicationController
 	before_filter :correct_user, except: [:private_pub_subscribe, 
 		:private_pub_subscribe_admin, 
 		:waiting,
-		:alert_request,
+		:agree,
 	]
 	before_filter :admin_user, only: :admin
 	layout false
@@ -39,7 +39,7 @@ class TabsController < ApplicationController
 		  end
 	end
 	
-	def alert_request
+	def agree
 		respond_to do |format|
 			format.js
 		end

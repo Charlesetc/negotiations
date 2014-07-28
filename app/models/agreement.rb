@@ -14,3 +14,6 @@ class Agreement < ActiveRecord::Base
 	validates :user_id, presence: true
 	belongs_to :user
 end
+
+
+# Turn this agreement into an actual agreement! // Optional validations?
