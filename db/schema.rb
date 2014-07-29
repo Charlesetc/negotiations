@@ -11,13 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140727201034) do
+ActiveRecord::Schema.define(:version => 20140729195403) do
 
   create_table "agreements", :force => true do |t|
     t.boolean  "agree"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.integer  "user_id"
+    t.boolean  "agreement_boolean"
+    t.string   "price"
+    t.text     "description"
   end
 
   create_table "messages", :force => true do |t|
@@ -31,12 +34,13 @@ ActiveRecord::Schema.define(:version => 20140727201034) do
 
   create_table "negotiations", :force => true do |t|
     t.string   "secure_key"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "scenario_id"
     t.integer  "first_user_id"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.datetime "agreement_time"
   end
 
   add_index "negotiations", ["secure_key"], :name => "index_negotiations_on_secure_key", :unique => true

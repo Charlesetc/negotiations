@@ -24,6 +24,9 @@
 			<%= label_tag :agreement_content_yes, 'Please elaborate on your agreement: Did you include any additional parameters or critera?'.html_safe %>
 			<%= text_area_tag :agreement_content_yes %>
 			
+			
+			<%= button_tag 'Submit', class: 'submit_yes' %>
+			
 		</div>
 	</div>
 	
@@ -32,6 +35,8 @@
 			
 			<%= label_tag :agreement_content_no, 'Please explain why not:' %>
 			<%= text_area_tag :agreement_content_no %>
+			
+			<%= button_tag 'Submit', class: 'submit_no' %>
 			
 		</div>
 	</div>
@@ -57,6 +62,9 @@
 			<%= label_tag :receiver_content_yes, 'Please elaborate on your agreement: Did you include any additional parameters or critera?'.html_safe %>
 			<%= text_area_tag :receiver_content_yes %>
 			
+			
+			<%= button_tag 'Submit', class: 'receiver_yes' %>
+			
 		</div>
 	</div>
 	
@@ -65,6 +73,8 @@
 			
 			<%= label_tag :receiver_content_no, 'Please explain why not:' %>
 			<%= text_area_tag :receiver_content_no %>
+			
+			<%= button_tag 'Submit', class: 'receiver_no' %>
 			
 		</div>
 	</div>

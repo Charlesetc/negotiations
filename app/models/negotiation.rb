@@ -2,14 +2,15 @@
 #
 # Table name: negotiations
 #
-#  id            :integer          not null, primary key
-#  secure_key    :string(255)
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  scenario_id   :integer
-#  first_user_id :integer
-#  start_time    :datetime
-#  end_time      :datetime
+#  id             :integer          not null, primary key
+#  secure_key     :string(255)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  scenario_id    :integer
+#  first_user_id  :integer
+#  start_time     :datetime
+#  end_time       :datetime
+#  agreement_time :datetime
 #
 
 class Negotiation < ActiveRecord::Base
@@ -27,6 +28,19 @@ class Negotiation < ActiveRecord::Base
 	
 	def agreed?
 		self.first_user.agreed? && self.second_user.agreed?
+	end
+	
+	def thank_you?
+		if self.agreed?
+			return self.first_user.agreement.description && self.second_user.agreement.description
+		else
+			false
+		end
+	end
+	
+	def record_agreement_time
+		self.agreement_time = Time.now
+		self.save!
 	end
 	
 	def state

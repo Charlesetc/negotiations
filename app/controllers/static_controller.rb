@@ -19,11 +19,15 @@ class StaticController < ApplicationController
 					redirect_to background_url and return
 				end
 				
-				unless @user.negotiation.user_background?
+				unless @negotiation.user_background?
 					redirect_to waiting_url and return
 				end
 				
-				if @user.negotiation.agreed?
+				if @negotiation.thank_you?
+					redirect_to thank_you_url and return
+				end
+				
+				if @negotiation.agreed?
 					redirect_to agreement_url and return
 				end
 			end

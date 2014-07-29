@@ -238,7 +238,7 @@ pre.debug_dump {
 
 /* Sign Up Page, Log In Page */
 
-#sign_up, #log_in, #settings, #negotiation_creation, #scenario_creation, #negotiation_inspection, #waiting_page {
+#sign_up, #log_in, #settings, #negotiation_creation, #scenario_creation, #negotiation_inspection, #waiting_page, #thank_you_page {
 	margin: auto;
 	padding: 40px;
 	border-radius: 10px;
@@ -250,7 +250,7 @@ pre.debug_dump {
 }
 
 
-#sign_up h1, #log_in h1, #settings h1, #negotiation_creation h1, #scenario_creation h1, #negotiation_inspection h1, #waiting_page h1 {
+#sign_up h1, #log_in h1, #settings h1, #negotiation_creation h1, #scenario_creation h1, #negotiation_inspection h1, #waiting_page h1, #thank_you_page h1 {
 	font-size: 35px;
 	position:relative;
 	top: -30px;

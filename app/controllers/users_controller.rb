@@ -96,7 +96,12 @@ class UsersController < ApplicationController
 	
 	def accept_alert_request
 		
-		current_user.negotiation.users.each do |user|
+		@negotiation = current_user.negotiation
+		
+		@negotiation.end_time = Time.now
+		@negotiation.save!
+		
+		@negotiation.users.each do |user|
 			user.make_agree
 		end
 		
@@ -129,6 +134,28 @@ class UsersController < ApplicationController
 		PrivatePub.publish_to "/#{current_user.negotiation.id}/agree", params
 			
 		render inline: 'Done'
+	end
+	
+	def finish_agreement
+		@agreement = current_user.agreement
+		@negotiation = current_user.negotiation
+		@agreement.agreement_boolean = params[:agreement_boolean]
+		@agreement.price = params[:price]
+		@agreement.description = params[:description]
+		@agreement.save!
+		
+		@negotiation.record_agreement_time unless @negotiation.agreement_time
+		
+		render inline: 'Done'
+	end
+	
+	def thank_you
+		if current_user.negotiation.thank_you?
+			@title = 'Thank You!'
+			@page_id = 'thank_you_page'
+		else
+			redirect_to root_url
+		end
 	end
 	
 	def background

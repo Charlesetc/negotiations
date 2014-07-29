@@ -265,11 +265,11 @@ $ ->
 	
 	set_waiting = ->
 		if $('#waiting_page').length > 0
-			window.onbeforeunload = "\nAre you certain?\n\nIf you leave this page you
-			will not be notified when the other participant is ready.\n"
+			window.onbeforeunload = "If you leave this page you
+			will not be notified when the other participant is ready."
 		
 	alert_agreement = ->
-		"\nAre you certain?\n\nLeaving this page could invalidate the study.\n"
+		"Leaving this page could invalidate the study."
 	set_agreement = ->
 		if $('#agreement_page').length > 0
 			window.onbeforeunload = alert_agreement
@@ -394,7 +394,25 @@ $ ->
 	$('#agreement_page input, #agreement_page textarea').keypress ->
 		size_stop()
 		
-	
+		
+	$('.submit_yes, .submit_no').click ->
+		unless $(this).hasClass 'disabled'
+			$(this).addClass 'disabled'
+			$.post '/agree_channel', {
+				authenticity_token: AUTH_TOKEN,
+				sender_id: USER_ID,
+				tactic: 'submit_check'
+			}
+			$(this).after('<br/><span class = "checking_submit">Checking with the other participant...</span>')
+			size_stop()
+		
+	# $('.submit_no').click ->
+	# 	$.post '/agree_channel', {
+	# 		authenticity_token: AUTH_TOKEN,
+	# 		sender_id: USER_ID,
+	# 		tactic: 'submit_check'
+	# 	}
+	#
 		
 	# Dots
 	$('.dot').click ->

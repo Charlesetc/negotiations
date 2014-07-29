@@ -27,6 +27,7 @@ Negotiations::Application.routes.draw do
 	get "messages/create"
 	
 	post 'agree_channel', to: 'users#agree_channel' ## Delete
+	post 'finish_agreement', to: 'users#finish_agreement'
 	
 	get 'negotiations/messages'
 	post 'users/accept_background'
@@ -44,6 +45,7 @@ Negotiations::Application.routes.draw do
 	match 'instructions', to: 'users#instructions'
 	match 'waiting', to: 'users#waiting'
 	match 'agreement', to: 'users#agreement'
+	match 'thank_you', to: 'users#thank_you'
 	
 	match 'admin/:id' => 'tabs#admin'
 	match 'background/:id' => 'tabs#background'
