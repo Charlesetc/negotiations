@@ -25,7 +25,7 @@ task :seed => :environment do
 		password: 'password',
 		password_confirmation: 'password',
 		sex: 'male',
-		date_of_birth: 25,
+		date_of_birth: Time.now - 56000,
 		secure_key: "key", 
 		start_english: '25',
 		country: 'usa',
