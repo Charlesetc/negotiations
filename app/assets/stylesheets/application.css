@@ -544,9 +544,7 @@ span.error_designation {
 	left:1.6%;
 }
 
-.message_content:focus { /*
-	SHOULD BE .CONTENT??
-*/
+.message_content:focus { 
 	box-shadow: 0px 0px 2px 1px #47B5FF;
 	border: 1px solid #47B5FF;
 }
@@ -567,10 +565,9 @@ span.error_designation {
 
 .message_index span {
 	margin: 4px 12px 4px 12px;
-	background: white;
-	border-radius:7px;
-	-webkit-border-radius:7px;
-	box-shadow: 0px 0px 5px -1px black;
+	border-radius:20px;
+	-webkit-border-radius:20px;
+	box-shadow: 0px 0px 10px white, 0px 0px 2px black;
 	z-index:20;
 	padding:4px 8px;
 	max-width:50%;
@@ -588,6 +585,7 @@ span.error_designation {
 .message_index .receiver_message  span {
 	float:left; clear:both;
 	text-align:left;
+	background: rgba(255,255,255,0.3);
 }
 
 	/* Or float one left, one right, and less color */
@@ -595,7 +593,7 @@ span.error_designation {
 .message_index .sender_message  span {
 	float:right; clear:both;
 	text-align:right;
-	background: #aedeff;
+	background: rgba(71,181,255,0.2);
 }
 .message_index .sender_message::after, .message_index .receiver_message::after {
 }
