@@ -12,6 +12,8 @@ gem 'private_pub'
 
 gem 'redis'
 
+gem 'rubyXL'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

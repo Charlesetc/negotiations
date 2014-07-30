@@ -6,11 +6,9 @@ $ ->
 	# Variables
 	ajax_count = 0
 	keypress_count = 1
-	agreement_count = 0
 	clock_count = 0
 	USER_ID = $('body').data('id')
  	# Functions
-	
 	
 	# fetch_messages_recursively = ->
 	# 	#fetch_messages() # Turned off longpolling
@@ -514,7 +512,7 @@ $ ->
 			}
 		
 	last_seen_ajax()
-	setInterval(last_seen_ajax, 30000)
+	setInterval(last_seen_ajax, 60000)
 		
 		
 	
@@ -536,12 +534,12 @@ $ ->
 		window.location.pathname = '/accept_background'
 		
 	$('.agreement_button').click ->
-		$.post '/users/alert_request', {
-			authenticity_token: AUTH_TOKEN
-		}
-		unless agreement_count == 1
-			$('#background_block').append '<p>Waiting for other participant to accept...</p>'
-			agreement_count = 1
+		unless $(this).hasClass 'disabled'
+			$('#background_block').append '<p class="agreement_waiting">Waiting for other participant to accept...</p>'
+			$(this).addClass 'disabled'
+			$.post '/users/alert_request', {
+				authenticity_token: AUTH_TOKEN
+			}
 
 	
 

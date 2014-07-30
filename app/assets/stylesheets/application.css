@@ -544,10 +544,11 @@ span.error_designation {
 	left:1.6%;
 }
 
-.content:focus { /*
+.message_content:focus { /*
 	SHOULD BE .CONTENT??
 */
 	box-shadow: 0px 0px 2px 1px #47B5FF;
+	border: 1px solid #47B5FF;
 }
 
 .message_index {
@@ -593,8 +594,8 @@ span.error_designation {
 
 .message_index .sender_message  span {
 	float:right; clear:both;
-	background-color:#DCEDFF;
 	text-align:right;
+	background: #aedeff;
 }
 .message_index .sender_message::after, .message_index .receiver_message::after {
 }

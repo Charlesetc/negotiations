@@ -82,6 +82,62 @@ class User < ActiveRecord::Base
 	validates :research, presence: true
 	validates :emotions, presence: true
 	
+	
+	def to_h
+		JSON.parse(self.to_json)
+	end
+	
+	def self.array_header
+		array = []
+		array << 'ID'
+		array << 'Sex'
+		array << 'Date of Birth'
+		array << 'Age'
+		array << 'English Acquisition'
+		array << 'English Starting Age'
+		array << 'English Spoken at Home'
+		array << 'Country'
+		array << 'Hebrew Listening'
+		array << 'Hebrew Speaking'
+		array << 'Hebrew Reading'
+		array << 'Hebrew Writing'
+		array << 'English Listening'
+		array << 'English Speaking'
+		array << 'English Reading'
+		array << 'English Writing'
+		array << 'Emotions'
+		array << 'Knowlege of Research'
+		array
+	end
+	
+	def make_array
+		array = []
+		array << self.id
+		array << self.sex
+		array << self.date_of_birth.strftime("%m/%d/%y")
+		array << self.age
+		array << self.acquired_english
+		array << self.start_english
+		array << self.english_home
+		array << self.country
+		array << self.hebrew_listening
+		array << self.hebrew_speaking
+		array << self.hebrew_reading
+		array << self.hebrew_writing
+		array << self.english_listening
+		array << self.english_speaking
+		array << self.english_reading
+		array << self.english_writing
+		array << self.emotions
+		array << self.research
+		array
+	end
+	
+	def age
+	  now = Time.now.utc.to_date
+	  now.year - date_of_birth.year - (date_of_birth.to_date.change(:year => now.year) > now ? 1 : 0)
+	end
+	
 	def negotiation
 		Negotiation.find_by_secure_key(self.secure_key)
 	end

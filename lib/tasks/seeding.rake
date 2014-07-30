@@ -22,10 +22,10 @@ task :seed => :environment do
 		username: 'admin',
 		name: 'Admin',
 		email: 'admin@uchicago.edu',
-		password: 'password',
-		password_confirmation: 'password',
+		password: 'foobar',
+		password_confirmation: 'foobar',
 		sex: 'male',
-		date_of_birth: Time.now - 56000,
+		date_of_birth: Time.now - 100000000,
 		secure_key: "key", 
 		start_english: '25',
 		country: 'usa',
@@ -47,6 +47,6 @@ task :seed => :environment do
 	
 	puts 'Seed successful.'
 	puts 'Email: admin@uchicago.edu'
-	puts 'Password: password'
+	puts 'Password: foobar'
 	
 end

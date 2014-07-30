@@ -1,3 +1,5 @@
+require 'csv'
+
 class UsersController < ApplicationController
 	
 	before_filter :signed_in_user, except: [:new, :create]
@@ -22,8 +24,20 @@ class UsersController < ApplicationController
 	end
 	
 	def index
+		@users = User.all
 		respond_to do |format|
-			format.xls
+			format.csv {
+				array = ['hi', 'there', 'finding', 'it', 'all', 'out']
+				csv_string = CSV.generate do |csv|
+					csv << User.array_header
+					User.all.each do |user|
+						unless user.admin
+							csv << user.make_array
+						end
+					end
+				end
+				render inline: csv_string
+			}
 		end
 	end
 	
@@ -95,24 +109,30 @@ class UsersController < ApplicationController
 	end
 	
 	def accept_alert_request
+		if params[:tactic] == 'accept'
 		
-		@negotiation = current_user.negotiation
-		
-		@negotiation.end_time = Time.now
-		@negotiation.save!
-		
-		@negotiation.users.each do |user|
-			user.make_agree
-		end
-		
-		# Has to be before the publish, because otherwise
-		# publish could take users to page before page is
-		# accessible.
-		
-		PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new",
-			accept_alert_request: true		
+			@negotiation = current_user.negotiation
 			
-		render inline: 'Done'
+			@negotiation.end_time = Time.now
+			@negotiation.save!
+			
+			@negotiation.users.each do |user|
+				user.make_agree
+			end
+			
+			# Has to be before the publish, because otherwise
+			# publish could take users to page before page is
+			# accessible.
+			
+			PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new",
+				accept_alert_request: true		
+				
+			render inline: 'Done'
+		else
+			PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new",
+				deny_alert_request: true,
+				user_id: current_user.id
+		end
 	end
 	
 	def agreement
