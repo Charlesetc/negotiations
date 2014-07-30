@@ -162,6 +162,7 @@ class UsersController < ApplicationController
 	end
 	
 	def consent
+		current_user.set_role_if_not_yet_set
 		@title = 'Consent'
 		@page_id = 'consent_page'
 	end

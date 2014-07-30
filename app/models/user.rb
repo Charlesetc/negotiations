@@ -187,6 +187,27 @@ class User < ActiveRecord::Base
 		Negotiation.find_by_secure_key(self.secure_key)
 	end
 	
+	def set_role_if_not_yet_set
+		@negotiation = self.negotiation
+		if @negotiation.first_user
+			if @negotiation.second_user
+				return 'false'
+			else
+				@negotiation.second_user = self
+			end
+		else
+			if @negotiation.second_user
+				@negotiation.first_user = self
+			else
+				if Random.rand() > 0.5
+					@negotiation.first_user = self
+				else
+					@negotiation.second_user = self
+				end
+			end
+		end
+	end
+	
 	def agreement
 		self.agreements[0]
 	end

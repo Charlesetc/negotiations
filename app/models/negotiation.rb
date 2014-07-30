@@ -141,7 +141,7 @@ class Negotiation < ActiveRecord::Base
 	
 	def user_background?
 		return false unless self.full?
-		return false unless self.first_user	
+		return false unless self.first_user	&& self.second_user
 		self.first_user.background && self.second_user.background
 	end
 	
@@ -177,15 +177,24 @@ class Negotiation < ActiveRecord::Base
 		self.save!
 	end
 	
-	def randomize_first_user
-		self.first_user = self.users.shuffle.first
+	def second_user=(user)
+		if user
+			self.second_user_id = user.id
+		else
+			self.second_user_id = nil
+		end
+		self.save!
 	end
 	
-	def randomize_if_new
-		unless self.first_user
-			randomize_first_user
-		end
-	end
+	# def randomize_first_user
+	# 	self.first_user = self.users.shuffle.first
+	# end
+	#
+	# def randomize_if_new
+	# 	unless self.first_user
+	# 		randomize_first_user
+	# 	end
+	# end
 	
 	def ready?
 		self.full? && self.first_user && self.user_consent? && self.user_background?
@@ -197,11 +206,7 @@ class Negotiation < ActiveRecord::Base
 	end
 	
 	def second_user
-		prime = false
-		self.users.each do |user|
-			prime = user unless user == self.first_user
-		end
-		prime
+		User.find_by_id(self.second_user_id)
 	end
 	
 	def language

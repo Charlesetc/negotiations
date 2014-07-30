@@ -7,8 +7,8 @@ class StaticController < ApplicationController
 		else
 			
 			@user = current_user
-			@negotiation = @user.negotiation
-			@negotiation.randomize_if_new if @negotiation
+			@negotiation = @user.negotiation			
+			# @negotiation.randomize_if_new if @negotiation
 			
 			unless @user.admin
 				unless @user.consent

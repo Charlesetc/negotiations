@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140729195403) do
+ActiveRecord::Schema.define(:version => 20140730224730) do
 
   create_table "agreements", :force => true do |t|
     t.boolean  "agree"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20140729195403) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "agreement_time"
+    t.integer  "second_user_id"
   end
 
   add_index "negotiations", ["secure_key"], :name => "index_negotiations_on_secure_key", :unique => true
