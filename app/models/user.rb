@@ -36,6 +36,22 @@
 #  research          :text
 #
 
+
+module CSVHelper
+	
+	def format_time(seconds)
+		return false unless seconds
+		seconds = seconds.to_i
+		s = seconds % 60
+		m = (seconds / 60) % 60
+		h = seconds / 3600
+		
+		sprintf("%02d : %02d : %02d", h, m, s)
+	end
+	
+	
+end
+
 class User < ActiveRecord::Base
 
 	attr_accessible :email, :name, :username, :password, :new_password, :password_confirmation
@@ -70,18 +86,21 @@ class User < ActiveRecord::Base
 	validates :sex, presence: true
 	validates :date_of_birth, presence: true
 	validates :country, presence: true
-	validates :start_english, presence: true, numericality: true
-	validates :hebrew_listening, presence: true
-	validates :hebrew_speaking, presence: true
-	validates :hebrew_reading, presence: true
-	validates :hebrew_writing, presence: true
-	validates :english_listening, presence: true
-	validates :english_speaking, presence: true
-	validates :english_reading, presence: true
-	validates :english_writing, presence: true
 	validates :research, presence: true
-	validates :emotions, presence: true
+	# validates :start_english, presence: true, numericality: true
+	# validates :hebrew_listening, presence: true  # Add these for actual study.
+	# validates :hebrew_speaking, presence: true   # Add these for actual study.
+	# validates :hebrew_reading, presence: true    # Add these for actual study.
+	# validates :hebrew_writing, presence: true    # Add these for actual study.
+	# validates :english_listening, presence: true # Add these for actual study.
+	# validates :english_speaking, presence: true  # Add these for actual study.
+	# validates :english_reading, presence: true   # Add these for actual study.
+	# validates :english_writing, presence: true   # Add these for actual study.
+	# validates :english_home, presence: true      # Add these for actual study.
+	#validates :emotions, presence: true           # Add these for actual study.
 	
+	
+	include CSVHelper
 	
 	def to_h
 		JSON.parse(self.to_json)
@@ -93,6 +112,7 @@ class User < ActiveRecord::Base
 		array << 'Sex'
 		array << 'Date of Birth'
 		array << 'Age'
+		array << 'Background Time'
 		array << 'English Acquisition'
 		array << 'English Starting Age'
 		array << 'English Spoken at Home'
@@ -110,12 +130,37 @@ class User < ActiveRecord::Base
 		array
 	end
 	
+	def self.array_spacer
+		array = []
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array
+	end
+	
 	def make_array
 		array = []
 		array << self.id
 		array << self.sex
 		array << self.date_of_birth.strftime("%m/%d/%y")
 		array << self.age
+		array << format_time(self.background_time)
 		array << self.acquired_english
 		array << self.start_english
 		array << self.english_home

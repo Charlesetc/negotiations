@@ -4,6 +4,7 @@
 	Negotiation.destroy_all
 	User.destroy_all
 	Message.destroy_all
+	Agreement.destroy_all
 	
 	@scenario = Scenario.create(
 		general: 'Admin Scenario',

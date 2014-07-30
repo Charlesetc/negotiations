@@ -223,6 +223,7 @@ $ ->
 			$('#clock').toggleClass('going_clock')
 			if clock_count == 0
 				play_angry_sound()
+				alert 'Time is up. Please move ahead by clicking "Fill out Form"'
 				clock_count = 1
 		else
 			seconds -= 1
@@ -271,7 +272,22 @@ $ ->
 	set_agreement = ->
 		if $('#agreement_page').length > 0
 			window.onbeforeunload = alert_agreement
+			
+	replace_newlines = ->
+		$('textarea').each ->
+			$(this).html($(this).html().replace(/_NEWLINE_/g, ''))		
+		$('#background_page').children().each ->
+			$(this).html($(this).html().replace(/_NEWLINE_/g, '<br/>')) # More specific
+		$('#background_block').children().each ->                       # to not inter-
+			$(this).html($(this).html().replace(/_NEWLINE_/g, '<br/>')) # fere with me-
+																		# ssages
+			
+	remove_tab = ->
+		$('#tab_link_supervisor').hide()
 		
+	remove_tab() # Comment out this line to bring back supervisor chat.
+		
+	replace_newlines()
 		
 	scroll_index()
 	
@@ -540,8 +556,41 @@ $ ->
 			$.post '/users/alert_request', {
 				authenticity_token: AUTH_TOKEN
 			}
-
+			
+	$('#alert_partner').click ->
+		$('#alert_content_div').css 'display', 'block'
+		$('#alert_content_div').animate {
+			opacity: 1
+		}, 'fast'
+		
+	$('#alert_content_div').click ->
+		$(this).animate {
+			opacity:0
+		}, 'fast', ->
+			$(this).css 'display', 'none'
+			$('#alert_content').val('')
 	
+	$('#alert_content_div div').click (e) ->
+		e.stopPropagation()	
+		
+	$('#send_alert').click ->
+		$('#alert_content_div').click()
+		message = $('#alert_content').val()
+		if message
+			$.post '/agree_channel', {
+				authenticity_token: AUTH_TOKEN,
+				sender_id: USER_ID,
+				tactic: 'alert_message',
+				message: message
+			}
+	
+	$('#alert_content').keypress (e) ->
+		if e.which == 13
+			$('#send_alert').click()
+		
+	$(document).keyup (e) ->
+		if e.keyCode == 27
+			$('#alert_content_div').click()
 
 			
 	# The Dropdown Menu

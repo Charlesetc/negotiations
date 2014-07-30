@@ -23,13 +23,29 @@ class UsersController < ApplicationController
 		redirect_to root_url
 	end
 	
-	def index
-		@users = User.all
+	def convert 
 		respond_to do |format|
 			format.csv {
-				array = ['hi', 'there', 'finding', 'it', 'all', 'out']
+				csv_string = CSV.generate do |csv|
+					csv << ['ID', 'Name', 'E-Mail']
+					csv << ['-----------------', '-----------------', '-----------------']
+					User.all.each do |user|
+						unless user.admin
+							csv << [user.id, user.name, user.email]
+						end
+					end
+				end
+				render inline: csv_string
+			}
+		end
+	end
+	
+	def index
+		respond_to do |format|
+			format.csv {
 				csv_string = CSV.generate do |csv|
 					csv << User.array_header
+					csv << User.array_spacer
 					User.all.each do |user|
 						unless user.admin
 							csv << user.make_array

@@ -5,25 +5,28 @@ task :seed => :environment do
 	Negotiation.destroy_all
 	User.destroy_all
 	Message.destroy_all
+	Agreement.destroy_all
 	
 	@scenario = Scenario.create(
-		general: 'Admin Scenario',
-		first_role: 'Admin',
-		second_role: 'Admin',
+		general: "Paz is a large oil company that owns many gas stations.",
+		first_role: "Paz wants to negotiate sales for them.",
+		second_role: "end to your dreams.",
+		first_role_title: 'Paz Representative',
+		second_role_title: 'Gas Station Owner',
 		title: "Admin",
 		language: "English"
 	)
 	
 	@negotiation = @scenario.negotiations.create(
-		secure_key: "key"
+		secure_key: "extraordinarily_secure_key"
 	)
 	
 	@user = User.create(
-		username: 'admin',
-		name: 'Admin',
-		email: 'admin@uchicago.edu',
-		password: 'foobar',
-		password_confirmation: 'foobar',
+		username: 'charlesetc',
+		name: 'Charles',
+		email: 'charlesetc@uchicago.edu',
+		password: 'cpipin',
+		password_confirmation: 'cpipin',
 		sex: 'male',
 		date_of_birth: Time.now - 100000000,
 		secure_key: "key", 

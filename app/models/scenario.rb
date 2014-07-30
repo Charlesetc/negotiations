@@ -25,6 +25,8 @@ class Scenario < ActiveRecord::Base
 	validates :title, presence: true
 	validates :language, presence: true
 	
+	before_save :filter_new_lines
+	
 	def self.select_list
 		out = []
 		self.all.each do |scenario|
@@ -32,5 +34,13 @@ class Scenario < ActiveRecord::Base
 		end
 		out
 	end
+	
+	private
+	
+		def filter_new_lines
+			self.general = self.general.gsub /\n/, "\n_NEWLINE_"
+			self.first_role = self.first_role.gsub /\n/, "\n_NEWLINE_"
+			self.second_role = self.second_role.gsub /\n/, "\n_NEWLINE_"
+		end
 	
 end

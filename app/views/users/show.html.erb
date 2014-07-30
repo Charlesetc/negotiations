@@ -1,13 +1,13 @@
 <% unless current_user.admin %>
-<%= subscribe_to "/negotiation/#{current_user.negotiation.id}/new" %>
-<%= javascript_include_tag '/tabs/private_pub_subscribe.js' %>
+	<%= subscribe_to "/negotiation/#{current_user.negotiation.id}/new" %>
+	<%= javascript_include_tag '/tabs/private_pub_subscribe.js' %>
 <% end %>
  <!-- Heres's the private_pub subscribe -->
 
 <div id="tab-container" class="tab-container">
   <ul class='etabs' id = 'tabs_for_<%= current_user.id %>' data-id = '<%= current_user.id %>'>
     <% @tabs.each do |tab| %>
-      <li class='tab_link'>
+      <li class='tab_link' id = 'tab_link_<%= tab[:title].downcase %>' >
         <a href="#tab_<%= tab[:title].downcase %>"><%= tab[:title] %></a>
       </li>
     <% end %>

@@ -10,6 +10,21 @@ class NegotiationsController < ApplicationController
 		@negotiation = Negotiation.new
 		@user = @negotiation # For error form
   end
+	
+	def index
+		respond_to do |format|
+			format.csv {
+				csv_string = CSV.generate do |csv|
+					csv << Negotiation.array_header
+					csv << Negotiation.array_spacer
+					Negotiation.all.each do |negotiation|
+						csv << negotiation.make_array
+					end
+				end
+				render inline: csv_string
+			}
+		end
+	end
 
   def create
 		@negotiation = Negotiation.new(params[:negotiation])

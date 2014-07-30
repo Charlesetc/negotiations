@@ -82,7 +82,7 @@ PrivatePub.subscribe "/<%= current_user.negotiation.id %>/agree", (data, channel
 					$('#receiver_page .agreement_boolean').val('false').attr('selected', 'selected')
 					size_stop()
 		else if data.tactic == 'submit_check'
-			if confirm 'The other participant has requested to submit the form. Are you ready to submit as well?'
+			if confirm 'The other participant has requested to submit the form. Do you agree to what they have said and are you ready to submit as well?'
 				$.post '/agree_channel', {
 					authenticity_token: AUTH_TOKEN,
 					sender_id: user_id,
@@ -105,3 +105,5 @@ PrivatePub.subscribe "/<%= current_user.negotiation.id %>/agree", (data, channel
 			alert 'The other particpant is not yet ready to submit the form. Please wait and try again later.'
 			$('.checking_submit').remove()
 			$('button').removeClass 'disabled'
+		else if data.tactic == 'alert_message'
+			alert "The other participant says: \"#{data.message}\""

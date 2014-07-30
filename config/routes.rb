@@ -21,6 +21,12 @@ Negotiations::Application.routes.draw do
   get "static/search"
 
   get "static/reference"
+	
+	get 'users/index'
+	
+	get 'negotiations', to: 'negotiations#index'
+	
+	get 'convert', to: 'users#convert'
 
   get "static/about"
 	
@@ -34,7 +40,6 @@ Negotiations::Application.routes.draw do
 	post 'users/alert_request'
 	post 'users/accept_alert_request'
 	
-	match 'index', to: 'users#index'
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'

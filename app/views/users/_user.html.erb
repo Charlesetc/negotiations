@@ -4,11 +4,7 @@
     <tr class = 'user_entry table_entry' data-user-id = '<%= user.id %>' data-admin = '<%= user.admin %>' data-negotiation-id = "<%= user.negotiation.id if user.negotiation %>" >
       <td><%= user.id %></td>
       <td><%= user.name %></td>
-      <% if user.background_time %>
-      <td><%= '%.2f' % user.background_time + ' seconds' %></td>
-      <% else %>
-      <td><%= user.background_time %></td>
-      <% end %>
+      <td><%= user.secure_key %></td>
       <td><%= user.online? %></td>
       <td><%= user.admin %></td>
     </tr>
