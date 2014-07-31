@@ -74,8 +74,8 @@ class Negotiation < ActiveRecord::Base
 		array = []
 		array << self.id
 		array << self.scenario.title
-		array << self.first_user_id
-		array << (self.second_user ? self.second_user.id : false)
+		array << (self.first_user ? self.first_user.subject_number : false)
+		array << (self.second_user ? self.second_user.subject_number : false)
 		array << format_time(self.total_time)
 		array << format_time(self.total_agreement_time)
 		array << ((self.total_time && self.total_agreement_time) ? format_time(self.total_time + self.total_agreement_time) : false)

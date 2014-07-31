@@ -42545,3 +42545,1029 @@ Connecting to database specified by database.yml
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
 Connecting to database specified by database.yml
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:06:09 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 22ms (Views: 7.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:06:09 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:06:09 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:13:49 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 25ms (Views: 7.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:13:49 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:13:49 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-31 12:13:49 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-31 12:13:49 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:14:39 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.3ms)
+Compiled application.css  (0ms)  (pid 1344)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:14:39 -0500
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:14:39 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-31 12:14:39 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-31 12:14:39 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:14:40 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:14:40 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:14:40 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:14:44 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.4ms)
+Compiled application.css  (0ms)  (pid 1344)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:14:44 -0500
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:14:44 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-31 12:14:44 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-31 12:14:44 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:14:52 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.3ms)
+Compiled application.css  (0ms)  (pid 1344)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 61ms (Views: 59.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:14:52 -0500
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:14:52 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-31 12:14:52 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-31 12:14:52 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:14:57 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.3ms)
+Compiled application.css  (0ms)  (pid 1344)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:14:57 -0500
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:14:57 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-31 12:14:57 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-31 12:14:57 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:15:00 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.3ms)
+Compiled application.css  (0ms)  (pid 1344)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:15:00 -0500
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:15:00 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-31 12:15:00 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-31 12:15:00 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:15:04 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.3ms)
+Compiled application.css  (0ms)  (pid 1344)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:15:04 -0500
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:15:04 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-31 12:15:04 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-31 12:15:04 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:15:09 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.4ms)
+Compiled application.css  (0ms)  (pid 1344)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:15:09 -0500
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:15:09 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-31 12:15:09 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-31 12:15:09 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:15:09 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered static/home.html.erb within layouts/application (0.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:15:09 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:15:09 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-07-31 12:15:16 -0500
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (68.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 105ms (Views: 78.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:15:16 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:15:16 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_maroon.png" for 127.0.0.1 at 2014-07-31 12:15:25 -0500
+Served asset /shield_maroon.png - 304 Not Modified (0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-31 12:16:06 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:16:06 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:16:06 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-07-31 12:16:10 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "session"=>{"email"=>"admin@uchicago.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'admin@uchicago.edu' LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/93
+Completed 302 Found in 89ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/93" for 127.0.0.1 at 2014-07-31 12:16:10 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "93"]]
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:16:10 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered users/_user.html.erb (3.1ms)
+  Rendered partials/_user_table.html.erb (5.8ms)
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  Rendered partials/_negotiation_table.html.erb (16.7ms)
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" [0m
+  Rendered partials/_scenario_table.html.erb (1.1ms)
+  Rendered partials/tabs/_admin.html.erb (25.5ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 96ms (Views: 31.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:16:11 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:16:11 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:16:11 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"93"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/convert.csv" for 127.0.0.1 at 2014-07-31 12:16:23 -0500
+Processing by UsersController#convert as CSV
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  Rendered inline template (0.3ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users.csv" for 127.0.0.1 at 2014-07-31 12:16:41 -0500
+Processing by UsersController#index as CSV
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  Rendered inline template (0.3ms)
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/log_out" for 127.0.0.1 at 2014-07-31 12:17:02 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:17:02 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  Rendered static/home.html.erb within layouts/application (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:17:02 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:17:02 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-31 12:17:03 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:17:03 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:17:03 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-31 12:17:04 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:17:04 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:17:04 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-07-31 12:17:06 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered users/new.html.erb within layouts/application (58.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+Completed 200 OK in 67ms (Views: 65.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:17:06 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:17:06 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:19:11 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'AXt8zE1CLzGGQM4160dCQA' LIMIT 1[0m
+  Rendered static/home.html.erb within layouts/application (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'AXt8zE1CLzGGQM4160dCQA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'AXt8zE1CLzGGQM4160dCQA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'AXt8zE1CLzGGQM4160dCQA' LIMIT 1
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:19:11 -0500
+Served asset /coffeescript.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:19:11 -0500
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-31 12:19:11 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-31 12:19:11 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-31 12:19:15 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'AXt8zE1CLzGGQM4160dCQA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'AXt8zE1CLzGGQM4160dCQA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'AXt8zE1CLzGGQM4160dCQA' LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-07-31 12:19:23 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "session"=>{"email"=>"admin@uchicago.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'admin@uchicago.edu' LIMIT 1
+Redirected to http://localhost:3000/users/93
+Completed 302 Found in 95ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/93" for 127.0.0.1 at 2014-07-31 12:19:24 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "93"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:19:24 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered users/_user.html.erb (3.7ms)
+  Rendered partials/_user_table.html.erb (5.5ms)
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mScenario Load (0.2ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered partials/_negotiation_table.html.erb (3.7ms)
+  [1m[35mScenario Load (0.2ms)[0m  SELECT "scenarios".* FROM "scenarios" 
+  Rendered partials/_scenario_table.html.erb (1.3ms)
+  Rendered partials/tabs/_admin.html.erb (12.9ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:19:24 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "id"=>"93"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/negotiations/new" for 127.0.0.1 at 2014-07-31 12:19:30 -0500
+Processing by NegotiationsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" [0m
+  Rendered negotiations/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:19:30 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "id"=>"93"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/negotiations" for 127.0.0.1 at 2014-07-31 12:19:36 -0500
+Processing by NegotiationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "negotiation"=>{"scenario_id"=>"46", "secure_key"=>"my_secure_key"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "negotiations" ("agreement_time", "created_at", "end_time", "first_user_id", "scenario_id", "second_user_id", "secure_key", "start_time", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["agreement_time", nil], ["created_at", Thu, 31 Jul 2014 17:19:36 UTC +00:00], ["end_time", nil], ["first_user_id", nil], ["scenario_id", 46], ["second_user_id", nil], ["secure_key", "my_secure_key"], ["start_time", nil], ["updated_at", Thu, 31 Jul 2014 17:19:36 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:19:36 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered users/_user.html.erb (2.4ms)
+  Rendered partials/_user_table.html.erb (3.9ms)
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered partials/_negotiation_table.html.erb (3.8ms)
+  [1m[35mScenario Load (0.2ms)[0m  SELECT "scenarios".* FROM "scenarios" 
+  Rendered partials/_scenario_table.html.erb (1.5ms)
+  Rendered partials/tabs/_admin.html.erb (11.2ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:19:36 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:19:36 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "id"=>"93"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-07-31 12:19:40 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "user"=>{"name"=>"Charles", "email"=>"charles@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "country"=>"USA", "date_of_birth(1i)"=>"1954", "date_of_birth(2i)"=>"7", "date_of_birth(3i)"=>"31", "sex"=>"male", "native_languages"=>"English", "foreign_languages"=>"Spanish", "start_english"=>"0", "english_home"=>"1", "hebrew_listening"=>"2", "hebrew_speaking"=>"2", "emotions"=>"", "research"=>"Excellent", "secure_key"=>"my_secure_key"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 88ms
+
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  app/controllers/users_controller.rb:62:in `create'
+
+
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (40.3ms)
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (51.9ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:20:36 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "id"=>"93"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 28ms (Views: 0.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-07-31 12:20:45 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "user"=>{"name"=>"Charles", "email"=>"charles@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "country"=>"USA", "date_of_birth(1i)"=>"1954", "date_of_birth(2i)"=>"7", "date_of_birth(3i)"=>"31", "sex"=>"male", "native_languages"=>"English", "foreign_languages"=>"Spanish", "start_english"=>"0", "english_home"=>"1", "hebrew_listening"=>"2", "hebrew_speaking"=>"2", "emotions"=>"", "research"=>"Excellent", "secure_key"=>"my_secure_key"}, "commit"=>"Submit"}
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('charles@mail.com') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("acquired_english", "admin", "background", "consent", "country", "created_at", "date_of_birth", "email", "emotions", "end_background", "english_home", "english_listening", "english_reading", "english_speaking", "english_writing", "foreign_languages", "hebrew_listening", "hebrew_reading", "hebrew_speaking", "hebrew_writing", "name", "native_languages", "password_digest", "remember_token", "research", "secure_key", "sex", "start_background", "start_english", "subject_number", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["acquired_english", nil], ["admin", false], ["background", false], ["consent", false], ["country", "USA"], ["created_at", Thu, 31 Jul 2014 17:20:45 UTC +00:00], ["date_of_birth", Sat, 31 Jul 1954], ["email", "charles@mail.com"], ["emotions", ""], ["end_background", nil], ["english_home", true], ["english_listening", nil], ["english_reading", nil], ["english_speaking", nil], ["english_writing", nil], ["foreign_languages", "---\n- spanish\n"], ["hebrew_listening", 2], ["hebrew_reading", nil], ["hebrew_speaking", 2], ["hebrew_writing", nil], ["name", "Charles"], ["native_languages", "---\n- english\n"], ["password_digest", "$2a$10$eEZmnQmXZXj4NyTk2otCH.Xk0IMKyzpIN5mToY87YQ0vC0gFKsRC6"], ["remember_token", "XGWVWMPt6NcU-4IzVnWOug"], ["research", "Excellent"], ["secure_key", "my_secure_key"], ["sex", "male"], ["start_background", nil], ["start_english", 0], ["subject_number", nil], ["updated_at", Thu, 31 Jul 2014 17:20:45 UTC +00:00], ["username", nil]]
+  [1m[35m (2.5ms)[0m  commit transaction
+Redirected to http://0.0.0.0:3000/instructions
+Completed 302 Found in 116ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/instructions" for 127.0.0.1 at 2014-07-31 12:20:45 -0500
+Processing by UsersController#instructions as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'XGWVWMPt6NcU-4IzVnWOug' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  Rendered partials/_instructions.erb (57.3ms)
+  Rendered users/instructions.html.erb within layouts/application (59.1ms)
+Completed 200 OK in 69ms (Views: 66.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:20:45 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:20:45 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:20:45 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'XGWVWMPt6NcU-4IzVnWOug' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/instructions" for 127.0.0.1 at 2014-07-31 12:21:03 -0500
+Processing by UsersController#instructions as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'XGWVWMPt6NcU-4IzVnWOug' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  Rendered partials/_instructions.erb (2.9ms)
+  Rendered users/instructions.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:21:03 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:21:03 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:21:03 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'XGWVWMPt6NcU-4IzVnWOug' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/consent" for 127.0.0.1 at 2014-07-31 12:21:04 -0500
+Processing by UsersController#consent as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'XGWVWMPt6NcU-4IzVnWOug' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.2ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'my_secure_key' AND "negotiations"."id" != 120) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "negotiations" SET "second_user_id" = 96, "updated_at" = '2014-07-31 17:21:04.601978' WHERE "negotiations"."id" = 120[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+  Rendered partials/_consent_form.html.erb (0.4ms)
+  Rendered users/consent.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 9.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:21:04 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:21:04 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:21:04 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'XGWVWMPt6NcU-4IzVnWOug' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/96/accept_consent" for 127.0.0.1 at 2014-07-31 12:21:06 -0500
+Processing by UsersController#accept_consent as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'XGWVWMPt6NcU-4IzVnWOug' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "96"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "96"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "start_background" = '2014-07-31 17:21:06.513007', "remember_token" = 'F18iSIXuTuqTWu-KDddMFg', "updated_at" = '2014-07-31 17:21:06.514065', "native_languages" = '---
+- english
+', "foreign_languages" = '---
+- spanish
+', "acquired_english" = '--- []
+' WHERE "users"."id" = 96
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "users" SET "consent" = 't', "remember_token" = 'UjLveuzWV5l-QFo5NpUCDA', "updated_at" = '2014-07-31 17:21:06.519501', "native_languages" = '---
+- english
+', "foreign_languages" = '---
+- spanish
+', "acquired_english" = '--- []
+' WHERE "users"."id" = 96[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered inline template (0.3ms)
+Completed 200 OK in 14ms (Views: 0.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/background" for 127.0.0.1 at 2014-07-31 12:21:06 -0500
+Processing by UsersController#background as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'UjLveuzWV5l-QFo5NpUCDA' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mScenario Load (0.1ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered partials/tabs/_background.html.erb (6.9ms)
+  Rendered users/background.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:21:06 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:21:06 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:21:06 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'UjLveuzWV5l-QFo5NpUCDA' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/accept_background" for 127.0.0.1 at 2014-07-31 12:21:07 -0500
+Processing by UsersController#accept_background as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "commit"=>"Ready"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'UjLveuzWV5l-QFo5NpUCDA' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "end_background" = '2014-07-31 17:21:07.951366', "remember_token" = 'Tq6fMI__tCVIn4fyXyqB2A', "updated_at" = '2014-07-31 17:21:07.952517', "native_languages" = '---
+- english
+', "foreign_languages" = '---
+- spanish
+', "acquired_english" = '--- []
+' WHERE "users"."id" = 96
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "users" SET "background" = 't', "remember_token" = 'TwTBjcnMNcsPDb9wU6BStA', "updated_at" = '2014-07-31 17:21:07.958914', "native_languages" = '---
+- english
+', "foreign_languages" = '---
+- spanish
+', "acquired_english" = '--- []
+' WHERE "users"."id" = 96[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 194ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:21:07 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'TwTBjcnMNcsPDb9wU6BStA' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+Redirected to http://0.0.0.0:3000/waiting
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/waiting" for 127.0.0.1 at 2014-07-31 12:21:07 -0500
+Processing by UsersController#waiting as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'TwTBjcnMNcsPDb9wU6BStA' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1[0m
+  Rendered users/waiting.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 58ms (Views: 55.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:21:08 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:21:08 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/waiting.js" for 127.0.0.1 at 2014-07-31 12:21:08 -0500
+Processing by TabsController#waiting as JS
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'TwTBjcnMNcsPDb9wU6BStA' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1[0m
+  Rendered tabs/waiting.js.coffee (248.9ms)
+Completed 200 OK in 254ms (Views: 251.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:21:08 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'TwTBjcnMNcsPDb9wU6BStA' LIMIT 1
+  Rendered inline template (0.7ms)
+Completed 200 OK in 5ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/instructions" for 127.0.0.1 at 2014-07-31 12:21:09 -0500
+Processing by UsersController#instructions as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'TwTBjcnMNcsPDb9wU6BStA' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  Rendered partials/_instructions.erb (3.9ms)
+  Rendered users/instructions.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:21:09 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:21:09 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:21:09 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'TwTBjcnMNcsPDb9wU6BStA' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/96/edit" for 127.0.0.1 at 2014-07-31 12:21:11 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"96"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'TwTBjcnMNcsPDb9wU6BStA' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "96"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "96"]]
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/edit.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:21:11 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:21:11 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:21:11 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'TwTBjcnMNcsPDb9wU6BStA' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/users/96" for 127.0.0.1 at 2014-07-31 12:21:16 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "user"=>{"name"=>"Charles", "email"=>"charles@mail.com", "new_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit", "id"=>"96"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'TwTBjcnMNcsPDb9wU6BStA' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "96"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "96"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('charles@mail.com') AND "users"."id" != 96) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "password_digest" = '$2a$10$psIxVr2k.FBK4VfmDaZNSOokF7njysx9aLslxds0hv/UG6pnvCp3S', "remember_token" = 'F1dtWQ5zWuSueD9UK88V_w', "updated_at" = '2014-07-31 17:21:16.908767', "native_languages" = '---
+- english
+', "foreign_languages" = '---
+- spanish
+', "acquired_english" = '--- []
+' WHERE "users"."id" = 96
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 101ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:21:16 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" 
+Redirected to http://0.0.0.0:3000/waiting
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/waiting" for 127.0.0.1 at 2014-07-31 12:21:16 -0500
+Processing by UsersController#waiting as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  Rendered users/waiting.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:21:17 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/waiting.js" for 127.0.0.1 at 2014-07-31 12:21:17 -0500
+Processing by TabsController#waiting as JS
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  Rendered tabs/waiting.js.coffee (227.3ms)
+Completed 200 OK in 230ms (Views: 228.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:21:17 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:21:17 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-31 12:21:18 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+Redirected to http://0.0.0.0:3000/waiting
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/waiting" for 127.0.0.1 at 2014-07-31 12:21:18 -0500
+Processing by UsersController#waiting as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  Rendered users/waiting.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-31 12:21:18 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/waiting.js" for 127.0.0.1 at 2014-07-31 12:21:18 -0500
+Processing by TabsController#waiting as JS
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'my_secure_key' LIMIT 1
+  Rendered tabs/waiting.js.coffee (242.6ms)
+Completed 200 OK in 246ms (Views: 243.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-31 12:21:19 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:21:19 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:21:37 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "id"=>"93"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  Rendered inline template (0.6ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.4ms)

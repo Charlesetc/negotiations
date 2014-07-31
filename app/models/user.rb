@@ -75,9 +75,9 @@ class User < ActiveRecord::Base
 	
 	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
 	VALID_USERNAME = /^\S*$/
-	validates :name, presence: true
-	validates :username, presence: true, uniqueness: true,
-		 				length: { maximum: 50 }, format: {with: VALID_USERNAME}
+	validates :name, presence: true	
+	# validates :username, presence: true, uniqueness: true,
+	# 	 				length: { maximum: 50 }, format: {with: VALID_USERNAME}
 	validates :email, presence: true, format: { with: VALID_EMAIL }, 
 						uniqueness: { case_sensitive: false }
 	validates :password, presence: true, length: { minimum: 6 }, confirmation: true
@@ -108,7 +108,7 @@ class User < ActiveRecord::Base
 	
 	def self.array_header
 		array = []
-		array << 'ID'
+		array << 'Subject Number'
 		array << 'Sex'
 		array << 'Date of Birth'
 		array << 'Age'
@@ -156,7 +156,7 @@ class User < ActiveRecord::Base
 	
 	def make_array
 		array = []
-		array << self.id
+		array << self.subject_number
 		array << self.sex
 		array << self.date_of_birth.strftime("%m/%d/%y")
 		array << self.age

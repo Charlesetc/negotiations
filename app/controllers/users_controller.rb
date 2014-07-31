@@ -27,11 +27,11 @@ class UsersController < ApplicationController
 		respond_to do |format|
 			format.csv {
 				csv_string = CSV.generate do |csv|
-					csv << ['ID', 'Name', 'E-Mail']
+					csv << ['Subject Number', 'Name', 'E-Mail']
 					csv << ['-----------------', '-----------------', '-----------------']
 					User.all.each do |user|
 						unless user.admin
-							csv << [user.id, user.name, user.email]
+							csv << [user.subject_number, user.name, user.email]
 						end
 					end
 				end
@@ -59,7 +59,6 @@ class UsersController < ApplicationController
 	
 	def create
 		@user = User.new(params[:user])
-		@user.username.downcase
 		@user.native_languages = 
 			params[:user][:native_languages].gsub(/\s/, '').downcase.split(',')
 		@user.foreign_languages = 
@@ -230,7 +229,6 @@ class UsersController < ApplicationController
 		# 	params[:user][:foreign_languages].gsub(/ /, '').downcase.split(',')
 		@attributes = params[:user]
 		
-		@user.username = @attributes[:username]
 		@user.password = @attributes[:new_password]
 		@user.password_confirmation = @attributes[:password_confirmation]
 		@user.name = @attributes[:name]

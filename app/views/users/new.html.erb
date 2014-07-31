@@ -14,16 +14,16 @@
 		
 		<%= render 'shared/error_messages' %>
 		
-		<div><%= f.label :username %></div>
-		<div><%= f.text_field :username, 
-			placeholder: 'johnsmith' %></div>
+		<!-- <div><%= f.label :username %></div>
+		<div><%= f.text_field :username,
+			placeholder: 'johnsmith' %></div> -->
 		
 		<div><%= f.label :name %></div>
 		<div><%= f.text_field :name, 
 			placeholder: 'John Smith' %></div>
 
 		<div><%= f.label :email %></div>
-		<div><%= f.text_field :email %></div>
+		<div><%= f.text_field :email, placeholder: "jsmith@example.com" %></div>
 		
 		<div><%= f.label :password %></div>
 		<div><%= f.password_field :password %></div>
