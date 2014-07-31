@@ -53,3 +53,25 @@ task :seed => :environment do
 	puts 'Password: foobar'
 	
 end
+
+
+desc 'Order your subjects.'
+task :order => :environment do
+	@users = User.all
+	@users.sort_by! { |user| user.created_at }
+	@users.reject! { |user| user.admin }
+	@users.each_with_index do |user, i| 
+		user.update_attribute :subject_number, (i + 1)
+		puts "#{user.name}: subject number : #{i + 1}"
+	end
+end
+
+desc 'Get order of your subjects'
+task :identify => :environment do
+	@users = User.all
+	@users.sort_by! { |user| user.created_at }
+	@users.reject! { |user| user.admin }
+	@users.each do |user| 
+		puts "#{user.name} : #{user.email} : #{user.subject_number}"
+	end
+end
