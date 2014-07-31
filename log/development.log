@@ -43571,3 +43571,75 @@ Processing by UsersController#last_seen as */*
   [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
   Rendered inline template (0.6ms)
 Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:22:19 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:22:40 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "id"=>"93"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  Rendered inline template (0.8ms)
+Completed 200 OK in 8ms (Views: 2.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:23:19 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  Rendered inline template (0.9ms)
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:23:51 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "id"=>"93"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  Rendered inline template (1.0ms)
+Completed 200 OK in 9ms (Views: 2.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:24:19 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  Rendered inline template (0.8ms)
+Completed 200 OK in 7ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:24:56 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "id"=>"93"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  Rendered inline template (1.5ms)
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:25:19 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/93/last_seen" for 127.0.0.1 at 2014-07-31 12:26:00 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"xzpKJhF7BjgI/ZkpoTpqyX2uI6U7xf8vQg3uZEAOvRE=", "id"=>"93"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'gKdNebien78LwOiVC9lzCg' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/96/last_seen" for 127.0.0.1 at 2014-07-31 12:26:19 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"96"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'F1dtWQ5zWuSueD9UK88V_w' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
