@@ -22,7 +22,6 @@ size_stop = -> # Changes should be copied too.
 			$('#stop_receiver').height(($(window).height() * 0.45))
 			
 save_form = ->
-	alert 'hi'
 	agreement_boolean = $('.agreement_boolean').val()
 	agreement_price = $('#agreement_price').val()
 	if agreement_boolean == 'true'
