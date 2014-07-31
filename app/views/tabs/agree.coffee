@@ -83,12 +83,12 @@ PrivatePub.subscribe "/<%= current_user.negotiation.id %>/agree", (data, channel
 					size_stop()
 		else if data.tactic == 'submit_check'
 			if confirm 'The other participant has requested to submit the form. Do you agree to what they have said and are you ready to submit as well?'
+				save_form()
 				$.post '/agree_channel', {
 					authenticity_token: AUTH_TOKEN,
 					sender_id: user_id,
 					tactic: 'positive_check'
 				}
-				save_form()
 				# Save form
 				# Take the user to the next page
 			else
