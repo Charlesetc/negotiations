@@ -22,6 +22,7 @@ size_stop = -> # Changes should be copied too.
 			$('#stop_receiver').height(($(window).height() * 0.45))
 			
 save_form = ->
+	alert 'hi'
 	agreement_boolean = $('.agreement_boolean').val()
 	agreement_price = $('#agreement_price').val()
 	if agreement_boolean == 'true'
@@ -83,12 +84,12 @@ PrivatePub.subscribe "/<%= current_user.negotiation.id %>/agree", (data, channel
 					size_stop()
 		else if data.tactic == 'submit_check'
 			if confirm 'The other participant has requested to submit the form. Do you agree to what they have said and are you ready to submit as well?'
-				save_form()
 				$.post '/agree_channel', {
 					authenticity_token: AUTH_TOKEN,
 					sender_id: user_id,
 					tactic: 'positive_check'
-				}
+				}, ->
+					save_form()
 				# Save form
 				# Take the user to the next page
 			else
@@ -99,7 +100,6 @@ PrivatePub.subscribe "/<%= current_user.negotiation.id %>/agree", (data, channel
 				}
 		else if data.tactic == 'positive_check'
 			save_form()
-			# Save form
 			# Take the user to the next page
 		else if data.tactic == 'negative_check'
 			alert 'The other particpant is not yet ready to submit the form. Please wait and try again later.'

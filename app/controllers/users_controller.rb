@@ -174,6 +174,9 @@ class UsersController < ApplicationController
 	end
 	
 	def finish_agreement
+		
+		sleep Random.rand() # For effect
+		
 		@agreement = current_user.agreement
 		@negotiation = current_user.negotiation
 		@agreement.agreement_boolean = params[:agreement_boolean]

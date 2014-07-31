@@ -37729,3 +37729,2486 @@ Processing by SessionsController#new as */*
   [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '64QOFGxd8GVJcAGxNYx2GA' LIMIT 1
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '64QOFGxd8GVJcAGxNYx2GA' LIMIT 1[0m
 Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.2ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mScenario Load (0.1ms)[0m  SELECT "scenarios".* FROM "scenarios" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.9ms)[0m  DELETE FROM "scenarios" WHERE "scenarios"."id" = ?  [["id", 45]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "negotiations" WHERE "negotiations"."id" = ?  [["id", 118]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 92]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" 
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "scenarios" ("created_at", "first_role", "first_role_title", "general", "language", "second_role", "second_role_title", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00], ["first_role", "Admin"], ["first_role_title", nil], ["general", "Admin Scenario"], ["language", "English"], ["second_role", "Admin"], ["second_role_title", nil], ["title", "Admin"], ["updated_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.2ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "negotiations" ("agreement_time", "created_at", "end_time", "first_user_id", "scenario_id", "second_user_id", "secure_key", "start_time", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["agreement_time", nil], ["created_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00], ["end_time", nil], ["first_user_id", nil], ["scenario_id", 46], ["second_user_id", nil], ["secure_key", "key"], ["start_time", nil], ["updated_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'admin' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('admin@uchicago.edu') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("acquired_english", "admin", "background", "consent", "country", "created_at", "date_of_birth", "email", "emotions", "end_background", "english_home", "english_listening", "english_reading", "english_speaking", "english_writing", "foreign_languages", "hebrew_listening", "hebrew_reading", "hebrew_speaking", "hebrew_writing", "name", "native_languages", "password_digest", "remember_token", "research", "secure_key", "sex", "start_background", "start_english", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["acquired_english", "---\n- from parent\n"], ["admin", false], ["background", false], ["consent", false], ["country", "usa"], ["created_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00], ["date_of_birth", 2011-05-30 12:57:51 -0500], ["email", "admin@uchicago.edu"], ["emotions", "Many."], ["end_background", nil], ["english_home", true], ["english_listening", 3], ["english_reading", 3], ["english_speaking", 3], ["english_writing", 3], ["foreign_languages", nil], ["hebrew_listening", 3], ["hebrew_reading", 3], ["hebrew_speaking", 3], ["hebrew_writing", 3], ["name", "Admin"], ["native_languages", nil], ["password_digest", "$2a$10$Q0DHKrPU2opJFc0EOxy77.JBIp24fPYmE9R/eTR4O6cg.Meb1mn8."], ["remember_token", "jrZRjjE9VTAjE6CS7o1Pyw"], ["research", "Hi there"], ["secure_key", "key"], ["sex", "male"], ["start_background", nil], ["start_english", 25], ["updated_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00], ["username", "admin"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.1ms)[0m  [1mUPDATE "users" SET "admin" = 't', "remember_token" = 'gKdNebien78LwOiVC9lzCg', "updated_at" = '2014-07-31 03:44:31.656731', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+', "acquired_english" = '---
+- from parent
+' WHERE "users"."id" = 93[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'Griffin' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('griffin@uchicago.edu') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("acquired_english", "admin", "background", "consent", "country", "created_at", "date_of_birth", "email", "emotions", "end_background", "english_home", "english_listening", "english_reading", "english_speaking", "english_writing", "foreign_languages", "hebrew_listening", "hebrew_reading", "hebrew_speaking", "hebrew_writing", "name", "native_languages", "password_digest", "remember_token", "research", "secure_key", "sex", "start_background", "start_english", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["acquired_english", "---\n- from parent\n"], ["admin", false], ["background", false], ["consent", false], ["country", "usa"], ["created_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00], ["date_of_birth", 2011-05-30 12:57:51 -0500], ["email", "griffin@uchicago.edu"], ["emotions", "Many."], ["end_background", nil], ["english_home", true], ["english_listening", 3], ["english_reading", 3], ["english_speaking", 3], ["english_writing", 3], ["foreign_languages", nil], ["hebrew_listening", 3], ["hebrew_reading", 3], ["hebrew_speaking", 3], ["hebrew_writing", 3], ["name", "Griffin"], ["native_languages", nil], ["password_digest", "$2a$10$t1PpHsB1Zduky78F6PwSO..qZ9Eh08yek7ZRguvSfaPGZWcG6wO4q"], ["remember_token", "nHi-k3mTArypvXQoIuxZFw"], ["research", "Hi there"], ["secure_key", "key"], ["sex", "male"], ["start_background", nil], ["start_english", 25], ["updated_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00], ["username", "Griffin"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('charles@uchicago.edu') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("acquired_english", "admin", "background", "consent", "country", "created_at", "date_of_birth", "email", "emotions", "end_background", "english_home", "english_listening", "english_reading", "english_speaking", "english_writing", "foreign_languages", "hebrew_listening", "hebrew_reading", "hebrew_speaking", "hebrew_writing", "name", "native_languages", "password_digest", "remember_token", "research", "secure_key", "sex", "start_background", "start_english", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["acquired_english", "---\n- from parent\n"], ["admin", false], ["background", false], ["consent", false], ["country", "usa"], ["created_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00], ["date_of_birth", 2011-05-30 12:57:51 -0500], ["email", "charles@uchicago.edu"], ["emotions", "Many."], ["end_background", nil], ["english_home", true], ["english_listening", 3], ["english_reading", 3], ["english_speaking", 3], ["english_writing", 3], ["foreign_languages", nil], ["hebrew_listening", 3], ["hebrew_reading", 3], ["hebrew_speaking", 3], ["hebrew_writing", 3], ["name", "Charles"], ["native_languages", nil], ["password_digest", "$2a$10$Ne4W4K7u2xtZuWDgsvaa9uiGRBDGSLeR014wrXsquWU0QYKZfChkS"], ["remember_token", "xfHhNprL-rhNo6iiF672OA"], ["research", "Hi there"], ["secure_key", "key"], ["sex", "male"], ["start_background", nil], ["start_english", 25], ["updated_at", Thu, 31 Jul 2014 03:44:31 UTC +00:00], ["username", "charles"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+
+
+Started GET "/" for 10.0.0.17 at 2014-07-30 22:44:40 -0500
+Connecting to database specified by database.yml
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  Rendered static/home.html.erb within layouts/application (2.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+Completed 200 OK in 109ms (Views: 33.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:44:41 -0500
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:44:41 -0500
+Served asset /coffeescript.js - 200 OK (33ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:44:41 -0500
+Served asset /phoenix.png - 200 OK (2ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:44:41 -0500
+Served asset /shield_grey.png - 200 OK (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-30 22:44:46 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '64QOFGxd8GVJcAGxNYx2GA' LIMIT 1[0m
+  Rendered static/home.html.erb within layouts/application (0.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '64QOFGxd8GVJcAGxNYx2GA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '64QOFGxd8GVJcAGxNYx2GA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '64QOFGxd8GVJcAGxNYx2GA' LIMIT 1
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:44:46 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:44:46 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-30 22:44:46 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-30 22:44:46 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/log_in" for 127.0.0.1 at 2014-07-30 22:44:47 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '64QOFGxd8GVJcAGxNYx2GA' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '64QOFGxd8GVJcAGxNYx2GA' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '64QOFGxd8GVJcAGxNYx2GA' LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:44:47 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:44:47 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 127.0.0.1 at 2014-07-30 22:44:47 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 127.0.0.1 at 2014-07-30 22:44:47 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-07-30 22:44:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "session"=>{"email"=>"charles@uchicago.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'charles@uchicago.edu' LIMIT 1
+Redirected to http://0.0.0.0:3000/users/91/last_seen
+Completed 302 Found in 152ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/91/last_seen" for 127.0.0.1 at 2014-07-30 22:44:52 -0500
+
+ActionController::RoutingError (No route matches [GET] "/users/91/last_seen"):
+  actionpack (3.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.6) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.6) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.6) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.6) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.6) lib/rails/engine.rb:479:in `call'
+  railties (3.2.6) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.6) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.6.2) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.2) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.2) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.2) lib/thin/connection.rb:53:in `process'
+  thin (1.6.2) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.2) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.2) lib/thin/server.rb:162:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.6) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.6) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.6) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.6) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/charles/.rvm/gems/ruby-2.0.0-p247@global/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/shield_maroon.png" for 127.0.0.1 at 2014-07-30 22:44:54 -0500
+Served asset /shield_maroon.png - 304 Not Modified (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-30 22:44:55 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xfHhNprL-rhNo6iiF672OA' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+Redirected to http://0.0.0.0:3000/consent
+Completed 302 Found in 20ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/consent" for 127.0.0.1 at 2014-07-30 22:44:55 -0500
+Processing by UsersController#consent as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xfHhNprL-rhNo6iiF672OA' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.2ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'key' AND "negotiations"."id" != 119) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mUPDATE "negotiations" SET "second_user_id" = 95, "updated_at" = '2014-07-31 03:44:55.799266' WHERE "negotiations"."id" = 119[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+  Rendered partials/_consent_form.html.erb (0.5ms)
+  Rendered users/consent.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 67ms (Views: 47.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:44:55 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:44:55 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:44:55 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xfHhNprL-rhNo6iiF672OA' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/log_in" for 10.0.0.17 at 2014-07-30 22:44:58 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:44:58 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:44:58 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 10.0.0.17 at 2014-07-30 22:45:05 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "session"=>{"email"=>"Griffin@uchicago.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'griffin@uchicago.edu' LIMIT 1[0m
+Redirected to http://10.0.0.5:3000/users/94
+Completed 302 Found in 100ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/94" for 10.0.0.17 at 2014-07-30 22:45:05 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"94"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'nHi-k3mTArypvXQoIuxZFw' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "94"]]
+Redirected to http://10.0.0.5:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 10.0.0.17 at 2014-07-30 22:45:05 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'nHi-k3mTArypvXQoIuxZFw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+Redirected to http://10.0.0.5:3000/consent
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/consent" for 10.0.0.17 at 2014-07-30 22:45:05 -0500
+Processing by UsersController#consent as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'nHi-k3mTArypvXQoIuxZFw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'key' AND "negotiations"."id" != 119) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "negotiations" SET "first_user_id" = 94, "updated_at" = '2014-07-31 03:45:05.365251' WHERE "negotiations"."id" = 119
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  Rendered partials/_consent_form.html.erb (0.0ms)
+  Rendered users/consent.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 16ms (Views: 9.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:45:05 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:45:05 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:45:05 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'nHi-k3mTArypvXQoIuxZFw' LIMIT 1
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/94/accept_consent" for 10.0.0.17 at 2014-07-30 22:45:11 -0500
+Processing by UsersController#accept_consent as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'nHi-k3mTArypvXQoIuxZFw' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "94"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "94"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "users" SET "start_background" = '2014-07-31 03:45:11.439041', "remember_token" = 'XVtkKTIrny3HJIC6LbKwXw', "updated_at" = '2014-07-31 03:45:11.440052', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+', "acquired_english" = '---
+- from parent
+' WHERE "users"."id" = 94[0m
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "consent" = 't', "remember_token" = 'WV31WHJPqphGpYWxccMyMQ', "updated_at" = '2014-07-31 03:45:11.446664', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+', "acquired_english" = '---
+- from parent
+' WHERE "users"."id" = 94
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 16ms (Views: 1.0ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/background" for 10.0.0.17 at 2014-07-30 22:45:11 -0500
+Processing by UsersController#background as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'WV31WHJPqphGpYWxccMyMQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mScenario Load (0.1ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  Rendered partials/tabs/_background.html.erb (31.7ms)
+  Rendered users/background.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 83ms (Views: 80.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:45:11 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:45:11 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:45:11 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'WV31WHJPqphGpYWxccMyMQ' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/accept_background" for 10.0.0.17 at 2014-07-30 22:45:12 -0500
+Processing by UsersController#accept_background as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "commit"=>"Ready"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'WV31WHJPqphGpYWxccMyMQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mUPDATE "users" SET "end_background" = '2014-07-31 03:45:13.457575', "remember_token" = 'wlC5zEuv2feFEp5gXuEcdA', "updated_at" = '2014-07-31 03:45:13.458679', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+', "acquired_english" = '---
+- from parent
+' WHERE "users"."id" = 94[0m
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "background" = 't', "remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ', "updated_at" = '2014-07-31 03:45:13.464998', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+', "acquired_english" = '---
+- from parent
+' WHERE "users"."id" = 94
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+Redirected to http://10.0.0.5:3000/
+Completed 302 Found in 768ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/" for 10.0.0.17 at 2014-07-30 22:45:14 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+Redirected to http://10.0.0.5:3000/waiting
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/waiting" for 10.0.0.17 at 2014-07-30 22:45:14 -0500
+Processing by UsersController#waiting as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered users/waiting.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:45:14 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/waiting.js" for 10.0.0.17 at 2014-07-30 22:45:14 -0500
+Processing by TabsController#waiting as JS
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.3ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered tabs/waiting.js.coffee (281.9ms)
+Completed 200 OK in 286ms (Views: 284.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:45:14 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:45:14 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/95/accept_consent" for 127.0.0.1 at 2014-07-30 22:45:16 -0500
+Processing by UsersController#accept_consent as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xfHhNprL-rhNo6iiF672OA' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "95"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "95"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "start_background" = '2014-07-31 03:45:16.748062', "remember_token" = 'Q0vlu-nsZngXl2NVJMB0-A', "updated_at" = '2014-07-31 03:45:16.748978', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+', "acquired_english" = '---
+- from parent
+' WHERE "users"."id" = 95
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mUPDATE "users" SET "consent" = 't', "remember_token" = 'sl7oJnUmlyvAJ_Tw90Uryw', "updated_at" = '2014-07-31 03:45:16.754496', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+', "acquired_english" = '---
+- from parent
+' WHERE "users"."id" = 95[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered inline template (0.3ms)
+Completed 200 OK in 14ms (Views: 0.9ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/background" for 127.0.0.1 at 2014-07-30 22:45:16 -0500
+Processing by UsersController#background as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'sl7oJnUmlyvAJ_Tw90Uryw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  Rendered partials/tabs/_background.html.erb (7.4ms)
+  Rendered users/background.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:45:16 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:45:16 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:45:16 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'sl7oJnUmlyvAJ_Tw90Uryw' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/accept_background" for 127.0.0.1 at 2014-07-30 22:45:17 -0500
+Processing by UsersController#accept_background as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "commit"=>"Ready"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'sl7oJnUmlyvAJ_Tw90Uryw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "end_background" = '2014-07-31 03:45:18.164354', "remember_token" = 'vL2NEMRfY1qqRtWb_Q0hwg', "updated_at" = '2014-07-31 03:45:18.165341', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+', "acquired_english" = '---
+- from parent
+' WHERE "users"."id" = 95
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "users" SET "background" = 't', "remember_token" = 'xvQWN789AqXwVoZY9NpRRw', "updated_at" = '2014-07-31 03:45:18.171864', "native_languages" = '--- []
+', "foreign_languages" = '--- []
+', "acquired_english" = '---
+- from parent
+' WHERE "users"."id" = 95[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "negotiations" SET "start_time" = '2014-07-31 03:45:18.180316', "updated_at" = '2014-07-31 03:45:18.180717' WHERE "negotiations"."id" = 119
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 308ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-30 22:45:18 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mScenario Load (0.3ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  Rendered partials/tabs/_background.html.erb (9.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."negotiation_id" = 119[0m
+  Rendered partials/tabs/_chat.html.erb (7.8ms)
+  Rendered partials/tabs/_negotiation.html.erb (21.3ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 96ms (Views: 35.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:45:18 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:45:18 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/private_pub_subscribe.js" for 127.0.0.1 at 2014-07-30 22:45:18 -0500
+Processing by TabsController#private_pub_subscribe as JS
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/private_pub_subscribe.js.coffee (259.5ms)
+Completed 200 OK in 264ms (Views: 261.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:45:18 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 10.0.0.17 at 2014-07-30 22:45:18 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mScenario Load (0.2ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  Rendered partials/tabs/_background.html.erb (5.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."negotiation_id" = 119
+  Rendered partials/tabs/_chat.html.erb (0.8ms)
+  Rendered partials/tabs/_negotiation.html.erb (7.8ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 27ms (Views: 17.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:45:18 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/private_pub_subscribe.js" for 10.0.0.17 at 2014-07-30 22:45:18 -0500
+Processing by TabsController#private_pub_subscribe as JS
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered tabs/private_pub_subscribe.js.coffee (230.0ms)
+Completed 200 OK in 234ms (Views: 231.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:45:19 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:45:19 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/messages/create?content=Hi" for 10.0.0.17 at 2014-07-30 22:45:22 -0500
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Hi"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "negotiation_id", "receiver_id", "sender_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "Hi"], ["created_at", Thu, 31 Jul 2014 03:45:23 UTC +00:00], ["negotiation_id", 119], ["receiver_id", 95], ["sender_id", 94], ["updated_at", Thu, 31 Jul 2014 03:45:23 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  Rendered inline template (0.4ms)
+Completed 200 OK in 686ms (Views: 1.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/messages/create?content=Hi" for 127.0.0.1 at 2014-07-30 22:45:24 -0500
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Hi"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.3ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "messages" ("content", "created_at", "negotiation_id", "receiver_id", "sender_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["content", "Hi"], ["created_at", Thu, 31 Jul 2014 03:45:25 UTC +00:00], ["negotiation_id", 119], ["receiver_id", 94], ["sender_id", 95], ["updated_at", Thu, 31 Jul 2014 03:45:25 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 669ms (Views: 1.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/messages/create?content=Goodie" for 10.0.0.17 at 2014-07-30 22:45:28 -0500
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>"Goodie"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "negotiation_id", "receiver_id", "sender_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "Goodie"], ["created_at", Thu, 31 Jul 2014 03:45:28 UTC +00:00], ["negotiation_id", 119], ["receiver_id", 95], ["sender_id", 94], ["updated_at", Thu, 31 Jul 2014 03:45:28 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  Rendered inline template (0.6ms)
+Completed 200 OK in 620ms (Views: 1.4ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/messages/create?content=" for 10.0.0.17 at 2014-07-30 22:45:28 -0500
+Processing by MessagesController#create as */*
+  Parameters: {"content"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/alert_request" for 127.0.0.1 at 2014-07-30 22:45:29 -0500
+Processing by UsersController#alert_request as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 342ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/accept_alert_request" for 10.0.0.17 at 2014-07-30 22:45:32 -0500
+Processing by UsersController#accept_alert_request as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "tactic"=>"accept"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'key' AND "negotiations"."id" != 119) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "negotiations" SET "end_time" = '2014-07-31 03:45:32.329160', "updated_at" = '2014-07-31 03:45:32.330689' WHERE "negotiations"."id" = 119
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "agreements" ("agree", "agreement_boolean", "created_at", "description", "price", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["agree", nil], ["agreement_boolean", nil], ["created_at", Thu, 31 Jul 2014 03:45:32 UTC +00:00], ["description", nil], ["price", nil], ["updated_at", Thu, 31 Jul 2014 03:45:32 UTC +00:00], ["user_id", 94]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "agreements" ("agree", "agreement_boolean", "created_at", "description", "price", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["agree", nil], ["agreement_boolean", nil], ["created_at", Thu, 31 Jul 2014 03:45:32 UTC +00:00], ["description", nil], ["price", nil], ["updated_at", Thu, 31 Jul 2014 03:45:32 UTC +00:00], ["user_id", 95]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.6ms)
+Completed 200 OK in 310ms (Views: 1.7ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/agreement" for 127.0.0.1 at 2014-07-30 22:45:32 -0500
+Processing by UsersController#agreement as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered users/agreement.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 18ms (Views: 11.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/agreement" for 10.0.0.17 at 2014-07-30 22:45:32 -0500
+Processing by UsersController#agreement as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered users/agreement.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 22ms (Views: 14.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:45:32 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:45:32 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 127.0.0.1 at 2014-07-30 22:45:32 -0500
+Processing by TabsController#agree as JS
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/agree.coffee (299.2ms)
+Completed 200 OK in 303ms (Views: 300.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:45:33 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:45:33 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.7ms)
+Completed 200 OK in 5ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tabs/agree.js" for 10.0.0.17 at 2014-07-30 22:45:33 -0500
+Processing by TabsController#agree as JS
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered tabs/agree.coffee (274.3ms)
+Completed 200 OK in 278ms (Views: 275.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:45:33 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:45:33 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:36 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"yes_form"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.7ms)
+Completed 200 OK in 283ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:38 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_price", "key"=>"A"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.6ms)
+Completed 200 OK in 634ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:39 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_price", "key"=>"A "}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 304ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:39 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_price", "key"=>"A l"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.7ms)
+Completed 200 OK in 303ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:40 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_price", "key"=>"A lo"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 376ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:40 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_price", "key"=>"A lot"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.7ms)
+Completed 200 OK in 308ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:40 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_content", "form"=>"yes", "key"=>"Y"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 277ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:41 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_content", "form"=>"yes", "key"=>"Ye"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 288ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:41 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_content", "form"=>"yes", "key"=>"Yes"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.7ms)
+Completed 200 OK in 306ms (Views: 1.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:41 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_content", "form"=>"yes", "key"=>"Yes!"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 277ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:41 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_content", "form"=>"yes", "key"=>"Yes!!"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.7ms)
+Completed 200 OK in 278ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:42 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_content", "form"=>"yes", "key"=>"Yes!!!"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 296ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:42 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"agreement_content", "form"=>"yes", "key"=>"Yes!!!!"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 326ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:45:42 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"no_form"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.6ms)
+Completed 200 OK in 320ms (Views: 1.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:45:43 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"agreement_content", "form"=>"no", "key"=>"N"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.6ms)
+Completed 200 OK in 288ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:45:43 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"agreement_content", "form"=>"no", "key"=>"NE"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 305ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:45:44 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"agreement_content", "form"=>"no", "key"=>"NEV"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.8ms)
+Completed 200 OK in 280ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:45:44 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"agreement_content", "form"=>"no", "key"=>"NEVE"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.6ms)
+Completed 200 OK in 283ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:45:44 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"agreement_content", "form"=>"no", "key"=>"NEVER"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.7ms)
+Completed 200 OK in 303ms (Views: 1.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:45:45 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"agreement_content", "form"=>"no", "key"=>"NEVER>"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 302ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:45:45 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"agreement_content", "form"=>"no", "key"=>"NEVER."}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.6ms)
+Completed 200 OK in 1042ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:45:49 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"submit_check"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 364ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/finish_agreement" for 10.0.0.17 at 2014-07-30 22:45:57 -0500
+Processing by UsersController#finish_agreement as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "agreement_boolean"=>"true", "price"=>"A lot", "description"=>"Yes!!!!"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mAgreement Load (0.3ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "agreements" SET "agreement_boolean" = 't', "price" = 'A lot', "description" = 'Yes!!!!', "updated_at" = '2014-07-31 03:45:58.227578' WHERE "agreements"."id" = 29
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'key' AND "negotiations"."id" != 119) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "negotiations" SET "agreement_time" = '2014-07-31 03:45:58.232071', "updated_at" = '2014-07-31 03:45:58.234097' WHERE "negotiations"."id" = 119
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 412ms (Views: 0.9ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:45:58 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"positive_check"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.6ms)
+Completed 200 OK in 318ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/thank_you" for 10.0.0.17 at 2014-07-30 22:45:58 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.2ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.3ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+Redirected to http://10.0.0.5:3000/
+Completed 302 Found in 16ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 10.0.0.17 at 2014-07-30 22:45:58 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.3ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+Redirected to http://10.0.0.5:3000/agreement
+Completed 302 Found in 15ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/agreement" for 10.0.0.17 at 2014-07-30 22:45:58 -0500
+Processing by UsersController#agreement as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered users/agreement.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 73ms (Views: 67.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:45:58 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 10.0.0.17 at 2014-07-30 22:45:58 -0500
+Processing by TabsController#agree as JS
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/agree.coffee (292.3ms)
+Completed 200 OK in 295ms (Views: 293.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:45:59 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:45:59 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  Rendered inline template (0.7ms)
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/finish_agreement" for 127.0.0.1 at 2014-07-30 22:46:00 -0500
+Processing by UsersController#finish_agreement as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "agreement_boolean"=>"false", "price"=>"", "description"=>"NEVER."}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mAgreement Load (0.4ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "agreements" SET "agreement_boolean" = 'f', "price" = '', "description" = 'NEVER.', "updated_at" = '2014-07-31 03:46:01.514983' WHERE "agreements"."id" = 30[0m
+  [1m[35m (2.3ms)[0m  commit transaction
+  Rendered inline template (0.5ms)
+Completed 200 OK in 659ms (Views: 1.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/thank_you" for 127.0.0.1 at 2014-07-30 22:46:01 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.3ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.3ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  Rendered users/thank_you.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 24ms (Views: 11.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:46:01 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:46:01 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:46:01 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/agreement" for 10.0.0.17 at 2014-07-30 22:46:55 -0500
+Processing by UsersController#agreement as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.2ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+Redirected to http://10.0.0.5:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.0.17 at 2014-07-30 22:46:55 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  Rendered partials/tabs/_background.html.erb (5.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."negotiation_id" = 119[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 95]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 94]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 95]]
+  Rendered partials/tabs/_chat.html.erb (2.7ms)
+  Rendered partials/tabs/_negotiation.html.erb (9.2ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 23ms (Views: 17.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:46:56 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/private_pub_subscribe.js" for 10.0.0.17 at 2014-07-30 22:46:56 -0500
+Processing by TabsController#private_pub_subscribe as JS
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered tabs/private_pub_subscribe.js.coffee (213.5ms)
+Completed 200 OK in 217ms (Views: 214.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:46:56 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:46:56 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:46:56 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:46:56 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/thank_you" for 127.0.0.1 at 2014-07-30 22:46:57 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-30 22:46:57 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mScenario Load (0.2ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  Rendered partials/tabs/_background.html.erb (49.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."negotiation_id" = 119[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 95]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 94]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 95]]
+  Rendered partials/tabs/_chat.html.erb (2.4ms)
+  Rendered partials/tabs/_negotiation.html.erb (53.4ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (56.5ms)
+Completed 200 OK in 68ms (Views: 61.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:46:57 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/private_pub_subscribe.js" for 127.0.0.1 at 2014-07-30 22:46:57 -0500
+Processing by TabsController#private_pub_subscribe as JS
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered tabs/private_pub_subscribe.js.coffee (239.0ms)
+Completed 200 OK in 242ms (Views: 240.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:46:57 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:46:57 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  Rendered inline template (0.8ms)
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/alert_request" for 10.0.0.17 at 2014-07-30 22:47:01 -0500
+Processing by UsersController#alert_request as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.7ms)
+Completed 200 OK in 704ms (Views: 1.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/accept_alert_request" for 127.0.0.1 at 2014-07-30 22:47:02 -0500
+Processing by UsersController#accept_alert_request as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "tactic"=>"accept"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mNegotiation Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'key' AND "negotiations"."id" != 119) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  UPDATE "negotiations" SET "end_time" = '2014-07-31 03:47:02.752608', "updated_at" = '2014-07-31 03:47:02.755457' WHERE "negotiations"."id" = 119
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "agreements" ("agree", "agreement_boolean", "created_at", "description", "price", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["agree", nil], ["agreement_boolean", nil], ["created_at", Thu, 31 Jul 2014 03:47:02 UTC +00:00], ["description", nil], ["price", nil], ["updated_at", Thu, 31 Jul 2014 03:47:02 UTC +00:00], ["user_id", 94]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "agreements" ("agree", "agreement_boolean", "created_at", "description", "price", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["agree", nil], ["agreement_boolean", nil], ["created_at", Thu, 31 Jul 2014 03:47:02 UTC +00:00], ["description", nil], ["price", nil], ["updated_at", Thu, 31 Jul 2014 03:47:02 UTC +00:00], ["user_id", 95]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 465ms (Views: 1.2ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/agreement" for 127.0.0.1 at 2014-07-30 22:47:03 -0500
+Processing by UsersController#agreement as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered users/agreement.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 15ms (Views: 10.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:47:03 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 127.0.0.1 at 2014-07-30 22:47:03 -0500
+Processing by TabsController#agree as JS
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.3ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered tabs/agree.coffee (274.0ms)
+Completed 200 OK in 277ms (Views: 275.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:47:03 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/agreement" for 10.0.0.17 at 2014-07-30 22:47:03 -0500
+Processing by UsersController#agreement as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered users/agreement.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:47:03 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 10.0.0.17 at 2014-07-30 22:47:03 -0500
+Processing by TabsController#agree as JS
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/agree.coffee (328.9ms)
+Completed 200 OK in 332ms (Views: 330.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:47:03 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:47:03 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:47:03 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:47:03 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:47:03 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  Rendered inline template (0.6ms)
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:47:05 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"no_form"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.6ms)
+Completed 200 OK in 365ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:47:07 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"no_form"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 315ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:47:09 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"submit_check"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 334ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/finish_agreement" for 127.0.0.1 at 2014-07-30 22:47:12 -0500
+Processing by UsersController#finish_agreement as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "agreement_boolean"=>"false", "price"=>"", "description"=>""}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mAgreement Load (0.3ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "agreements" SET "agreement_boolean" = 'f', "price" = '', "description" = '', "updated_at" = '2014-07-31 03:47:13.066897' WHERE "agreements"."id" = 32
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 543ms (Views: 1.2ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:47:13 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"positive_check"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 741ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/thank_you" for 127.0.0.1 at 2014-07-30 22:47:13 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.2ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 8ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-30 22:47:13 -0500
+Processing by StaticController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+Redirected to http://0.0.0.0:3000/agreement
+Completed 302 Found in 12ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/agreement" for 127.0.0.1 at 2014-07-30 22:47:13 -0500
+Processing by UsersController#agreement as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered users/agreement.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 17ms (Views: 13.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:47:13 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 127.0.0.1 at 2014-07-30 22:47:13 -0500
+Processing by TabsController#agree as JS
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/agree.coffee (311.5ms)
+Completed 200 OK in 315ms (Views: 312.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:47:14 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:47:14 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.4ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/finish_agreement" for 10.0.0.17 at 2014-07-30 22:47:17 -0500
+Processing by UsersController#finish_agreement as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "agreement_boolean"=>"false", "price"=>"", "description"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mAgreement Load (0.4ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "agreements" SET "agreement_boolean" = 'f', "price" = '', "description" = '', "updated_at" = '2014-07-31 03:47:17.510460' WHERE "agreements"."id" = 31[0m
+  [1m[35m (2.3ms)[0m  commit transaction
+  Rendered inline template (0.5ms)
+Completed 200 OK in 400ms (Views: 1.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/thank_you" for 10.0.0.17 at 2014-07-30 22:47:17 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  Rendered users/thank_you.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 14ms (Views: 6.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:47:17 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:47:17 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:47:17 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:47:17 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:47:17 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:48:14 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:48:18 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:49:14 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/thank_you" for 10.0.0.17 at 2014-07-30 22:49:15 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+Redirected to http://10.0.0.5:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 10.0.0.17 at 2014-07-30 22:49:15 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mScenario Load (0.2ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  Rendered partials/tabs/_background.html.erb (5.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."negotiation_id" = 119
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 95]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 94]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 95]]
+  Rendered partials/tabs/_chat.html.erb (2.1ms)
+  Rendered partials/tabs/_negotiation.html.erb (52.6ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (55.6ms)
+Completed 200 OK in 67ms (Views: 60.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:49:16 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/private_pub_subscribe.js" for 10.0.0.17 at 2014-07-30 22:49:16 -0500
+Processing by TabsController#private_pub_subscribe as JS
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/private_pub_subscribe.js.coffee (218.5ms)
+Completed 200 OK in 222ms (Views: 219.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:49:17 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:49:17 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:49:17 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:49:17 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/agreement" for 127.0.0.1 at 2014-07-30 22:49:19 -0500
+Processing by UsersController#agreement as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.3ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 8ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-30 22:49:19 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.3ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mScenario Load (0.2ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  Rendered partials/tabs/_background.html.erb (6.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."negotiation_id" = 119
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 95]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 94]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 95]]
+  Rendered partials/tabs/_chat.html.erb (2.3ms)
+  Rendered partials/tabs/_negotiation.html.erb (10.8ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 28ms (Views: 20.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:49:19 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/private_pub_subscribe.js" for 127.0.0.1 at 2014-07-30 22:49:19 -0500
+Processing by TabsController#private_pub_subscribe as JS
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/private_pub_subscribe.js.coffee (238.9ms)
+Completed 200 OK in 242ms (Views: 240.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:49:20 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:49:20 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.8ms)
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/alert_request" for 127.0.0.1 at 2014-07-30 22:49:21 -0500
+Processing by UsersController#alert_request as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 645ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/accept_alert_request" for 10.0.0.17 at 2014-07-30 22:49:24 -0500
+Processing by UsersController#accept_alert_request as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "tactic"=>"accept"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.2ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'key' AND "negotiations"."id" != 119) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "negotiations" SET "end_time" = '2014-07-31 03:49:24.602751', "updated_at" = '2014-07-31 03:49:24.605385' WHERE "negotiations"."id" = 119[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "agreements" ("agree", "agreement_boolean", "created_at", "description", "price", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["agree", nil], ["agreement_boolean", nil], ["created_at", Thu, 31 Jul 2014 03:49:24 UTC +00:00], ["description", nil], ["price", nil], ["updated_at", Thu, 31 Jul 2014 03:49:24 UTC +00:00], ["user_id", 94]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "agreements" ("agree", "agreement_boolean", "created_at", "description", "price", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["agree", nil], ["agreement_boolean", nil], ["created_at", Thu, 31 Jul 2014 03:49:24 UTC +00:00], ["description", nil], ["price", nil], ["updated_at", Thu, 31 Jul 2014 03:49:24 UTC +00:00], ["user_id", 95]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.7ms)
+Completed 200 OK in 1315ms (Views: 2.0ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/agreement" for 127.0.0.1 at 2014-07-30 22:49:25 -0500
+Processing by UsersController#agreement as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.3ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered users/agreement.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 17ms (Views: 9.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:49:25 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 127.0.0.1 at 2014-07-30 22:49:25 -0500
+Processing by TabsController#agree as JS
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/agree.coffee (325.0ms)
+Completed 200 OK in 329ms (Views: 326.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:49:26 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/agreement" for 10.0.0.17 at 2014-07-30 22:49:26 -0500
+Processing by UsersController#agreement as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered users/agreement.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:49:26 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 10.0.0.17 at 2014-07-30 22:49:26 -0500
+Processing by TabsController#agree as JS
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered tabs/agree.coffee (283.1ms)
+Completed 200 OK in 286ms (Views: 284.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:49:26 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:49:26 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:49:26 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:49:26 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:49:26 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:49:29 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"yes_form"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 305ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:49:32 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"yes_form"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.3ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 314ms (Views: 1.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:49:33 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"submit_check"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.6ms)
+Completed 200 OK in 734ms (Views: 1.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/finish_agreement" for 10.0.0.17 at 2014-07-30 22:49:37 -0500
+Processing by UsersController#finish_agreement as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "agreement_boolean"=>"true", "price"=>"", "description"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mAgreement Load (0.3ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "agreements" SET "agreement_boolean" = 't', "price" = '', "description" = '', "updated_at" = '2014-07-31 03:49:38.111144' WHERE "agreements"."id" = 33[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+  Rendered inline template (0.4ms)
+Completed 200 OK in 526ms (Views: 1.1ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:49:38 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"positive_check"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.8ms)
+Completed 200 OK in 289ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/thank_you" for 10.0.0.17 at 2014-07-30 22:49:38 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+Redirected to http://10.0.0.5:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 10.0.0.17 at 2014-07-30 22:49:38 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+Redirected to http://10.0.0.5:3000/agreement
+Completed 302 Found in 11ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/agreement" for 10.0.0.17 at 2014-07-30 22:49:38 -0500
+Processing by UsersController#agreement as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.2ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.2ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered users/agreement.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 16ms (Views: 9.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:49:38 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 10.0.0.17 at 2014-07-30 22:49:38 -0500
+Processing by TabsController#agree as JS
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered tabs/agree.coffee (268.4ms)
+Completed 200 OK in 271ms (Views: 269.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:49:39 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:49:39 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:49:39 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:49:39 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/finish_agreement" for 127.0.0.1 at 2014-07-30 22:49:41 -0500
+Processing by UsersController#finish_agreement as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "agreement_boolean"=>"true", "price"=>"", "description"=>""}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mAgreement Load (0.3ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "agreements" SET "agreement_boolean" = 't', "price" = '', "description" = '', "updated_at" = '2014-07-31 03:49:42.290024' WHERE "agreements"."id" = 34
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  Rendered inline template (0.4ms)
+Completed 200 OK in 698ms (Views: 1.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/thank_you" for 127.0.0.1 at 2014-07-30 22:49:42 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.1ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  Rendered users/thank_you.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 15ms (Views: 7.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:49:42 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:49:42 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:49:42 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:50:39 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  Rendered inline template (0.5ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:50:42 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/agreement" for 10.0.0.17 at 2014-07-30 22:51:30 -0500
+Processing by UsersController#agreement as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+Redirected to http://10.0.0.5:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 10.0.0.17 at 2014-07-30 22:51:30 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.2ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mScenario Load (0.2ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  Rendered partials/tabs/_background.html.erb (5.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."negotiation_id" = 119
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 95]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 94]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 95]]
+  Rendered partials/tabs/_chat.html.erb (2.1ms)
+  Rendered partials/tabs/_negotiation.html.erb (9.9ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 29ms (Views: 19.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:51:30 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/private_pub_subscribe.js" for 10.0.0.17 at 2014-07-30 22:51:30 -0500
+Processing by TabsController#private_pub_subscribe as JS
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/private_pub_subscribe.js.coffee (217.2ms)
+Completed 200 OK in 220ms (Views: 218.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:51:30 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:51:30 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:51:30 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:51:30 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/thank_you" for 127.0.0.1 at 2014-07-30 22:51:32 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.1ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-30 22:51:32 -0500
+Processing by StaticController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mScenario Load (0.2ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "scenarios".* FROM "scenarios" WHERE "scenarios"."id" = 46 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  Rendered partials/tabs/_background.html.erb (5.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."negotiation_id" = 119
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 95]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 94]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 95]]
+  Rendered partials/tabs/_chat.html.erb (2.2ms)
+  Rendered partials/tabs/_negotiation.html.erb (9.4ms)
+  Rendered partials/tabs/_supervisor.html.erb (0.0ms)
+  Rendered users/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 25ms (Views: 17.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:51:32 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/private_pub_subscribe.js" for 127.0.0.1 at 2014-07-30 22:51:32 -0500
+Processing by TabsController#private_pub_subscribe as JS
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/private_pub_subscribe.js.coffee (232.3ms)
+Completed 200 OK in 235ms (Views: 233.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:51:32 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:51:32 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  Rendered inline template (0.4ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/alert_request" for 127.0.0.1 at 2014-07-30 22:51:34 -0500
+Processing by UsersController#alert_request as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 341ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/accept_alert_request" for 10.0.0.17 at 2014-07-30 22:51:36 -0500
+Processing by UsersController#accept_alert_request as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "tactic"=>"accept"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mNegotiation Exists (0.1ms)[0m  SELECT 1 AS one FROM "negotiations" WHERE ("negotiations"."secure_key" = 'key' AND "negotiations"."id" != 119) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mUPDATE "negotiations" SET "end_time" = '2014-07-31 03:51:36.985959', "updated_at" = '2014-07-31 03:51:36.988090' WHERE "negotiations"."id" = 119[0m
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "agreements" ("agree", "agreement_boolean", "created_at", "description", "price", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["agree", nil], ["agreement_boolean", nil], ["created_at", Thu, 31 Jul 2014 03:51:37 UTC +00:00], ["description", nil], ["price", nil], ["updated_at", Thu, 31 Jul 2014 03:51:37 UTC +00:00], ["user_id", 94]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "agreements" ("agree", "agreement_boolean", "created_at", "description", "price", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["agree", nil], ["agreement_boolean", nil], ["created_at", Thu, 31 Jul 2014 03:51:37 UTC +00:00], ["description", nil], ["price", nil], ["updated_at", Thu, 31 Jul 2014 03:51:37 UTC +00:00], ["user_id", 95]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.7ms)
+Completed 200 OK in 420ms (Views: 2.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/agreement" for 127.0.0.1 at 2014-07-30 22:51:37 -0500
+Processing by UsersController#agreement as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered users/agreement.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 16ms (Views: 8.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:51:37 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 127.0.0.1 at 2014-07-30 22:51:37 -0500
+Processing by TabsController#agree as JS
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/agree.coffee (282.2ms)
+Completed 200 OK in 285ms (Views: 283.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:51:37 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/agreement" for 10.0.0.17 at 2014-07-30 22:51:37 -0500
+Processing by UsersController#agreement as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.1ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered users/agreement.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 18ms (Views: 11.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:51:37 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  Rendered inline template (0.7ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:51:37 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/tabs/agree.js" for 10.0.0.17 at 2014-07-30 22:51:37 -0500
+Processing by TabsController#agree as JS
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.3ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  Rendered tabs/agree.coffee (245.6ms)
+Completed 200 OK in 249ms (Views: 246.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:51:38 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:51:38 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:51:38 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:51:38 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  Rendered inline template (0.5ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:51:39 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"yes_form"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.6ms)
+Completed 200 OK in 285ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:51:41 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"yes_form"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.1ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.6ms)
+Completed 200 OK in 286ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/agree_channel" for 127.0.0.1 at 2014-07-30 22:51:42 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "sender_id"=>"95", "tactic"=>"submit_check"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.8ms)
+Completed 200 OK in 288ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/agree_channel" for 10.0.0.17 at 2014-07-30 22:51:45 -0500
+Processing by UsersController#agree_channel as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "sender_id"=>"94", "tactic"=>"positive_check"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.2ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  Rendered inline template (0.6ms)
+Completed 200 OK in 279ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/finish_agreement" for 127.0.0.1 at 2014-07-30 22:51:49 -0500
+Processing by UsersController#finish_agreement as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "agreement_boolean"=>"true", "price"=>"", "description"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mAgreement Load (0.4ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "agreements" SET "agreement_boolean" = 't', "price" = '', "description" = '', "updated_at" = '2014-07-31 03:51:49.286260' WHERE "agreements"."id" = 36[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+  Rendered inline template (0.4ms)
+Completed 200 OK in 217ms (Views: 1.1ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/finish_agreement" for 10.0.0.17 at 2014-07-30 22:51:49 -0500
+Processing by UsersController#finish_agreement as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "agreement_boolean"=>"true", "price"=>"", "description"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1[0m
+  [1m[35mAgreement Load (0.4ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "agreements" SET "agreement_boolean" = 't', "price" = '', "description" = '', "updated_at" = '2014-07-31 03:51:50.283437' WHERE "agreements"."id" = 35[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+  Rendered inline template (0.5ms)
+Completed 200 OK in 993ms (Views: 1.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/thank_you" for 127.0.0.1 at 2014-07-30 22:51:50 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  [1m[35mNegotiation Load (0.4ms)[0m  SELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mAgreement Load (0.2ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mAgreement Load (0.3ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95
+  Rendered users/thank_you.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 68ms (Views: 55.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-30 22:51:50 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 127.0.0.1 at 2014-07-30 22:51:50 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:51:50 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/thank_you" for 10.0.0.17 at 2014-07-30 22:51:50 -0500
+Processing by UsersController#thank_you as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  [1m[36mNegotiation Load (0.2ms)[0m  [1mSELECT "negotiations".* FROM "negotiations" WHERE "negotiations"."secure_key" = 'key' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mAgreement Load (0.3ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mAgreement Load (0.2ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 94 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 94[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 95 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "agreements".* FROM "agreements" WHERE "agreements"."user_id" = 95[0m
+  Rendered users/thank_you.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 15ms (Views: 5.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.0.17 at 2014-07-30 22:51:50 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/coffeescript.js?body=1" for 10.0.0.17 at 2014-07-30 22:51:50 -0500
+Served asset /coffeescript.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/phoenix.png" for 10.0.0.17 at 2014-07-30 22:51:50 -0500
+Served asset /phoenix.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shield_grey.png" for 10.0.0.17 at 2014-07-30 22:51:50 -0500
+Served asset /shield_grey.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:51:50 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/95/last_seen" for 127.0.0.1 at 2014-07-30 22:52:50 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"XyX+1/pszjQb3SM36PMNUlLklrXzdHO/zUp53//3TWM=", "id"=>"95"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'xvQWN789AqXwVoZY9NpRRw' LIMIT 1[0m
+  Rendered inline template (0.3ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/94/last_seen" for 10.0.0.17 at 2014-07-30 22:52:50 -0500
+Processing by UsersController#last_seen as */*
+  Parameters: {"authenticity_token"=>"hRF+56zMq6n5zdDTnJ/N75G5pjJH+Gxhkqt1/DLlUI0=", "id"=>"94"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'Zvc9gcgWv_SW4E9ytYLMpQ' LIMIT 1
+  Rendered inline template (0.4ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/shield_maroon.png" for 10.0.0.17 at 2014-07-30 22:52:52 -0500
+Served asset /shield_maroon.png - 200 OK (0ms)
