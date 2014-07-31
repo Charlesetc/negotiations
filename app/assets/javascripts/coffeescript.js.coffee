@@ -221,9 +221,14 @@ $ ->
 			$('#clock').empty().append "00:00"
 			$('#clock').toggleClass('done_clock')
 			$('#clock').toggleClass('going_clock')
-			if clock_count == 0
-				play_angry_sound()
-				alert 'Time is up. Please move ahead by clicking "Fill out Form"'
+			if clock_count == 0	
+				
+				# This removes the clock's alert.
+				# Uncomment to add.
+				
+				# play_angry_sound()
+				# alert 'Time is up. Please move ahead by clicking "Fill out Form"'
+				
 				clock_count = 1
 		else
 			seconds -= 1

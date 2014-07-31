@@ -681,11 +681,12 @@ span.error_designation {
 }
 
 .going_clock {
-	display:none; /* Take this away to display clock */
+	display:none; /* Take away this to display clock */
 }
 
 .done_clock {
 	color:red;
+	display:none; /* Take away this to display clock */
 /*	display:block; */
 }
 
