@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
 	
 	before_filter :signed_in_user
 	layout false, except: :new 
-	d
 
   def create
 		PrivatePub.publish_to( "/negotiation/#{current_user.negotiation.id}/new", :content => params[:content], :sender_id => params[:sender_id], :message => true) unless params[:content].empty? #		
