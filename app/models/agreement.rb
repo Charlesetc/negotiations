@@ -21,3 +21,4 @@ end
 
 # Turn this agreement into an actual agreement!
 # All validations are optional without presence: true
+# If it falls through validation, we get nothing => Nevermind

@@ -7,7 +7,7 @@ $ ->
 	ajax_count = 0
 	keypress_count = 1
 	clock_count = 0
-	USER_ID = $('body').data('id')
+	# CURRENT_USER_ID = $('body').data('id')
  	# Functions
 	
 	# fetch_messages_recursively = ->
@@ -96,7 +96,7 @@ $ ->
 		$('body').addClass '4th_wizard_page'
 		back_dot()
 	
-	position_footer = -> 
+	position_footer = ->  # Copied in Messages.js.coffee!
 		if $(document).height() > $(window).height()
 			$('footer').removeClass 'fixed_footer'
 		else 
@@ -356,7 +356,7 @@ $ ->
 			size_stop()
 			$.post '/agree_channel', {
 				authenticity_token: AUTH_TOKEN,
-				sender_id: USER_ID,
+				sender_id: CURRENT_USER_ID,
 				tactic: 'yes_form'
 			}
 		
@@ -367,7 +367,7 @@ $ ->
 			size_stop()
 			$.post '/agree_channel', {
 				authenticity_token: AUTH_TOKEN,
-				sender_id: USER_ID,
+				sender_id: CURRENT_USER_ID,
 				tactic: 'no_form'
 			}
 		
@@ -377,7 +377,7 @@ $ ->
 			size_stop()
 			$.post '/agree_channel', {
 				authenticity_token: AUTH_TOKEN,
-				sender_id: USER_ID,
+				sender_id: CURRENT_USER_ID,
 				tactic: 'none_form'
 			}
 			
@@ -385,7 +385,7 @@ $ ->
 		key = $(this).val() + String.fromCharCode e.which
 		$.post '/agree_channel', {
 			authenticity_token: AUTH_TOKEN,
-			sender_id: USER_ID,
+			sender_id: CURRENT_USER_ID,
 			tactic: 'agreement_price',
 			key: key # Actually a Value
 		}
@@ -394,7 +394,7 @@ $ ->
 		key = $(this).val() + String.fromCharCode e.which
 		$.post '/agree_channel', {
 			authenticity_token: AUTH_TOKEN,
-			sender_id: USER_ID,
+			sender_id: CURRENT_USER_ID,
 			tactic: 'agreement_content',
 			form: 'yes',
 			key: key # Actually a Value
@@ -404,7 +404,7 @@ $ ->
 		key = $(this).val() + String.fromCharCode e.which
 		$.post '/agree_channel', {
 			authenticity_token: AUTH_TOKEN,
-			sender_id: USER_ID,
+			sender_id: CURRENT_USER_ID,
 			tactic: 'agreement_content',
 			form: 'no',
 			key: key # Actually a Value
@@ -419,7 +419,7 @@ $ ->
 			$(this).addClass 'disabled'
 			$.post '/agree_channel', {
 				authenticity_token: AUTH_TOKEN,
-				sender_id: USER_ID,
+				sender_id: CURRENT_USER_ID,
 				tactic: 'submit_check'
 			}
 			$(this).after('<br/><span class = "checking_submit">Checking with the other participant...</span>')
@@ -428,7 +428,7 @@ $ ->
 	# $('.submit_no').click ->
 	# 	$.post '/agree_channel', {
 	# 		authenticity_token: AUTH_TOKEN,
-	# 		sender_id: USER_ID,
+	# 		sender_id: CURRENT_USER_ID,
 	# 		tactic: 'submit_check'
 	# 	}
 	#
@@ -536,10 +536,13 @@ $ ->
 	setInterval(last_seen_ajax, 60000)
 		
 		
+		# Unneeded because it has class 'expanding'
+	#
+	# $('.message_content').expanding()
+	
 	
 	# Buttons
 	
-			
 	$('.consent_button').click ->
 		id = $('body').data('id')
 		$.post "/users/#{id}/accept_consent", {
@@ -584,7 +587,7 @@ $ ->
 		if message
 			$.post '/agree_channel', {
 				authenticity_token: AUTH_TOKEN,
-				sender_id: USER_ID,
+				sender_id: CURRENT_USER_ID,
 				tactic: 'alert_message',
 				message: message
 			}
@@ -611,7 +614,7 @@ $ ->
 	# Flash Animation     ##
 	$('.flash').animate { ## Not dropdown.
 		left: 0           ## Not dropdown.
-	}, 500                ## 
+	}, 500                ##  ?
 	
 	# Easy Tabs
 	$('#tab-container').easytabs({animate: false})
@@ -695,14 +698,7 @@ $ ->
 			$('footer').css 'top', '-9px'
 			$('footer').css 'left', '16px'
 		
-		$('.message_content').keypress (e) -> 
-			position_footer()
-			if e.which == 13
-				content = $('.message_content').val()
-				$('.message_content').val('').change()
-				$.get "/messages/create?content=#{content}"
-				# setTimeout clear_input, 1
-				return false
+
 
 					
 		$('.admin_button').click ->
@@ -772,8 +768,6 @@ $ ->
 				window.location = path
 				
 
-				
-		$('.message_content').expanding()
 		
 		# Not part of a table, but relies on ajax
 		

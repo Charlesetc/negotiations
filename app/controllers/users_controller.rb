@@ -119,7 +119,12 @@ class UsersController < ApplicationController
 	def alert_request
 		PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new", 
 			alert_request: true,
-			user_id: current_user.id
+			sender_id: current_user.id
+		render inline: 'Done'
+	end
+	
+	def misc_negotiation
+		PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new", params
 		render inline: 'Done'
 	end
 	
@@ -146,7 +151,7 @@ class UsersController < ApplicationController
 		else
 			PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new",
 				deny_alert_request: true,
-				user_id: current_user.id
+				sender_id: current_user.id
 		end
 	end
 	

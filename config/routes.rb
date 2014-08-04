@@ -30,7 +30,9 @@ Negotiations::Application.routes.draw do
 
   get "static/about"
 	
-	get "messages/create"
+	post 'create_message', to: 'messages#create'
+	
+	post 'misc_negotiation', to: 'users#misc_negotiation'
 	
 	post 'agree_channel', to: 'users#agree_channel' ## Delete
 	post 'finish_agreement', to: 'users#finish_agreement'
