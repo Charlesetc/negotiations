@@ -31,14 +31,19 @@ PrivatePub.subscribe "/negotiation/<%= current_user.negotiation.id %>/new", (dat
 					tactic: 'deny'
 				}
 	else if data.typing
-		if user_id == sender_id # something's funky
-			typing = "<div class = 'typing'><div></div>
-		  	 	   		<div class = 'typing_two'></div>
-						<div class = 'typing_three'></div>
-	 					</div>"
-			$('.message_index').append typing
+		unless user_id == sender_id # something's funky
+			unless $('.typing').length > 0
+				typing = "<div class = 'typing'><div></div>
+		  		 	   		<div class = 'typing_two'></div>
+							<div class = 'typing_three'></div>
+	 						</div>"
+				$('.message_index').append typing
+				$('.message_index').scrollTop(900000000)
+				$('.typing div').css 'animation', 'typing 2s infinite'
+				$('.typing .typing_two').css 'animation-delay', '-0.3s'
+				$('.typing .typing_three').css 'animation-delay', '-0.6s'
 	else if data.not_typing
-		unless user_id == sender_id
+		unless user_id == sender_id		
 			$('.typing').remove()
 	else
 		if user_id == sender_id
@@ -49,7 +54,7 @@ PrivatePub.subscribe "/negotiation/<%= current_user.negotiation.id %>/new", (dat
 				<span>#{data.content}</span></div>"
 		$(".message_index .container").append message
 		$('.message_index').scrollTop(900000000)
-		
+		$('.typing').remove()
 				
 				
 

@@ -164,7 +164,7 @@ header nav {
 }
 
 header {
-	background: #333;
+	background: black url(/hex.png);
 	padding-top:8px;
 	padding-left:20px;
 	position:relative;
@@ -430,7 +430,7 @@ span.error_designation {
 
 .dropdown {
 	z-index:40;
-	background: #333;
+	background: black url(/hex.png);
 	width: 150px;
 	margin: 0px;
 	list-style:none;
@@ -441,10 +441,11 @@ span.error_designation {
 	display:none; /* Fix for jitters */
 }
 
+
 .dropdown li {
 	display:block;
 	margin: 20px 10px 0px 10px;
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid rgba(0,0,0,0);
 }
 
 .dropdown a:hover {
@@ -849,9 +850,17 @@ span.error_designation {
 	100%	{ opacity:0; }
 }
 
+
+.typing {
+	clear:both;
+	float:left;
+	padding-top:2px;
+}
+
 .typing div {
 	height:20px;
 	width:20px;
+	clear:both;
 	padding-left:0px;
 	padding-right:0px;
 	border-radius:50px;
@@ -864,13 +873,13 @@ span.error_designation {
 }
 
 .typing .typing_two {
-	animation-delay:.3s;
-	-webkit-animation-delay:.3s;
-	-moz-animation-delay:.3s;
+	animation-delay:-.3s;
+	-webkit-animation-delay:-.3s;
+	-moz-animation-delay:-.3s;
 }
 
 .typing .typing_three {
-	animation-delay:.6s;
-	-webkit-animation-delay:.6s;
-	-moz-animation-delay:.6s;
+	animation-delay:-.6s;
+	-webkit-animation-delay:-.6s;
+	-moz-animation-delay:-.6s;
 }

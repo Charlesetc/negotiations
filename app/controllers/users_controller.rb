@@ -152,6 +152,7 @@ class UsersController < ApplicationController
 			PrivatePub.publish_to "/negotiation/#{current_user.negotiation.id}/new",
 				deny_alert_request: true,
 				sender_id: current_user.id
+			render inline: 'Done'
 		end
 	end
 	
