@@ -9,7 +9,7 @@
   
   <%= javascript_tag "var CURRENT_USER_ID = '#{current_user.id}';" if current_user %>
   
-    <%= javascript_tag "var CURRENT_USER_NEGOTIATION_ID = '#{current_user.negotiation.id}';" if current_user %>
+    <%= javascript_tag "var CURRENT_USER_NEGOTIATION_ID = '#{current_user.negotiation.id}';" if current_user && current_user.negotiation %>
   
   
   <!--
