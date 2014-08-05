@@ -230,7 +230,7 @@ $ ->
 					by pressing "Fill out Form" or negotiating
 					for another 10 minutes. Good luck!'
 					return
-				else if time_color == '#3388FF'
+				else # if time_color == '#3388FF'
 					$.post 'users/accept_alert_request', {
 						authenticity_token: AUTH_TOKEN,
 						tactic: 'accept'
