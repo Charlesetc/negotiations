@@ -21,7 +21,8 @@ $ ->
 			$.post "/create_message", {
 				authenticity_token: AUTH_TOKEN, 
 				content: content,
-				sender_id: CURRENT_USER_ID
+				sender_id: CURRENT_USER_ID,
+				negotiation_id: CURRENT_USER_NEGOTIATION_ID
 			}
 			
 			return false

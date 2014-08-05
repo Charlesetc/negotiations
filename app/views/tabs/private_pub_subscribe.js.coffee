@@ -33,7 +33,7 @@ PrivatePub.subscribe "/negotiation/<%= current_user.negotiation.id %>/new", (dat
 	else if data.typing
 		unless user_id == sender_id # something's funky
 			$('.typing').css 'opacity', '1'
-			$(".typing").slideDown()
+			$(".typing").slideDown(300)
 			$('.message_index').animate {
 				scrollTop: 900000000
 				}
@@ -45,7 +45,7 @@ PrivatePub.subscribe "/negotiation/<%= current_user.negotiation.id %>/new", (dat
 			# $('.typing .typing_three').css 'animation-delay', '-0.6s'
 	else if data.not_typing
 		unless user_id == sender_id
-			$('.typing').slideUp()
+			$('.typing').slideUp(300)
 	else
 		if user_id == sender_id
 			message = "<div class = 'sender_message'>
