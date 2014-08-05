@@ -32,29 +32,30 @@ PrivatePub.subscribe "/negotiation/<%= current_user.negotiation.id %>/new", (dat
 				}
 	else if data.typing
 		unless user_id == sender_id # something's funky
-			unless $('.typing').length > 0
-				typing = "<div class = 'typing'><div></div>
-		  		 	   		<div class = 'typing_two'></div>
-							<div class = 'typing_three'></div>
-	 						</div>"
-				$('.message_index').append typing
-				$('.message_index').scrollTop(900000000)
-				$('.typing div').css 'animation', 'typing 2s infinite'
-				$('.typing .typing_two').css 'animation-delay', '-0.3s'
-				$('.typing .typing_three').css 'animation-delay', '-0.6s'
+			$('.typing').css 'opacity', '1'
+			$(".typing").slideDown()
+			$('.message_index').animate {
+				scrollTop: 900000000
+				}
+			# typing = ""
+			# $('.message_index').append typing
+			# $('.message_index').scrollTop(900000000)
+			# $('.typing div').css 'animation', 'typing 2s infinite'
+			# $('.typing .typing_two').css 'animation-delay', '-0.3s'
+			# $('.typing .typing_three').css 'animation-delay', '-0.6s'
 	else if data.not_typing
-		unless user_id == sender_id		
-			$('.typing').remove()
+		unless user_id == sender_id
+			$('.typing').slideUp()
 	else
 		if user_id == sender_id
 			message = "<div class = 'sender_message'>
 				<span>#{data.content}</span></div>"
 		else
+			$('.typing').slideUp(0)
 			message = "<div class = 'receiver_message'>
 				<span>#{data.content}</span></div>"
 		$(".message_index .container").append message
 		$('.message_index').scrollTop(900000000)
-		$('.typing').remove()
 				
 				
 

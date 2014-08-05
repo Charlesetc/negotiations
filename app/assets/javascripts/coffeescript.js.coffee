@@ -111,9 +111,7 @@ $ ->
 			
 	play_sound = ->
 		$('body').append "<embed src=\"/sound.wav\" hidden=\"true\" autostart=\"true\" loop=\"false\" />"
-			
-	play_angry_sound = ->
-		
+
 			
 	reload_negotiation = -> 
 		id = $('.etabs').attr 'id'
@@ -203,33 +201,45 @@ $ ->
 		
 	add_clock = ->
 		time_left = $('#negotiation_block').data('time-left')
+		time_color = $('#negotiation_block').data('time-color')
 		minutes = Math.floor(Number(time_left) / 60)
 		seconds = time_left - (60 * minutes)
 		if seconds < 10
 			seconds = "0#{seconds}"
 		$('#show_body').append "<div id = 'clock' class = 'going_clock'>#{minutes}:#{seconds}</div>"
+		if time_color == '#3388FF'
+			minutes += 10
+			$('#clock').empty().append "#{minutes}:#{seconds}"
+			
 		
 	tick_clock = ->
+		time_color = $('#negotiation_block').data('time-color')
+		$("#clock").css 'color', time_color
 		numbers = $('#clock').text().split ':'
 		seconds = Number(numbers[1])
 		minutes = Number(numbers[0])
 		
-		# Clock doesn't display currently because 
-		# CSS stops it. Look at .going_clock.
-		
 		if (minutes == 0 and seconds == 0) or (minutes < 0)
 			$('#clock').empty().append "00:00"
-			$('#clock').toggleClass('done_clock')
-			$('#clock').toggleClass('going_clock')
-			if clock_count == 0	
-				
-				# This removes the clock's alert.
-				# Uncomment to add.
-				
-				# play_angry_sound()
-				# alert 'Time is up. Please move ahead by clicking "Fill out Form"'
+			if clock_count == 0
+				if time_color == 'white'
+					$('#negotiation_block').data('time-color', '#3388ff')
+					$('#clock').empty().append "10:00"
+					alert '20 minutes have passed. You now
+					either have the option of continuing on
+					by pressing "Fill out Form" or negotiating
+					for another 10 minutes. Good luck!'
+					return
+				else if time_color == '#3388FF'
+					$.post 'users/accept_alert_request', {
+						authenticity_token: AUTH_TOKEN,
+						tactic: 'accept'
+					}
+					return
 				
 				clock_count = 1
+			else
+				$('#clock').toggleClass('invisible_clock')
 		else
 			seconds -= 1
 			if seconds < 0
@@ -346,6 +356,8 @@ $ ->
 	
 	$('.yes_form').hide()
 	$('.no_form').hide()
+			
+	$('.typing').slideUp()
 	
 	
 	$('#sender_page .agreement_boolean').change ->

@@ -131,11 +131,33 @@ class Negotiation < ActiveRecord::Base
 		end
 	end
 	
+	def time_spent
+		Time.now - self.start_time
+	end
+	
+	def time_color
+		if self.start_time
+			if time_spent < (20*60)
+				return 'white'
+			elsif time_spent > (30*60)
+				return 'red'
+			else
+				return '#3388FF'
+			end
+		else
+			return 'white'
+		end
+	end
+	
 	def time_left
 		if self.start_time
-			((20*60) - (Time.now - self.start_time)).round
+			if time_spent < (20*60)
+				return ((20*60) - time_spent).round
+			else
+				return ((10*60) - time_spent).round
+			end
 		else
-			(20*60)
+			return (20*60)
 		end
 	end
 	

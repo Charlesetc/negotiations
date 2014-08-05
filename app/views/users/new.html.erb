@@ -20,10 +20,10 @@
 		
 		<div><%= f.label :name %></div>
 		<div><%= f.text_field :name, 
-			placeholder: 'John Smith' %></div>
+			placeholder: 'John Smith', autocomplete: 'off'  %></div>
 
 		<div><%= f.label :email %></div>
-		<div><%= f.text_field :email, placeholder: "jsmith@example.com" %></div>
+		<div><%= f.text_field :email, placeholder: "jsmith@example.com", autocomplete: 'off'  %></div>
 		
 		<div><%= f.label :password %></div>
 		<div><%= f.password_field :password %></div>
@@ -45,10 +45,10 @@
       
   		<div><%= f.label :native_languages %></div>
   		<div class = 'language_array'><%= f.text_field :native_languages,
-        value: '', placeholder: 'Korean, English' %></div>
+        value: '', placeholder: 'Korean, English', autocomplete: 'off'  %></div>
   
   		<div><%= f.label :foreign_languages %></div>
-  		<div class = 'last_input language_array'><%= f.text_field :foreign_languages, value: '', placeholder: 'Spanish, German' %></div>
+  		<div class = 'last_input language_array'><%= f.text_field :foreign_languages, value: '', placeholder: 'Spanish, German', autocomplete: 'off'  %></div>
 
       <%= button_tag 'Back', class: 'back_button', style: 'font-size:15px;', type: 'button' %>
       
@@ -71,7 +71,7 @@
              <div><%= f.check_box :acquired_english, {multiple: true}, "By studying abroad for a quarter or semester", nil %>By studying abroad for a quarter or semester</div>
              <div><%= f.check_box :acquired_english, {multiple: true}, "By living abroad for a total of six months or longer", nil %>By living abroad for a total of six months or longer</div>
              <div><%= f.check_box :acquired_english, {multiple: true}, "From native English-speaking friends", nil %>From native English-speaking friends</div>
-             <div class = 'div_with_other'><%= f.check_box :acquired_english, {multiple: true}, "", nil %>Other:<span><input class = 'other_input' type = 'text'></span></div>
+             <div class = 'div_with_other'><%= f.check_box :acquired_english, {multiple: true}, "", nil %>Other:<span><input class = 'other_input' autocomplete = 'off' type = 'text'></span></div>
           </div>
         
         
@@ -290,13 +290,13 @@
             <div id = 'wizard_page_4'>
 
           		  <div><%= f.label :emotions, 'In which language do you prefer to express emotion?  You can specify a certain language for certain emotions, if you wish.' %></div>
-          		  <div><%= f.text_area :emotions, class: 'demographic_text_area' %></div>
+          		  <div><%= f.text_area :emotions, class: 'demographic_text_area', autocomplete: 'off'  %></div>
 
             		<div><%= f.label :research, 'Have you ever heard or read about research involving foreign languages and decision making? If so, what?' %></div>
-            		<div><%= f.text_area :research, class: 'demographic_text_area' %></div>
+            		<div><%= f.text_area :research, class: 'demographic_text_area', autocomplete: 'off'  %></div>
 
             		<div><%= f.label :secure_key %></div>
-            		<div><%= f.text_field :secure_key %></div>
+            		<div><%= f.text_field :secure_key, autocomplete: 'off'  %></div>
                 
               <%= button_tag 'Back', class: 'back_button_4', style: 'font-size:15px;', type: 'button' %>
               <%= f.submit "Submit", id: 'submit_button' %>
