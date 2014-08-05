@@ -11,10 +11,11 @@ gem 'thin'
 gem 'private_pub'
 
 gem 'redis'
+
 #
 # gem 'rubyXL'
-
-gem 'stylus'
+#
+# gem 'stylus'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
