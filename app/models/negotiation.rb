@@ -94,7 +94,7 @@ class Negotiation < ActiveRecord::Base
 		array << self.language
 		array << self.state
 		array << self.users.count
-		if self.first_user && self.first_user.agreement.description
+		if self.first_user && self.first_user.agreement && self.first_user.agreement.description
 			array << self.first_user.agreement.agreement_boolean
 			array << self.first_user.agreement.price
 			array << self.first_user.agreement.description
@@ -103,7 +103,7 @@ class Negotiation < ActiveRecord::Base
 				array << false
 			end
 		end
-		if self.second_user && self.second_user.agreement.description
+		if self.second_user && self.second_user.agreement && self.second_user.agreement.description
 			array << self.second_user.agreement.agreement_boolean
 			array << self.second_user.agreement.price
 			array << self.second_user.agreement.description
