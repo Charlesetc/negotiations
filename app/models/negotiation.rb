@@ -52,11 +52,23 @@ class Negotiation < ActiveRecord::Base
 		array << "Language"
 		array << "Current State"
 		array << "Number of Users"
+		array << "First Agree Yes/No"
+		array << "First Agree Description"
+		array << "First Agree Price"
+		array << "Second Agree Yes/No"
+		array << "Second Agree Description"
+		array << "Second Agree Price"
 		array
 	end
 	
 	def self.array_spacer
 		array = []
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
+		array << '-----------------'
 		array << '-----------------'
 		array << '-----------------'
 		array << '-----------------'
@@ -82,6 +94,24 @@ class Negotiation < ActiveRecord::Base
 		array << self.language
 		array << self.state
 		array << self.users.count
+		if self.first_user && self.first_user.agreement.description
+			array << self.first_user.agreement.agreement_boolean
+			array << self.first_user.agreement.price
+			array << self.first_user.agreement.description
+		else
+			3.times do
+				array << false
+			end
+		end
+		if self.second_user && self.second_user.agreement.description
+			array << self.second_user.agreement.agreement_boolean
+			array << self.second_user.agreement.price
+			array << self.second_user.agreement.description
+		else
+			3.times do
+				array << false
+			end
+		end
 		array
 	end
 	
