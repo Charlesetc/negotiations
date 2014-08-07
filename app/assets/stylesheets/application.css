@@ -12,6 +12,16 @@
  *= require_tree .
  */
 
+/* Media */
+
+@media print {
+	section {
+		background:white;
+	}
+	
+}
+
+@media screen {
 
 /* General */
 
@@ -902,4 +912,6 @@ span.error_designation {
 #agreement_description span {
 	text-decoration:underline;
 	padding-right:10px;
+}
+
 }
