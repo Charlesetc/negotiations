@@ -46,9 +46,9 @@
 	@user.update_attribute :admin, true
 	
 	User.create(
-			username: 'Griffin',
-			name: 'Griffin',
-			email: 'griffin@uchicago.edu',
+			username: 'Ziv',
+			name: 'Ziv',
+			email: 'ziv@uchicago.edu',
 			password: 'foobar',
 			password_confirmation: 'foobar',
 			sex: 'male',

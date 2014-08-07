@@ -17,6 +17,30 @@
 
 </table>
 
+
+<% if @negotiation.first_user && @negotiation.second_user && @negotiation.first_user.agreement && @negotiation.second_user.agreement && @negotiation.first_user.agreement.description &&
+@negotiation.second_user.agreement.description %>
+<div id = 'agreement_description'>
+	<fieldset>
+		<legend>Agreement</legend>
+		
+		<div class = 'first_user'>
+			<p><span>Yes/No:</span><%= @negotiation.first_user.agreement.agreement_boolean %></p>
+			<p><span>Price:</span><%= @negotiation.first_user.agreement.price %></p>
+			<p><span>Description:</span><%= @negotiation.first_user.agreement.description %></p>
+		</div>
+		
+		<div class = 'second_user'>
+			<p><span>Yes/No:</span><%= @negotiation.second_user.agreement.agreement_boolean %></p>
+			<p><span>Price:</span><%= @negotiation.second_user.agreement.price %></p>
+			<p><span>Description:</span><%= @negotiation.second_user.agreement.description %></p>
+		</div>
+		
+	</fieldset>
+</div>
+
+<% end %>
+
 <div id = 'message_history'>
   <% if @negotiation.messages.any? %>
     <%  @negotiation.messages.each do |message| %>

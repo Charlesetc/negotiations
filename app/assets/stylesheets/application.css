@@ -889,3 +889,17 @@ span.error_designation {
 	-webkit-animation-delay:-.6s;
 	-moz-animation-delay:-.6s;
 }
+
+
+/* Negotiation Inspect Agreements */
+
+#agreement_description {
+	padding-top:20px;
+}
+	
+
+
+#agreement_description span {
+	text-decoration:underline;
+	padding-right:10px;
+}
