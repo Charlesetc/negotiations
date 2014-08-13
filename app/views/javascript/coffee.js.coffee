@@ -193,8 +193,10 @@ $ ->
 			minutes += 10
 			$('#clock').empty().append "#{minutes}:#{seconds}"
 			
-	<% if current_user %>
+
 	tick_clock = ->
+	<% if current_user %>
+	<% unless current_user.admin %>
 		$("#clock").hide()
 		# time_color = $('#negotiation_block').data('time-color')
 # 		$("#clock").css 'color', time_color
@@ -244,6 +246,7 @@ $ ->
 # 				minutes = "0#{minutes}"
 #
 # 			$('#clock').empty().append (minutes + ":" + seconds)
+	<% end %>
 	<% end %>
 		
 	add_spin = ->
