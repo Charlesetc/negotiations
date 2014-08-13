@@ -142,6 +142,9 @@
 			<% if signed_in? %>
 			<% unless current_user.admin %>
   			<li><%= link_to t('Followme'), instructions_path %></li>
+			
+			<% else %>
+			  <li><%= link_to t('Followme'), '#' %></li>
 			<% end %>
 			<li class = 'dropdown_trigger'><%= link_to t('account'), '#' %></li>
 			<ul class = 'dropdown'>

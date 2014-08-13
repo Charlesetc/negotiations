@@ -197,7 +197,13 @@ $ ->
 	tick_clock = ->
 	<% if current_user %>
 	<% unless current_user.admin %>
+		
+		# Comment this line to show the clock:
+		
 		$("#clock").hide()
+		
+		# Uncomment these lines to show the clock:
+		
 		# time_color = $('#negotiation_block').data('time-color')
 # 		$("#clock").css 'color', time_color
 # 		end_time = <%= current_user.negotiation.first_end_time %>
