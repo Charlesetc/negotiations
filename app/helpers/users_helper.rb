@@ -30,5 +30,18 @@ module UsersHelper
 		end
 		admin
 	end
-
+	
+	def set_locale(locale)
+		cookies[:locale] = locale
+		I18n.locale = cookies[:locale]
+	end
+	
+	def check_set_locale(locale)
+		if locale =~ /english/i
+			set_locale('en')
+		elsif locale =~ /hebrew/i
+			set_locale('he')
+		end
+	end
+	
 end

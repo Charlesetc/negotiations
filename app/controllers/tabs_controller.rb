@@ -35,8 +35,8 @@ class TabsController < ApplicationController
 		@negotiation_id = params[:id]
 		@negotiation_id = @negotiation_id.gsub /\.js/, ''
 		respond_to do |format|
-		    format.js
-		  end
+			format.js
+		end
 	end
 	
 	def agree

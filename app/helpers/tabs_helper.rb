@@ -9,13 +9,16 @@ module TabsHelper
 	
 	def user_tabs
 		[
-			build_tab('Negotiation'),
+			build_tab('Negotiation', t('nego')),
 			build_tab('Supervisor'),
 		]
 	end
 	
-	def build_tab(title)
-		{title: title}
+	def build_tab(title, heading = nil)
+		unless heading
+			heading = title
+		end
+		{title: title, heading: heading}
 	end
 	
 	def tabs

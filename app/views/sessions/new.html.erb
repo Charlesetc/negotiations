@@ -1,18 +1,18 @@
 
-<h1><%= @title %></h1>
+<h1><%= t('Login') %></h1>
 
 <div id = 'log_in_form' class = 'basic_form' >
 	<%= form_for(:session, url: sessions_path) do |t| %>
 		
-		<div><%= t.label :email %></div>
-		<div><%= t.text_field :email, placeholder: 'email@example.com' %></div>
+		<div><%= t.label :email, t('email') %></div>
+		<div><%= t.text_field :email, placeholder: t('exampleEmail') %></div>
 		
-		<div><%= t.label :password %></div>
+		<div><%= t.label :password, t('password') %></div>
 		<div><%= t.password_field :password %></div>
 		
-		<%= t.submit 'Submit', id: 'submit_button' %>
+		<%= t.submit t('Submit'), id: 'submit_button' %>
 		
 	<% end %>
 </div>
 
-<p>Don't have an account? <%= link_to 'Register Here', signup_path %></p>
+<p><%= t('NoAccount') %>? <%= link_to t('Register'), secure_key_path %></p>

@@ -2,6 +2,7 @@ require 'csv'
 
 class UsersController < ApplicationController
 	
+	before_filter :get_locale
 	before_filter :signed_in_user, except: [:new, :create]
 	before_filter :correct_user, only: [:show, :edit, :update, :accept_consent]
 	before_filter :admin_user, only: [:toggle_admin, :delete, :index]
@@ -13,9 +14,21 @@ class UsersController < ApplicationController
 			flash[:error] = "You are already logged into an account."
 			redirect_to root_url
 		else
-			@title = 'Sign Up'
-			@page_id = 'sign_up'
-			@user = User.new()
+			if @neg = Negotiation.find_by_secure_key(params[:secure_key])
+				check_set_locale(@neg.scenario.language)
+				unless @neg.full?
+					@secure_key = params[:secure_key]
+					@title = 'Sign Up'
+					@page_id = 'sign_up'
+					@user = User.new()
+				else
+					flash[:error] = 'That secure key has already been used.'
+					redirect_to secure_key_url
+				end
+			else
+				flash[:error] = 'You do not have a valid secure key'
+				redirect_to secure_key_url
+			end
 		end
  	end
 	
@@ -58,6 +71,7 @@ class UsersController < ApplicationController
 	end
 	
 	def create
+		@secure_key = params[:user][:secure_key]
 		@user = User.new(params[:user])
 		@user.native_languages = 
 			params[:user][:native_languages].gsub(/\s/, '').downcase.split(',')
@@ -270,7 +284,13 @@ class UsersController < ApplicationController
 	private
 		
 		def signed_in_user
-			unless signed_in?
+			if signed_in?
+				@neg = current_user.negotiation
+				if @neg
+					@lang = @neg.scenario.language
+					check_set_locale @lang
+				end
+			else
 				store_location
 				redirect_to log_in_url
 				flash[:error] = 'Please Sign In'
@@ -291,4 +311,9 @@ class UsersController < ApplicationController
 				flash[:error] = 'You do not have permission to access that page.'
 			end
 		end
+		
+		def get_locale
+			I18n.locale = cookies[:locale] || I18n.default_locale
+		end
+		
 end

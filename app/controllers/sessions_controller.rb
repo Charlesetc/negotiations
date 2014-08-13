@@ -25,4 +25,28 @@ class SessionsController < ApplicationController
 		redirect_to root_url
 	end
 	
+	def english
+		
+		## Uncomment these lines to prevent users from changing locales
+		
+		#unless signed_in?
+			#unless cookies[:locale]
+				set_locale('en')
+				#end
+		#end
+		redirect_to root_url
+	end
+
+	def hebrew
+		
+		## Uncomment these lines to prevent users from changing locales
+		
+		#unless signed_in?
+			#unless cookies[:locale]
+				set_locale('he')
+				#end
+		#end
+		redirect_to root_url
+	end
+	
 end

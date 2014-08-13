@@ -16,11 +16,10 @@ PrivatePub.subscribe "/negotiation/<%= current_user.negotiation.id %>/new", (dat
 		unless user_id == sender_id
 			$(".agreement_waiting").remove()
 			$('.agreement_button').removeClass 'disabled'
-			alert 'The other participant is not yet ready to fill out the agreement form.'
+			alert '<%= t('imnotready') %>'
 	else if data.alert_request
 		unless user_id == sender_id
-			if confirm 'The other participant has requested to continue 
-			to the agreement form. Are you ready?'
+			if confirm '<%= t('ruready') %>'
 				$.post 'users/accept_alert_request', {
 					authenticity_token: AUTH_TOKEN,
 					tactic: 'accept'
@@ -31,7 +30,7 @@ PrivatePub.subscribe "/negotiation/<%= current_user.negotiation.id %>/new", (dat
 					tactic: 'deny'
 				}
 	else if data.typing
-		unless user_id == sender_id # something's funky
+		unless user_id == sender_id 
 			$('.typing').css 'opacity', '1'
 			$(".typing").slideDown(300)
 			$('.message_index').animate {

@@ -1,5 +1,86 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
-en:
-  hello: "Hello world"
+--- 
+en: 
+  Agreed: "Did you come to an agreement?"
+  Agreement: Agreement
+  Alert1: "Your Message"
+  Alert2: "The other participant says"
+  Alert4: "Alert Partner"
+  Back: Back
+  Checkin: "Checking with the other participant..."
+  Confirmation: Confirmation
+  Consent: "Agreement to Participate in Research"
+  Emotion: "In which language do you prefer to express emotion?  You can specify a certain language for certain emotions, if you wish."
+  Eng: English
+  EngAL: "By living abroad for a total of six months or longer"
+  EngAS: "By studying abroad for a quarter or semester"
+  EngAcq: "How have you acquired English? Check all that apply."
+  EngAge: "How old were you when you started learning English?"
+  EngF: "In a classroom from a nonnative-speaker instructor"
+  EngFriends: "From native English-speaking friends"
+  EngHome: "Was English spoken in your home?"
+  EngN: "In a classroom from a native-speaker instructor"
+  EngOther: 'Other:'
+  ExampleForeigns: "Spanish, German"
+  ExampleLanguages: "Korean, Italian"
+  Extrapolaborate: "Please elaborate on your agreement: \nDid you include any additional parameters or critera?"
+  Followme: Instructions
+  Foreign: "Foreign Languages"
+  Heb: Hebrew
+  JSmith: "John Smith"
+  Listen: Listening
+  Login: "Log In"
+  Logout: "Log Out"
+  Native: "Native Languages"
+  NawBro: "No"
+  Next: Next
+  Okay: OK
+  Partners: "Partner's Form"
+  Profic: "Proficiency Ratings"
+  Profic2: "(1= not proficient at all, 5 = fully fluent)"
+  Read: Reading
+  NoAccount: "Don't have an account"
+  Register: "Register Here"
+  Research: "Have you ever heard or read about research involving foreign languages and decision making? If so, what?"
+  Secure: "Secure key"
+  SecureWarning: "You do not have a valid secure key"
+  Sex: Sex
+  Sold: "How much did the gas station sell for:"
+  Speak: Speaking
+  Submit: Submit
+  TYVM: "Thank You!"
+  TYVM2: "Thank you for helping in our study. Please contact your supervisor for payment and follow up questions. Have a good day!"
+  UofC: "University of Chicago"
+  Whydoyouhateeachother: "Please explain why not:"
+  Write: Writing
+  ofcourse: "Yes"
+  never: 'No'
+  Yours: "Your Form"
+  accept: Accept
+  account: Account
+  alldone: "Done Negotiating?"
+  bg: Background
+  birth: "Date of birth"
+  country: "Country of Origin"
+  email: Email
+  s: example@example.com
+  formatixxx: "Fill out Form"
+  exampleEmail: example@example.com
+  frenchcat: Chat
+  hello: "Good Morning"
+  imnotready: "The other participant is not yet ready to fill out the agreement form."
+  name: Name
+  nego: Negotiations
+  notbycarrierpigeon: Send
+  obj: Objective
+  password: Password
+  ready: Ready
+  ruready: "The other participant has requested to continue to the agreement form. Are you ready?"
+  set: Settings
+  signup: "Sign Up"
+  stillNotReadyBro: "The other participant is not yet ready to submit the form. Please wait and try again later."
+  ticktocklalala: "Waiting for other participant to accept..."
+  wait: Waiting
+  wait2: "Please wait while the other participants completes his or her forms"
+  copy: 'Copyright 2014 — Keysar Lab'
+  male: 'Male'
+  female: 'Female'

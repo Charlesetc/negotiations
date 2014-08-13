@@ -12,9 +12,8 @@ gem 'private_pub'
 
 gem 'redis'
 
-#
-# gem 'rubyXL'
-#
+gem 'i18n'
+
 # gem 'stylus'
 
 # Bundle edge Rails instead:

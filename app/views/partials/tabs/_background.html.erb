@@ -4,13 +4,13 @@
 <%= javascript_include_tag '/tabs/alert_request.js' %> -->
 
 
-<h2>Background — <%= current_user.negotiation.scenario.title %></h2>
+<h2><%= t('bg') %> — <%= current_user.negotiation.scenario.title %></h2>
 
 <% @scenario = current_user.negotiation.scenario %>
 
 <p><%= @scenario.general %></p>
 
-<h3><%= current_user.role %> Objective:</h3>
+<h3><%= current_user.role %> <%= t('obj') %>:</h3>
 
 <p>
  <%= first_user?(current_user) ? @scenario.first_role : @scenario.second_role %>

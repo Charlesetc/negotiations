@@ -1,7 +1,7 @@
 <div id = 'consent_form'>
 
-  <h3>Agreement to Participate in Research<br />
-  <strong>The University of Chicago</strong></h3>
+  <h3><%= t('Consent') %><br />
+  <strong><%= t("UofC") %></strong></h3>
 
 <div id = 'scroll_consent'>
 
@@ -43,7 +43,7 @@
   Clicking on “Accept” and/or submitting the completed survey will be taken as your consent to participate in this study.
   </p>
   <p class ='centered_button'>
-  <input type = 'submit' class = 'consent_button' value = 'Accept'></p>
+  <input type = 'submit' class = 'consent_button' value = <%= t('accept') %> ></p>
 </div>
 
 </div>

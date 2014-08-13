@@ -236,6 +236,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.1.0)
   guard-cucumber
   guard-rspec (= 1.2.1)
+  i18n
   jquery-rails (= 2.0.2)
   passenger
   pg (= 0.12.2)

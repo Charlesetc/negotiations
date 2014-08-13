@@ -2,6 +2,6 @@
 <%= subscribe_to "/negotiation/waiting/#{current_user.negotiation.id}"  %>
 <%= javascript_include_tag '/tabs/waiting.js' %>
 
-<h1>Waiting</h1>
+<h1><%= t('wait') %></h1>
 
-<p>Please wait while the other participant completes his or her forms.</p>
+<p><%= t('wait2') %></p>

@@ -42,9 +42,15 @@ Negotiations::Application.routes.draw do
 	post 'users/alert_request'
 	post 'users/accept_alert_request'
 	
+	
+	get 'assets/coffeescript', to: 'javascript#coffee'
+	get 'assets/messages', to: 'javascript#messages'
+	
+	
+	match 'secure_key', to: 'negotiations#secure_key_validation'
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
-	match 'signup', to: 'users#new'
+	post 'signup', to: 'users#new'
 	match 'log_in', to: 'sessions#new'
 	match 'log_out', to: 'sessions#destroy'
 	match 'consent', to: 'users#consent'
@@ -53,6 +59,11 @@ Negotiations::Application.routes.draw do
 	match 'waiting', to: 'users#waiting'
 	match 'agreement', to: 'users#agreement'
 	match 'thank_you', to: 'users#thank_you'
+	
+	match 'hebrew', to: 'sessions#hebrew'
+	match 'english', to: 'sessions#english'
+	match 'he', to: 'sessions#hebrew'
+	match 'en', to: 'sessions#english'
 	
 	match 'admin/:id' => 'tabs#admin'
 	match 'background/:id' => 'tabs#background'

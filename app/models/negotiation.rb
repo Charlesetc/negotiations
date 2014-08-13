@@ -11,6 +11,7 @@
 #  start_time     :datetime
 #  end_time       :datetime
 #  agreement_time :datetime
+#  second_user_id :integer
 #
 
 
@@ -143,6 +144,30 @@ class Negotiation < ActiveRecord::Base
 		self.agreement_time = Time.now
 		self.save!
 	end
+	
+	def first_end_time
+		if self.start_time
+			(self.start_time + (20*60)).to_i * 1000
+		else
+			3
+		end
+	end
+	#
+	# def first_end_seconds
+	# 	if self.start_time
+	# 		return (self.start_time + (20 * 60)).sec
+	# 	else
+	# 		3
+	# 	end
+	# end
+	#
+	# def first_end_minutes
+	# 	if self.start_time
+	# 		return (self.start_time + (20 * 60)).min
+	# 	else
+	# 		3
+	# 	end
+	# end
 	
 	def state
 		return 'empty' unless self.full?

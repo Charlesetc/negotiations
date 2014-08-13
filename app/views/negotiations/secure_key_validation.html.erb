@@ -1,0 +1,18 @@
+
+
+<h1><%= t('signup') %></h1>
+
+<div class = 'basic_form'>
+	
+	<%= form_tag '/signup' do %>
+		
+		
+		<%= label_tag :secure_key, t('Secure'), style: 'font-size:20px' %><br/>
+		<%= text_field_tag :secure_key, '', style: 'margin-top:10px;margin-bottom:10px', autocomplete: 'off' %><br/>
+		
+	
+		<%= submit_tag t('Submit') %>
+	
+	<% end %>
+	
+</div>

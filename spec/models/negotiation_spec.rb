@@ -11,6 +11,7 @@
 #  start_time     :datetime
 #  end_time       :datetime
 #  agreement_time :datetime
+#  second_user_id :integer
 #
 
 require 'spec_helper'

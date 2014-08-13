@@ -8,7 +8,7 @@
   <ul class='etabs' id = 'tabs_for_<%= current_user.id %>' data-id = '<%= current_user.id %>'>
     <% @tabs.each do |tab| %>
       <li class='tab_link' id = 'tab_link_<%= tab[:title].downcase %>' >
-        <a href="#tab_<%= tab[:title].downcase %>"><%= tab[:title] %></a>
+        <a href="#tab_<%= tab[:title].downcase %>"><%= tab[:heading] %></a>
       </li>
     <% end %>
   </ul>

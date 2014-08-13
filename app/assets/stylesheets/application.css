@@ -12,6 +12,7 @@
  *= require_tree .
  */
 
+
 /* Media */
 
 @media print {
@@ -22,6 +23,19 @@
 }
 
 @media screen {
+	
+
+/* Translation Missing */
+
+.translation_missing {
+	color:red;
+	background:black;
+	border:red dashed 4px;
+}
+
+
+
+	
 
 /* General */
 
@@ -53,6 +67,16 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
 	padding-top:100px;
+}
+
+body::selection, body *::selection {
+	background:#47B5FF;
+	color:white;
+}
+
+body::-moz-selection, body *::moz-selection {
+	background:#47B5FF;
+	color:white;
 }
 
 body::after {
@@ -137,8 +161,8 @@ body::after {
 
 #shield {
 	display:inline-block;
-	width:10px;
 	height:10px;
+	width:10px;
 	padding:10px;
 	margin:-10px;
 	background:url(shield_grey.png);
@@ -252,7 +276,7 @@ pre.debug_dump {
 
 /* Sign Up Page, Log In Page */
 
-#sign_up, #log_in, #settings, #negotiation_creation, #scenario_creation, #negotiation_inspection, #waiting_page, #thank_you_page {
+#sign_up, #log_in, #settings, #negotiation_creation, #scenario_creation, #negotiation_inspection, #waiting_page, #thank_you_page, #secure_key_validation {
 	margin: auto;
 	padding: 40px;
 	border-radius: 10px;
@@ -264,7 +288,7 @@ pre.debug_dump {
 }
 
 
-#sign_up h1, #log_in h1, #settings h1, #negotiation_creation h1, #scenario_creation h1, #negotiation_inspection h1, #waiting_page h1, #thank_you_page h1 {
+#sign_up h1, #log_in h1, #settings h1, #negotiation_creation h1, #scenario_creation h1, #negotiation_inspection h1, #waiting_page h1, #thank_you_page h1, #secure_key_validation h1 {
 	font-size: 35px;
 	position:relative;
 	top: -30px;
@@ -914,4 +938,4 @@ span.error_designation {
 	padding-right:10px;
 }
 
-}
+} /* Necessary for media screen */

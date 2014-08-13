@@ -3,29 +3,29 @@
 <%= subscribe_to "/#{current_user.negotiation.id}/agree"  %>
 <%= javascript_include_tag '/tabs/agree.js' %>
 
-<h1><%= @title %></h1>
+<h1><%= t('Agreement') %></h1>
 
 <div id = 'sender_page'>
 	
-	<h2>Your Form</h2>
+	<h2><%= t('Yours') %></h2>
 
 	<div class = 'basic_form'>
-	<%= label_tag :agreement_boolean, 'Did you come to an agreement?' %>
-	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], ['Yes', true], ['No', false]]), class: 'agreement_boolean' %></div>
+	<%= label_tag :agreement_boolean, t('Agreed') %>
+	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], [t('ofcourse'), true], [t('never'), false]]), class: 'agreement_boolean' %></div>
 	
 	<br />
 	
 	<div class = 'yes_form'>
 		<div class = 'basic_form'>
 			
-			<%= label_tag :agreement_price, 'How much did the gas station sell for:' %>
+			<%= label_tag :agreement_price, t('Sold') %>
 			<%= text_field_tag :agreement_price %><br /><br />
 			
-			<%= label_tag :agreement_content_yes, 'Please elaborate on your agreement: Did you include any additional parameters or critera?'.html_safe %>
+			<%= label_tag :agreement_content_yes, t('Extrapolaborate').html_safe %>
 			<%= text_area_tag :agreement_content_yes %>
 			
 			
-			<%= button_tag 'Submit', class: 'submit_yes' %>
+			<%= button_tag t('Submit'), class: 'submit_yes' %>
 			
 		</div>
 	</div>
@@ -33,10 +33,10 @@
 	<div class = 'no_form'>
 		<div class = 'basic_form'>
 			
-			<%= label_tag :agreement_content_no, 'Please explain why not:' %>
+			<%= label_tag :agreement_content_no, t('Whydoyouhateeachother') %>
 			<%= text_area_tag :agreement_content_no %>
 			
-			<%= button_tag 'Submit', class: 'submit_no' %>
+			<%= button_tag t('Submit'), class: 'submit_no' %>
 			
 		</div>
 	</div>
@@ -45,25 +45,25 @@
 
 <div id = 'receiver_page'>
 	
-	<h2>Partner's Form</h2>
+	<h2><%= t('Partners') %></h2>
 	
 	<div class = 'basic_form'>
-	<%= label_tag :agreement_boolean, 'Did you come to an agreement?' %>
-	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], ['Yes', true], ['No', false]]), class: 'agreement_boolean' %></div>
+	<%= label_tag :agreement_boolean, t('Agreed') %>
+	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], [t('ofcourse'), true], [t('never'), false]]), class: 'agreement_boolean' %></div>
 	
 	<br />
 	
 	<div class = 'yes_form'>
 		<div class = 'basic_form'>
 			
-			<%= label_tag :receiver_price, 'How much did the gas station sell for:' %>
+			<%= label_tag :receiver_price, t('Sold') %>
 			<%= text_field_tag :receiver_price %><br /><br />
 			
-			<%= label_tag :receiver_content_yes, 'Please elaborate on your agreement: Did you include any additional parameters or critera?'.html_safe %>
+			<%= label_tag :receiver_content_yes, t('Extrapolaborate').html_safe %>
 			<%= text_area_tag :receiver_content_yes %>
 			
 			
-			<%= button_tag 'Submit', class: 'receiver_yes' %>
+			<%= button_tag t('Submit'), class: 'receiver_yes' %>
 			
 		</div>
 	</div>
@@ -71,10 +71,10 @@
 	<div class = 'no_form'>
 		<div class = 'basic_form'>
 			
-			<%= label_tag :receiver_content_no, 'Please explain why not:' %>
+			<%= label_tag :receiver_content_no, t('Whydoyouhateeachother') + ':' %>
 			<%= text_area_tag :receiver_content_no %>
 			
-			<%= button_tag 'Submit', class: 'receiver_no' %>
+			<%= button_tag t('Submit'), class: 'receiver_no' %>
 			
 		</div>
 	</div>
@@ -83,11 +83,12 @@
 	
 </div>
 
-<button id = 'alert_partner'>Alert Partner</button>
+<button id = 'alert_partner'><%= t('Alert4') %></button>
 <div class = 'basic_form' id = 'alert_content_div'>
 	<div>
-		<h1>Your Message:</h1>
+		<h1><%= t('Alert1') %></h1>
 		<input type = 'text' id = 'alert_content'>
-		<input type = 'submit' id = 'send_alert' value = 'Send'>
+		<!-- <%= text_area_tag 'alert_content', '', id: 'alert_content' %> -->
+		<input type = 'submit' id = 'send_alert' value = <%= t('notbycarrierpigeon') %>
 	</div>
 </div>

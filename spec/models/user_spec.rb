@@ -34,6 +34,7 @@
 #  english_writing   :integer
 #  emotions          :text
 #  research          :text
+#  subject_number    :integer
 #
 
 require 'spec_helper'

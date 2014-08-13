@@ -1,7 +1,7 @@
 class NegotiationsController < ApplicationController
-	before_filter :signed_in_user
-	before_filter :admin_user, except: :form
-	layout false, except: [:new, :inspect, :form] 
+	before_filter :signed_in_user, except: :secure_key_validation
+	before_filter :admin_user, except: [:form, :secure_key_validation]
+	layout false, except: [:new, :inspect, :form, :secure_key_validation] 
 
 	
   def new
@@ -25,7 +25,12 @@ class NegotiationsController < ApplicationController
 			}
 		end
 	end
-
+	
+	def secure_key_validation
+		@title = 'Sign Up'
+		@page_id = 'secure_key_validation'
+	end
+	
   def create
 		@negotiation = Negotiation.new(params[:negotiation])
 		if @negotiation.save

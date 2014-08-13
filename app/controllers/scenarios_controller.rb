@@ -10,7 +10,7 @@ class ScenariosController < ApplicationController
 		@scenario = Scenario.new
 		@user = @scenario # For error form
   end
-
+	
   def create
 		@scenario = Scenario.new(params[:scenario])
 		if @scenario.save

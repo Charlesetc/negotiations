@@ -53,6 +53,77 @@
   href="//identity.uchicago.edu/c/fonts/proximanova.css">
   <%= javascript_include_tag "https://private-publish.herokuapp.com/faye.js" %>
   <%= javascript_include_tag "/private-pub-lib.js" %>
+  
+  <% if cookies[:locale] == 'he' %>
+  	
+	<style>
+	@import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+		
+/*	* {
+		font-family: 'Alef Hebrew'
+	} */
+		
+	p, input, div, textarea {
+		text-align:right;
+	}
+	
+	h1,h2,h3,h4,h5,h6 {
+		text-align:center;
+	}
+	
+	header h1 {
+		text-align:right;
+		left:-20px;
+	}
+	
+	header nav {
+		left:20px;
+	}
+	
+	#home p {
+		text-align:center;
+	}
+	
+	#dot_slider {
+		position:relative;
+		text-align:left;
+		transform: rotateY(180deg);
+	}
+	
+	#wizard_page_3 div {
+		text-align:left;
+	}
+	
+	#wizard_page_4, #wizard_page_4 div {
+		text-align:right;
+	}
+	
+	#wizard_page_4 input[type='submit'], #wizard_page_4 button {
+		float:right;
+	}
+	
+	.dropdown {
+		left:0px;
+		top:15px;
+	}
+	
+	.checkboxes input[type='checkbox'] {
+		float:right;
+	}
+	
+	.div_with_other input[type='checkbox'] {
+		position:relative;
+		top:13px;
+	}
+	
+	.div_with_other .other_text {
+		float:right;
+		position:relative;
+		top:14px;
+	}
+  		
+	</style>
+  <% end %>
 </head>
 <body id = "<%= @body_id %>" data-id = "<%= current_user.id if current_user %>">
 
@@ -63,26 +134,27 @@
 		<h1>
 			<%= link_to root_path do %>
 			<div id = 'shield'></div>
-			<span style = 'padding-left:14px'>NEGOTIATION</span>
+			<span style = 'padding-left:14px'><%= t('nego').upcase() %></span>
 			<% end %>
 		</h1>
 		
 		<nav>
 			<% if signed_in? %>
-			<%# At one point, take away this from admin %>
-  			<li><%= link_to 'Instructions', instructions_path %></li>
-			<li class = 'dropdown_trigger'><%= link_to 'Account', '#' %></li>
+			<% unless current_user.admin %>
+  			<li><%= link_to t('Followme'), instructions_path %></li>
+			<% end %>
+			<li class = 'dropdown_trigger'><%= link_to t('account'), '#' %></li>
 			<ul class = 'dropdown'>
 				<!-- <li><%= link_to 'Profile', user_path(current_user) %></li> -->
 
-				<li><%= link_to 'Settings', edit_user_path(current_user) %>
+				<li><%= link_to t('set'), edit_user_path(current_user) %>
         </li>
 				<div class = 'divider'></div>
-				<li><%= link_to 'Log Out', log_out_path, method: 'delete' %></li>
+				<li><%= link_to t("Logout"), log_out_path, method: 'delete' %></li>
 			</ul>
 			<% else %>
-			  <li><%= link_to 'Log In', log_in_path %></li>
-        <li><%= link_to 'Sign Up', signup_path %></li>
+			  <li><%= link_to t("Login"), log_in_path %></li>
+        <li><%= link_to t('signup'), secure_key_path %></li>
       <% end %>
 			<% unless signed_in? %>
 			<% else %>
@@ -109,7 +181,7 @@
 	<footer>
 		<div>
 		
-		<p>Copyright <%= Time.now.year %> — <span>Keysar Lab</span><p>
+		<p><%= t('copy') %><p>
 
 		</div>
 	</footer>
