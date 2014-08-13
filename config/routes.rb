@@ -43,8 +43,8 @@ Negotiations::Application.routes.draw do
 	post 'users/accept_alert_request'
 	
 	
-	get 'assets/coffeescript', to: 'javascript#coffee'
-	get 'assets/messages', to: 'javascript#messages'
+	get 'javascript/coffeescript', to: 'javascript#coffee'
+	get 'javascript/messages', to: 'javascript#messages'
 	
 	
 	match 'secure_key', to: 'negotiations#secure_key_validation'
