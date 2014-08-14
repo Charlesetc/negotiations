@@ -46,6 +46,7 @@ Negotiations::Application.routes.draw do
 	get 'javascript/coffeescript', to: 'javascript#coffee'
 	get 'javascript/messages', to: 'javascript#messages'
 	
+	get 'rake_subject_numbers', to: 'users#rake_subject_numbers'
 	
 	match 'secure_key', to: 'negotiations#secure_key_validation'
 	match 'reference', to: 'static#reference'

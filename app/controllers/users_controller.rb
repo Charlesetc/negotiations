@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 	before_filter :get_locale
 	before_filter :signed_in_user, except: [:new, :create]
 	before_filter :correct_user, only: [:show, :edit, :update, :accept_consent]
-	before_filter :admin_user, only: [:toggle_admin, :delete, :index]
+	before_filter :admin_user, only: [:toggle_admin, :delete, :index, :rake_subject_numbers]
 	layout false, only: :index
 	
 	
@@ -51,6 +51,17 @@ class UsersController < ApplicationController
 				render inline: csv_string
 			}
 		end
+	end
+	
+	def rake_subject_numbers
+		@users = User.all
+		@users.sort_by! { |user| user.created_at }
+		@users.reject! { |user| user.admin }
+		@users.each_with_index do |user, i| 
+			user.update_attribute :subject_number, (i + 1)
+			puts "#{user.name}: subject number : #{i + 1}"
+		end
+		redirect_to root_url
 	end
 	
 	def index

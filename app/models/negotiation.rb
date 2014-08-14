@@ -121,7 +121,11 @@ class Negotiation < ActiveRecord::Base
 	end
 	
 	def agreed?
-		self.first_user.agreed? && self.second_user.agreed?
+		if self.first_user && self.second_user
+			self.first_user.agreed? && self.second_user.agreed?
+		else
+			false
+		end
 	end
 	
 	def thank_you?
@@ -223,7 +227,11 @@ class Negotiation < ActiveRecord::Base
 	end
 	
 	def user_consent?
-		self.first_user.consent && self.second_user.consent
+		if self.first_user && self.second_user
+			self.first_user.consent && self.second_user.consent
+		else 
+			false
+		end
 	end
 	
 	def users

@@ -480,6 +480,8 @@ $ ->
 	$('#wizard_page_4').siblings().children('input').keypress (e) ->
 		next_enabled_4()
 	
+	$('#subject_number_button').click ->
+		confirm 'Do not perform this action with negotiations in progress. Are you sure?'
 	
 	# Wizard
 	$('#wizard_page').hide()
