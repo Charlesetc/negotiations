@@ -19,11 +19,16 @@
 	section {
 		background:white;
 	}
-	
+
+	a {
+		color: blue;
+	}
+
+
 }
 
 @media screen {
-	
+
 
 /* Translation Missing */
 
@@ -31,11 +36,11 @@
 	color:red;
 	background:black;
 	border:red dashed 4px;
+
 }
 
 
 
-	
 
 /* General */
 
@@ -43,7 +48,7 @@
 	font-family: Verdana, 'ProximaNova-Regular';
 	padding: 0px, 0px;
 	margin: 0px, 0px;
-	
+
 }
 
 h1 * {
@@ -64,7 +69,6 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'ProximaNova-Semibold', Arial;
 }
 
-
 body {
 	padding-top:100px;
 }
@@ -84,14 +88,14 @@ body::after {
   background: url(phoenix.png);
   background-repeat:no-repeat;
   background-size: 90% auto;
-  background-position: 50% 90px; 
+  background-position: 50% 90px;
   opacity: .5;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
-  z-index: -1;   
+  z-index: -1;
   height:100%;
 }
 
@@ -138,7 +142,7 @@ body::after {
 	border-radius:50px;
 	-webkit-border-radius:50px;
 	background: #800;
-	
+
 }
 
 #home a:hover {
@@ -154,7 +158,7 @@ body::after {
 #reference h1, #about h1, #agreement_page h1 {
 	font-size: 30px;
 	text-align: center;
-} 
+}
 
 
 /* Header */
@@ -261,6 +265,61 @@ footer div {
 }
 
 
+/* Goals */
+
+#check_box {
+	background: white;
+	position: fixed;
+	z-index:999;
+	bottom: 0px;
+	right: 25%;
+	width:50%;
+	border-radius: 5px 5px 0px 0px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+}
+/*
+#check_box li {
+	display: block;
+}*/
+
+#check_box ul, #agreement_goals ul{
+	list-style: none;
+	margin:0;
+	padding:0;
+}
+/*
+#check_box li:hover label, #agreement_goals li:hover label {
+	color: blue;
+}*/
+
+#check_box input[type='checkbox'], #agreement_goals input[type='checkbox'] {
+	position:relative;
+	top: -2px;
+}
+
+#check_box ul li:first-child {
+	background: #800000;
+	border-radius: 5px 5px 0px 0px;
+	color: white;
+	text-align:center;
+	display:block;
+}
+
+#agreement_goals ul li:first-child:after {
+	content: ':'
+}
+
+#agreement_goals ul li:first-child {
+	border-bottom: 1px solid #800000;
+	margin-top: 20px;
+}
+
+#check_box ul li, #agreement_goals ul li {
+	display:block;
+	margin-bottom:7px;
+	padding: 3px 10px
+}
+
 
 /* For the Debug Box */
 
@@ -360,7 +419,7 @@ pre.debug_dump {
 	margin:auto;
 }
 
-.etabs { 
+.etabs {
 	margin: 0; padding: 0;
 	width:100%;
 	text-align:center;
@@ -372,17 +431,17 @@ pre.debug_dump {
 .tab_link { display: inline-block; zoom:1; *display:inline; background: rgba(255,255,255, 0.7);
 	 border: solid 1px #999; border-bottom: none; -moz-border-radius: 4px 4px 0 0;
 	  -webkit-border-radius: 4px 4px 0 0; }
-.tab_link a { font-size: 14px; line-height: 2em; 
+.tab_link a { font-size: 14px; line-height: 2em;
 	display: block; padding: 0 10px; outline: none; }
 .tab_link a:hover { text-decoration: underline; }
 .tab_link.active { background: rgba(255,255,255, 0.7); padding-top: 6px;
 	 position: relative; top: 1px; border-color: #800;}
 .tab_link a.active { font-weight: bold; color: #800; }
-.tab-container .panel-container { background: #fff; 
-	border: solid #666 1px; padding: 10px; 
+.tab-container .panel-container { background: #fff;
+	border: solid #666 1px; padding: 10px;
 	-moz-border-radius: 0 4px 4px 4px;
 	 -webkit-border-radius: 0 4px 4px 4px; }
-	 
+
 .tab {
 	background: rgba(255,255,255, 0.7);
 	padding:20px;
@@ -563,7 +622,7 @@ span.error_designation {
 /* Messaging Style */
 
 .message_content {
-    outline: none;	
+    outline: none;
 	font-size:20px;
 	border: 1px solid black;
 	background:white;
@@ -583,7 +642,7 @@ span.error_designation {
 	left:1.6%;
 }
 
-.message_content:focus { 
+.message_content:focus {
 	box-shadow: 0px 0px 2px 1px #47B5FF;
 	border: 1px solid #47B5FF;
 }
@@ -733,7 +792,7 @@ span.error_designation {
 /* Sign Up Form Additions */
 
 #dot_slider {
-	
+
 }
 
 .dot {
@@ -818,7 +877,7 @@ span.error_designation {
 	position:absolute;
 	top:120px;
 	border-left:1px solid black;
-	background: rgba(255,255,255, 0.5); 
+	background: rgba(255,255,255, 0.5);
 }
 
 #agreement_page textarea {
@@ -930,7 +989,7 @@ span.error_designation {
 #agreement_description {
 	padding-top:20px;
 }
-	
+
 
 
 #agreement_description span {

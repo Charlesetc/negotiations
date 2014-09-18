@@ -1,0 +1,9 @@
+<ul>
+  <li>Goals Met (Hover)</li>
+  <% current_user.goals.each do |goal| %>
+    <li>
+      <input type="checkbox" id="<%= goal[0].gsub(/\s/, '_').downcase %>" <%= current_user.chosen_goals_or_string.split(' ').include?(goal[0].split(' ').join('_').downcase) ? "checked" : "" %> >
+      <label for="<%= goal[0].gsub(/\s/, '_').downcase %>"><%= goal[0].capitalize %> — <%= goal[1] %></label>
+    </li>
+  <% end %>
+</ul>

@@ -4,68 +4,136 @@
   <div class = 'dot current_dot'></div>
   <div class = 'dot'></div>
   <div class = 'dot'></div>
-  <div class = 'dot'></div>
-  <div class = 'dot'></div>
 </div>
 
 
 <div id = 'sign_up_form' class = 'basic_form'>
-	
+
+  <%= form_for(@user) do |f| %>
+
+    <%= render 'shared/error_messages' %>
+
+    <!-- <div><%= f.label :username %></div>
+    <div><%= f.text_field :username,
+      placeholder: 'johnsmith' %></div> -->
+
+    <div><%= f.label :name, t('name') %></div>
+    <div><%= f.text_field :name,
+      placeholder: t('JSmith'), autocomplete: 'off'  %></div>
+
+    <div><%= f.label :email, t('email') %></div>
+    <div><%= f.text_field :email, autocomplete: 'off', placeholder: t('exampleEmail') %></div>
+
+    <div><%= f.label :password, t('password') %></div>
+    <div><%= f.password_field :password %></div>
+
+    <div><%= f.label :password_confirmation, t('Confirmation') %></div>
+    <div class = 'last_input'><%= f.password_field :password_confirmation %></div>
+
+    <div id = 'wizard_page'>
+
+      <div><%= f.label :country, t('country') %></div>
+      <div><%= f.text_field :country %></div>
+
+      <div><%= f.label :date_of_birth, t('birth') %></div>
+      <div><%= f.date_select :date_of_birth, start_year: (Time.now.year - 60), end_year: (Time.now.year - 18) %></div>
+
+      <div><%= f.label :sex, t('Sex') %></div>
+      <div><%= f.select :sex,
+        options_for_select([[t("male"), 'male'], [t('female'), 'female']]) %></div>
+
+      <div><%= f.label :native_languages, t('Native') %></div>
+      <div class = 'language_array'><%= f.text_field :native_languages,
+        value: '', placeholder: t('ExampleLanguages'), autocomplete: 'off'  %></div>
+
+      <div><%= f.label :foreign_languages, t('Foreign') %></div>
+      <div class = 'last_input language_array'><%= f.text_field :foreign_languages, value: '', placeholder: t('ExampleForeigns'), autocomplete: 'off'  %></div>
+
+      <%= button_tag t('Back'), class: 'back_button', style: 'font-size:15px;', type: 'button' %>
+
+
+      <%= button_tag t('Next'), class: 'basic_button next_button_2', style: 'font-size:15px;', type: 'button' %>
+
+      <div id = 'wizard_page_2'>
+
+          <div><%= f.label :emotions, t('Emotion') %></div>
+          <div><%= f.text_area :emotions, class: 'demographic_text_area', autocomplete: 'off'  %></div>
+
+          <div><%= f.label :research, t('Research') %></div>
+          <div><%= f.text_area :research, class: 'demographic_text_area', autocomplete: 'off'  %></div>
+
+          <div><%= f.hidden_field :secure_key, value: @secure_key, autocomplete: 'off'  %></div>
+
+          <%= button_tag t('Back'), class: 'back_button_2', style: 'font-size:15px;', type: 'button' %>
+          <%= f.submit t("Submit"), id: 'submit_button' %>
+
+        </div>
+    </div>
+
+
+  <% end %>
+
+  <%= button_tag t('Next'), class: 'next_button', style: 'font-size:15px;' %>
+</div>
+
+
+<!-- <div id = 'sign_up_form' class = 'basic_form'>
+
 	<%= form_for(@user) do |f| %>
-		
+
 		<%= render 'shared/error_messages' %>
-		
-		<!-- <div><%= f.label :username %></div>
+
+  	<%# <div><%= f.label :username %></div>
 		<div><%= f.text_field :username,
-			placeholder: 'johnsmith' %></div> -->
-		
+			placeholder: 'johnsmith' %></div> %>
+
 		<div><%= f.label :name, t('name') %></div>
-		<div><%= f.text_field :name, 
+		<div><%= f.text_field :name,
 			placeholder: t('JSmith'), autocomplete: 'off'  %></div>
 
 		<div><%= f.label :email, t('email') %></div>
 		<div><%= f.text_field :email, autocomplete: 'off', placeholder: t('exampleEmail') %></div>
-		
+
 		<div><%= f.label :password, t('password') %></div>
 		<div><%= f.password_field :password %></div>
-		
+
 		<div><%= f.label :password_confirmation, t('Confirmation') %></div>
 		<div class = 'last_input'><%= f.password_field :password_confirmation %></div>
-		
+
     <div id = 'wizard_page'>
-      
+
       <div><%= f.label :country, t('country') %></div>
       <div><%= f.text_field :country %></div>
-      
+
   		<div><%= f.label :date_of_birth, t('birth') %></div>
   		<div><%= f.date_select :date_of_birth, start_year: (Time.now.year - 60), end_year: (Time.now.year - 18) %></div>
-      
+
   		<div><%= f.label :sex, t('Sex') %></div>
-  		<div><%= f.select :sex, 
+  		<div><%= f.select :sex,
         options_for_select([[t("male"), 'male'], [t('female'), 'female']]) %></div>
-      
+
   		<div><%= f.label :native_languages, t('Native') %></div>
   		<div class = 'language_array'><%= f.text_field :native_languages,
         value: '', placeholder: t('ExampleLanguages'), autocomplete: 'off'  %></div>
-  
+
   		<div><%= f.label :foreign_languages, t('Foreign') %></div>
   		<div class = 'last_input language_array'><%= f.text_field :foreign_languages, value: '', placeholder: t('ExampleForeigns'), autocomplete: 'off'  %></div>
 
       <%= button_tag t('Back'), class: 'back_button', style: 'font-size:15px;', type: 'button' %>
-      
-     
+
+
       <%= button_tag t('Next'), class: 'basic_button next_button_2', style: 'font-size:15px;', type: 'button' %>
-      
+
       <div id = 'wizard_page_2'>
-          
+
           <div><%= f.label :start_english, t('EngAge') %></div>
           <div><%= f.select :start_english, options_for_select((0..60)) %></div>
-          
+
           <div><%= f.label :english_home, t('EngHome') %></div>
           <div><%= f.select :english_home, options_for_select( [[t('ofcourse'), 1], [t('never'), 0]] ) %></div>
-          
+
           <div><%= f.label :acquired_english, t('EngAcq') %></div>
-          
+
           <div class = 'checkboxes'>
             <div><%= f.check_box :acquired_english, {multiple: true}, "In a classroom from a native-speaker instructor", nil %><%= t('EngN') %></div>
              <div><%= f.check_box :acquired_english, {multiple: true}, "In a classroom from a nonnative-speaker instructor", nil %><%= t('EngF') %></div>
@@ -75,14 +143,14 @@
              <div><%= f.check_box :acquired_english, {multiple: true}, "From native English-speaking friends", nil %><%= t('EngFriends') %></div>
              <div class = 'div_with_other'><%= f.check_box :acquired_english, {multiple: true}, "", nil %><span class = 'other_text'><%= t('EngOther') %></span><span><input class = 'other_input' autocomplete = 'off' type = 'text'></span></div>
           </div>
-        
-        
+
+
         <%= button_tag t('Back'), class: 'basic_button back_button_2', style: 'font-size:15px;', type: 'button' %>
-        
- 
+
+
         <%= button_tag t('Next'), class: 'basic_button next_button_3', style: 'font-size:15px;', type: 'button' %>
-        
-        
+
+
           <div id = 'wizard_page_3'>
 
             <span class = 'radio_intro'>
@@ -92,22 +160,22 @@
                 <%= t('Profic2') %>
               </span>
             </span>
-            
+
             <br />
-            
-            
+
+
             <div class = 'radio_buttons'>
               <span class = 'radio_title'><%= t('Heb') %></span>
               <br />
-              
+
               <div class = 'indented'>
-                
+
                 <table class = 'radio_table'>
                 <tr>
                   <td>
                 <%= t('Listen') %>
                   </td>
-                  
+
                   <td>
                 <%= f.radio_button :hebrew_listening, 1 %>
                 <%= f.label :hebrew_listening_1, '1' %>
@@ -120,14 +188,14 @@
                 <%= f.radio_button :hebrew_listening, 5 %>
                 <%= f.label :hebrew_listening_5, '5' %>
                   </td>
-                  
+
                 </tr>
-                
+
                 <tr>
                   <td>
                 <%= t('Speak') %>
                   </td>
-                  
+
                   <td>
                 <%= f.radio_button :hebrew_speaking, 1 %>
                 <%= f.label :hebrew_speaking_1, '1' %>
@@ -140,16 +208,16 @@
                 <%= f.radio_button :hebrew_speaking, 5 %>
                 <%= f.label :hebrew_speaking_5, '5' %>
                   </td>
-                  
-                </tr>
-                
 
-                
+                </tr>
+
+
+
                 <tr>
                   <td>
                 <%= t('Read') %>
                   </td>
-                  
+
                   <td>
                 <%= f.radio_button :hebrew_reading, 1 %>
                 <%= f.label :hebrew_reading_1, '1' %>
@@ -162,14 +230,14 @@
                 <%= f.radio_button :hebrew_reading, 5 %>
                 <%= f.label :hebrew_reading_5, '5' %>
                   </td>
-                  
+
                 </tr>
-                
+
                 <tr>
                   <td>
                 <%= t('Write') %>
                   </td>
-                  
+
                   <td>
                 <%= f.radio_button :hebrew_writing, 1 %>
                 <%= f.label :hebrew_writing_1, '1' %>
@@ -182,25 +250,25 @@
                 <%= f.radio_button :hebrew_writing, 5 %>
                 <%= f.label :hebrew_writing_5, '5' %>
                   </td>
-                  
+
                 </tr>
-                
-                
+
+
               </table>
-                
+
               </div>
-              
+
              <span class = 'radio_title'><%= t('Eng') %></span>
               <br />
-              
+
               <div class = 'indented'>
-                
+
                   <table class = 'radio_table'>
                   <tr>
                     <td>
                   <%= t('Listen') %>
                     </td>
-                  
+
                     <td>
                   <%= f.radio_button :english_listening, 1 %>
                   <%= f.label :english_listening_1, '1' %>
@@ -213,14 +281,14 @@
                   <%= f.radio_button :english_listening, 5 %>
                   <%= f.label :english_listening_5, '5' %>
                     </td>
-                  
+
                   </tr>
-                
+
                   <tr>
                     <td>
                   <%= t('Speak') %>
                     </td>
-                  
+
                     <td>
                   <%= f.radio_button :english_speaking, 1 %>
                   <%= f.label :english_speaking_1, '1' %>
@@ -233,16 +301,16 @@
                   <%= f.radio_button :english_speaking, 5 %>
                   <%= f.label :english_speaking_5, '5' %>
                     </td>
-                  
-                  </tr>
-                
 
-                
+                  </tr>
+
+
+
                   <tr>
                     <td>
                   <%= t('Read') %>
                     </td>
-                  
+
                     <td>
                   <%= f.radio_button :english_reading, 1 %>
                   <%= f.label :english_reading_1, '1' %>
@@ -255,14 +323,14 @@
                   <%= f.radio_button :english_reading, 5 %>
                   <%= f.label :english_reading_5, '5' %>
                     </td>
-                  
+
                   </tr>
-                
+
                   <tr>
                     <td>
                   <%= t('Write') %>
                     </td>
-                  
+
                     <td>
                   <%= f.radio_button :english_writing, 1 %>
                   <%= f.label :english_writing_1, '1' %>
@@ -275,20 +343,20 @@
                   <%= f.radio_button :english_writing, 5 %>
                   <%= f.label :english_writing_5, '5' %>
                     </td>
-                  
+
                   </tr>
-                
-                
+
+
                 </table>
-                
+
               </div>
-                
-              
+
+
             </div>
-            
+
             <%= button_tag t('Back'), class: 'back_button_3', style: 'font-size:15px;', type: 'button' %>
             <%= button_tag t('Next'), class: 'basic_button next_button_4', style: 'font-size:15px;', type: 'button' %>
-            
+
             <div id = 'wizard_page_4'>
 
           		  <div><%= f.label :emotions, t('Emotion') %></div>
@@ -297,18 +365,18 @@
             		<div><%= f.label :research, t('Research') %></div>
             		<div><%= f.text_area :research, class: 'demographic_text_area', autocomplete: 'off'  %></div>
 
-            		<!-- <div><%# f.label :secure_key %></div> -->
+            	<%# <div> #COMMENT f.label :secure_key </div> %>
             		<div><%= f.hidden_field :secure_key, value: @secure_key, autocomplete: 'off'  %></div>
-                
+
               <%= button_tag t('Back'), class: 'back_button_4', style: 'font-size:15px;', type: 'button' %>
               <%= f.submit t("Submit"), id: 'submit_button' %>
             </div>
           </div>
         </div>
     </div>
-    
-		
+
+
 	<% end %>
-  
+
   <%= button_tag t('Next'), class: 'next_button', style: 'font-size:15px;' %>
-</div>
+</div> -->

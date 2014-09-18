@@ -20,7 +20,7 @@ size_stop = -> # Changes should be copied too.
 			$('#stop_receiver').height(height)
 		else
 			$('#stop_receiver').height(($(window).height() * 0.45))
-			
+
 save_form = ->
 	agreement_boolean = $('.agreement_boolean').val()
 	agreement_price = $('#agreement_price').val()
@@ -106,3 +106,5 @@ PrivatePub.subscribe "/<%= current_user.negotiation.id %>/agree", (data, channel
 			$('button').removeClass 'disabled'
 		else if data.tactic == 'alert_message'
 			alert "The other participant says: \"#{data.message}\""
+		else if data.tactic == 'not_done'
+			alert "The price must be a number less than $500000."

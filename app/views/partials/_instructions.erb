@@ -4,15 +4,33 @@
 
   <h2><%= t('Followme') %>:</h2>
 
-  <p>In this study, you will be asked to negotiate with another person in <%= current_user.scenario.language %>.</p>
+  <p>In this study, you will be asked to
+    negotiate with another person in
+    <%= current_user.scenario.language %>.<new>You will meet
+    the other participant at the end of the study.</new></p>
 
- <p>After agreeing to the consent form, the background page will give you all the information you need. Do not continue past the background until you are prepared to negotiate.</p>
+ <p>After agreeing to the consent form, the background page
+    will give you all the information you need. Do not continue
+    past the background until you are prepared to negotiate.</p>
 
-  <p><!-- You have 30 minutes to negotiate to an agreement. You do not need to take all 30 minutes.  -->You will be able to read the background while negotiating. To move on to the agreement form, scroll to the end of the background section and click "Fill out Form". If you cannot reach an agreement, please try to explain why.</p>
+  <p><!-- You have 30 minutes to negotiate to an agreement.
+    You do not need to take all 30 minutes.  -->You will be able to
+    read the background while negotiating. To move on to the
+    agreement form, scroll to the end of the background section
+    and click "Fill out Form".
 
-  <p>Try to refer to yourself and to the opposite party using plural or gender-neutral terms, without using names.</p>
+    <new>You may find that reaching an agreement is difficult
+      without some creative problem solving. There is a solution
+      that meets everyone's needs. Approximately 50% of participants
+      come to the solution.</new>
+
+    If you cannot reach an agreement,
+    please try to explain why.</p>
+
+  <p>Try to refer to yourself and to the opposite party using
+    plural or gender-neutral terms, without using names.</p>
 
   <p>Speak exclusively in <%= current_user.scenario.language %>.</p>
-  
+
 
 </div>

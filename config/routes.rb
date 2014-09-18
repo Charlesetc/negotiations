@@ -1,19 +1,19 @@
 Negotiations::Application.routes.draw do
 
-	resources :users do 
+	resources :users do
 		member do
 			get 'toggle_admin'
 			post 'last_seen'
 			post 'accept_consent'
 		end
 	end
-	
+
 	resources :negotiations, only: [:new, :create]
-	
+
 	resources :scenarios, only: [:new, :create, :edit, :update]
-	
+
 	resources :sessions, only: [:new, :create, :destroy] # Reverse?
-	
+
 	root :to => 'static#home'
 
   get "static/home"
@@ -21,33 +21,35 @@ Negotiations::Application.routes.draw do
   get "static/search"
 
   get "static/reference"
-	
+
 	get 'users/index'
-	
+
 	get 'negotiations', to: 'negotiations#index'
-	
+
 	get 'convert', to: 'users#convert'
 
   get "static/about"
-	
+
 	post 'create_message', to: 'messages#create'
-	
+
 	post 'misc_negotiation', to: 'users#misc_negotiation'
-	
+
 	post 'agree_channel', to: 'users#agree_channel' ## Delete
 	post 'finish_agreement', to: 'users#finish_agreement'
-	
+
 	get 'negotiations/messages'
 	post 'users/accept_background'
 	post 'users/alert_request'
 	post 'users/accept_alert_request'
-	
-	
+	post 'users/add_goal'
+	post 'users/remove_goal'
+
+
 	get 'javascript/coffeescript', to: 'javascript#coffee'
 	get 'javascript/messages', to: 'javascript#messages'
-	
+
 	get 'rake_subject_numbers', to: 'users#rake_subject_numbers'
-	
+
 	match 'secure_key', to: 'negotiations#secure_key_validation'
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
@@ -60,28 +62,28 @@ Negotiations::Application.routes.draw do
 	match 'waiting', to: 'users#waiting'
 	match 'agreement', to: 'users#agreement'
 	match 'thank_you', to: 'users#thank_you'
-	
+
 	match 'hebrew', to: 'sessions#hebrew'
 	match 'english', to: 'sessions#english'
 	match 'he', to: 'sessions#hebrew'
 	match 'en', to: 'sessions#english'
-	
+
 	match 'admin/:id' => 'tabs#admin'
 	match 'background/:id' => 'tabs#background'
 	match 'negotiation/:id' => 'tabs#negotiation'
 	match 'supervisor/:id' => 'tabs#supervisor'
-	
+
 	get 'tabs/private_pub_subscribe'
 	get 'tabs/private_pub_subscribe_admin'
 	get 'tabs/waiting'
 	get 'tabs/agree'
-	
+
 	match 'destroy/:id' => 'users#delete'
 	match 'negotiations/destroy/:id' => 'negotiations#delete'
 	match 'scenarios/destroy/:id' => 'scenarios#delete'
 	match 'inspect/:id' => 'negotiations#inspect'
-	
-	 
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -96,8 +98,8 @@ Negotiations::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-	
-	
+
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

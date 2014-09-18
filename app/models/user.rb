@@ -39,18 +39,18 @@
 
 
 module CSVHelper
-	
+
 	def format_time(seconds)
 		return false unless seconds
 		seconds = seconds.to_i
 		s = seconds % 60
 		m = (seconds / 60) % 60
 		h = seconds / 3600
-		
+
 		sprintf("%02d : %02d : %02d", h, m, s)
 	end
-	
-	
+
+
 end
 
 class User < ActiveRecord::Base
@@ -61,25 +61,25 @@ class User < ActiveRecord::Base
 	attr_accessible :country, :start_english, :english_home, :acquired_english
 	attr_accessible :hebrew_listening, :hebrew_speaking, :hebrew_reading, :hebrew_writing
 	attr_accessible :english_listening, :english_speaking, :english_reading, :english_writing
-	attr_accessible :research, :emotions
+	attr_accessible :research, :emotions, :chosen_goals
 																		# These might be unnecessary
 	serialize :native_languages, Array
 	serialize :foreign_languages, Array
 	serialize :acquired_english, Array
-	
+
 	has_secure_password
-	
+
 	has_many :agreements
-	
+
 	before_save { |user| user.email = email.downcase }
 	before_save :create_remember_token
-	
-	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
+
+	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	VALID_USERNAME = /^\S*$/
-	validates :name, presence: true	
+	validates :name, presence: true
 	# validates :username, presence: true, uniqueness: true,
 	# 	 				length: { maximum: 50 }, format: {with: VALID_USERNAME}
-	validates :email, presence: true, format: { with: VALID_EMAIL }, 
+	validates :email, presence: true, format: { with: VALID_EMAIL },
 						uniqueness: { case_sensitive: false }
 	validates :password, presence: true, length: { minimum: 6 }, confirmation: true
 	validates :password_confirmation, presence: true
@@ -99,14 +99,14 @@ class User < ActiveRecord::Base
 	# validates :english_writing, presence: true   # Add these for actual study.
 	# validates :english_home, presence: true      # Add these for actual study.
 	#validates :emotions, presence: true           # Add these for actual study.
-	
-	
+
+
 	include CSVHelper
-	
+
 	def to_h
 		JSON.parse(self.to_json)
 	end
-	
+
 	def self.array_header
 		array = []
 		array << 'Subject Number'
@@ -130,7 +130,7 @@ class User < ActiveRecord::Base
 		array << 'Knowlege of Research'
 		array
 	end
-	
+
 	def self.array_spacer
 		array = []
 		array << '-----------------'
@@ -154,7 +154,19 @@ class User < ActiveRecord::Base
 		array << '-----------------'
 		array
 	end
-	
+
+	def chosen_goals_or_string
+		self.chosen_goals || ''
+	end
+
+	def goals
+		if self.first_user?
+			self.negotiation.first_user_goals
+		else
+			self.negotiation.second_user_goals
+		end
+	end
+
 	def make_array
 		array = []
 		array << self.subject_number
@@ -178,16 +190,16 @@ class User < ActiveRecord::Base
 		array << self.research
 		array
 	end
-	
+
 	def age
 	  now = Time.now.utc.to_date
 	  now.year - date_of_birth.year - (date_of_birth.to_date.change(:year => now.year) > now ? 1 : 0)
 	end
-	
+
 	def negotiation
 		Negotiation.find_by_secure_key(self.secure_key)
 	end
-	
+
 	def set_role_if_not_yet_set
 		@negotiation = self.negotiation
 		if @negotiation.first_user
@@ -208,22 +220,31 @@ class User < ActiveRecord::Base
 			end
 		end
 	end
-	
+
+	def first_user?
+		@negotiation = self.negotiation
+		if @negotiation && @negotiation.full?
+			return @negotiation.first_user == self
+		else
+			false
+		end
+	end
+
 	def agreement
 		self.agreements[0]
 	end
-	
+
 	def online?
 		time = $redis.get "#{self.id}_last_seen"
 		difference = Time.now.to_i - time.to_i
 		difference <= 30
 	end
-	
+
 	def background_time
 		return false unless self.start_background && self.end_background
 		self.end_background - self.start_background
 	end
-	
+
 	def role
 		if self == self.negotiation.first_user
 			return self.scenario.first_role_title
@@ -231,19 +252,19 @@ class User < ActiveRecord::Base
 			return self.scenario.second_role_title
 		end
 	end
-	
+
 	def scenario
 		self.negotiation.scenario
 	end
-	
+
 	def agreed?
 		self.agreements.length > 0
 	end
-	
+
 	def make_agree
 		self.agreements.create!
 	end
-	
+
 	def other_user
 		if self == self.negotiation.first_user
 			return self.negotiation.second_user
@@ -251,7 +272,7 @@ class User < ActiveRecord::Base
 			return self.negotiation.first_user
 		end
 	end
-	
+
 	def return_acquisition(string, other = false)
 		if other
 			'other'
@@ -259,12 +280,12 @@ class User < ActiveRecord::Base
 			'notother'
 		end
 	end
-	
+
 	private
-		
+
 		def create_remember_token
 			self.remember_token = SecureRandom.urlsafe_base64
 		end
-	
-	
+
+
 end

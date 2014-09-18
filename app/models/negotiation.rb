@@ -16,31 +16,31 @@
 
 
 module CSVHelper
-	
+
 	def format_time(seconds)
 		return false unless seconds
 		seconds = seconds.to_i
 		s = seconds % 60
 		m = (seconds / 60) % 60
 		h = seconds / 3600
-		
+
 		sprintf("%02d : %02d : %02d", h, m, s)
 	end
-	
-	
+
+
 end
 
 class Negotiation < ActiveRecord::Base
   attr_accessible :secure_key, :scenario_id, :start_time, :end_time, :agreement_time
-	
+
 	validates :secure_key, presence: true, uniqueness: true
 	validates :scenario_id, presence: true
-	
+
 	belongs_to :scenario
 	has_many :messages
-	
+
 	include CSVHelper
-	
+
 	def self.array_header
 		array = []
 		array << "ID"
@@ -53,36 +53,33 @@ class Negotiation < ActiveRecord::Base
 		array << "Language"
 		array << "Current State"
 		array << "Number of Users"
+		array << "First Agree Goals"
 		array << "First Agree Yes/No"
 		array << "First Agree Description"
 		array << "First Agree Price"
+		array << "Second Agree Goals"
 		array << "Second Agree Yes/No"
 		array << "Second Agree Description"
 		array << "Second Agree Price"
 		array
 	end
-	
+
+	def first_user_goals
+		[["Promotion", "You absolutely need to reach an agreement to receiver your promotion."], ["Price", "You absolutely cannot pay more than $500,000 for the station itself."]]
+	end
+
+	def second_user_goals
+		[['Boat Trip', "You absoutely need to at least $420,000 to go on your boat trip."], ['Living Costs', "You estimate you need a minumum of $75,000 to live on after you return from your trip."]]
+	end
+
 	def self.array_spacer
 		array = []
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
-		array << '-----------------'
+		18.times do
+			array << '-----------------'
+		end
 		array
 	end
-	
+
 	def make_array
 		array = []
 		array << self.id
@@ -96,30 +93,32 @@ class Negotiation < ActiveRecord::Base
 		array << self.state
 		array << self.users.count
 		if self.first_user && self.first_user.agreement && self.first_user.agreement.description
+			array << self.first_user.chosen_goals_or_string
 			array << self.first_user.agreement.agreement_boolean
 			array << self.first_user.agreement.price
 			array << self.first_user.agreement.description
 		else
-			3.times do
+			4.times do
 				array << false
 			end
 		end
 		if self.second_user && self.second_user.agreement && self.second_user.agreement.description
+			array << self.second_user.chosen_goals_or_string
 			array << self.second_user.agreement.agreement_boolean
 			array << self.second_user.agreement.price
 			array << self.second_user.agreement.description
 		else
-			3.times do
+			4.times do
 				array << false
 			end
 		end
 		array
 	end
-	
+
 	def full?
-		self.users.count >= 2 # This is what designates negotiation size 
+		self.users.count >= 2 # This is what designates negotiation size
 	end
-	
+
 	def agreed?
 		if self.first_user && self.second_user
 			self.first_user.agreed? && self.second_user.agreed?
@@ -127,7 +126,7 @@ class Negotiation < ActiveRecord::Base
 			false
 		end
 	end
-	
+
 	def thank_you?
 		if self.agreed?
 			return self.first_user.agreement.description && self.second_user.agreement.description
@@ -135,7 +134,7 @@ class Negotiation < ActiveRecord::Base
 			false
 		end
 	end
-	
+
 	def total_agreement_time
 		if self.end_time && self.agreement_time
 			self.agreement_time - self.end_time
@@ -143,12 +142,12 @@ class Negotiation < ActiveRecord::Base
 			false
 		end
 	end
-	
+
 	def record_agreement_time
 		self.agreement_time = Time.now
 		self.save!
 	end
-	
+
 	def first_end_time
 		if self.start_time
 			(self.start_time + (20*60)).to_i * 1000
@@ -172,7 +171,7 @@ class Negotiation < ActiveRecord::Base
 	# 		3
 	# 	end
 	# end
-	
+
 	def state
 		return 'empty' unless self.full?
 		return 'thank_you' if self.thank_you?
@@ -181,7 +180,7 @@ class Negotiation < ActiveRecord::Base
 		return 'background' if self.user_consent?
 		'consenting'
 	end
-	
+
 	def total_time
 		if self.start_time && self.end_time
 			self.end_time - self.start_time
@@ -189,11 +188,11 @@ class Negotiation < ActiveRecord::Base
 			false
 		end
 	end
-	
+
 	def time_spent
 		Time.now - self.start_time
 	end
-	
+
 	def time_color
 		if self.start_time
 			if time_spent < (20*60)
@@ -207,7 +206,7 @@ class Negotiation < ActiveRecord::Base
 			return 'white'
 		end
 	end
-	
+
 	def time_left
 		if self.start_time
 			if time_spent < (20*60)
@@ -219,21 +218,21 @@ class Negotiation < ActiveRecord::Base
 			return (20*60)
 		end
 	end
-	
+
 	def user_background?
 		return false unless self.full?
 		return false unless self.first_user	&& self.second_user
 		self.first_user.background && self.second_user.background
 	end
-	
+
 	def user_consent?
 		if self.first_user && self.second_user
 			self.first_user.consent && self.second_user.consent
-		else 
+		else
 			false
 		end
 	end
-	
+
 	def users
 		list = []
 		User.all.each do |user|
@@ -243,7 +242,7 @@ class Negotiation < ActiveRecord::Base
 		end
 		list
 	end
-	
+
 	def receiver(current_user)
 		self.users.each do |user|
 			unless user == current_user
@@ -252,7 +251,7 @@ class Negotiation < ActiveRecord::Base
 		end
 		false
 	end
-	
+
 	def first_user=(user)
 		if user
 			self.first_user_id = user.id
@@ -261,7 +260,7 @@ class Negotiation < ActiveRecord::Base
 		end
 		self.save!
 	end
-	
+
 	def second_user=(user)
 		if user
 			self.second_user_id = user.id
@@ -270,7 +269,7 @@ class Negotiation < ActiveRecord::Base
 		end
 		self.save!
 	end
-	
+
 	# def randomize_first_user
 	# 	self.first_user = self.users.shuffle.first
 	# end
@@ -280,22 +279,22 @@ class Negotiation < ActiveRecord::Base
 	# 		randomize_first_user
 	# 	end
 	# end
-	
+
 	def ready?
 		self.full? && self.first_user && self.user_consent? && self.user_background?
 		# If this becomes a problem, just make it self.user_background?
 	end
-	
+
 	def first_user
 		User.find_by_id(self.first_user_id)
 	end
-	
+
 	def second_user
 		User.find_by_id(self.second_user_id)
 	end
-	
+
 	def language
 		self.scenario.language
 	end
-	
+
 end

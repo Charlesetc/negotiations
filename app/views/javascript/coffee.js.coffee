@@ -2,167 +2,167 @@
 
 
 $ ->
-	
+
 	# Variables
 	ajax_count = 0
 	keypress_count = 1
 	clock_count = 0
 	# CURRENT_USER_ID = $('body').data('id')
-	
+
  	# Functions
 
 	next_dot = ->
 		dot = $('.current_dot')
 		dot.removeClass 'current_dot'
 		dot.next().addClass 'current_dot'
-		
+
 	back_dot = ->
 		dot = $('.current_dot')
 		dot.removeClass 'current_dot'
 		dot.prev().addClass 'current_dot'
-	
-	next_page = -> 
+
+	next_page = ->
 		$('#wizard_page').siblings().hide()
 		$('#wizard_page').show()
 		$('.next_button').hide()
 		$('body').addClass '2nd_wizard_page'
 		next_dot()
-		
+
 	back_page = ->
 		$('#wizard_page').siblings().show()
 		$('#wizard_page').hide()
 		$('.next_button').show()
 		$('body').removeClass '2nd_wizard_page'
 		back_dot()
-		
+
 	next_page_2 = ->
 		$('#wizard_page_2').siblings().hide()
 		$('#wizard_page_2').show()
 		$('body').removeClass '2nd_wizard_page'
 		$('body').addClass '3rd_wizard_page'
 		next_dot()
-		
-		
+
+
 	back_page_2 = ->
 		$('#wizard_page_2').siblings().show()
 		$('#wizard_page_2').hide()
 		$('body').addClass '2nd_wizard_page'
 		$('body').removeClass '3rd_wizard_page'
 		back_dot()
-		
+
 	next_page_3 = ->
 		$('#wizard_page_3').siblings().hide()
 		$('#wizard_page_3').show()
 		$('body').removeClass '3rd_wizard_page'
 		$('body').addClass '4th_wizard_page'
 		next_dot()
-		
+
 	back_page_3 = ->
 		$('#wizard_page_3').siblings().show()
 		$('#wizard_page_3').hide()
 		$('body').removeClass '4th_wizard_page'
 		$('body').addClass '3rd_wizard_page'
 		back_dot()
-		
+
 	next_page_4 = ->
 		$('#wizard_page_4').siblings().hide()
 		$('#wizard_page_4').show()
 		$('body').removeClass '4th_wizard_page'
 		$('body').addClass '5th_wizard_page'
 		next_dot()
-		
+
 	back_page_4 = ->
 		$('#wizard_page_4').siblings().show()
 		$('#wizard_page_4').hide()
 		$('body').removeClass '5th_wizard_page'
 		$('body').addClass '4th_wizard_page'
 		back_dot()
-	
+
 	position_footer = ->  # Copied in Messages.js.coffee!
 		if $(document).height() > $(window).height()
 			$('footer').removeClass 'fixed_footer'
-		else 
+		else
 			$('footer').addClass 'fixed_footer'
-	
+
 	reload_admin = ->
 		id = $('.etabs').attr 'id'
 		id = id.replace 'tabs_for_', ''
 		$.get "/admin/#{id}", (data) ->
 			$('#tab_admin').empty()
 			$('#tab_admin').append(data)
-			
+
 	play_sound = ->
 		$('body').append "<embed src=\"/sound.wav\" hidden=\"true\" autostart=\"true\" loop=\"false\" />"
 
-			
-	reload_negotiation = -> 
+
+	reload_negotiation = ->
 		id = $('.etabs').attr 'id'
 		id = id.replace 'tabs_for_', ''
 		$.get "/negotiations/messages", (data) ->
 			$('.message_index .container').empty()
 			$('.message_index .container').append(data)
-			
+
 	position_after = ->
 		height = $(document).height()
 		$("head").append("<style type='text/css' id='styling'>
 		body::after { height: #{height}px }
 			</style>")
-			
-	check_empty = -> 
+
+	check_empty = ->
 		empty = false
 		$('#wizard_page').siblings('div').children('input:password, input:text').each (index) ->
 			if $(this).val() == ''
 				empty = true
 		return empty
-	
+
 	check_empty_2 = ->
 		empty = false
 		$('#wizard_page_2').siblings('div').children('input:password, input:text').each (index) ->
 			if $(this).val() == ''
 				empty = true
 		return empty
-		
+
 	check_empty_3 = ->
 		empty = false
 		$('#wizard_page_3').siblings('div').children('input:password, input:text').each (index) ->
 			if $(this).val() == ''
 				empty = true # Should work
 		return empty
-		
+
 	check_empty_4 = ->
 		empty = false
 		$('#wizard_page_4').siblings('div').children('input:password, input:text').each (index) ->
 			if $(this).val() == ''
 				empty = true # Should work
 		return empty
-			
+
 	next_enabled = ->
 		if check_empty()
 			$('.next_button').addClass 'disabled'
 		else
 			$('.next_button').removeClass 'disabled'
-	
+
 	next_enabled_2 = ->
 		if check_empty_2()
 			$('.next_button_2').addClass 'disabled'
 		else
 			$('.next_button_2').removeClass 'disabled'
-	
+
 	next_enabled_3 = ->
 		if check_empty_3()
 			$('.next_button_3').addClass 'disabled'
 		else
 			$('.next_button_3').removeClass 'disabled'
-	
+
 	next_enabled_4 = ->
 		if check_empty_4()
 			$('.next_button_4').addClass 'disabled'
 		else
-			$('.next_button_4').removeClass 'disabled'		
-	
+			$('.next_button_4').removeClass 'disabled'
+
 	clear_selected = ->
 		$('.selected_row').removeClass 'selected_row'
-	
+
 	resize_function = ->
 		scroll_index()
 		index_height()
@@ -172,15 +172,15 @@ $ ->
 	index_height = ->
 		$('.message_index').height($(window).height() - 355)
 		$('#background_block').height($(window).height() - 246)
-		
-	consent_height = -> 
+
+	consent_height = ->
 		$('#scroll_consent').css 'height', ($(window).height() - 300)
 		$('body').css 'overflow', 'hidden' if $('#scroll_consent').length > 0
-		
+
 	scroll_index = ->
 		height = $('.container div').length * 10000
 		$('.message_index').scrollTop(height)
-		
+
 	add_clock = ->
 		time_left = $('#negotiation_block').data('time-left')
 		time_color = $('#negotiation_block').data('time-color')
@@ -192,18 +192,23 @@ $ ->
 		if time_color == '#3388FF'
 			minutes += 10
 			$('#clock').empty().append "#{minutes}:#{seconds}"
-			
+
 
 	tick_clock = ->
 	<% if current_user %>
 	<% unless current_user.admin %>
-		
+
 		# Comment this line to show the clock:
-		
+
 		$("#clock").hide()
-		
+
+
+		# Comment this line to show Tabs Open
+
+		$(".etabs").hide()
+
 		# Uncomment these lines to show the clock:
-		
+
 		# time_color = $('#negotiation_block').data('time-color')
 # 		$("#clock").css 'color', time_color
 # 		end_time = <%= current_user.negotiation.first_end_time %>
@@ -254,7 +259,7 @@ $ ->
 # 			$('#clock').empty().append (minutes + ":" + seconds)
 	<% end %>
 	<% end %>
-		
+
 	add_spin = ->
 		target = document.getElementById('waiting_page')
 		spin = new Spinner({
@@ -268,66 +273,66 @@ $ ->
 			rotate: 14,
 			color: '#333'
 		}).spin(target)
-		
-	
+
+
 	set_waiting = ->
 		if $('#waiting_page').length > 0
 			window.onbeforeunload = "If you leave this page you
 			will not be notified when the other participant is ready."
-		
+
 	alert_agreement = ->
 		"Leaving this page could invalidate the study."
 	set_agreement = ->
 		if $('#agreement_page').length > 0
 			window.onbeforeunload = alert_agreement
-			
+
 	replace_newlines = ->
 		$('textarea').each ->
-			$(this).html($(this).html().replace(/_NEWLINE_/g, ''))		
+			$(this).html($(this).html().replace(/_NEWLINE_/g, ''))
 		$('#background_page').children().each ->
 			$(this).html($(this).html().replace(/_NEWLINE_/g, '<br/>')) # More specific
 		$('#background_block').children().each ->                       # to not inter-
 			$(this).html($(this).html().replace(/_NEWLINE_/g, '<br/>')) # fere with me-
 																		# ssages
-			
+
 	remove_tab = ->
 		$('#tab_link_supervisor').hide()
-		
+
 	remove_tab() # Comment out this line to bring back supervisor chat.
-		
+
 	replace_newlines()
-		
+
 	scroll_index()
-	
+
 	position_footer()
-	
+
 	add_clock()
-	
+
 	add_spin()
-	
+
 	if window.location.pathname == '/'
 		tick_clock()
-		
+
 		setInterval tick_clock, 1000
-	
+
 	set_waiting()
 	set_agreement()
-	
+
 	$(window).scroll ->
 		$(window).scrollLeft(0) # Bug fix
 		position_footer()
 	$(window).resize ->
 	    clearTimeout(resizeTimer)
 	    resizeTimer = setTimeout(resize_function, 20)
-		
-	
+
+
 	# Comma Language -- doesn't work in Firefox?
 	$('.language_array input').keypress (e) ->
 		if e.keyCode == 32
 			if $(this).val().match /\w$/
-				$(this).val($(this).val() + ',')	
-	
-	
+				$(this).val($(this).val() + ',')
+
+
 	## Agreement Form
 		 		   # Copied at agree.coffee
 	size_stop = -> # Changes should be copied too.
@@ -344,16 +349,18 @@ $ ->
 				$('#stop_receiver').height(height)
 			else
 				$('#stop_receiver').height(($(window).height() * 0.45))
-	
-	
+
+
+
+
 	# Select Changing
-	
+
 	$('.yes_form').hide()
 	$('.no_form').hide()
-			
+
 	$('.typing').slideUp()
-	
-	
+
+
 	$('#sender_page .agreement_boolean').change ->
 		if $(this).val() == 'true'
 			$("#sender_page .yes_form").show()
@@ -365,7 +372,7 @@ $ ->
 				sender_id: CURRENT_USER_ID,
 				tactic: 'yes_form'
 			}
-		
+
 		else if $(this).val() == 'false'
 			$('#sender_page .no_form').show()
 			$("#sender_page .yes_form").hide()
@@ -376,7 +383,7 @@ $ ->
 				sender_id: CURRENT_USER_ID,
 				tactic: 'no_form'
 			}
-		
+
 		else
 			$('#sender_page .no_form').hide()
 			$("#sender_page .yes_form").hide()
@@ -386,7 +393,7 @@ $ ->
 				sender_id: CURRENT_USER_ID,
 				tactic: 'none_form'
 			}
-			
+
 	$('#agreement_price').keypress (e) ->
 		key = $(this).val() + String.fromCharCode e.which
 		$.post '/agree_channel', {
@@ -395,7 +402,7 @@ $ ->
 			tactic: 'agreement_price',
 			key: key # Actually a Value
 		}
-		
+
 	$('.yes_form #agreement_content_yes').keypress (e) ->
 		key = $(this).val() + String.fromCharCode e.which
 		$.post '/agree_channel', {
@@ -405,7 +412,7 @@ $ ->
 			form: 'yes',
 			key: key # Actually a Value
 		}
-		
+
 	$('.no_form #agreement_content_no').keypress (e) ->
 		key = $(this).val() + String.fromCharCode e.which
 		$.post '/agree_channel', {
@@ -415,22 +422,27 @@ $ ->
 			form: 'no',
 			key: key # Actually a Value
 		}
-		
+
 	$('#agreement_page input, #agreement_page textarea').keypress ->
 		size_stop()
-		
-		
+
+
 	$('.submit_yes, .submit_no').click ->
 		unless $(this).hasClass 'disabled'
+			# if $(this).hasClass 'submit_yes' && !isNaN($(this).parent().find('#agreement_price').val())
+			# 	alert 'Agreement Price has must be numeric.'
+			# else if $(this).find('#agreement_price').val() > 500000
+			# 	alert 'Fix this for future generations!'
+			# else
 			$(this).addClass 'disabled'
 			$.post '/agree_channel', {
 				authenticity_token: AUTH_TOKEN,
 				sender_id: CURRENT_USER_ID,
 				tactic: 'submit_check'
 			}
-			$(this).after('<br/><span class = "checking_submit"><%= t('Checkin') %></span>')
+			$(this).after('<br/><span class = "checking_submit"><%= t("Checkin") %></span>')
 			size_stop()
-		
+
 	# $('.submit_no').click ->
 	# 	$.post '/agree_channel', {
 	# 		authenticity_token: AUTH_TOKEN,
@@ -438,7 +450,29 @@ $ ->
 	# 		tactic: 'submit_check'
 	# 	}
 	#
-		
+
+
+	# Goals
+
+	$('#check_box input, #agreement_goals input').change ->
+		if $(this).prop 'checked'
+			$.post '/users/add_goal', {
+				authenticity_token: AUTH_TOKEN,
+				goal: $(this).attr 'id'
+			}
+		else
+			$.post '/users/remove_goal', {
+				authenticity_token: AUTH_TOKEN,
+				goal: $(this).attr 'id'
+			}
+
+	$('#check_box ul li:not(:first-child)').slideUp()
+	$('#check_box').mouseenter ->
+		$('#check_box ul li:not(:first-child)').stop().slideDown()
+	$('#check_box').mouseleave ->
+		$('#check_box ul li:not(:first-child)').stop().slideUp()
+
+
 	# Dots
 	$('.dot').click ->
 		if $(this).nextAll('.current_dot').length > 0
@@ -463,26 +497,26 @@ $ ->
 			else
 				unless check_empty()
 					next_page()
-				
+
 	next_enabled()
 	$('#wizard_page').siblings().children('input').keypress (e) ->
 		next_enabled()
-		
+
 	next_enabled_2()
 	$('#wizard_page_2').siblings().children('input').keypress (e) ->
 		next_enabled_2()
-	
+
 	next_enabled_3()
 	$('#wizard_page_3').siblings().children('input').keypress (e) ->
 		next_enabled_3()
-		
+
 	next_enabled_4()
 	$('#wizard_page_4').siblings().children('input').keypress (e) ->
 		next_enabled_4()
-	
+
 	$('#subject_number_button').click ->
 		confirm 'Do not perform this action with negotiations in progress. Are you sure?'
-	
+
 	# Wizard
 	$('#wizard_page').hide()
 	$('#wizard_page_2').hide()
@@ -508,49 +542,49 @@ $ ->
 		back_page_3()
 	$('.back_button_2').click ->
 		back_page_2()
-	$('#wizard_page').parent().children('div').children('input').keypress (e) ->      
+	$('#wizard_page').parent().children('div').children('input').keypress (e) ->
 		if e.which == 13 and $(this).parent().hasClass 'last_input'
 			unless $('.next_button').hasClass 'disabled'
 				next_page()
 			return false
-		else if e.which == 13 
+		else if e.which == 13
 			$(this).parent().next().next().children('input').focus()
 			return false
-			
-	$('#wizard_page_2').parent().children('div').children('input').keypress (e) ->      
+
+	$('#wizard_page_2').parent().children('div').children('input').keypress (e) ->
 		if e.which == 13 and $(this).parent().hasClass 'last_input'
 			unless $('.next_button_2').hasClass 'disabled'
 				next_page_2()
 			return false
-		else if e.which == 13 
+		else if e.which == 13
 			$(this).parent().next().next().children('input').focus()
 			return false
-			
+
 	$('.other_input').keypress (e) ->
-		$(this).siblings().attr 'value', $(this).val()		
-	
-	
-		
+		$(this).siblings().attr 'value', $(this).val()
+
+
+
 	# Ajax for Last Seen
-	
-	last_seen_ajax = -> 
+
+	last_seen_ajax = ->
 		user_id = $('body').data('id')
 		if user_id
 			$.post "/users/#{user_id}/last_seen", {
 				authenticity_token: AUTH_TOKEN
 			}
-		
+
 	last_seen_ajax()
 	setInterval(last_seen_ajax, 60000)
-		
-		
+
+
 		# Unneeded because it has class 'expanding'
 	#
 	# $('.message_content').expanding()
-	
-	
+
+
 	# Buttons
-	
+
 	$('.consent_button').click ->
 		id = $('body').data('id')
 		$.post "/users/#{id}/accept_consent", {
@@ -558,13 +592,13 @@ $ ->
 		}, (data) ->
 			$('body').empty().append(data)
 			window.location.pathname = '/background'
-	
+
 	$('.instructions_button').click ->
 		window.location.pathname = '/consent'
-		
+
 	$('.background_button').click ->
 		window.location.pathname = '/accept_background'
-		
+
 	$('.agreement_button').click ->
 		unless $(this).hasClass 'disabled'
 			$('#background_block').append '<p class="agreement_waiting"><%= t("ticktocklalala") %></p>'
@@ -572,25 +606,25 @@ $ ->
 			$.post '/users/alert_request', {
 				authenticity_token: AUTH_TOKEN
 			}
-			
-	$('#alert_partner').click ->		
+
+	$('#alert_partner').click ->
 		# $('#alert_content').autosize()
 		$('#alert_content_div').css 'display', 'block'
 		$('#alert_content_div').animate {
 			opacity: 1
 		}, 'fast'
-		
+
 	$('#alert_content_div').click ->
 		$(this).animate {
 			opacity:0
 		}, 'fast', ->
 			$(this).css 'display', 'none'
 			$('#alert_content').val('')
-			
-			
+
+
 	$('#alert_content_div div').click (e) ->
-		e.stopPropagation()	
-		
+		e.stopPropagation()
+
 	$('#send_alert').click ->
 		$('#alert_content_div').click()
 		message = $('#alert_content').val()
@@ -601,16 +635,16 @@ $ ->
 				tactic: 'alert_message',
 				message: message
 			}
-	
+
 	$('#alert_content').keypress (e) ->
 		if e.which == 13
 			$('#send_alert').click()
-		
+
 	$(document).keyup (e) ->
 		if e.keyCode == 27
 			$('#alert_content_div').click()
 
-			
+
 	# The Dropdown Menu
 	$('.dropdown').css 'opacity', '1'
 	$('.dropdown').slideUp('fast')
@@ -619,13 +653,13 @@ $ ->
 		$('.dropdown').clearQueue()
 	$('nav').mouseleave ->
 		$('.dropdown').slideUp('fast')
-		
-		
+
+
 	# Flash Animation     ##
 	$('.flash').animate { ## Not dropdown.
 		left: 0           ## Not dropdown.
 	}, 500                ##  ?
-	
+
 	# Easy Tabs
 	$('#tab-container').easytabs({animate: false})
 	$('.tab_link').click ->
@@ -635,60 +669,60 @@ $ ->
 		resize_function()
 	$('#tab-container').bind 'easytabs:before', ->
 		$('footer').addClass 'fixed_footer'
-	
-	# User Table - Admin		
+
+	# User Table - Admin
 	$( document ).ajaxSuccess ->
 		index_height()
 		position_footer()
 		position_after()
-		consent_height()		
+		consent_height()
 		# size_stop()
-		
-		
+
+
 		$('.user_table tr').click ->
 			if $(this).hasClass 'user_entry'
-				
+
 				clear_selected()
-				
+
 				$(this).addClass 'selected_row'
-				
+
 				admin = $(this).data('admin')
-				
+
 				if $.trim(admin) == 'true'
 					$('.admin_button').html('Remove Admin')
-				else 
+				else
 					$('.admin_button').html('Make Admin')
-					
+
 				negotiation= $(this).data('negotiation-id')
 				scenario = $(".negotiation_entry[data-id='#{negotiation}']").addClass('selected_row').data('scenario-id')
 				$(".scenario_entry[data-id='#{scenario}']").addClass 'selected_row'
-					
-						
+
+
 		$('.negotiation_table tr').click ->
 			if $(this).hasClass 'negotiation_entry'
-				
+
 				clear_selected()
-				
+
 				$(this).addClass 'selected_row'
-				
+
 				users = $(this).data('user-id')
 				for user in users
 					$(".user_entry[data-user-id='#{user}']").addClass 'selected_row'
-					
+
 				scenario = $(this).data('scenario-id')
 				$(".scenario_entry[data-id='#{scenario}']").addClass 'selected_row'
-			
-		$('.negotiation_table tr').dblclick ->	
+
+		$('.negotiation_table tr').dblclick ->
 			id = $('.negotiation_entry.selected_row').data('id')
 			window.location = "/inspect/#{id}"
-						
+
 		$('.scenario_table tr').click ->
 			if $(this).hasClass 'scenario_entry'
-				
+
 				clear_selected()
-				
+
 				$(this).addClass 'selected_row'
-				
+
 				scenario = $(this).data('id')
 				users = []
 				$(".negotiation_entry[data-scenario-id='#{scenario}']").addClass('selected_row').each ->
@@ -701,16 +735,16 @@ $ ->
 				if $('.message_index').length() == 1
 					$('footer').removeClass 'fixed_footer'
 					scroll_index()
-		
+
 		if $('.message_content').length == 1
 			$('footer').removeClass 'fixed_footer'
 			$('footer').css 'position', 'relative'
 			$('footer').css 'top', '-9px'
 			$('footer').css 'left', '16px'
-		
 
 
-					
+
+
 		$('.admin_button').click ->
 			if $('.user_entry.selected_row').size() == 0
 				alert 'Please select a user first.'
@@ -721,7 +755,7 @@ $ ->
 				path = "users/#{id}/toggle_admin/"
 				$.get path, (d) ->
 					reload_admin()
-					
+
 		$('.delete_button').click ->
 			if $('.user_entry.selected_row').size() == 0
 				alert 'You need to select a user first.'
@@ -732,8 +766,8 @@ $ ->
 				path = "/destroy/#{id}/"
 				$.get path, (d) ->
 					reload_admin()
-					
-						
+
+
 		$('.delete_neg_button').click ->
 			if $('.negotiation_entry.selected_row').size() == 0
 				alert 'Please select a negotiation first.'
@@ -744,7 +778,7 @@ $ ->
 				path = "/negotiations/destroy/#{id}/"
 				$.get path, (d) ->
 					reload_admin()
-					
+
 		$('.inspect_neg_button').click ->
 			if $('.negotiation_entry.selected_row').size() == 0
 				alert 'Please select a negotiation first.'
@@ -753,8 +787,8 @@ $ ->
 			else
 				id = $('.negotiation_entry.selected_row').data('id')
 				window.location = "/inspect/#{id}"
-		
-				
+
+
 		$('.delete_scenario_button').click ->
 			if $('.scenario_entry.selected_row').size() == 0
 				alert 'Please select a scenario first.'
@@ -763,10 +797,10 @@ $ ->
 			else if confirm 'Are you certain? This will also delete all dependent negotiations.'
 				id = $('.scenario_entry.selected_row').data("id")
 				path = "/scenarios/destroy/#{id}/"
-				
+
 				$.get path, (d) ->
 					reload_admin()
-					
+
 		$('.edit_scenario_button').click ->
 			if $('.scenario_entry.selected_row').size() == 0
 				alert 'Please select a scenario first.'
@@ -776,12 +810,9 @@ $ ->
 				id = $('.scenario_entry.selected_row').data("id")
 				path = "/scenarios/#{id}/edit"
 				window.location = path
-				
 
-		
+
+
 		# Not part of a table, but relies on ajax
-		
-		# position_input()
-	
 
-		
+		# position_input()

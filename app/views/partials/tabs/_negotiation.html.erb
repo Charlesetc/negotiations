@@ -5,11 +5,18 @@
   <p class = 'agreement_p' id = 'agreement_p'>
       <%= t('alldone') %>
       <%= submit_tag t('formatixxx'), class: 'agreement_button basic_button' %>
-	 
+
   </p>
-  
+
   </div>
-  
+
   <div id = 'negotiation_block' data-time-left = '<%= current_user.negotiation.time_left %>' data-time-color = '<%= current_user.negotiation.time_color %>'>
   <%= render 'partials/tabs/chat' %>
+  </div>
+
+
+  <div id="check_box">
+
+    <%= render 'partials/goals' %>
+
   </div>

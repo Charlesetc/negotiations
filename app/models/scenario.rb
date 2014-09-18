@@ -17,16 +17,16 @@
 class Scenario < ActiveRecord::Base
   attr_accessible :first_role, :general, :second_role, :title
 	attr_accessible :language, :first_role_title, :second_role_title
-	
+
 	has_many :negotiations # , dependent: :delete
 												 # See if this works later
-												 # Or implement it myself 
+												 # Or implement it myself
 	
 	validates :title, presence: true
 	validates :language, presence: true
-	
+
 	before_save :filter_new_lines
-	
+
 	def self.select_list
 		out = []
 		self.all.each do |scenario|
@@ -34,13 +34,13 @@ class Scenario < ActiveRecord::Base
 		end
 		out
 	end
-	
+
 	private
-	
+
 		def filter_new_lines
 			self.general = self.general.gsub /\n/, "\n_NEWLINE_"
 			self.first_role = self.first_role.gsub /\n/, "\n_NEWLINE_"
 			self.second_role = self.second_role.gsub /\n/, "\n_NEWLINE_"
 		end
-	
+
 end

@@ -6,81 +6,90 @@
 <h1><%= t('Agreement') %></h1>
 
 <div id = 'sender_page'>
-	
+
 	<h2><%= t('Yours') %></h2>
 
 	<div class = 'basic_form'>
 	<%= label_tag :agreement_boolean, t('Agreed') %>
 	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], [t('ofcourse'), true], [t('never'), false]]), class: 'agreement_boolean' %></div>
-	
+
 	<br />
-	
+
 	<div class = 'yes_form'>
 		<div class = 'basic_form'>
-			
+
 			<%= label_tag :agreement_price, t('Sold') %>
-			<%= text_field_tag :agreement_price %><br /><br />
-			
+			<%= number_field_tag :agreement_price, '', step: 25000 %><br /><br />
+
 			<%= label_tag :agreement_content_yes, t('Extrapolaborate').html_safe %>
 			<%= text_area_tag :agreement_content_yes %>
-			
-			
+
+					<div id = 'agreement_goals'>
+						<%= render 'partials/goals' %>
+					</div>
+
 			<%= button_tag t('Submit'), class: 'submit_yes' %>
-			
+
 		</div>
 	</div>
-	
+
 	<div class = 'no_form'>
 		<div class = 'basic_form'>
-			
+
 			<%= label_tag :agreement_content_no, t('Whydoyouhateeachother') %>
 			<%= text_area_tag :agreement_content_no %>
-			
+
+
+				<div id = 'agreement_goals'>
+					<%= render 'partials/goals' %>
+				</div>
+
 			<%= button_tag t('Submit'), class: 'submit_no' %>
-			
+
 		</div>
 	</div>
+
 
 </div>
 
 <div id = 'receiver_page'>
-	
+
 	<h2><%= t('Partners') %></h2>
-	
+
 	<div class = 'basic_form'>
 	<%= label_tag :agreement_boolean, t('Agreed') %>
 	<%= select_tag :agreement_boolean, options_for_select([[nil, nil], [t('ofcourse'), true], [t('never'), false]]), class: 'agreement_boolean' %></div>
-	
+
 	<br />
-	
+
 	<div class = 'yes_form'>
 		<div class = 'basic_form'>
-			
+
 			<%= label_tag :receiver_price, t('Sold') %>
-			<%= text_field_tag :receiver_price %><br /><br />
-			
+			<%= number_field_tag :receiver_price, '', step: 25000 %><br /><br />
+
 			<%= label_tag :receiver_content_yes, t('Extrapolaborate').html_safe %>
 			<%= text_area_tag :receiver_content_yes %>
-			
-			
+
+
 			<%= button_tag t('Submit'), class: 'receiver_yes' %>
-			
+
 		</div>
 	</div>
-	
+
 	<div class = 'no_form'>
 		<div class = 'basic_form'>
-			
+
 			<%= label_tag :receiver_content_no, t('Whydoyouhateeachother') + ':' %>
 			<%= text_area_tag :receiver_content_no %>
-			
+
 			<%= button_tag t('Submit'), class: 'receiver_no' %>
-			
+
 		</div>
 	</div>
-	
+
 	<div id = 'stop_receiver'></div>
-	
+
 </div>
 
 <button id = 'alert_partner'><%= t('Alert4') %></button>

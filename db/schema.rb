@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140731163838) do
+ActiveRecord::Schema.define(:version => 20140916201932) do
 
   create_table "agreements", :force => true do |t|
     t.boolean  "agree"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20140731163838) do
     t.text     "emotions"
     t.text     "research"
     t.integer  "subject_number"
+    t.string   "chosen_goals"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
