@@ -65,7 +65,7 @@ class Negotiation < ActiveRecord::Base
 	end
 
 	def first_user_goals
-		[["Promotion", "You absolutely need to reach an agreement to receiver your promotion."], ["Price", "You absolutely cannot pay more than $500,000 for the station itself."]]
+		[["Promotion", "You absolutely need to reach an agreement to receive your promotion."], ["Price", "You absolutely cannot pay more than $500,000 for the station itself."]]
 	end
 
 	def second_user_goals
