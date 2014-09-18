@@ -226,32 +226,46 @@ class UsersController < ApplicationController
 	end
 
 	def finish_agreement
-		price = params[:price]
-		if price
-			if price =~ /\A[+-]?[0-9]*\.?[0-9]+\Z/ && Float(price) <= 500000
-				valid = true
-			else
-				valid = true
-			end
-		else
-			valid = true
-		end
-		if valid
-			@agreement = current_user.agreement
-			@negotiation = current_user.negotiation
-			@agreement.agreement_boolean = params[:agreement_boolean]
-			@agreement.price = params[:price]
-			@agreement.description = params[:description]
-			@agreement.save!
 
-			@negotiation.record_agreement_time unless @negotiation.agreement_time
+ 		@agreement = current_user.agreement
+ 		@negotiation = current_user.negotiation
+ 		@agreement.agreement_boolean = params[:agreement_boolean]
+ 		@agreement.price = params[:price]
+ 		@agreement.description = params[:description]
+ 		@agreement.save!
 
-			render inline: 'Done'
-		else
-			PrivatePub.publish_to "/#{current_user.negotiation.id}/agree", tactic: 'not_done'
-			render inline: 'Not done'
-		end
-	end
+ 		@negotiation.record_agreement_time unless @negotiation.agreement_time
+
+ 		render inline: 'Done'
+ 	end
+
+	# def finish_agreement
+	# 	price = params[:price]
+	# 	if price
+	# 		if price =~ /\A[+-]?[0-9]*\.?[0-9]+\Z/ && Float(price) <= 500000
+	# 			valid = true
+	# 		else
+	# 			valid = true
+	# 		end
+	# 	else
+	# 		valid = true
+	# 	end
+	# 	if valid
+	# 		@agreement = current_user.agreement
+	# 		@negotiation = current_user.negotiation
+	# 		@agreement.agreement_boolean = params[:agreement_boolean]
+	# 		@agreement.price = params[:price]
+	# 		@agreement.description = params[:description]
+	# 		@agreement.save!
+	#
+	# 		@negotiation.record_agreement_time unless @negotiation.agreement_time
+	#
+	# 		render inline: 'Done'
+	# 	else
+	# 		PrivatePub.publish_to "/#{current_user.negotiation.id}/agree", tactic: 'not_done'
+	# 		render inline: 'Not done'
+	# 	end
+	# end
 
 	def thank_you
 		if current_user.negotiation.thank_you?
