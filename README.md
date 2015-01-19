@@ -9,7 +9,7 @@
 --------------
 
 
-This website is part of the University of Chicago's Keysar Psychology Lab to determine the effect of speaking in a foreign language on one's creativity. [Link to Site](http://negotiaion.uchicago.edu)
+This website is part of the University of Chicago's Keysar Psychology Lab to determine the effect of speaking in a foreign language on one's creativity. [Link to Site](http://negotiation.uchicago.edu)
 
 A ruby on rails app that uses I18n to render both English and Hebrew, along with private_pub for realtime chat. 
 
